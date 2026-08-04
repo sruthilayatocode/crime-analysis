@@ -216,3 +216,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+# Trained machine-learning model files
+*.joblib
+*.pkl
