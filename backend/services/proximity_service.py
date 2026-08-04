@@ -1,7 +1,12 @@
 from math import radians, sin, cos, sqrt, atan2
 
 
-def calculate_distance(lat1, lon1, lat2, lon2):
+def calculate_distance(
+    latitude_1,
+    longitude_1,
+    latitude_2,
+    longitude_2
+):
     """
     Calculate the distance between two GPS coordinates
     using the Haversine formula.
@@ -11,17 +16,25 @@ def calculate_distance(lat1, lon1, lat2, lon2):
 
     earth_radius = 6371000
 
-    latitude_difference = radians(lat2 - lat1)
-    longitude_difference = radians(lon2 - lon1)
+    latitude_difference = radians(
+        latitude_2 - latitude_1
+    )
+
+    longitude_difference = radians(
+        longitude_2 - longitude_1
+    )
 
     a = (
         sin(latitude_difference / 2) ** 2
-        + cos(radians(lat1))
-        * cos(radians(lat2))
+        + cos(radians(latitude_1))
+        * cos(radians(latitude_2))
         * sin(longitude_difference / 2) ** 2
     )
 
-    c = 2 * atan2(sqrt(a), sqrt(1 - a))
+    c = 2 * atan2(
+        sqrt(a),
+        sqrt(1 - a)
+    )
 
     distance = earth_radius * c
 
@@ -29,35 +42,28 @@ def calculate_distance(lat1, lon1, lat2, lon2):
 
 
 def check_proximity(
-    user_lat,
-    user_lon,
-    crime_lat,
-    crime_lon,
-    alert_radius=1000
+    user_latitude,
+    user_longitude,
+    hotspot_latitude,
+    hotspot_longitude,
+    alert_radius=500
 ):
     """
-    Check whether the user is within the selected
-    alert radius of a crime location.
-
-    The alert radius is measured in meters.
+    Check whether the user's location is inside
+    the selected crime-hotspot alert radius.
     """
 
     distance = calculate_distance(
-        user_lat,
-        user_lon,
-        crime_lat,
-        crime_lon
+        user_latitude,
+        user_longitude,
+        hotspot_latitude ,
+        hotspot_longitude 
     )
 
     is_nearby = distance <= alert_radius
 
     return {
-        "distance_in_meters": distance,
-        "alert_radius_in_meters": alert_radius,
-        "is_nearby": is_nearby,
-        "message": (
-            "Warning: You are near a reported crime location."
-            if is_nearby
-            else "You are outside the selected crime alert radius."
-        )
+        "distance_meters": distance,
+        "alert_radius_meters": alert_radius,
+        "is_nearby": is_nearby
     }
