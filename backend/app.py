@@ -1,62 +1,67 @@
-"""
-app.py
-======
-Application entry point for the CrimeSense backend.
+from flask import Flask, jsonify
 
-Builds a FastAPI application, registers the crime routes, and adds CORS
-so a web frontend can call the API.  Run with:
+from database import db
+from models.crime import Crime
 
-    uvicorn backend.app:app --host 0.0.0.0 --port 8000
-"""
-
-from __future__ import annotations
-
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-
-from . import db, routes
+from routes.crime_routes import crime_bp
+from routes.alert_routes import alert_bp
 
 
-def create_app() -> FastAPI:
-    """Create and configure the FastAPI application instance."""
-    app = FastAPI(
-        title="CrimeSense API",
-        version="1.0.0",
-        description="Crime incident, hotspot, locality and proximity API "
-                    "for the CrimeSense backend.",
-    )
-
-    # CORS: allow the frontend (any origin during development) to call the API.
-    app.add_middleware(
-        CORSMiddleware,
-        allow_origins=["*"],
-        allow_credentials=True,
-        allow_methods=["*"],
-        allow_headers=["*"],
-    )
-
-    app.include_router(routes.router)
-
-    @app.get("/", tags=["service"])
-    def root():
-        return {
-            "service": "CrimeSense API",
-            "docs": "/docs",
-            "database": str(db.DB_PATH),
-            "total_crimes": db.total_rows(),
-        }
-
-    return app
+app = Flask(__name__)
 
 
-app = create_app()
+# SQLite database configuration
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///crimesense.db"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 
-def main() -> None:
-    import uvicorn
+# Connect SQLAlchemy with the Flask application
+db.init_app(app)
 
-    uvicorn.run("backend.app:app", host="0.0.0.0", port=8000, reload=False)
+
+# Create database tables automatically
+with app.app_context():
+    db.create_all()
+
+
+# Register API route blueprints
+app.register_blueprint(crime_bp)
+app.register_blueprint(alert_bp)
+
+
+@app.route("/")
+def home():
+    return jsonify({
+        "message": "Welcome to CrimeSense Backend",
+        "status": "Backend is running successfully"
+    })
+
+
+@app.route("/api/health")
+def health_check():
+    return jsonify({
+        "status": "healthy",
+        "service": "CrimeSense Backend"
+    })
+
+
+@app.route("/api/project-info")
+def project_info():
+    return jsonify({
+        "project_name": "CrimeSense",
+        "description": (
+            "AI-powered Crime Hotspot Analysis "
+            "and Proximity Alert System"
+        ),
+        "features": [
+            "Crime hotspot analysis",
+            "Crime prediction",
+            "Location-based risk analysis",
+            "Proximity alerts",
+            "Crime data visualization"
+        ]
+    })
 
 
 if __name__ == "__main__":
-    main()
+    app.run(debug=True)
