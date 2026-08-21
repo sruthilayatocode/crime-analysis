@@ -1,0 +1,60 @@
+======================================================================
+CRIME PROXIMITY ALERT REPORT
+Generated: 2026-08-21 00:45:22
+======================================================================
+
+USER LOCATION
+----------------------------------------
+Latitude:  13.043505
+Longitude: 79.240410
+Search radius: 2.0 km
+
+DATA SOURCE
+----------------------------------------
+Verified locations used: C:\Users\sruth\crime analysis\data\analysis\hotspot_map_points.csv (derived: verified_location_summary.csv not present)
+Total verified crime locations known: 3
+Only HIGH-confidence geographic records are treated as exact nearby crime locations.
+
+DISTANCE METHOD
+----------------------------------------
+Haversine great-circle distance (kilometres):
+  a = sin^2(dlat/2) + cos(lat1)*cos(lat2)*sin^2(dlon/2)
+  c = 2*atan2(sqrt(a), sqrt(1-a));  dist = 6371.0 * c
+Euclidean distance on raw degrees is never used.
+
+NEARBY VERIFIED CRIME LOCATIONS (1 found within 2.0 km)
+----------------------------------------
+  Katpadi (0.000 km away)
+    lat=13.043505 lon=79.240410
+    incidents=5 weighted_risk=7.20 highest_risk=Critical
+    dominant_crime=Robbery  Critical=1 High=3 Medium=0 Low=1
+    location_alert=CRITICAL
+
+OVERALL ALERT LEVEL
+----------------------------------------
+Result: CRITICAL
+Alert classification (deterministic, no ML):
+  CRITICAL -> a nearby verified location has Critical incidents
+  HIGH     -> a nearby verified location has High risk incidents
+  MEDIUM   -> a nearby verified location has Medium risk incidents
+  LOW      -> only Low risk incidents nearby
+  NONE     -> no verified crime location within the radius
+
+DATA LIMITATION
+----------------------------------------
+  1 verified crime location(s) found within 2.0 km.
+  This reflects only HIGH-confidence geographic data.
+  Only the 1 verified location(s) above are treated as exact nearby
+  crime locations; all other records lack verified coordinates.
+
+ALERT LOGIC DOCUMENTATION
+----------------------------------------
+1. Load verified crime locations (HIGH-confidence only).
+2. Compute Haversine distance from user to every verified location.
+3. Keep locations with distance <= radius_km.
+4. Sort by distance ascending.
+5. Overall alert = strongest level among nearby locations.
+
+======================================================================
+END OF REPORT
+======================================================================

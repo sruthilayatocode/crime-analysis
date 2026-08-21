@@ -1,0 +1,4 @@
+locality_id,locality_name,zone,latitude,longitude,population_density
+EXAMPLE_001,Example Locality 1 (Replace with Real Data),North,,,,
+EXAMPLE_002,Example Locality 2 (Replace with Real Data),South,,,,
+EXAMPLE_003,Example Locality 3 (Replace with Real Data),Central,,,,

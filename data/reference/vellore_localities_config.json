@@ -1,0 +1,20 @@
+{
+  "description": "Configurable list of localities within Vellore district, Tamil Nadu. Used for Vellore-relevance validation.",
+  "district": "Vellore",
+  "state": "Tamil Nadu",
+  "localities": [
+    {"name": "Vellore", "aliases": ["Vellore City", "Vellore Town"]},
+    {"name": "Vellore Cantonment", "aliases": ["Vellore Cantt"]},
+    {"name": "Arani", "aliases": []},
+    {"name": "Ranipet", "aliases": []},
+    {"name": "Tiruppattur", "aliases": ["Tirupattur"]},
+    {"name": "Katpadi", "aliases": []},
+    {"name": "Ambur", "aliases": []},
+    {"name": "Sathyamangalam", "aliases": ["Sathyamangalam"]},
+    {"name": "Pallikonda", "aliases": []},
+    {"name": "Kaveripattinam", "aliases": []},
+    {"name": "Perambur", "aliases": []},
+    {"name": "Nathavasi", "aliases": []},
+    {"name": "Tirumala", "aliases": []}
+  ]
+}

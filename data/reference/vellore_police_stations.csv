@@ -1,0 +1,3 @@
+station_id,station_name,address,latitude,longitude,jurisdiction
+EXAMPLE_001,Example Police Station 1 (Replace with Real Data),,,,Example Zone 1
+EXAMPLE_002,Example Police Station 2 (Replace with Real Data),,,,Example Zone 2

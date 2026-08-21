@@ -1,0 +1,34 @@
+{
+    "categories": [
+        {
+            "id": "violent_crime",
+            "label": "Violent Crime",
+            "subcategories": ["homicide", "assault", "robbery", "kidnapping", "sexual_assault"]
+        },
+        {
+            "id": "property_crime",
+            "label": "Property Crime",
+            "subcategories": ["burglary", "theft", "motor_vehicle_theft", "arson"]
+        },
+        {
+            "id": "white_collar_crime",
+            "label": "White Collar Crime",
+            "subcategories": ["fraud", "embezzlement", "money_laundering", "bribery"]
+        },
+        {
+            "id": "cyber_crime",
+            "label": "Cyber Crime",
+            "subcategories": ["hacking", "phishing", "identity_theft", "cyber_stalking"]
+        },
+        {
+            "id": "drug_related",
+            "label": "Drug Related",
+            "subcategories": ["possession", "trafficking", "manufacturing"]
+        },
+        {
+            "id": "public_order",
+            "label": "Public Order",
+            "subcategories": ["rioting", "trespassing", "public_intoxication", "disorderly_conduct"]
+        }
+    ]
+}

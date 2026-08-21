@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
+*.log
+
+# Python tooling
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Generated/cache files
+data/cache/
+data/logs/
+data/tmp/
+data/raw/
+*.tmp
+
+# Generated analysis/intermediate datasets
+data/processed/
+data/analysis/
+
+# Keep final handoff datasets
+!data/final/
+!data/final/*.csv
+!data/final/*.md
+!data/final/*.txt
+
+# Large database/runtime files
+*.db
+*.sqlite
+*.sqlite3
+
+# Node
+node_modules/
+frontend/node_modules/
+dashboard/node_modules/
+backend/node_modules/
+
+# Build outputs
+dist/
+build/
+.next/

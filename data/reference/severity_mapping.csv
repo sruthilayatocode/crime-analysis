@@ -1,0 +1,5 @@
+severity,risk_score,color
+Low,2,Green
+Medium,5,Yellow
+High,8,Orange
+Critical,10,Red

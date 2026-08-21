@@ -1,0 +1,22 @@
+CRIME TYPE CLASSIFICATION REPORT
+============================================================
+
+Input / output file: C:\Users\sruth\crime analysis\data\processed\news_location_enriched.csv
+Total Other records reviewed: 4
+
+Re-classification summary:
+  Other: 4
+
+Detailed re-classifications:
+  b577529c3ffa  Other -> Other  (unchanged (stays Other))
+    title: Gang arrested for possession of Indian pangolin in Vellore
+  4ab7942db063  Other -> Other  (unchanged (stays Other))
+    title: Police to conduct public auction of seized vehicles in Vellore, nearby
+  4acd69e62925  Other -> Other  (unchanged (stays Other))
+    title: VCK Vellore district secretary arrested
+  7e84ff419448  Other -> Other  (unchanged (stays Other))
+    title: Vasur Raja arrested in Vellore
+
+Remaining Other records keep the default Medium / score 5
+mapping defined in crime_categories.csv.
+============================================================

@@ -1,0 +1,38 @@
+RISK SCORING REPORT
+============================================================
+
+Input file:  C:\Users\sruth\crime analysis\data\processed\news_location_enriched.csv
+Output file: C:\Users\sruth\crime analysis\data\processed\news_scored.csv
+
+Total records: 89
+
+Crime-type distribution:
+  Murder: 34
+  Other: 12
+  Theft: 12
+  Sexual Assault: 11
+  Assault: 8
+  Robbery: 6
+  Fraud: 4
+  Cyber Crime: 1
+  Domestic Violence: 1
+
+Severity-score distribution:
+  10: 34
+  2: 12
+  5: 5
+  8: 15
+  (missing): 23
+
+Risk-level distribution:
+  Critical: 34
+  High: 15
+  Low: 12
+  Medium: 5
+  Unknown: 23
+
+Unknown/unmapped crime types:
+  Other: 12
+  Sexual Assault: 11
+
+Records with missing severity: 23
