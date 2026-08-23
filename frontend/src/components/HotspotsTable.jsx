@@ -9,29 +9,19 @@ function HotspotsTable({ hotspots }) {
       render: (spot) => (
         <div className="flex items-center gap-3">
           <span className={`h-2 w-2 shrink-0 rounded-full ${
-            spot.risk === 'High' ? 'bg-red-500' : spot.risk === 'Medium' ? 'bg-yellow-500' : 'bg-green-500'
+            spot.risk === 'Critical' || spot.risk === 'High' ? 'bg-red-500' : spot.risk === 'Medium' ? 'bg-yellow-500' : 'bg-green-500'
           }`} />
           <span className="font-medium text-gray-200">{spot.zone}</span>
         </div>
       ),
     },
-    { key: 'region', label: 'Region', cellClassName: 'text-gray-400' },
     {
       key: 'risk',
       label: 'Risk Level',
       render: (spot) => <StatusBadge status={spot.risk} />,
     },
-    { key: 'crimeCount', label: 'Crime Count', cellClassName: 'font-medium text-gray-300' },
-    { key: 'incidents', label: 'Common Incidents', cellClassName: 'text-gray-400' },
-    {
-      key: 'trend',
-      label: 'Trend',
-      render: (spot) => (
-        <span className={`font-medium ${spot.trend.startsWith('+') ? 'text-red-400' : 'text-green-400'}`}>
-          {spot.trend}
-        </span>
-      ),
-    },
+    { key: 'crimeCount', label: 'Incidents', cellClassName: 'font-medium text-gray-300' },
+    { key: 'incidents', label: 'Dominant Crime', cellClassName: 'text-gray-400' },
   ]
 
   return (

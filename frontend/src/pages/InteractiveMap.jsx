@@ -1,97 +1,55 @@
-import { MapContainer, TileLayer, Circle, useMap } from 'react-leaflet'
-import 'leaflet/dist/leaflet.css'
-import HotspotMarker from '../components/HotspotMarker'
-import UserLocationMarker from '../components/UserLocationMarker'
-import MapLegend from '../components/MapLegend'
+import { useMemo } from 'react'
+import HotspotMap from '../components/HotspotMap'
 import PageHeader from '../components/PageHeader'
 import Card from '../components/Card'
-import { hotspotMarkers, userLocation, heatmapZones } from '../data/mapData'
-
-const heatmapColors = {
-  high: { color: '#ef4444', fillColor: '#ef4444', opacity: 0.6, fillOpacity: 0.15 },
-  medium: { color: '#eab308', fillColor: '#eab308', opacity: 0.5, fillOpacity: 0.12 },
-  low: { color: '#22c55e', fillColor: '#22c55e', opacity: 0.4, fillOpacity: 0.1 },
-}
-
-function MapController() {
-  const map = useMap()
-  return null
-}
+import { useCrimeData } from '../hooks/useCrimeData'
+import { toHotspotMarker } from '../utils/crimeInsights'
 
 function InteractiveMap() {
+  const { hotspots, loading, error } = useCrimeData()
+
+  const markers = useMemo(
+    () => (Array.isArray(hotspots) ? hotspots : []).map(toHotspotMarker),
+    [hotspots]
+  )
+
+  const highCount = markers.filter((h) => h.risk === 'Critical' || h.risk === 'High').length
+  const mediumCount = markers.filter((h) => h.risk === 'Medium').length
+  const lowCount = markers.filter((h) => h.risk === 'Low').length
+
   return (
     <div className="space-y-6">
       <PageHeader
         title="Interactive Map"
-        description="Real-time crime hotspot visualization with proximity alerts."
+        description="Verified crime hotspots rendered from the CrimeSense analysis."
         badge={
           <div className="flex items-center gap-3">
             <div className="rounded-lg bg-gray-800/50 px-4 py-2">
               <p className="text-xs text-gray-500">Hotspots</p>
-              <p className="text-sm font-medium text-gray-300">{hotspotMarkers.length}</p>
+              <p className="text-sm font-medium text-gray-300">{markers.length}</p>
             </div>
             <div className="rounded-lg bg-gray-800/50 px-4 py-2">
               <p className="text-xs text-gray-500">High Risk</p>
-              <p className="text-sm font-medium text-red-400">
-                {hotspotMarkers.filter((h) => h.risk === 'High').length}
-              </p>
+              <p className="text-sm font-medium text-red-400">{highCount}</p>
             </div>
           </div>
         }
       />
 
+      {loading && <p className="py-12 text-center text-sm text-gray-500">Loading hotspot coordinates&hellip;</p>}
+
+      {error && <p className="py-6 text-center text-sm text-gray-400">{error}</p>}
+
       {/* Map */}
       <Card className="p-0">
-        <div className="relative h-[500px] w-full sm:h-[600px]">
-          <MapContainer
-            center={[userLocation.lat, userLocation.lng]}
-            zoom={13}
-            scrollWheelZoom={true}
-            className="h-full w-full"
-          >
-            <MapController />
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-
-            {/* Heatmap placeholder circles */}
-            {heatmapZones.map((zone) => {
-              const intensity = zone.intensity
-              const color =
-                intensity >= 0.7
-                  ? heatmapColors.high
-                  : intensity >= 0.4
-                  ? heatmapColors.medium
-                  : heatmapColors.low
-              return (
-                <Circle
-                  key={zone.id}
-                  center={[zone.lat, zone.lng]}
-                  radius={zone.radius}
-                  pathOptions={{
-                    color: color.color,
-                    fillColor: color.fillColor,
-                    opacity: color.opacity,
-                    fillOpacity: color.fillOpacity,
-                  }}
-                />
-              )
-            })}
-
-            {/* Hotspot markers */}
-            {hotspotMarkers.map((hotspot) => (
-              <HotspotMarker key={hotspot.id} hotspot={hotspot} />
-            ))}
-
-            {/* User location marker */}
-            <UserLocationMarker location={userLocation} />
-          </MapContainer>
-
-          {/* Legend overlay */}
-          <div className="absolute bottom-4 left-4 z-[1000]">
-            <MapLegend />
-          </div>
+        <div className="p-6 pb-0">
+          <h2 className="text-lg font-semibold text-white">Verified Hotspot Locations</h2>
+          <p className="text-sm text-gray-500">
+            Only records/hotspots with reliable coordinates are shown. Incidents without coordinates are not placed on the map.
+          </p>
+        </div>
+        <div className="p-4">
+          <HotspotMap markers={markers} heightClass="h-[500px] w-full sm:h-[600px]" />
         </div>
       </Card>
 
@@ -104,9 +62,7 @@ function InteractiveMap() {
             </span>
             <div>
               <p className="text-sm font-medium text-gray-300">High Risk Zones</p>
-              <p className="text-lg font-bold text-red-400">
-                {hotspotMarkers.filter((h) => h.risk === 'High').length}
-              </p>
+              <p className="text-lg font-bold text-red-400">{highCount}</p>
             </div>
           </div>
         </div>
@@ -117,9 +73,7 @@ function InteractiveMap() {
             </span>
             <div>
               <p className="text-sm font-medium text-gray-300">Medium Risk Zones</p>
-              <p className="text-lg font-bold text-yellow-400">
-                {hotspotMarkers.filter((h) => h.risk === 'Medium').length}
-              </p>
+              <p className="text-lg font-bold text-yellow-400">{mediumCount}</p>
             </div>
           </div>
         </div>
@@ -130,9 +84,7 @@ function InteractiveMap() {
             </span>
             <div>
               <p className="text-sm font-medium text-gray-300">Low Risk Zones</p>
-              <p className="text-lg font-bold text-green-400">
-                {hotspotMarkers.filter((h) => h.risk === 'Low').length}
-              </p>
+              <p className="text-lg font-bold text-green-400">{lowCount}</p>
             </div>
           </div>
         </div>

@@ -5,20 +5,27 @@ import HotspotsTable from '../components/HotspotsTable'
 import Pagination from '../components/Pagination'
 import PageHeader from '../components/PageHeader'
 import Card from '../components/Card'
-import { hotspots } from '../data/hotspotsData'
+import { useCrimeData } from '../hooks/useCrimeData'
+import { toHotspotMarker } from '../utils/crimeInsights'
 
 const ITEMS_PER_PAGE = 8
 
 function CrimeHotspots() {
+  const { hotspots, loading, error } = useCrimeData()
   const [searchTerm, setSearchTerm] = useState('')
   const [activeFilter, setActiveFilter] = useState('All')
   const [currentPage, setCurrentPage] = useState(1)
 
+  const markers = useMemo(
+    () => (Array.isArray(hotspots) ? hotspots : []).map(toHotspotMarker),
+    [hotspots]
+  )
+
   const filteredHotspots = useMemo(() => {
-    let result = hotspots
+    let result = markers
 
     if (activeFilter !== 'All') {
-      result = result.filter((spot) => spot.risk === activeFilter)
+      result = result.filter((spot) => spot.risk === activeFilter || spot.risk === `Critical`)
     }
 
     if (searchTerm) {
@@ -26,13 +33,12 @@ function CrimeHotspots() {
       result = result.filter(
         (spot) =>
           spot.zone.toLowerCase().includes(term) ||
-          spot.region.toLowerCase().includes(term) ||
           spot.incidents.toLowerCase().includes(term)
       )
     }
 
     return result
-  }, [searchTerm, activeFilter])
+  }, [markers, searchTerm, activeFilter])
 
   const totalPages = Math.max(1, Math.ceil(filteredHotspots.length / ITEMS_PER_PAGE))
   const currentItems = filteredHotspots.slice(
@@ -56,26 +62,32 @@ function CrimeHotspots() {
     }
   }
 
+  if (loading) {
+    return <p className="py-12 text-center text-sm text-gray-500">Loading hotspot analysis&hellip;</p>
+  }
+
   return (
     <div className="space-y-6">
       <PageHeader
         title="Crime Hotspots"
-        description="Monitor high-risk areas detected by the AI analysis system."
+        description="Verified hotspot results from the CrimeSense data pipeline."
         badge={
           <div className="flex items-center gap-3">
             <div className="rounded-lg bg-gray-800/50 px-4 py-2">
               <p className="text-xs text-gray-500">Total Zones</p>
-              <p className="text-sm font-medium text-gray-300">{hotspots.length}</p>
+              <p className="text-sm font-medium text-gray-300">{markers.length}</p>
             </div>
             <div className="rounded-lg bg-gray-800/50 px-4 py-2">
               <p className="text-xs text-gray-500">High Risk</p>
               <p className="text-sm font-medium text-red-400">
-                {hotspots.filter((h) => h.risk === 'High').length}
+                {markers.filter((h) => h.risk === 'High' || h.risk === 'Critical').length}
               </p>
             </div>
           </div>
         }
       />
+
+      {error && <p className="py-6 text-center text-sm text-gray-400">{error}</p>}
 
       {/* Search and Filters */}
       <Card>
@@ -84,7 +96,7 @@ function CrimeHotspots() {
             <SearchBar
               value={searchTerm}
               onChange={handleSearch}
-              placeholder="Search hotspots by zone, region, or incident type..."
+              placeholder="Search hotspots by zone or dominant crime type..."
             />
           </div>
           <FilterButtons

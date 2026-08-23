@@ -1,7 +1,9 @@
 const badgeStyles = {
+  Critical: 'bg-red-600/10 text-red-300 border-red-600/30',
   High: 'bg-red-500/10 text-red-400 border-red-500/30',
   Medium: 'bg-yellow-500/10 text-yellow-400 border-yellow-500/30',
   Low: 'bg-green-500/10 text-green-400 border-green-500/30',
+  Unknown: 'bg-gray-500/10 text-gray-400 border-gray-500/30',
   Active: 'bg-red-500/10 text-red-400 border-red-500/30',
   Resolved: 'bg-green-500/10 text-green-400 border-green-500/30',
   Pending: 'bg-yellow-500/10 text-yellow-400 border-yellow-500/30',
@@ -12,9 +14,11 @@ const badgeStyles = {
 }
 
 const dotStyles = {
+  Critical: 'bg-red-600',
   High: 'bg-red-500',
   Medium: 'bg-yellow-500',
   Low: 'bg-green-500',
+  Unknown: 'bg-gray-500',
   Active: 'bg-red-500',
   Resolved: 'bg-green-500',
   Pending: 'bg-yellow-500',

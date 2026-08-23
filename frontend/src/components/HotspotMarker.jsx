@@ -2,6 +2,7 @@ import { Marker, Popup } from 'react-leaflet'
 import L from 'leaflet'
 
 const markerColors = {
+  Critical: '#dc2626',
   High: '#ef4444',
   Medium: '#eab308',
   Low: '#22c55e',
@@ -41,7 +42,7 @@ function HotspotMarker({ hotspot }) {
             <p>
               <span className="font-medium">Risk:</span>{' '}
               <span className={`font-semibold ${
-                hotspot.risk === 'High' ? 'text-red-600' : hotspot.risk === 'Medium' ? 'text-yellow-600' : 'text-green-600'
+                hotspot.risk === 'Critical' || hotspot.risk === 'High' ? 'text-red-600' : hotspot.risk === 'Medium' ? 'text-yellow-600' : 'text-green-600'
               }`}>
                 {hotspot.risk}
               </span>

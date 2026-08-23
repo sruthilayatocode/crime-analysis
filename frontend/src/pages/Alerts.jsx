@@ -7,21 +7,36 @@ import EmptyState from '../components/EmptyState'
 import FilterButtons from '../components/FilterButtons'
 import PageHeader from '../components/PageHeader'
 import Card from '../components/Card'
-import { alertSummary, recentAlerts, alertHistory, emergencyTips } from '../data/alertsData'
+import { useCrimeData } from '../hooks/useCrimeData'
+import { buildAlertSummary, deriveAlerts, deriveAlertHistory } from '../utils/crimeInsights'
+
+// Static safety guidance (not crime data); kept for the emergency tips panel.
+const emergencyTips = [
+  'Stay in well-lit, populated areas, especially at night.',
+  'Keep your phone charged and emergency contacts on speed dial.',
+  'Avoid isolated routes; use main roads with more traffic.',
+  'Report suspicious activity immediately to local authorities.',
+  'Share your live location with trusted family or friends.',
+]
 
 function Alerts() {
+  const { crimes, loading, error } = useCrimeData()
   const [activeFilter, setActiveFilter] = useState('All')
 
+  const alertSummary = useMemo(() => buildAlertSummary(crimes), [crimes])
+  const allAlerts = useMemo(() => deriveAlerts(crimes), [crimes])
+  const alertHistory = useMemo(() => deriveAlertHistory(crimes), [crimes])
+
   const filteredAlerts = useMemo(() => {
-    if (activeFilter === 'All') return recentAlerts
-    return recentAlerts.filter((alert) => alert.priority === activeFilter)
-  }, [activeFilter])
+    if (activeFilter === 'All') return allAlerts
+    return allAlerts.filter((alert) => alert.priority === activeFilter)
+  }, [allAlerts, activeFilter])
 
   return (
     <div className="space-y-6">
       <PageHeader
         title="Alerts"
-        description="Real-time safety alerts and notifications for your area."
+        description="Safety alerts derived from validated crime incidents."
         badge={
           <div className="flex items-center gap-3">
             <span className="flex h-2 w-2">
@@ -33,9 +48,12 @@ function Alerts() {
         }
       />
 
+      {loading && <p className="py-12 text-center text-sm text-gray-500">Loading alert data&hellip;</p>}
+      {error && <p className="py-6 text-center text-sm text-gray-400">{error}</p>}
+
       {/* Alert Summary Cards */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <AlertSummaryCard type="total" label="Total Alerts" value={alertSummary.total} />
+        <AlertSummaryCard type="total" label="Total Incidents" value={alertSummary.total} />
         <AlertSummaryCard type="high" label="High Priority" value={alertSummary.high} />
         <AlertSummaryCard type="medium" label="Medium Priority" value={alertSummary.medium} />
         <AlertSummaryCard type="low" label="Low Priority" value={alertSummary.low} />
@@ -46,7 +64,7 @@ function Alerts() {
         <div className="mb-4 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <h2 className="text-lg font-semibold text-white">Recent Alerts</h2>
-            <p className="text-sm text-gray-500">Latest notifications</p>
+            <p className="text-sm text-gray-500">Derived from validated incidents</p>
           </div>
           <FilterButtons
             activeFilter={activeFilter}
