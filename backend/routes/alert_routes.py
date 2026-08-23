@@ -1,62 +1,167 @@
+"""
+Proximity alert routes.
+
+The alert is computed against real crime hotspot
+centers derived from the crimes stored in the
+database (no hard-coded hotspot coordinates).
+"""
+
 from flask import Blueprint, jsonify, request
 
-from services.proximity_service import check_proximity
+from services import crime_service
+from services.errors import ValidationError
+from services.hotspot_service import analyze_hotspots
+from services.proximity_service import (
+    check_proximity,
+    find_nearest_hotspot,
+)
 
 
 alert_bp = Blueprint("alert", __name__)
 
 
-@alert_bp.route("/api/proximity-check", methods=["POST"])
+@alert_bp.route(
+    "/api/proximity-check",
+    methods=["POST"]
+)
 def proximity_check():
+    """
+    Check whether a user's location falls inside the
+    alert radius of the nearest real crime hotspot.
+    """
 
-    user_data = request.get_json()
+    user_data = request.get_json(
+        silent=True
+    )
 
     if not user_data:
-        return jsonify({
-            "success": False,
-            "message": "Request data is missing"
-        }), 400
+        raise ValidationError(
+            "Request body must contain "
+            "location data as JSON"
+        )
 
     required_fields = [
         "latitude",
         "longitude"
     ]
 
-    for field in required_fields:
+    missing_fields = [
+        field
+        for field in required_fields
+        if field not in user_data
+    ]
 
-        if field not in user_data:
-            return jsonify({
-                "success": False,
-                "message": f"{field} is required"
-            }), 400
-
-    user_latitude = float(
-        user_data["latitude"]
-    )
-
-    user_longitude = float(
-        user_data["longitude"]
-    )
-
-    alert_radius = float(
-        user_data.get(
-            "alert_radius_meters",
-            500
+    if missing_fields:
+        raise ValidationError(
+            "Required fields are missing",
+            details={
+                "missing_fields": missing_fields
+            }
         )
+
+    try:
+
+        user_latitude = float(
+            user_data["latitude"]
+        )
+
+        user_longitude = float(
+            user_data["longitude"]
+        )
+
+    except (
+        TypeError,
+        ValueError
+    ):
+        raise ValidationError(
+            "Latitude and longitude must be "
+            "valid numbers"
+        )
+
+    if not -90 <= user_latitude <= 90:
+        raise ValidationError(
+            "Latitude must be between -90 and 90"
+        )
+
+    if not -180 <= user_longitude <= 180:
+        raise ValidationError(
+            "Longitude must be between -180 and 180"
+        )
+
+    try:
+
+        alert_radius = float(
+            user_data.get(
+                "alert_radius_meters",
+                500
+            )
+        )
+
+    except (
+        TypeError,
+        ValueError
+    ):
+        raise ValidationError(
+            "alert_radius_meters must be a "
+            "valid number"
+        )
+
+    if alert_radius <= 0:
+        raise ValidationError(
+            "alert_radius_meters must be "
+            "greater than zero"
+        )
+
+    # Build hotspots from the actual crime records.
+    crimes = crime_service.list_crimes()
+
+    if not crimes:
+
+        return jsonify({
+            "success": True,
+            "alert": False,
+            "message": (
+                "No crime data is available yet, "
+                "so no proximity alert can be "
+                "calculated."
+            ),
+            "user_location": {
+                "latitude": user_latitude,
+                "longitude": user_longitude
+            }
+        })
+
+    hotspot_input = [
+        {
+            "location": (
+                crime.get("location_name")
+                or "Unknown"
+            ),
+            "latitude": crime["latitude"],
+            "longitude": crime["longitude"]
+        }
+        for crime in crimes
+    ]
+
+    hotspots = analyze_hotspots(
+        hotspot_input
     )
 
-    # Temporary hotspot coordinates.
-    # These will be replaced by DBSCAN-generated
-    # hotspot coordinates after the real dataset is added.
-
-    hotspot_latitude = 12.9716
-    hotspot_longitude = 79.1590
+    nearest_hotspot = find_nearest_hotspot(
+        hotspots,
+        user_latitude,
+        user_longitude
+    )
 
     proximity_result = check_proximity(
         user_latitude=user_latitude,
         user_longitude=user_longitude,
-        hotspot_latitude=hotspot_latitude,
-        hotspot_longitude=hotspot_longitude,
+        hotspot_latitude=nearest_hotspot[
+            "average_latitude"
+        ],
+        hotspot_longitude=nearest_hotspot[
+            "average_longitude"
+        ],
         alert_radius=alert_radius
     )
 
@@ -84,9 +189,22 @@ def proximity_check():
             "latitude": user_latitude,
             "longitude": user_longitude
         },
-        "hotspot_location": {
-            "latitude": hotspot_latitude,
-            "longitude": hotspot_longitude
+        "nearest_hotspot": {
+            "location": nearest_hotspot[
+                "location"
+            ],
+            "latitude": nearest_hotspot[
+                "average_latitude"
+            ],
+            "longitude": nearest_hotspot[
+                "average_longitude"
+            ],
+            "crime_count": nearest_hotspot[
+                "crime_count"
+            ],
+            "risk_level": nearest_hotspot[
+                "risk_level"
+            ]
         },
         "distance_meters": proximity_result[
             "distance_meters"

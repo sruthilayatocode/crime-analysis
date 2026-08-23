@@ -1,17 +1,55 @@
-from flask import Flask, jsonify
+"""
+CrimeSense Flask application entry point.
+
+Run from the backend/ directory:
+
+    python app.py
+
+The backend directory is added to sys.path below so the
+package imports also work when the server is started from
+the repository root (python backend/app.py).
+"""
+
+import os
+import sys
+
+# Make "database", "models", "routes", "services" and
+# "config" importable no matter which directory the
+# server is launched from. This fixes the previous
+# "ModuleNotFoundError: No module named 'routes.crime_routes'".
+BACKEND_DIR = os.path.dirname(
+    os.path.abspath(__file__)
+)
+
+if BACKEND_DIR not in sys.path:
+    sys.path.insert(0, BACKEND_DIR)
+
+from flask import Flask, jsonify, request
+from flask_cors import CORS
+
+from config.config import CORS_ORIGINS, supabase_enabled
 
 from database import db
-from models.crime import Crime
 
-from routes.crime_routes import crime_bp
+# Importing the models registers them on the SQLAlchemy
+# metadata BEFORE db.create_all() runs below.
+from models.crime import Crime  # noqa: F401
+
 from routes.alert_routes import alert_bp
+from routes.crime_routes import crime_bp
+
+from services.errors import ApiError
 
 
 app = Flask(__name__)
 
 
-# SQLite database configuration
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///crimesense.db"
+# Local SQLite database used only as a development
+# fallback when Supabase credentials are not configured.
+app.config["SQLALCHEMY_DATABASE_URI"] = (
+    "sqlite:///crimesense.db"
+)
+
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 
@@ -19,9 +57,16 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db.init_app(app)
 
 
-# Create database tables automatically
+# Create local fallback tables automatically
 with app.app_context():
     db.create_all()
+
+
+# Allow the local frontend origins to call /api/* endpoints.
+CORS(
+    app,
+    resources={r"/api/*": {"origins": CORS_ORIGINS}}
+)
 
 
 # Register API route blueprints
@@ -41,7 +86,12 @@ def home():
 def health_check():
     return jsonify({
         "status": "healthy",
-        "service": "CrimeSense Backend"
+        "service": "CrimeSense Backend",
+        "storage": (
+            "supabase"
+            if supabase_enabled()
+            else "local_sqlite_fallback"
+        )
     })
 
 
@@ -63,5 +113,78 @@ def project_info():
     })
 
 
+# ---- Consistent JSON error responses --------------------
+
+@app.errorhandler(ApiError)
+def handle_api_error(error):
+    response = jsonify(error.to_dict())
+    response.status_code = error.status_code
+    return response
+
+
+@app.errorhandler(400)
+def handle_bad_request(error):
+    return jsonify({
+        "success": False,
+        "message": (
+            error.description
+            or "Invalid request"
+        )
+    }), 400
+
+
+@app.errorhandler(404)
+def handle_not_found(error):
+    return jsonify({
+        "success": False,
+        "message": (
+            f"The requested URL "
+            f"{request.path} was not found"
+        )
+    }), 404
+
+
+@app.errorhandler(405)
+def handle_method_not_allowed(error):
+    return jsonify({
+        "success": False,
+        "message": (
+            "Method not allowed for this endpoint"
+        )
+    }), 405
+
+
+@app.errorhandler(500)
+def handle_server_error(error):
+
+    # Roll back any half-finished local DB session.
+    try:
+        db.session.rollback()
+    except Exception:
+        pass
+
+    return jsonify({
+        "success": False,
+        "message": (
+            "An unexpected server error occurred"
+        )
+    }), 500
+
+
 if __name__ == "__main__":
-    app.run(debug=True)
+
+    debug_mode = os.getenv(
+        "FLASK_DEBUG",
+        "1"
+    ) == "1"
+
+    host = os.getenv("HOST", "127.0.0.1")
+
+    port = int(os.getenv("PORT", "5000"))
+
+    app.run(
+        debug=debug_mode,
+        use_reloader=debug_mode,
+        host=host,
+        port=port
+    )

@@ -66,3 +66,10 @@ backend/node_modules/
 dist/
 build/
 .next/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Trained machine-learning model files
+*.joblib
+*.pkl

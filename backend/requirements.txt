@@ -1,4 +1,11 @@
+# CrimeSense backend dependencies
 Flask==3.1.2
+Flask-SQLAlchemy==3.1.1
+Flask-Cors==6.0.5
+python-dotenv==1.2.3
+supabase==2.31.0
+
+# Machine-learning pipeline (ml/)
 pandas
 numpy
 scikit-learn

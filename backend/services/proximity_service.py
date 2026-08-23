@@ -56,8 +56,8 @@ def check_proximity(
     distance = calculate_distance(
         user_latitude,
         user_longitude,
-        hotspot_latitude ,
-        hotspot_longitude 
+        hotspot_latitude,
+        hotspot_longitude
     )
 
     is_nearby = distance <= alert_radius
@@ -67,3 +67,129 @@ def check_proximity(
         "alert_radius_meters": alert_radius,
         "is_nearby": is_nearby
     }
+
+
+def calculate_distance_km(
+    latitude_1,
+    longitude_1,
+    latitude_2,
+    longitude_2
+):
+    """
+    Distance between two coordinates in kilometers.
+    """
+
+    distance_meters = calculate_distance(
+        latitude_1,
+        longitude_1,
+        latitude_2,
+        longitude_2
+    )
+
+    return round(distance_meters / 1000, 3)
+
+
+def find_nearby_crimes(
+    crimes,
+    latitude,
+    longitude,
+    radius_km
+):
+    """
+    Filter crime records to those located within
+    radius_km of the given coordinates.
+
+    Every returned record carries its real
+    calculated distance in "distance_km" and the
+    result is sorted from nearest to farthest.
+    """
+
+    nearby_crimes = []
+
+    for crime in crimes:
+
+        try:
+
+            crime_latitude = float(
+                crime["latitude"]
+            )
+
+            crime_longitude = float(
+                crime["longitude"]
+            )
+
+        except (
+            KeyError,
+            TypeError,
+            ValueError
+        ):
+
+            # Skip records without usable coordinates.
+            continue
+
+        distance_km = calculate_distance_km(
+            latitude,
+            longitude,
+            crime_latitude,
+            crime_longitude
+        )
+
+        if distance_km <= radius_km:
+
+            nearby_crime = dict(crime)
+
+            nearby_crime[
+                "distance_km"
+            ] = distance_km
+
+            nearby_crimes.append(
+                nearby_crime
+            )
+
+    nearby_crimes.sort(
+        key=lambda crime: crime[
+            "distance_km"
+        ]
+    )
+
+    return nearby_crimes
+
+
+def find_nearest_hotspot(
+    hotspots,
+    latitude,
+    longitude
+):
+    """
+    Return the hotspot closest to the given
+    coordinates, or None when no hotspots exist.
+    """
+
+    nearest_hotspot = None
+    nearest_distance = None
+
+    for hotspot in hotspots:
+
+        distance_meters = calculate_distance(
+            latitude,
+            longitude,
+            hotspot.get(
+                "average_latitude",
+                0
+            ),
+            hotspot.get(
+                "average_longitude",
+                0
+            )
+        )
+
+        if (
+            nearest_distance is None
+            or distance_meters < nearest_distance
+        ):
+
+            nearest_distance = distance_meters
+
+            nearest_hotspot = hotspot
+
+    return nearest_hotspot
