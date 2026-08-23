@@ -115,14 +115,23 @@ def proximity_check():
     # Build hotspots from the actual crime records.
     crimes = crime_service.list_crimes()
 
-    if not crimes:
+    # Proximity alerts need coordinates; the dataset
+    # contains some records that were not geocoded.
+    geocoded_crimes = [
+        crime
+        for crime in crimes
+        if crime.get("latitude") is not None
+        and crime.get("longitude") is not None
+    ]
+
+    if not geocoded_crimes:
 
         return jsonify({
             "success": True,
             "alert": False,
             "message": (
-                "No crime data is available yet, "
-                "so no proximity alert can be "
+                "No geocoded crime data is available "
+                "yet, so no proximity alert can be "
                 "calculated."
             ),
             "user_location": {
@@ -140,7 +149,7 @@ def proximity_check():
             "latitude": crime["latitude"],
             "longitude": crime["longitude"]
         }
-        for crime in crimes
+        for crime in geocoded_crimes
     ]
 
     hotspots = analyze_hotspots(

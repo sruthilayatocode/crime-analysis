@@ -22,14 +22,16 @@ class Crime(db.Model):
         nullable=True
     )
 
+    # Nullable because the handoff dataset contains
+    # records that could not be geocoded.
     latitude = db.Column(
         db.Float,
-        nullable=False
+        nullable=True
     )
 
     longitude = db.Column(
         db.Float,
-        nullable=False
+        nullable=True
     )
 
     location_name = db.Column(

@@ -24,10 +24,11 @@ EDITABLE_FIELDS = [
     if field not in ("id", "created_at")
 ]
 
+# Coordinates are optional because the handoff dataset
+# contains records that could not be geocoded. When they
+# are provided they must be valid numbers in range.
 REQUIRED_FIELDS = [
     "crime_type",
-    "latitude",
-    "longitude",
 ]
 
 
@@ -154,15 +155,20 @@ def _build_payload(
         "longitude"
     )
 
-    if any(
-        field in data
+    # Explicit nulls mean "not geocoded" and are
+    # treated the same as omitted coordinates.
+    supplied_coordinates = [
+        field
         for field in coordinate_fields
-    ):
+        if data.get(field) is not None
+    ]
+
+    if supplied_coordinates:
 
         missing = [
             field
             for field in coordinate_fields
-            if field not in data
+            if data.get(field) is None
         ]
 
         if missing:

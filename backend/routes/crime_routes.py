@@ -137,6 +137,15 @@ def get_hotspots():
 
     crimes = crime_service.list_crimes()
 
+    # Hotspot analysis needs coordinates; the dataset
+    # contains some records that were not geocoded.
+    geocoded_crimes = [
+        crime
+        for crime in crimes
+        if crime.get("latitude") is not None
+        and crime.get("longitude") is not None
+    ]
+
     hotspot_input = [
         {
             "location": (
@@ -146,7 +155,7 @@ def get_hotspots():
             "latitude": crime["latitude"],
             "longitude": crime["longitude"]
         }
-        for crime in crimes
+        for crime in geocoded_crimes
     ]
 
     hotspots = analyze_hotspots(

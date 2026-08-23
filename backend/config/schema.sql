@@ -13,8 +13,10 @@ create table if not exists public.crimes (
     id            bigint generated always as identity primary key,
     crime_type    text             not null,
     description   text,
-    latitude      double precision not null,
-    longitude     double precision not null,
+    -- Nullable: the handoff dataset contains records
+    -- that could not be geocoded.
+    latitude      double precision,
+    longitude     double precision,
     location_name text,
     crime_date    text,
     severity      text,
