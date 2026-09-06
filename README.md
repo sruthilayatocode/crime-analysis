@@ -1,2 +1,23 @@
-# crime-analysis
-AI-powered Crime Hotspot Analysis and Proximity Alert System using Machine Learning, GIS, IoT, and Data Visualization.
+# CRIME ANALYSIS
+
+## Introduction
+
+## Objectives
+
+## Features
+
+## Technology Stack
+
+## Project Structure
+
+## Development Roadmap
+
+## Dataset Pipeline
+
+## Machine Learning
+
+## Dashboard
+
+## IoT
+
+## Future Scope

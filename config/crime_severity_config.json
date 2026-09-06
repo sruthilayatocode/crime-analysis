@@ -1,0 +1,112 @@
+{
+    "description": "Centralized crime-type-to-severity configuration. Used by scripts/score_crimes.py to assign severity_score (1-10) and risk_level to each crime record.",
+    "risk_levels": {
+        "Critical": {
+            "min_score": 9,
+            "max_score": 10,
+            "color": "Red",
+            "description": "Life-threatening or extreme-risk crimes"
+        },
+        "High": {
+            "min_score": 7,
+            "max_score": 8,
+            "color": "Orange",
+            "description": "Serious crimes involving violence or significant harm"
+        },
+        "Medium": {
+            "min_score": 4,
+            "max_score": 6,
+            "color": "Yellow",
+            "description": "Moderate-impact crimes, typically non-violent"
+        },
+        "Low": {
+            "min_score": 1,
+            "max_score": 3,
+            "color": "Green",
+            "description": "Minor offences, low impact on public safety"
+        }
+    },
+    "crime_type_scores": {
+        "Murder": {
+            "severity_score": 10,
+            "risk_level": "Critical"
+        },
+        "Sexual Assault": {
+            "severity_score": 9,
+            "risk_level": "Critical"
+        },
+        "Kidnapping": {
+            "severity_score": 9,
+            "risk_level": "Critical"
+        },
+        "Robbery": {
+            "severity_score": 8,
+            "risk_level": "High"
+        },
+        "Drugs": {
+            "severity_score": 8,
+            "risk_level": "High"
+        },
+        "Extortion": {
+            "severity_score": 7,
+            "risk_level": "High"
+        },
+        "Arson": {
+            "severity_score": 8,
+            "risk_level": "High"
+        },
+        "Domestic Violence": {
+            "severity_score": 8,
+            "risk_level": "High"
+        },
+        "Assault": {
+            "severity_score": 7,
+            "risk_level": "High"
+        },
+        "Cyber Crime": {
+            "severity_score": 6,
+            "risk_level": "Medium"
+        },
+        "Corruption": {
+            "severity_score": 5,
+            "risk_level": "Medium"
+        },
+        "Fraud": {
+            "severity_score": 5,
+            "risk_level": "Medium"
+        },
+        "Burglary": {
+            "severity_score": 6,
+            "risk_level": "Medium"
+        },
+        "Chain Snatching": {
+            "severity_score": 6,
+            "risk_level": "Medium"
+        },
+        "Harassment": {
+            "severity_score": 5,
+            "risk_level": "Medium"
+        },
+        "Vehicle Theft": {
+            "severity_score": 5,
+            "risk_level": "Medium"
+        },
+        "Theft": {
+            "severity_score": 4,
+            "risk_level": "Medium"
+        },
+        "Vandalism": {
+            "severity_score": 3,
+            "risk_level": "Low"
+        },
+        "Other": {
+            "severity_score": 2,
+            "risk_level": "Low"
+        }
+    },
+    "default": {
+        "severity_score": 3,
+        "risk_level": "Low",
+        "description": "Reasonable default for unrecognized crime types"
+    }
+}

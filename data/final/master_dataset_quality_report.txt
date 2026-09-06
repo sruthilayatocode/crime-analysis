@@ -1,0 +1,68 @@
+======================================================================
+MASTER DATASET QUALITY REPORT
+Generated: 2026-08-21 00:55:00
+======================================================================
+
+Total records:         89
+Unique records:        89
+Duplicate records:     0
+Records with coordinates: 7
+Records without coordinates: 82
+
+FIELD-LEVEL CHECKS
+----------------------------------------
+  total_rows                 : 89
+  duplicate_article_id       : 0
+  missing_title              : 0
+  missing_url                : 0
+  missing_crime_type         : 0
+  missing_published_date     : 0
+  missing_locality           : 80
+  missing_latitude           : 82
+  missing_longitude          : 82
+  missing_severity_score     : 0
+  missing_risk_level         : 0
+
+RISK DISTRIBUTION
+----------------------------------------
+  Critical : 45
+  High : 18
+  Low : 12
+  Medium : 14
+
+CRIME TYPE DISTRIBUTION
+----------------------------------------
+  Murder : 34
+  Theft : 12
+  Assault : 11
+  Sexual Assault : 11
+  Robbery : 6
+  Fraud : 5
+  Other : 4
+  Cyber Crime : 3
+  Vehicle Theft : 2
+  Domestic Violence : 1
+
+LOCATION CONFIDENCE DISTRIBUTION
+----------------------------------------
+  LOW : 53
+  UNKNOWN : 27
+  HIGH : 9
+
+UNIQUE LOCALITIES
+----------------------------------------
+  (empty)
+  Katpadi
+  Katpadi railway station
+  Pallikonda
+  Vellore Fort
+  Vellore GH
+
+QUALITY ISSUES
+----------------------------------------
+  - 82 records lack latitude/longitude (NULL).
+  - 80 records lack a locality label (NULL).
+
+======================================================================
+END OF REPORT
+======================================================================

@@ -1,0 +1,226 @@
+======================================================================
+CRIME HOTSPOT ANALYSIS REPORT
+Generated: 2026-08-21 00:04:44
+======================================================================
+
+1. DATA SUMMARY
+----------------------------------------
+Total input records: 89
+Records with coordinates: 7
+Records without coordinates: 82
+
+Location confidence distribution:
+  HIGH: 9
+  LOW: 53
+  UNKNOWN: 27
+
+Locality distribution:
+  (empty/unknown): 80
+  Katpadi: 5
+  Katpadi railway station: 1
+  Pallikonda: 1
+  Vellore Fort: 1
+  Vellore GH: 1
+
+Crime type distribution:
+  Murder: 34
+  Other: 12
+  Theft: 12
+  Sexual Assault: 11
+  Assault: 8
+  Robbery: 6
+  Fraud: 4
+  Cyber Crime: 1
+  Domestic Violence: 1
+
+2. DBSCAN SPATIAL CLUSTERING
+----------------------------------------
+Algorithm: DBSCAN (Haversine distance)
+Epsilon (radius): 1.5 km
+Min samples: 3
+Spatial points used (HIGH confidence only): 7
+Bounds validated: lat 12.5-13.5, lon 78.5-79.8
+Hotspots detected: 1
+
+Hotspot details:
+  #1: 5 incidents, risk=7.20, crime=Robbery, lat=13.043505, lon=79.240410
+    Critical=1, High=3, Medium=0, Low=1, Unknown=0
+
+3. RISK WEIGHTING
+----------------------------------------
+weighted_risk_score = mean(severity_score) per hotspot
+Severity scores joined from news_scored_final.csv
+
+4. LOCALITY CRIME RANKING (by weighted_risk_score)
+----------------------------------------
+  Pallikonda: 1 incidents, risk=10.00
+    Critical=1, High=0, Medium=0, Low=0, Unknown=0
+  Vellore Fort: 1 incidents, risk=10.00
+    Critical=1, High=0, Medium=0, Low=0, Unknown=0
+  Vellore GH: 1 incidents, risk=8.00
+    Critical=0, High=1, Medium=0, Low=0, Unknown=0
+  unknown: 80 incidents, risk=7.74
+    Critical=42, High=14, Medium=13, Low=11, Unknown=0
+  Katpadi: 5 incidents, risk=7.20
+    Critical=1, High=3, Medium=0, Low=1, Unknown=0
+  Katpadi railway station: 1 incidents, risk=5.00
+    Critical=0, High=0, Medium=1, Low=0, Unknown=0
+
+5. DOMINANT CRIME TYPES
+----------------------------------------
+  Murder: 34
+  Other: 12
+  Theft: 12
+  Sexual Assault: 11
+  Assault: 8
+  Robbery: 6
+  Fraud: 4
+  Cyber Crime: 1
+  Domestic Violence: 1
+
+6. TEMPORAL TRENDS
+----------------------------------------
+Months covered: 2012-11, 2013-08, 2014-07, 2014-12, 2015-08, 2016-08, 2017-02, 2017-12, 2018-04, 2019-09, 2019-12, 2020-01, 2020-03, 2020-04, 2020-12, 2021-04, 2021-09, 2021-12, 2022-03, 2022-07, 2022-08, 2023-06, 2023-07, 2023-08, 2023-09, 2023-10, 2023-11, 2024-03, 2024-05, 2024-07, 2024-08, 2024-09, 2024-11, 2025-01, 2025-02, 2025-03, 2025-04, 2025-06, 2025-07, 2025-08, 2025-09, 2025-10, 2025-11, 2025-12, 2026-01, 2026-04, 2026-05, 2026-06, 2026-07
+  2012-11: 1 total incidents
+    Other: 1
+  2013-08: 1 total incidents
+    Murder: 1
+  2014-07: 1 total incidents
+    Murder: 1
+  2014-12: 1 total incidents
+    Murder: 1
+  2015-08: 1 total incidents
+    Murder: 1
+  2016-08: 2 total incidents
+    Murder: 2
+  2017-02: 1 total incidents
+    Murder: 1
+  2017-12: 2 total incidents
+    Murder: 2
+  2018-04: 1 total incidents
+    Murder: 1
+  2019-09: 1 total incidents
+    Theft: 1
+  2019-12: 3 total incidents
+    Murder: 3
+  2020-01: 3 total incidents
+    Assault: 1
+    Murder: 1
+    Sexual Assault: 1
+  2020-03: 1 total incidents
+    Assault: 1
+  2020-04: 1 total incidents
+    Murder: 1
+  2020-12: 2 total incidents
+    Murder: 2
+  2021-04: 1 total incidents
+    Murder: 1
+  2021-09: 2 total incidents
+    Murder: 1
+    Theft: 1
+  2021-12: 4 total incidents
+    Robbery: 2
+    Theft: 2
+  2022-03: 1 total incidents
+    Sexual Assault: 1
+  2022-07: 1 total incidents
+    Other: 1
+  2022-08: 1 total incidents
+    Sexual Assault: 1
+  2023-06: 1 total incidents
+    Theft: 1
+  2023-07: 1 total incidents
+    Other: 1
+  2023-08: 1 total incidents
+    Robbery: 1
+  2023-09: 1 total incidents
+    Theft: 1
+  2023-10: 1 total incidents
+    Theft: 1
+  2023-11: 1 total incidents
+    Assault: 1
+  2024-03: 2 total incidents
+    Assault: 1
+    Other: 1
+  2024-05: 2 total incidents
+    Fraud: 1
+    Other: 1
+  2024-07: 2 total incidents
+    Murder: 1
+    Robbery: 1
+  2024-08: 3 total incidents
+    Murder: 2
+    Theft: 1
+  2024-09: 1 total incidents
+    Murder: 1
+  2024-11: 3 total incidents
+    Fraud: 1
+    Sexual Assault: 2
+  2025-01: 6 total incidents
+    Fraud: 1
+    Other: 1
+    Robbery: 1
+    Sexual Assault: 3
+  2025-02: 4 total incidents
+    Assault: 1
+    Sexual Assault: 3
+  2025-03: 3 total incidents
+    Fraud: 1
+    Theft: 2
+  2025-04: 1 total incidents
+    Murder: 1
+  2025-06: 1 total incidents
+    Robbery: 1
+  2025-07: 5 total incidents
+    Assault: 1
+    Domestic Violence: 1
+    Murder: 1
+    Other: 2
+  2025-08: 1 total incidents
+    Murder: 1
+  2025-09: 1 total incidents
+    Murder: 1
+  2025-10: 1 total incidents
+    Other: 1
+  2025-11: 1 total incidents
+    Assault: 1
+  2025-12: 3 total incidents
+    Assault: 1
+    Murder: 1
+    Theft: 1
+  2026-01: 1 total incidents
+    Murder: 1
+  2026-04: 1 total incidents
+    Murder: 1
+  2026-05: 4 total incidents
+    Cyber Crime: 1
+    Murder: 1
+    Other: 2
+  2026-06: 4 total incidents
+    Murder: 2
+    Other: 1
+    Theft: 1
+  2026-07: 1 total incidents
+    Murder: 1
+
+7. SUSPICIOUS / INCORRECT COORDINATES
+----------------------------------------
+No suspicious coordinates detected.
+  Note: known-incorrect Arani cache coord (13.331040, 80.083573)
+  was excluded from clustering (falls in Bay of Bengal).
+
+8. RECORDS WITHOUT COORDINATES
+----------------------------------------
+Records without latitude/longitude: 82
+Retained in all non-spatial analyses; excluded from clustering.
+
+9. LIMITATIONS
+----------------------------------------
+- 82 of 89 records lack specific geographic coordinates.
+- Spatial clustering uses only HIGH-confidence points (7 records).
+- Locality/risk analysis uses ALL records (89).
+- Hotspot precision is limited by source article geo-specificity.
+
+======================================================================
+END OF REPORT
+======================================================================

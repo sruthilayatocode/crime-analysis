@@ -1,0 +1,36 @@
+{
+    "cities": [
+        {
+            "name": "Vellore",
+            "state": "Tamil Nadu",
+            "latitude": 12.9165,
+            "longitude": 79.1325,
+            "population": 484690,
+            "area_km2": 87.92
+        },
+        {
+            "name": "Chennai",
+            "state": "Tamil Nadu",
+            "latitude": 13.0827,
+            "longitude": 80.2707,
+            "population": 11900000,
+            "area_km2": 426.0
+        },
+        {
+            "name": "Bangalore",
+            "state": "Karnataka",
+            "latitude": 12.9716,
+            "longitude": 77.5946,
+            "population": 15300000,
+            "area_km2": 709.0
+        },
+        {
+            "name": "Hyderabad",
+            "state": "Telangana",
+            "latitude": 17.3850,
+            "longitude": 78.4867,
+            "population": 9740000,
+            "area_km2": 650.0
+        }
+    ]
+}

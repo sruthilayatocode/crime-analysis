@@ -1,0 +1,17 @@
+crime_type,severity,risk_score
+Theft,Low,2
+Robbery,High,8
+Burglary,Medium,5
+Assault,High,8
+Sexual Assault,Critical,10
+Murder,Critical,10
+Kidnapping,Critical,10
+Fraud,Medium,5
+Cyber Crime,Medium,5
+Vehicle Theft,Medium,5
+Domestic Violence,High,8
+Harassment,Medium,5
+Drug Offence,High,8
+Chain Snatching,Medium,5
+Vandalism,Low,2
+Other,Medium,5
