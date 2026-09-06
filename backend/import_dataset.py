@@ -1,7 +1,6 @@
 """
 Import the CrimeSense handoff dataset into the active
-crime storage (Supabase PostgreSQL, or the local SQLite
-fallback when Supabase credentials are not configured).
+crime storage (SQLite via SQLAlchemy).
 
 Source:
     data/final/crimesense_database_import.csv

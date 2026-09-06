@@ -27,7 +27,7 @@ if BACKEND_DIR not in sys.path:
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
-from config.config import CORS_ORIGINS, supabase_enabled
+from config.config import CORS_ORIGINS, SQLALCHEMY_DATABASE_URI
 
 from database import db
 
@@ -44,10 +44,9 @@ from services.errors import ApiError
 app = Flask(__name__)
 
 
-# Local SQLite database used only as a development
-# fallback when Supabase credentials are not configured.
+# SQLite database configuration.
 app.config["SQLALCHEMY_DATABASE_URI"] = (
-    "sqlite:///crimesense.db"
+    SQLALCHEMY_DATABASE_URI
 )
 
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
@@ -57,7 +56,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db.init_app(app)
 
 
-# Create local fallback tables automatically
+# Create SQLite tables automatically
 with app.app_context():
     db.create_all()
 
@@ -87,11 +86,7 @@ def health_check():
     return jsonify({
         "status": "healthy",
         "service": "CrimeSense Backend",
-        "storage": (
-            "supabase"
-            if supabase_enabled()
-            else "local_sqlite_fallback"
-        )
+        "storage": "sqlite"
     })
 
 

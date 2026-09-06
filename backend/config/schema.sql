@@ -1,54 +1,27 @@
 -- ============================================================
--- CrimeSense: crimes table for Supabase PostgreSQL
+-- CrimeSense: crimes table schema for SQLite
 --
--- Run this once in the Supabase SQL Editor
--- (Dashboard -> SQL Editor -> New query -> paste -> Run).
+-- This file is for documentation/reference only.
+-- The actual SQLite schema is managed by SQLAlchemy
+-- via db.create_all() in backend/app.py.
 --
--- Columns match the existing backend Crime model:
---   id, crime_type, description, latitude, longitude,
---   location_name, crime_date, severity (+ created_at)
+-- The Crime model in backend/models/crime.py is the
+-- source of truth for the table structure.
 -- ============================================================
 
-create table if not exists public.crimes (
-    id            bigint generated always as identity primary key,
-    crime_type    text             not null,
+create table if not exists crimes (
+    id            integer primary key autoincrement,
+    crime_type    text    not null,
     description   text,
-    -- Nullable: the handoff dataset contains records
-    -- that could not be geocoded.
-    latitude      double precision,
-    longitude     double precision,
+    latitude      real,
+    longitude     real,
     location_name text,
     crime_date    text,
     severity      text,
-    created_at    timestamptz      not null default now()
+    created_at    text    not null default (datetime('now'))
 );
 
--- Indexes used by the statistics / hotspot queries
-create index if not exists idx_crimes_crime_type   on public.crimes (crime_type);
-create index if not exists idx_crimes_severity     on public.crimes (severity);
-create index if not exists idx_crimes_location_name on public.crimes (location_name);
-create index if not exists idx_crimes_coordinates  on public.crimes (latitude, longitude);
-
--- ------------------------------------------------------------
--- Row Level Security
---
--- The Flask backend is a trusted server-side client. During
--- development the anon key is used with the permissive policy
--- below so CRUD through the API works.
---
--- SECURITY NOTE: before production, either
---   a) tighten these policies (e.g. read-only for anon), or
---   b) switch the backend to the service_role key kept only
---      in backend/.env (never committed).
--- ------------------------------------------------------------
-
-alter table public.crimes enable row level security;
-
-drop policy if exists "crimes_dev_all_access" on public.crimes;
-
-create policy "crimes_dev_all_access"
-    on public.crimes
-    for all
-    to anon, authenticated
-    using (true)
-    with check (true);
+create index if not exists idx_crimes_crime_type   on crimes (crime_type);
+create index if not exists idx_crimes_severity     on crimes (severity);
+create index if not exists idx_crimes_location_name on crimes (location_name);
+create index if not exists idx_crimes_coordinates  on crimes (latitude, longitude);

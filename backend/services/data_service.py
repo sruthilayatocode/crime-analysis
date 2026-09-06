@@ -1,23 +1,9 @@
 """
 Data access layer for crime records.
 
-Primary storage:
-    Supabase PostgreSQL through the supabase-py client.
-
-Fallback storage (development only):
-    Local SQLite database through the existing SQLAlchemy
-    Crime model. Used automatically when Supabase
-    credentials are not configured in backend/.env.
-
-Both repositories return plain dictionaries so the rest of
-the service layer does not care which storage is active.
+Storage:
+    SQLite through the SQLAlchemy Crime model.
 """
-
-from config.config import (
-    CRIMES_TABLE,
-    get_supabase_client,
-    supabase_enabled,
-)
 
 from services.errors import StorageError
 
@@ -36,124 +22,12 @@ CRIME_COLUMNS = [
 ]
 
 
-class SupabaseCrimeRepository:
+class CrimeRepository:
     """
-    Crime record storage backed by Supabase PostgreSQL.
-    """
-
-    def __init__(
-        self,
-        client=None,
-        table_name=CRIMES_TABLE
-    ):
-
-        self.client = (
-            client or get_supabase_client()
-        )
-
-        self.table_name = table_name
-
-    def _execute(self, query_builder):
-
-        try:
-
-            response = query_builder.execute()
-
-        except Exception as error:
-
-            raise StorageError(
-                "Database request failed: "
-                f"{error}"
-            )
-
-        return response
-
-    def list_crimes(self):
-
-        response = self._execute(
-            self.client
-            .table(self.table_name)
-            .select("*")
-            .order("id")
-        )
-
-        return response.data or []
-
-    def get_crime(self, crime_id):
-
-        response = self._execute(
-            self.client
-            .table(self.table_name)
-            .select("*")
-            .eq("id", crime_id)
-            .limit(1)
-        )
-
-        rows = response.data or []
-
-        if not rows:
-            return None
-
-        return rows[0]
-
-    def insert_crime(self, payload):
-
-        response = self._execute(
-            self.client
-            .table(self.table_name)
-            .insert(payload)
-        )
-
-        rows = response.data or []
-
-        if not rows:
-            raise StorageError(
-                "Crime record could not "
-                "be inserted"
-            )
-
-        return rows[0]
-
-    def update_crime(
-        self,
-        crime_id,
-        payload
-    ):
-
-        response = self._execute(
-            self.client
-            .table(self.table_name)
-            .update(payload)
-            .eq("id", crime_id)
-        )
-
-        rows = response.data or []
-
-        if not rows:
-            return None
-
-        return rows[0]
-
-    def delete_crime(self, crime_id):
-
-        response = self._execute(
-            self.client
-            .table(self.table_name)
-            .delete()
-            .eq("id", crime_id)
-        )
-
-        return bool(response.data)
-
-
-class LocalCrimeRepository:
-    """
-    SQLite fallback used only for local development
-    when Supabase credentials are not configured.
+    Crime record storage backed by SQLite via SQLAlchemy.
     """
 
     def list_crimes(self):
-
         from models.crime import Crime
 
         crimes = (
@@ -168,7 +42,6 @@ class LocalCrimeRepository:
         ]
 
     def get_crime(self, crime_id):
-
         from database import db
         from models.crime import Crime
 
@@ -183,7 +56,6 @@ class LocalCrimeRepository:
         return crime.to_dict()
 
     def insert_crime(self, payload):
-
         from database import db
         from models.crime import Crime
 
@@ -200,7 +72,6 @@ class LocalCrimeRepository:
         crime_id,
         payload
     ):
-
         from database import db
         from models.crime import Crime
 
@@ -220,7 +91,6 @@ class LocalCrimeRepository:
         return crime.to_dict()
 
     def delete_crime(self, crime_id):
-
         from database import db
         from models.crime import Crime
 
@@ -241,13 +111,8 @@ class LocalCrimeRepository:
 
 def get_crime_repository():
     """
-    Return the active crime record repository:
+    Return the active crime record repository.
 
-    - Supabase PostgreSQL when credentials exist.
-    - Local SQLite otherwise (development only).
+    SQLite is the sole storage backend.
     """
-
-    if supabase_enabled():
-        return SupabaseCrimeRepository()
-
-    return LocalCrimeRepository()
+    return CrimeRepository()

@@ -2,9 +2,7 @@
 Application configuration.
 
 Loads environment variables from backend/.env and exposes
-the Supabase client when credentials are available.
-
-Supabase credentials are NEVER hard-coded in source files.
+the SQLite database URI used by the application.
 """
 
 import os
@@ -22,16 +20,11 @@ ENV_FILE = os.path.join(BASE_DIR, ".env")
 load_dotenv(ENV_FILE)
 
 
-# Supabase PostgreSQL credentials (from environment)
-SUPABASE_URL = os.getenv(
-    "SUPABASE_URL",
-    ""
-).strip()
-
-SUPABASE_KEY = os.getenv(
-    "SUPABASE_KEY",
-    ""
-).strip()
+# SQLite database URI
+SQLALCHEMY_DATABASE_URI = os.getenv(
+    "SQLALCHEMY_DATABASE_URI",
+    "sqlite:///crimesense.db"
+)
 
 CRIMES_TABLE = "crimes"
 
@@ -57,35 +50,3 @@ CORS_ORIGINS = [
     ).split(",")
     if origin.strip()
 ]
-
-
-_supabase_client = None
-
-
-def supabase_enabled():
-    """
-    Return True when Supabase credentials
-    are configured through environment variables.
-    """
-
-    return bool(SUPABASE_URL and SUPABASE_KEY)
-
-
-def get_supabase_client():
-    """
-    Create (once) and return the Supabase client
-    built from environment variables.
-    """
-
-    global _supabase_client
-
-    if _supabase_client is None:
-
-        from supabase import create_client
-
-        _supabase_client = create_client(
-            SUPABASE_URL,
-            SUPABASE_KEY
-        )
-
-    return _supabase_client
