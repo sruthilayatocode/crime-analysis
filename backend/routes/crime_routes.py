@@ -249,7 +249,6 @@ def get_nearby_crimes():
     if "radius" in arguments:
 
         try:
-
             radius_km = float(
                 arguments["radius"]
             )
@@ -262,6 +261,32 @@ def get_nearby_crimes():
         if radius_km <= 0:
             raise ValidationError(
                 "radius must be greater than zero"
+            )
+
+        if radius_km > 100.0:
+            raise ValidationError(
+                "radius must be at most 100 kilometres"
+            )
+
+    limit = None
+
+    if "limit" in arguments:
+        try:
+            limit = int(arguments["limit"])
+
+            if limit <= 0:
+                raise ValidationError(
+                    "limit must be greater than zero"
+                )
+
+            if limit > 200:
+                raise ValidationError(
+                    "limit must be at most 200"
+                )
+
+        except ValueError:
+            raise ValidationError(
+                "limit must be a valid integer"
             )
 
     if not -90 <= latitude <= 90:
@@ -280,7 +305,8 @@ def get_nearby_crimes():
         crimes=crimes,
         latitude=latitude,
         longitude=longitude,
-        radius_km=radius_km
+        radius_km=radius_km,
+        limit=limit,
     )
 
     return jsonify({

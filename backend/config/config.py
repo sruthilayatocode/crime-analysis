@@ -42,6 +42,16 @@ DBSCAN_MIN_SAMPLES = int(
     os.getenv("DBSCAN_MIN_SAMPLES", "2")
 )
 
+PROXIMITY_ALERT_RADIUS_METERS = float(
+    os.getenv("PROXIMITY_ALERT_RADIUS_METERS", "500")
+)
+PROXIMITY_ALERT_MIN_RADIUS_METERS = 10.0
+PROXIMITY_ALERT_MAX_RADIUS_METERS = 50000.0
+
+PROXIMITY_MAX_RESULTS = int(
+    os.getenv("PROXIMITY_MAX_RESULTS", "50")
+)
+
 
 # Earth radius in kilometres (used to convert km to radians
 # for the Haversine metric).
