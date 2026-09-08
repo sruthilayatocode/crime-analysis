@@ -24,44 +24,58 @@ import pytest
 # are run from the repository root.
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "backend"))
 
-from backend.app import app as flask_app  # noqa: E402
+from flask import Flask  # noqa: E402
+
+from app import app as flask_app  # noqa: E402
+from database import db  # noqa: E402
 from backend.services.hotspot_service import (  # noqa: E402
     analyze_hotspots,
 )
+from routes.crime_routes import crime_bp  # noqa: E402
+from routes.alert_routes import alert_bp  # noqa: E402
 
 
-# ------------------------------------------------------------------ #
-# Helpers
-# ------------------------------------------------------------------ #
+@pytest.fixture(autouse=True)
+def isolated_db(tmp_path):
+    db_path = tmp_path / "test_hotspots.db"
+    db_uri = "sqlite:///" + str(db_path)
+
+    test_app = Flask(__name__)
+    test_app.config["SQLALCHEMY_DATABASE_URI"] = db_uri
+    test_app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+    db.init_app(test_app)
+
+    test_app.register_blueprint(crime_bp)
+    test_app.register_blueprint(alert_bp)
+
+    with test_app.app_context():
+        db.create_all()
+        yield test_app
+
+    with test_app.app_context():
+        db.session.remove()
+        engines = db._app_engines.get(test_app, {})
+        for engine in engines.values():
+            engine.dispose()
+        db._app_engines.pop(test_app, None)
+
 
 @pytest.fixture()
-def client():
-    """
-    Create a Flask test client using the existing application
-    and its configured SQLite database.
-    """
-    with flask_app.test_client() as test_client:
-
+def client(isolated_db):
+    with isolated_db.test_client() as test_client:
         yield test_client
 
 
-def _clear_and_seed(crimes_data):
-    """
-    Delete all existing crimes and insert fresh records
-    using SQLAlchemy's own engine to avoid session caching
-    issues.
-    """
-    from database import db
+def _clear_and_seed(crimes_data, test_app):
     from services import crime_service
 
-    with flask_app.app_context():
-
+    with test_app.app_context():
         db.session.execute(db.text("DELETE FROM crimes"))
         db.session.commit()
         db.session.remove()
 
         for data in crimes_data:
-
             crime_service.create_crime(data)
 
 
@@ -394,8 +408,8 @@ class TestHotspotAPI:
             assert "centroid_longitude" in hotspot
             assert "risk_level" in hotspot
 
-    def test_hotspots_with_empty_database(self, client):
-        _clear_and_seed([])
+    def test_hotspots_with_empty_database(self, client, isolated_db):
+        _clear_and_seed([], isolated_db)
 
         resp = client.get("/api/crimes/hotspots")
         body = resp.get_json()
@@ -403,7 +417,7 @@ class TestHotspotAPI:
         assert body["count"] == 0
         assert body["data"] == []
 
-    def test_risk_level_filter(self, client):
+    def test_risk_level_filter(self, client, isolated_db):
         _clear_and_seed([
             {
                 "crime_type": "Test1",
@@ -423,7 +437,7 @@ class TestHotspotAPI:
                 "longitude": 78.940936,
                 "location_name": "Pallikonda",
             },
-        ])
+        ], isolated_db)
 
         resp = client.get("/api/crimes/hotspots?risk_level=Low")
         body = resp.get_json()
@@ -433,7 +447,7 @@ class TestHotspotAPI:
         for hotspot in body["data"]:
             assert hotspot["risk_level"] == "Low"
 
-    def test_limit_filter(self, client):
+    def test_limit_filter(self, client, isolated_db):
         _clear_and_seed([
             {
                 "crime_type": "Test1",
@@ -471,7 +485,7 @@ class TestHotspotAPI:
                 "longitude": 78.940936,
                 "location_name": "Pallikonda",
             },
-        ])
+        ], isolated_db)
 
         resp = client.get("/api/crimes/hotspots?limit=1")
         body = resp.get_json()
@@ -483,7 +497,7 @@ class TestHotspotAPI:
         resp = client.get("/api/hotspots")
         assert resp.status_code == 200
 
-    def test_records_without_coordinates_dont_crash(self, client):
+    def test_records_without_coordinates_dont_crash(self, client, isolated_db):
         _clear_and_seed([
             {
                 "crime_type": "NoCoords",
@@ -493,7 +507,7 @@ class TestHotspotAPI:
                 "crime_type": "AlsoNoCoords",
                 "location_name": "Somewhere",
             },
-        ])
+        ], isolated_db)
 
         resp = client.get("/api/crimes/hotspots")
         assert resp.status_code == 200
@@ -515,14 +529,14 @@ class TestCrimesCRUD:
         assert body["success"] is True
         assert "count" in body
 
-    def test_get_crime_by_id(self, client):
+    def test_get_crime_by_id(self, client, isolated_db):
         _clear_and_seed([
             {
                 "crime_type": "Test",
                 "latitude": 13.0,
                 "longitude": 79.0,
             }
-        ])
+        ], isolated_db)
 
         resp = client.get("/api/crimes/1")
         assert resp.status_code == 200
@@ -539,14 +553,14 @@ class TestCrimesCRUD:
         assert resp.status_code == 201
         assert resp.get_json()["success"] is True
 
-    def test_put_crime(self, client):
+    def test_put_crime(self, client, isolated_db):
         _clear_and_seed([
             {
                 "crime_type": "Original",
                 "latitude": 13.0,
                 "longitude": 79.0,
             }
-        ])
+        ], isolated_db)
 
         resp = client.put(
             "/api/crimes/1",
@@ -555,14 +569,14 @@ class TestCrimesCRUD:
         assert resp.status_code == 200
         assert resp.get_json()["success"] is True
 
-    def test_delete_crime(self, client):
+    def test_delete_crime(self, client, isolated_db):
         _clear_and_seed([
             {
                 "crime_type": "ToDelete",
                 "latitude": 13.0,
                 "longitude": 79.0,
             }
-        ])
+        ], isolated_db)
 
         resp = client.delete("/api/crimes/1")
         assert resp.status_code == 200
@@ -576,7 +590,7 @@ class TestCrimesCRUD:
 class TestProximityCheck:
     """Verify the alert endpoint works with DBSCAN hotspots."""
 
-    def test_proximity_check_returns_200(self, client):
+    def test_proximity_check_returns_200(self, client, isolated_db):
         _clear_and_seed([
             {
                 "crime_type": "Test",
@@ -596,7 +610,7 @@ class TestProximityCheck:
                 "longitude": 79.240412,
                 "location_name": "Katpadi",
             },
-        ])
+        ], isolated_db)
 
         resp = client.post(
             "/api/proximity-check",

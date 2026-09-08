@@ -73,3 +73,6 @@ build/
 # Trained machine-learning model files
 *.joblib
 *.pkl
+
+# Duplicate teammate worktree/repository
+crime-analysis-frontend/

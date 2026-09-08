@@ -11,26 +11,56 @@ import pytest
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "backend"))
 
-from backend.app import app as flask_app  # noqa: E402
+from flask import Flask  # noqa: E402
+
+from app import app as flask_app  # noqa: E402
 from models.crime import Crime  # noqa: E402
 from services import crime_service  # noqa: E402
 from database import db  # noqa: E402
+from routes.crime_routes import crime_bp  # noqa: E402
+from routes.alert_routes import alert_bp  # noqa: E402
+
+
+@pytest.fixture(autouse=True)
+def isolated_db(tmp_path):
+    db_path = tmp_path / "test_crime_model.db"
+    db_uri = "sqlite:///" + str(db_path)
+
+    test_app = Flask(__name__)
+    test_app.config["SQLALCHEMY_DATABASE_URI"] = db_uri
+    test_app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+    db.init_app(test_app)
+
+    test_app.register_blueprint(crime_bp)
+    test_app.register_blueprint(alert_bp)
+
+    with test_app.app_context():
+        db.create_all()
+        yield test_app
+
+    with test_app.app_context():
+        db.session.remove()
+        engines = db._app_engines.get(test_app, {})
+        for engine in engines.values():
+            engine.dispose()
+        db._app_engines.pop(test_app, None)
 
 
 @pytest.fixture()
-def client():
-    with flask_app.test_client() as test_client:
+def client(isolated_db):
+    with isolated_db.test_client() as test_client:
         yield test_client
 
 
 @pytest.fixture(autouse=True)
-def clear_crimes():
-    with flask_app.app_context():
+def clear_crimes(isolated_db):
+    with isolated_db.app_context():
         db.session.execute(db.text("DELETE FROM crimes"))
         db.session.commit()
         db.session.remove()
     yield
-    with flask_app.app_context():
+    with isolated_db.app_context():
         db.session.execute(db.text("DELETE FROM crimes"))
         db.session.commit()
         db.session.remove()
@@ -39,8 +69,8 @@ def clear_crimes():
 class TestCrimeModelMetadata:
     """New metadata fields on the Crime model."""
 
-    def test_create_crime_with_metadata(self, client):
-        with flask_app.app_context():
+    def test_create_crime_with_metadata(self, client, isolated_db):
+        with isolated_db.app_context():
             crime = Crime(
                 crime_type="Fraud",
                 article_id="test-123",
@@ -77,8 +107,8 @@ class TestCrimeModelMetadata:
             assert result["severity_score"] == 5
             assert result["risk_level"] == "Medium"
 
-    def test_api_returns_new_fields(self, client):
-        with flask_app.app_context():
+    def test_api_returns_new_fields(self, client, isolated_db):
+        with isolated_db.app_context():
             crime_service.create_crime({
                 "crime_type": "Fraud",
                 "article_id": "api-123",
