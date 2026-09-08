@@ -150,6 +150,83 @@ def _build_payload(
 
         payload["severity"] = severity
 
+    if "article_id" in data:
+        article_id = data["article_id"]
+
+        if article_id is not None:
+            article_id = str(article_id).strip() or None
+
+        payload["article_id"] = article_id
+
+    if "title" in data:
+        title = data["title"]
+
+        if title is not None:
+            title = str(title).strip() or None
+
+        payload["title"] = title
+
+    if "source" in data:
+        source = data["source"]
+
+        if source is not None:
+            source = str(source).strip() or None
+
+        payload["source"] = source
+
+    if "url" in data:
+        url = data["url"]
+
+        if url is not None:
+            url = str(url).strip() or None
+
+        payload["url"] = url
+
+    if "district" in data:
+        district = data["district"]
+
+        if district is not None:
+            district = str(district).strip() or None
+
+        payload["district"] = district
+
+    if "location_confidence" in data:
+        location_confidence = data["location_confidence"]
+
+        if location_confidence is not None:
+            location_confidence = str(location_confidence).strip() or None
+
+        payload["location_confidence"] = location_confidence
+
+    if "location_source" in data:
+        location_source = data["location_source"]
+
+        if location_source is not None:
+            location_source = str(location_source).strip() or None
+
+        payload["location_source"] = location_source
+
+    if "severity_score" in data:
+        severity_score = data["severity_score"]
+
+        if severity_score is not None:
+            try:
+                severity_score = int(severity_score)
+            except (TypeError, ValueError):
+                raise ValidationError(
+                    "severity_score must be a valid integer"
+                )
+
+        payload["severity_score"] = severity_score
+
+    if "risk_level" in data:
+        risk_level = data["risk_level"]
+
+        if risk_level is not None:
+            risk_level = str(risk_level).strip() or None
+
+        payload["risk_level"] = risk_level
+
     coordinate_fields = (
         "latitude",
         "longitude"

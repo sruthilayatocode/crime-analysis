@@ -142,10 +142,9 @@ def proximity_check():
 
     hotspot_input = [
         {
-            "location": (
-                crime.get("location_name")
-                or "Unknown"
-            ),
+            "location_name": crime.get(
+                "location_name"
+            ) or "Unknown",
             "latitude": crime["latitude"],
             "longitude": crime["longitude"]
         }
@@ -166,10 +165,10 @@ def proximity_check():
         user_latitude=user_latitude,
         user_longitude=user_longitude,
         hotspot_latitude=nearest_hotspot[
-            "average_latitude"
+            "centroid_latitude"
         ],
         hotspot_longitude=nearest_hotspot[
-            "average_longitude"
+            "centroid_longitude"
         ],
         alert_radius=alert_radius
     )
@@ -203,10 +202,10 @@ def proximity_check():
                 "location"
             ],
             "latitude": nearest_hotspot[
-                "average_latitude"
+                "centroid_latitude"
             ],
             "longitude": nearest_hotspot[
-                "average_longitude"
+                "centroid_longitude"
             ],
             "crime_count": nearest_hotspot[
                 "crime_count"

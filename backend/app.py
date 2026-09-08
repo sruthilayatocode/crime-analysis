@@ -34,6 +34,7 @@ from database import db
 # Importing the models registers them on the SQLAlchemy
 # metadata BEFORE db.create_all() runs below.
 from models.crime import Crime  # noqa: F401
+from migrations import migrate_crime_schema  # noqa: F401
 
 from routes.alert_routes import alert_bp
 from routes.crime_routes import crime_bp
@@ -59,6 +60,7 @@ db.init_app(app)
 # Create SQLite tables automatically
 with app.app_context():
     db.create_all()
+    migrate_crime_schema()
 
 
 # Allow the local frontend origins to call /api/* endpoints.

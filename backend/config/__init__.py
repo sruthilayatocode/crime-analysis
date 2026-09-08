@@ -2,6 +2,9 @@ from config.config import (
     BASE_DIR,
     CORS_ORIGINS,
     CRIMES_TABLE,
+    DBSCAN_EPS_KM,
+    DBSCAN_MIN_SAMPLES,
+    EARTH_RADIUS_KM,
     SQLALCHEMY_DATABASE_URI,
 )
 
@@ -9,5 +12,8 @@ __all__ = [
     "BASE_DIR",
     "CORS_ORIGINS",
     "CRIMES_TABLE",
+    "DBSCAN_EPS_KM",
+    "DBSCAN_MIN_SAMPLES",
+    "EARTH_RADIUS_KM",
     "SQLALCHEMY_DATABASE_URI",
 ]

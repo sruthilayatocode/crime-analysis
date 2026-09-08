@@ -18,6 +18,15 @@ CRIME_COLUMNS = [
     "location_name",
     "crime_date",
     "severity",
+    "article_id",
+    "title",
+    "source",
+    "url",
+    "district",
+    "location_confidence",
+    "location_source",
+    "severity_score",
+    "risk_level",
     "created_at",
 ]
 

@@ -148,10 +148,9 @@ def get_hotspots():
 
     hotspot_input = [
         {
-            "location": (
-                crime.get("location_name")
-                or "Unknown"
-            ),
+            "location_name": crime.get(
+                "location_name"
+            ) or "Unknown",
             "latitude": crime["latitude"],
             "longitude": crime["longitude"]
         }

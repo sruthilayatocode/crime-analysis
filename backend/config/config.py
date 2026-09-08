@@ -29,6 +29,25 @@ SQLALCHEMY_DATABASE_URI = os.getenv(
 CRIMES_TABLE = "crimes"
 
 
+# DBSCAN hotspot detection configuration.
+# eps is the neighborhood radius in kilometres.  Points within
+# this distance are considered neighbours by the algorithm.
+# min_samples is the minimum number of crimes required to
+# form a hotspot cluster.  Smaller values create more clusters
+# (including spurious ones); larger values merge nearby areas.
+DBSCAN_EPS_KM = float(
+    os.getenv("DBSCAN_EPS_KM", "1.0")
+)
+DBSCAN_MIN_SAMPLES = int(
+    os.getenv("DBSCAN_MIN_SAMPLES", "2")
+)
+
+
+# Earth radius in kilometres (used to convert km to radians
+# for the Haversine metric).
+EARTH_RADIUS_KM = 6371.0
+
+
 # CORS origins allowed to call the API during
 # local frontend development.
 DEFAULT_CORS_ORIGINS = ",".join([
