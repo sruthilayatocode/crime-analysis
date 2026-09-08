@@ -14,6 +14,7 @@ from services.errors import ValidationError
 from services.hotspot_service import analyze_hotspots
 from services.proximity_service import find_nearby_crimes
 from services.statistics_service import build_statistics
+from services.ml_prediction_service import MLAnalyticsService  # noqa: E402
 
 
 crime_bp = Blueprint("crime", __name__)
@@ -360,3 +361,105 @@ def get_location_risk(location):
         "risk_level": risk_level,
         "crime_count": crime_count
     })
+
+
+@crime_bp.route(
+    "/api/ml/hotspots",
+    methods=["POST"]
+)
+def get_ml_hotspots():
+    """
+    Unsupervised ML hotspot analysis.
+
+    This endpoint performs spatial DBSCAN clustering and descriptive
+    temporal/pattern analysis. It does NOT predict future crime.
+
+    Optional JSON body:
+        {
+            "eps_km": <float>,
+            "min_samples": <int>
+        }
+    """
+    payload = request.get_json(silent=True)
+
+    if payload is not None and not isinstance(payload, dict):
+        return jsonify({
+            "success": False,
+            "message": "Request body must be a JSON object"
+        }), 400
+
+    eps_km = None
+    min_samples = None
+
+    if isinstance(payload, dict):
+        raw_eps = payload.get("eps_km")
+
+        if raw_eps is not None:
+            try:
+                eps_km = float(raw_eps)
+
+                if eps_km <= 0:
+                    return jsonify({
+                        "success": False,
+                        "message": "eps_km must be greater than zero"
+                    }), 400
+
+            except (TypeError, ValueError):
+                return jsonify({
+                    "success": False,
+                    "message": "eps_km must be a valid number"
+                }), 400
+
+        raw_min = payload.get("min_samples")
+
+        if raw_min is not None:
+            try:
+                min_samples = int(raw_min)
+
+                if min_samples < 1:
+                    return jsonify({
+                        "success": False,
+                        "message": "min_samples must be at least 1"
+                    }), 400
+
+            except (TypeError, ValueError):
+                return jsonify({
+                    "success": False,
+                    "message": "min_samples must be a valid integer"
+                }), 400
+
+    try:
+
+        records = crime_service.list_crimes()
+
+    except Exception as exc:
+
+        return jsonify({
+            "success": False,
+            "message": (
+                "Failed to load crime records: "
+                f"{exc}"
+            )
+        }), 500
+
+    service = MLAnalyticsService()
+
+    try:
+
+        result = service.get_full_analysis(
+            records,
+            eps_km=eps_km,
+            min_samples=min_samples,
+        )
+
+    except Exception as exc:
+
+        return jsonify({
+            "success": False,
+            "message": (
+                "ML analysis failed: "
+                f"{exc}"
+            )
+        }), 500
+
+    return jsonify(result)
