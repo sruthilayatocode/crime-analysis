@@ -390,7 +390,50 @@ Where:
 
 **No probability or confidence scores are computed or returned.**
 
-## 18. Backward Compatibility
+## 18. Hotspot API Schema Difference
+
+The project exposes two hotspot endpoints that use different
+DBSCAN implementations and return different response schemas.
+
+### 18.1 `GET /api/crimes/hotspots`
+
+* Uses `backend/services/hotspot_service.py`.
+* Excludes noise points (`label == -1`) from the response.
+* Returns only dense clusters.
+* Response fields per hotspot:
+  * `cluster_id`
+  * `location`
+  * `crime_count`
+  * `centroid_latitude`
+  * `centroid_longitude`
+  * `risk_level` (derived from `crime_count`)
+
+### 18.2 `POST /api/ml/hotspots`
+
+* Uses `ml/hotspot_model.py` via `backend/services/ml_prediction_service.py`.
+* Includes noise points as separate hotspot entries with `"noise": true`.
+* Returns richer descriptive metadata per hotspot:
+  * `cluster_id`
+  * `crime_count`
+  * `centroid_latitude`
+  * `centroid_longitude`
+  * `noise` (`true` for noise points)
+  * `dominant_crime_type`
+  * `avg_severity_score`
+  * `dominant_risk_level`
+  * `dominant_location`
+
+### 18.3 Client guidance
+
+* Clients that need a uniform list of dense hotspots should filter
+  out entries where `"noise": true` from the `POST /api/ml/hotspots`
+  response.
+* The two endpoints may return different `cluster_id` values for the
+  same underlying data because they use separate DBSCAN wrappers.
+* Do not rely on identical hotspot counts or ordering across the
+  two endpoints.
+
+## 19. Backward Compatibility
 
 | Endpoint | Change | Compatibility |
 |---|---|---|
@@ -407,7 +450,7 @@ Where:
 | `POST /api/proximity-check` | Strengthened validation, added `nearby_hotspots`, `limitations` | Backward compatible (additional fields) |
 | `POST /api/ml/hotspots` | New endpoint | New |
 
-## 19. Bug Fixes
+## 20. Bug Fixes
 
 | Bug | File | Fix |
 |---|---|---|

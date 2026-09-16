@@ -76,3 +76,15 @@ build/
 
 # Duplicate teammate worktree/repository
 crime-analysis-frontend/
+
+# Local CrimeSense debugging / database verification scripts
+/check_*.py
+/verify_*.py
+/final_verify*.py
+/fix_*.py
+/import_csv*.py
+/init_db.py
+
+# Local/raw/backup CrimeSense datasets
+/data/final/*_raw.csv
+/data/final/*_backup_*.csv

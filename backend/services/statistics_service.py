@@ -5,6 +5,8 @@ Builds dashboard-friendly aggregates from real crime
 records for frontend chart integration.
 """
 
+from datetime import datetime
+
 UNKNOWN_LABEL = "Unknown"
 
 
@@ -16,8 +18,12 @@ def _increment(counter, key):
 def _extract_month(crime_date):
     """
     Extract a YYYY-MM month label from a crime_date
-    string (YYYY-MM-DD or YYYY-MM). Returns
-    "Unknown" when the value cannot be parsed.
+    string. Returns "Unknown" when the value cannot
+    be parsed.
+
+    Supports ISO-style dates (YYYY-MM-DD, YYYY-MM) as
+    well as common human-readable formats such as
+    "DD Month YYYY" (for example "31 July 2026").
     """
 
     if not crime_date:
@@ -25,21 +31,44 @@ def _extract_month(crime_date):
 
     text = str(crime_date).strip()
 
-    parts = text.split("-")
+    if not text:
+        return UNKNOWN_LABEL
 
-    if len(parts) >= 2:
+    try:
+        parsed = datetime.strptime(
+            text,
+            "%Y-%m-%d"
+        )
+        return f"{parsed.year}-{parsed.month:02d}"
+    except ValueError:
+        pass
 
-        year = parts[0]
-        month = parts[1]
+    try:
+        parsed = datetime.strptime(
+            text,
+            "%Y-%m"
+        )
+        return f"{parsed.year}-{parsed.month:02d}"
+    except ValueError:
+        pass
 
-        if (
-            len(year) == 4
-            and year.isdigit()
-            and len(month) in (1, 2)
-            and month.isdigit()
-            and 1 <= int(month) <= 12
-        ):
-            return f"{year}-{int(month):02d}"
+    try:
+        parsed = datetime.strptime(
+            text,
+            "%d %B %Y"
+        )
+        return f"{parsed.year}-{parsed.month:02d}"
+    except ValueError:
+        pass
+
+    try:
+        parsed = datetime.strptime(
+            text,
+            "%d %b %Y"
+        )
+        return f"{parsed.year}-{parsed.month:02d}"
+    except ValueError:
+        pass
 
     return UNKNOWN_LABEL
 

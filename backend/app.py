@@ -21,8 +21,13 @@ BACKEND_DIR = os.path.dirname(
     os.path.abspath(__file__)
 )
 
-if BACKEND_DIR not in sys.path:
-    sys.path.insert(0, BACKEND_DIR)
+PROJECT_ROOT = os.path.dirname(BACKEND_DIR)
+
+for _path in (BACKEND_DIR, PROJECT_ROOT):
+    while _path in sys.path:
+        sys.path.remove(_path)
+sys.path.insert(0, PROJECT_ROOT)
+sys.path.insert(0, BACKEND_DIR)
 
 from flask import Flask, jsonify, request
 from flask_cors import CORS
@@ -101,8 +106,8 @@ def project_info():
             "and Proximity Alert System"
         ),
         "features": [
-            "Crime hotspot analysis",
-            "Crime prediction",
+            "Unsupervised spatial hotspot detection",
+            "Crime pattern and temporal analysis",
             "Location-based risk analysis",
             "Proximity alerts",
             "Crime data visualization"
