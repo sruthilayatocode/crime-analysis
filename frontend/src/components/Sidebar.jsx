@@ -1,7 +1,11 @@
 import { Link, useLocation } from 'react-router-dom'
+import { useAuth } from '../hooks/useAuth'
+import { normalizeRole, ROLES } from '../utils/roles'
 
 const navItems = [
   { to: '/', label: 'Dashboard', icon: 'M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V10' },
+  { to: '/dashboard', label: 'Crime Reports', roles: [ROLES.ADMIN], icon: 'M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' },
+  { to: '/admin/users', label: 'Manage Users', roles: [ROLES.ADMIN], icon: 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z' },
   { to: '/crime-hotspots', label: 'Crime Hotspots', icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z' },
   { to: '/map', label: 'Interactive Map', icon: 'M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7' },
   { to: '/gps-tracking', label: 'GPS Tracking', icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z' },
@@ -11,6 +15,14 @@ const navItems = [
 
 function Sidebar({ collapsed, onToggle, mobileOpen, onMobileClose }) {
   const location = useLocation()
+  const { user, role } = useAuth()
+
+  const currentRole = normalizeRole(role)
+
+  // Items without a "roles" list are visible to every signed-in role.
+  const visibleItems = navItems.filter(
+    (item) => !item.roles || item.roles.includes(currentRole)
+  )
 
   return (
     <>
@@ -61,8 +73,13 @@ function Sidebar({ collapsed, onToggle, mobileOpen, onMobileClose }) {
         </div>
 
         <nav className="flex flex-1 flex-col gap-1 p-3">
-          {navItems.map((item) => {
-            const isActive = location.pathname === item.to
+          {visibleItems.map((item) => {
+            const isActive =
+              item.to === '/'
+                ? location.pathname === '/' ||
+                  location.pathname === '/user/dashboard' ||
+                  location.pathname === '/admin/dashboard'
+                : location.pathname === item.to
             return (
               <Link
                 key={item.to}
@@ -96,6 +113,13 @@ function Sidebar({ collapsed, onToggle, mobileOpen, onMobileClose }) {
             )
           })}
         </nav>
+
+        {!collapsed && (
+          <div className="mx-3 mb-3 rounded-lg bg-gray-800/50 p-3">
+            <p className="truncate text-xs font-medium text-gray-300">{user?.name || 'Guest'}</p>
+            <p className="mt-1 text-[10px] uppercase tracking-wider text-blue-400">{currentRole}</p>
+          </div>
+        )}
 
         <div className="border-t border-gray-800 p-3">
           {!collapsed ? (

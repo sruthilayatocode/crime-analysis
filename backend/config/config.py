@@ -50,3 +50,40 @@ CORS_ORIGINS = [
     ).split(",")
     if origin.strip()
 ]
+
+
+# ---- Authentication ----------------------------------------- #
+
+# Key used to sign authentication tokens. Override this with a
+# SECRET_KEY entry in backend/.env for any real deployment.
+SECRET_KEY = os.getenv(
+    "SECRET_KEY",
+    "crimesense-dev-secret-change-me"
+)
+
+# How long an issued token stays valid.
+TOKEN_EXPIRY_HOURS = float(
+    os.getenv("TOKEN_EXPIRY_HOURS", "12")
+)
+
+# Create the first ADMIN account on start-up when the database
+# does not contain one yet (development convenience).
+SEED_DEFAULT_ADMIN = (
+    os.getenv("SEED_DEFAULT_ADMIN", "1") == "1"
+)
+
+DEFAULT_ADMIN_NAME = os.getenv(
+    "DEFAULT_ADMIN_NAME",
+    "System Administrator"
+)
+
+DEFAULT_ADMIN_EMAIL = os.getenv(
+    "DEFAULT_ADMIN_EMAIL",
+    "admin@crimesense.local"
+)
+
+DEFAULT_ADMIN_PASSWORD = os.getenv(
+    "DEFAULT_ADMIN_PASSWORD",
+    "Admin@12345"
+)
+

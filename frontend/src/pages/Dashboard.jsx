@@ -5,12 +5,15 @@ import RecentCrimeReports from '../components/RecentCrimeReports'
 import RecentAlerts from '../components/RecentAlerts'
 import PageHeader from '../components/PageHeader'
 import { stats } from '../data/dashboardData'
+import { useAuth } from '../hooks/useAuth'
 
 function Dashboard() {
+  const { user } = useAuth()
+
   return (
     <div className="space-y-6">
       <PageHeader
-        title="Welcome back, Admin"
+        title={`Welcome back, ${user?.name || 'Admin'}`}
         description="Here's what's happening with crime hotspots and alerts today."
         badge={
           <div className="flex items-center gap-3">

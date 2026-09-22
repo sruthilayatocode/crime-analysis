@@ -1,6 +1,16 @@
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../hooks/useAuth'
+import { formatRole, initialsFor } from '../utils/roles'
 
 function Navbar({ onMenuClick }) {
+  const { user, role, logout } = useAuth()
+  const navigate = useNavigate()
+
+  const handleSignOut = () => {
+    logout()
+    navigate('/login', { replace: true })
+  }
+
   return (
     <nav className="border-b border-gray-800 bg-gray-900/80 backdrop-blur-sm">
       <div className="flex items-center justify-between px-4 py-3 sm:px-6">
@@ -41,20 +51,21 @@ function Navbar({ onMenuClick }) {
 
           <div className="hidden items-center gap-3 border-l border-gray-800 pl-3 sm:flex">
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-800 text-sm font-medium text-gray-300">
-              AD
+              {initialsFor(user?.name)}
             </div>
             <div className="hidden md:block">
-              <p className="text-xs font-medium text-gray-300">Admin</p>
-              <p className="text-[10px] text-gray-500">System Administrator</p>
+              <p className="text-xs font-medium text-gray-300">{user?.name || 'Guest'}</p>
+              <p className="text-[10px] text-gray-500">{formatRole(role)}</p>
             </div>
           </div>
 
-          <Link
-            to="/login"
+          <button
+            type="button"
+            onClick={handleSignOut}
             className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700"
           >
             Sign Out
-          </Link>
+          </button>
         </div>
       </div>
     </nav>

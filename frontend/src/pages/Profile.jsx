@@ -5,6 +5,8 @@ import SettingsCard from '../components/SettingsCard'
 import AccountActionsCard from '../components/AccountActionsCard'
 import RecentActivityCard from '../components/RecentActivityCard'
 import PageHeader from '../components/PageHeader'
+import { useAuth } from '../hooks/useAuth'
+import { formatRole, initialsFor } from '../utils/roles'
 import {
   userProfile,
   personalInfo,
@@ -14,6 +16,17 @@ import {
 } from '../data/profileData'
 
 function Profile() {
+  const { user, role } = useAuth()
+
+  // Fall back to the static fixture whenever a field is missing.
+  const profile = {
+    ...userProfile,
+    name: user?.name || userProfile.name,
+    email: user?.email || userProfile.email,
+    role: formatRole(role),
+    initials: initialsFor(user?.name || userProfile.name),
+  }
+
   return (
     <div className="space-y-6">
       <PageHeader
@@ -32,7 +45,7 @@ function Profile() {
 
       {/* Profile and Personal Info */}
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-        <UserProfileCard profile={userProfile} />
+        <UserProfileCard profile={profile} />
         <div className="lg:col-span-2">
           <PersonalInfoCard info={personalInfo} />
         </div>

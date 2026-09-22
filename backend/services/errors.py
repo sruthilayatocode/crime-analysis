@@ -55,3 +55,21 @@ class StorageError(ApiError):
     """Database/storage failure (HTTP 500)."""
 
     status_code = 500
+
+
+class UnauthorizedError(ApiError):
+    """Missing or invalid credentials (HTTP 401)."""
+
+    status_code = 401
+
+
+class ForbiddenError(ApiError):
+    """Authenticated but not allowed (HTTP 403)."""
+
+    status_code = 403
+
+
+class ConflictError(ApiError):
+    """The resource already exists (HTTP 409)."""
+
+    status_code = 409

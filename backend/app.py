@@ -34,10 +34,14 @@ from database import db
 # Importing the models registers them on the SQLAlchemy
 # metadata BEFORE db.create_all() runs below.
 from models.crime import Crime  # noqa: F401
+from models.user import User  # noqa: F401
 
 from routes.alert_routes import alert_bp
+from routes.auth_routes import auth_bp
 from routes.crime_routes import crime_bp
+from routes.user_routes import user_bp
 
+from services import auth_service
 from services.errors import ApiError
 
 
@@ -60,6 +64,16 @@ db.init_app(app)
 with app.app_context():
     db.create_all()
 
+    # Create the first ADMIN account when the database does
+    # not contain one yet (config.config.SEED_DEFAULT_ADMIN).
+    try:
+        auth_service.ensure_default_admin()
+    except Exception as seed_error:
+        print(
+            "Could not seed the default administrator: "
+            f"{seed_error}"
+        )
+
 
 # Allow the local frontend origins to call /api/* endpoints.
 CORS(
@@ -71,6 +85,8 @@ CORS(
 # Register API route blueprints
 app.register_blueprint(crime_bp)
 app.register_blueprint(alert_bp)
+app.register_blueprint(auth_bp)
+app.register_blueprint(user_bp)
 
 
 @app.route("/")
