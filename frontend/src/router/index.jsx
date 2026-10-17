@@ -14,6 +14,10 @@ import InteractiveMap from '../pages/InteractiveMap'
 import GPSTracking from '../pages/GPSTracking'
 import Alerts from '../pages/Alerts'
 import Profile from '../pages/Profile'
+import ReportCrime from '../pages/ReportCrime'
+import MyReports from '../pages/MyReports'
+import PendingApprovals from '../pages/PendingApprovals'
+import CrimeRecords from '../pages/CrimeRecords'
 import NotFound from '../pages/NotFound'
 import { useAuth } from '../hooks/useAuth'
 import { ROLES } from '../utils/roles'
@@ -70,6 +74,24 @@ const router = createBrowserRouter([
           </RoleRoute>
         ),
       },
+      {
+        path: 'admin/approvals',
+        element: (
+          <RoleRoute allow={[ROLES.ADMIN]}>
+            <PendingApprovals />
+          </RoleRoute>
+        ),
+      },
+      {
+        path: 'admin/crimes',
+        element: (
+          <RoleRoute allow={[ROLES.ADMIN]}>
+            <CrimeRecords />
+          </RoleRoute>
+        ),
+      },
+      { path: 'report-crime', element: <ReportCrime /> },
+      { path: 'my-reports', element: <MyReports /> },
       { path: 'crime-hotspots', element: <CrimeHotspots /> },
       { path: 'map', element: <InteractiveMap /> },
       { path: 'gps-tracking', element: <GPSTracking /> },
@@ -79,8 +101,10 @@ const router = createBrowserRouter([
     ],
   },
   { path: '/login', element: <Login /> },
+  { path: '/admin/login', element: <Login portalMode="ADMIN" /> },
   { path: '/register', element: <Register /> },
   { path: '*', element: <NotFound /> },
 ])
 
 export default router
+

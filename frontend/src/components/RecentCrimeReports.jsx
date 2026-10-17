@@ -1,39 +1,69 @@
+import { Link } from 'react-router-dom'
 import DataTable from './DataTable'
 import StatusBadge from './StatusBadge'
 import Card from './Card'
 import CardHeader from './CardHeader'
-import { recentCrimeReports } from '../data/dashboardData'
+import { recentCrimeReports as defaultReports } from '../data/dashboardData'
 
-function RecentCrimeReports() {
+function RecentCrimeReports({ reports = null }) {
+  const displayReports = reports && reports.length > 0 ? reports.slice(0, 6) : defaultReports
+
   const columns = [
-    { key: 'id', label: 'Report ID', cellClassName: 'font-mono text-xs text-gray-400' },
-    { key: 'type', label: 'Type', cellClassName: 'font-medium text-gray-300' },
-    { key: 'location', label: 'Location', cellClassName: 'text-gray-400' },
-    { key: 'time', label: 'Time', cellClassName: 'text-gray-400' },
+    {
+      key: 'id',
+      label: 'ID',
+      cellClassName: 'font-mono text-xs text-gray-400',
+      render: (report) => `#${report.id}`,
+    },
+    {
+      key: 'type',
+      label: 'Incident Type',
+      cellClassName: 'font-semibold text-gray-200',
+      render: (report) => report.type || report.crime_type || 'Incident',
+    },
+    {
+      key: 'location',
+      label: 'Locality',
+      cellClassName: 'text-gray-300',
+      render: (report) => report.location || report.location_name || 'Vellore',
+    },
+    {
+      key: 'time',
+      label: 'Date / Time',
+      cellClassName: 'text-xs text-gray-400',
+      render: (report) => report.time || report.crime_date || '-',
+    },
     {
       key: 'status',
       label: 'Status',
-      render: (report) => <StatusBadge status={report.status} />,
+      render: (report) => <StatusBadge status={report.status || 'APPROVED'} />,
     },
     {
       key: 'risk',
-      label: 'Risk',
-      render: (report) => <StatusBadge status={report.risk} />,
+      label: 'Severity',
+      render: (report) => <StatusBadge status={report.risk || report.severity || 'Medium'} />,
     },
   ]
 
   return (
     <Card>
       <CardHeader
-        title="Recent Crime Reports"
-        subtitle="Latest reported incidents"
+        title="Recent Verified Incidents"
+        subtitle="Latest crime reports in jurisdiction"
         action={
-          <button className="rounded-lg bg-gray-800 px-3 py-1.5 text-xs font-medium text-gray-400 transition-colors hover:bg-gray-700 hover:text-white">
-            View All
-          </button>
+          <Link
+            to="/admin/crimes"
+            className="rounded-lg bg-gray-800 px-3 py-1.5 text-xs font-medium text-gray-300 transition-colors hover:bg-gray-700 hover:text-white"
+          >
+            View All Records
+          </Link>
         }
       />
-      <DataTable columns={columns} data={recentCrimeReports} />
+      <DataTable
+        columns={columns}
+        data={displayReports}
+        emptyMessage="No recent incidents to display."
+      />
     </Card>
   )
 }

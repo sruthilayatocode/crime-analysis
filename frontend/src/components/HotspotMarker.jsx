@@ -29,25 +29,36 @@ function createHotspotIcon(risk) {
 }
 
 function HotspotMarker({ hotspot }) {
+  const lat = hotspot.lat ?? hotspot.average_latitude
+  const lng = hotspot.lng ?? hotspot.average_longitude
+  const zoneName = hotspot.zone ?? hotspot.location ?? 'Hotspot Zone'
+  const risk = hotspot.risk ?? hotspot.risk_level ?? 'Medium'
+  const crimeCount = hotspot.crimeCount ?? hotspot.crime_count ?? 0
+
+  if (lat == null || lng == null) return null
+
   return (
     <Marker
-      position={[hotspot.lat, hotspot.lng]}
-      icon={createHotspotIcon(hotspot.risk)}
+      position={[lat, lng]}
+      icon={createHotspotIcon(risk)}
     >
       <Popup>
         <div className="min-w-[180px]">
-          <h3 className="mb-1 text-sm font-bold text-gray-900">{hotspot.zone}</h3>
+          <h3 className="mb-1 text-sm font-bold text-gray-900">{zoneName}</h3>
           <div className="space-y-1 text-xs text-gray-600">
             <p>
-              <span className="font-medium">Risk:</span>{' '}
+              <span className="font-medium">Risk Level:</span>{' '}
               <span className={`font-semibold ${
-                hotspot.risk === 'High' ? 'text-red-600' : hotspot.risk === 'Medium' ? 'text-yellow-600' : 'text-green-600'
+                risk === 'High' ? 'text-red-600' : risk === 'Medium' ? 'text-yellow-600' : 'text-green-600'
               }`}>
-                {hotspot.risk}
+                {risk}
               </span>
             </p>
             <p>
-              <span className="font-medium">Crime Count:</span> {hotspot.crimeCount}
+              <span className="font-medium">Recorded Incidents:</span> {crimeCount}
+            </p>
+            <p className="font-mono text-[11px] text-gray-500">
+              {Number(lat).toFixed(4)}, {Number(lng).toFixed(4)}
             </p>
           </div>
         </div>

@@ -157,3 +157,55 @@ export async function updateUserRole(userId, role, token) {
   })
 }
 
+// ---- Crime Reporting & Admin Approvals ----------------------
+
+export async function reportCrime(reportData, token) {
+  return requestJson('/crimes/report', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      ...authHeaders(token),
+    },
+    body: JSON.stringify(reportData),
+  })
+}
+
+export async function getMyReports(token) {
+  return requestJson('/crimes/my-reports', {
+    headers: authHeaders(token),
+  })
+}
+
+export async function getPendingReports(token) {
+  return requestJson('/admin/crimes/pending', {
+    headers: authHeaders(token),
+  })
+}
+
+export async function approveCrimeReport(crimeId, adminNotes = '', token) {
+  return requestJson(`/admin/crimes/${crimeId}/approve`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      ...authHeaders(token),
+    },
+    body: JSON.stringify({ admin_notes: adminNotes }),
+  })
+}
+
+export async function rejectCrimeReport(crimeId, adminNotes = '', token) {
+  return requestJson(`/admin/crimes/${crimeId}/reject`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      ...authHeaders(token),
+    },
+    body: JSON.stringify({ admin_notes: adminNotes }),
+  })
+}
+
+export async function getAllCrimes(status = 'APPROVED') {
+  return requestJson(`/crimes?status=${encodeURIComponent(status)}`)
+}
+
+

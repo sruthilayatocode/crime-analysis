@@ -6,18 +6,34 @@ import { dashboardPathForRole } from '../utils/roles'
 const inputClass =
   'w-full rounded-lg border border-gray-800 bg-gray-950/60 px-3 py-2.5 text-sm text-gray-100 placeholder-gray-600 outline-none transition-colors focus:border-blue-500'
 
-function Login() {
+function Login({ portalMode = 'USER' }) {
   const { isAuthenticated, user, login, submitting } = useAuth()
   const navigate = useNavigate()
   const location = useLocation()
 
-  const [form, setForm] = useState({ email: '', password: '' })
+  const [activePortal, setActivePortal] = useState(
+    location.pathname.includes('/admin') || portalMode === 'ADMIN' ? 'ADMIN' : 'USER'
+  )
+  const [form, setForm] = useState({
+    email: activePortal === 'ADMIN' ? 'admin@crimesense.local' : '',
+    password: activePortal === 'ADMIN' ? 'Admin@12345' : '',
+  })
   const [error, setError] = useState('')
 
   const requestedPath = location.state?.from
 
   if (isAuthenticated) {
     return <Navigate to={requestedPath || dashboardPathForRole(user?.role)} replace />
+  }
+
+  const handlePortalSwitch = (mode) => {
+    setActivePortal(mode)
+    setError('')
+    if (mode === 'ADMIN') {
+      setForm({ email: 'admin@crimesense.local', password: 'Admin@12345' })
+    } else {
+      setForm({ email: '', password: '' })
+    }
   }
 
   const handleChange = (event) => {
@@ -53,9 +69,38 @@ function Login() {
           </div>
           <div>
             <h1 className="text-lg font-bold text-white">CrimeSense</h1>
-            <p className="text-xs text-gray-500">Sign in to continue</p>
+            <p className="text-xs text-gray-500">
+              {activePortal === 'ADMIN' ? 'Administrator Portal' : 'Citizen Safety Portal'}
+            </p>
           </div>
         </div>
+
+        {/* Portal Switcher Tabs */}
+        <div className="mt-5 grid grid-cols-2 rounded-lg border border-gray-800 bg-gray-950/80 p-1 text-xs font-medium">
+          <button
+            type="button"
+            onClick={() => handlePortalSwitch('USER')}
+            className={`rounded-md py-1.5 transition-colors ${
+              activePortal === 'USER'
+                ? 'bg-blue-600 text-white'
+                : 'text-gray-400 hover:text-white'
+            }`}
+          >
+            Citizen Sign-In
+          </button>
+          <button
+            type="button"
+            onClick={() => handlePortalSwitch('ADMIN')}
+            className={`rounded-md py-1.5 transition-colors ${
+              activePortal === 'ADMIN'
+                ? 'bg-blue-600 text-white'
+                : 'text-gray-400 hover:text-white'
+            }`}
+          >
+            Admin Sign-In
+          </button>
+        </div>
+
 
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
           <div>

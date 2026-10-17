@@ -30,13 +30,20 @@ function createUserIcon() {
 }
 
 function UserLocationMarker({ location }) {
+  if (!location) return null
+  const lat = location.lat ?? location.latitude
+  const lng = location.lng ?? location.longitude
+  const label = location.label || 'Your Location'
+
+  if (lat == null || lng == null) return null
+
   return (
-    <Marker position={[location.lat, location.lng]} icon={createUserIcon()}>
+    <Marker position={[lat, lng]} icon={createUserIcon()}>
       <Popup>
         <div className="min-w-[150px]">
-          <h3 className="mb-1 text-sm font-bold text-gray-900">{location.label}</h3>
-          <p className="text-xs text-gray-600">
-            {location.lat.toFixed(4)}, {location.lng.toFixed(4)}
+          <h3 className="mb-1 text-sm font-bold text-gray-900">{label}</h3>
+          <p className="font-mono text-xs text-gray-600">
+            {Number(lat).toFixed(4)}, {Number(lng).toFixed(4)}
           </p>
         </div>
       </Popup>

@@ -1,45 +1,101 @@
+import { MapContainer, TileLayer, Marker, Popup, Circle } from 'react-leaflet'
+import 'leaflet/dist/leaflet.css'
+import L from 'leaflet'
 import Card from './Card'
 import CardHeader from './CardHeader'
 
-function MiniMapPlaceholder({ location }) {
+const userPin = L.divIcon({
+  className: 'live-user-pin',
+  html: `
+    <div style="position: relative; width: 22px; height: 22px;">
+      <div style="position: absolute; inset: -8px; background: rgba(59, 130, 246, 0.35); border-radius: 50%;"></div>
+      <div style="position: absolute; inset: 0; background: #2563eb; border: 3px solid white; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.5);"></div>
+    </div>
+  `,
+  iconSize: [22, 22],
+  iconAnchor: [11, 11],
+})
+
+function MiniMapPlaceholder({ location, radiusMeters = 500, nearestHotspot = null }) {
+  const lat = location?.latitude ?? location?.lat ?? 12.9165
+  const lng = location?.longitude ?? location?.lng ?? 79.1325
+  const hasCoordinates = location?.latitude != null || location?.lat != null
+
   return (
-    <Card>
-      <CardHeader
-        title="Location Map"
-        subtitle="Your position on the map"
-        action={
-          <span className="rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-medium text-white">
-            Live
-          </span>
-        }
-      />
+    <Card className="overflow-hidden p-0">
+      <div className="p-4 sm:p-5 pb-3">
+        <CardHeader
+          title="Position Map"
+          subtitle={hasCoordinates ? "Live GPS coordinates active" : "Default jurisdiction view (Vellore)"}
+          action={
+            <span className={`rounded-lg px-2.5 py-1 text-xs font-semibold ${
+              hasCoordinates ? 'bg-green-500/10 text-green-400 border border-green-500/30' : 'bg-gray-800 text-gray-400'
+            }`}>
+              {hasCoordinates ? 'GPS Active' : 'Ready'}
+            </span>
+          }
+        />
+      </div>
 
-      <div className="relative flex h-64 items-center justify-center overflow-hidden rounded-lg border border-gray-800 bg-gradient-to-br from-gray-900 via-blue-950 to-gray-900">
-        {/* Grid lines */}
-        <div className="absolute inset-0 opacity-20" style={{
-          backgroundImage: 'linear-gradient(rgba(59,130,246,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.3) 1px, transparent 1px)',
-          backgroundSize: '40px 40px',
-        }} />
+      <div className="relative h-64 sm:h-72 w-full border-t border-gray-800">
+        <MapContainer
+          key={`${lat}-${lng}`}
+          center={[lat, lng]}
+          zoom={14}
+          scrollWheelZoom={false}
+          className="h-full w-full z-0"
+        >
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
 
-        {/* Heat blob */}
-        <div className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-red-500/20 blur-3xl" />
+          <Marker position={[lat, lng]} icon={userPin}>
+            <Popup>
+              <div className="text-xs">
+                <p className="font-bold text-gray-900">Your Current Position</p>
+                <p className="text-gray-600 font-mono text-[11px]">{Number(lat).toFixed(4)}, {Number(lng).toFixed(4)}</p>
+              </div>
+            </Popup>
+          </Marker>
 
-        {/* User location marker with pulse */}
-        <div className="relative flex items-center justify-center">
-          <span className="absolute inline-flex h-12 w-12 animate-ping rounded-full bg-blue-500 opacity-30" />
-          <span className="relative flex h-5 w-5 items-center justify-center rounded-full border-[3px] border-white bg-blue-500 shadow-lg">
-            <span className="h-2 w-2 rounded-full bg-white/70" />
-          </span>
-        </div>
+          {/* Alert radius boundary circle */}
+          <Circle
+            center={[lat, lng]}
+            radius={radiusMeters}
+            pathOptions={{
+              color: '#3b82f6',
+              fillColor: '#3b82f6',
+              opacity: 0.7,
+              fillOpacity: 0.12,
+              dashArray: '4, 4',
+            }}
+          />
 
-        {/* Coordinates overlay */}
-        <div className="absolute bottom-3 left-3 rounded-lg bg-gray-900/80 px-3 py-2 font-mono text-xs text-gray-400">
-          {location.latitude.toFixed(4)}, {location.longitude.toFixed(4)}
-        </div>
+          {nearestHotspot && nearestHotspot.latitude && (
+            <Circle
+              center={[nearestHotspot.latitude, nearestHotspot.longitude]}
+              radius={Math.max(250, (nearestHotspot.crime_count || 1) * 150)}
+              pathOptions={{
+                color: '#ef4444',
+                fillColor: '#ef4444',
+                opacity: 0.8,
+                fillOpacity: 0.3,
+              }}
+            >
+              <Popup>
+                <div className="text-xs">
+                  <p className="font-bold text-gray-900">{nearestHotspot.location || 'Nearest Hotspot'}</p>
+                  <p className="text-red-600 font-semibold">{nearestHotspot.risk_level || 'High'} Risk</p>
+                </div>
+              </Popup>
+            </Circle>
+          )}
+        </MapContainer>
 
-        {/* Placeholder note */}
-        <div className="absolute right-3 top-3 rounded-lg bg-gray-900/80 px-3 py-2 text-xs text-gray-500">
-          Map integration coming soon
+        <div className="absolute bottom-3 left-3 z-[1000] rounded-lg bg-gray-900/90 backdrop-blur-sm border border-gray-800 px-3 py-1.5 font-mono text-xs text-gray-300 shadow">
+          {Number(lat).toFixed(4)}, {Number(lng).toFixed(4)}
+          <span className="ml-2 text-[10px] text-blue-400">({radiusMeters}m perimeter)</span>
         </div>
       </div>
     </Card>
