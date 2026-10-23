@@ -1,0 +1,67 @@
+{
+  "raw_risk_percentiles": {
+    "p50": 0.0,
+    "p75": 0.0,
+    "p90": 0.0,
+    "p95": 2.409,
+    "p99": 550.5676,
+    "max": 1319.4804
+  },
+  "sensitivity_summary": [
+    {
+      "R_ref": 100,
+      "Z_centroid": 100.0,
+      "Z_500m": 100.0,
+      "Z_1000m": 14.03,
+      "Z_1100m": 11.92,
+      "Grid_Mean_Z": 2.9,
+      "Grid_Std_Z": 15.66,
+      "Grid_Variance_Z": 245.14,
+      "Pct_Saturated_Z100": 2.24
+    },
+    {
+      "R_ref": 500,
+      "Z_centroid": 100.0,
+      "Z_500m": 100.0,
+      "Z_1000m": 2.81,
+      "Z_1100m": 2.38,
+      "Grid_Mean_Z": 1.78,
+      "Grid_Std_Z": 11.94,
+      "Grid_Variance_Z": 142.57,
+      "Pct_Saturated_Z100": 1.12
+    },
+    {
+      "R_ref": 1000,
+      "Z_centroid": 100.0,
+      "Z_500m": 83.3,
+      "Z_1000m": 1.4,
+      "Z_1100m": 1.19,
+      "Grid_Mean_Z": 1.21,
+      "Grid_Std_Z": 8.91,
+      "Grid_Variance_Z": 79.33,
+      "Pct_Saturated_Z100": 0.32
+    },
+    {
+      "R_ref": 2500,
+      "Z_centroid": 65.64,
+      "Z_500m": 33.32,
+      "Z_1000m": 0.56,
+      "Z_1100m": 0.48,
+      "Grid_Mean_Z": 0.52,
+      "Grid_Std_Z": 3.95,
+      "Grid_Variance_Z": 15.56,
+      "Pct_Saturated_Z100": 0.0
+    },
+    {
+      "R_ref": 5000,
+      "Z_centroid": 32.82,
+      "Z_500m": 16.66,
+      "Z_1000m": 0.28,
+      "Z_1100m": 0.24,
+      "Grid_Mean_Z": 0.26,
+      "Grid_Std_Z": 1.97,
+      "Grid_Variance_Z": 3.89,
+      "Pct_Saturated_Z100": 0.0
+    }
+  ]
+}

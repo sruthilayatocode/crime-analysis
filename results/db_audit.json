@@ -1,0 +1,179 @@
+{
+  "crimes": {
+    "count": 596,
+    "columns": [
+      "id",
+      "article_id",
+      "title",
+      "published_date",
+      "source",
+      "url",
+      "crime_type",
+      "description",
+      "district",
+      "locality",
+      "latitude",
+      "longitude",
+      "location_confidence",
+      "location_source",
+      "severity_score",
+      "risk_level",
+      "location_name",
+      "crime_date",
+      "severity"
+    ]
+  },
+  "users": {
+    "count": 2,
+    "columns": [
+      "id",
+      "name",
+      "email",
+      "password_hash",
+      "google_id",
+      "avatar_url",
+      "role",
+      "is_active",
+      "created_at",
+      "last_login_at"
+    ]
+  },
+  "sos_contacts": {
+    "count": 1,
+    "columns": [
+      "id",
+      "user_id",
+      "name",
+      "phone",
+      "relationship",
+      "is_primary",
+      "created_at"
+    ]
+  },
+  "saved_locations": {
+    "count": 0,
+    "columns": [
+      "id",
+      "user_id",
+      "label",
+      "latitude",
+      "longitude",
+      "address",
+      "zone",
+      "created_at",
+      "is_pinned",
+      "last_checked_at"
+    ]
+  },
+  "user_settings": {
+    "count": 2,
+    "columns": [
+      "id",
+      "user_id",
+      "location_sharing_enabled",
+      "red_zone_alert_enabled",
+      "inactivity_minutes",
+      "alert_radius_m",
+      "share_live_location_with_admin"
+    ]
+  },
+  "user_locations": {
+    "count": 2,
+    "columns": [
+      "id",
+      "user_id",
+      "latitude",
+      "longitude",
+      "accuracy",
+      "zone",
+      "recorded_at"
+    ]
+  },
+  "sos_events": {
+    "count": 0,
+    "columns": [
+      "id",
+      "user_id",
+      "type",
+      "latitude",
+      "longitude",
+      "zone",
+      "status",
+      "contacts_notified",
+      "created_at",
+      "resolved_at",
+      "accuracy",
+      "live_tracking_until",
+      "admin_notes"
+    ]
+  },
+  "shared_links": {
+    "count": 0,
+    "columns": [
+      "id",
+      "token",
+      "user_id",
+      "latitude",
+      "longitude",
+      "expires_at",
+      "is_live",
+      "created_at",
+      "label",
+      "address",
+      "accuracy",
+      "zone",
+      "is_revoked",
+      "updated_at"
+    ]
+  },
+  "user_red_zone_states": {
+    "count": 1,
+    "columns": [
+      "id",
+      "user_id",
+      "state",
+      "entered_red_at",
+      "last_heartbeat_at",
+      "last_interaction_at",
+      "warning_prompt_sent_at",
+      "warning_expires_at",
+      "last_auto_alert_at",
+      "latitude",
+      "longitude",
+      "accuracy",
+      "zone",
+      "is_stale_heartbeat",
+      "push_subscription"
+    ]
+  },
+  "audit_logs": {
+    "count": 6,
+    "columns": [
+      "id",
+      "admin_id",
+      "admin_email",
+      "admin_name",
+      "action",
+      "target_entity",
+      "details",
+      "ip_address",
+      "created_at"
+    ]
+  },
+  "alerts": {
+    "count": 0,
+    "columns": [
+      "id",
+      "user_id",
+      "title",
+      "message",
+      "alert_type",
+      "severity",
+      "latitude",
+      "longitude",
+      "radius_m",
+      "is_read",
+      "created_at"
+    ]
+  }
+}

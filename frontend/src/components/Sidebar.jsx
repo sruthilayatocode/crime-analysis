@@ -1,120 +1,193 @@
-import { Link, useLocation } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import {
+  LayoutDashboard,
+  Database,
+  TrendingUp,
+  Users,
+  MapPin,
+  BellRing,
+  ScrollText,
+  ChevronLeft,
+  ChevronRight,
+  Shield,
+  Smartphone,
+  LogOut,
+  X,
+  Radio,
+} from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
+import { adminService } from '../services/adminService';
 
-const navItems = [
-  { to: '/', label: 'Dashboard', icon: 'M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V10' },
-  { to: '/crime-hotspots', label: 'Crime Hotspots', icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z' },
-  { to: '/map', label: 'Interactive Map', icon: 'M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7' },
-  { to: '/gps-tracking', label: 'GPS Tracking', icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z' },
-  { to: '/alerts', label: 'Alerts', icon: 'M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9' },
-  { to: '/profile', label: 'Profile', icon: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z' },
-]
+const ADMIN_NAV_ITEMS = [
+  { to: '/admin/overview', label: 'Overview', icon: LayoutDashboard },
+  { to: '/admin/crimes', label: 'Crime Data', icon: Database },
+  { to: '/admin/trends', label: 'History & Trends', icon: TrendingUp },
+  { to: '/admin/users', label: 'Users', icon: Users },
+  { to: '/admin/live-map', label: 'Live Map', icon: MapPin },
+  { to: '/admin/alerts', label: 'Alerts & SOS', icon: BellRing, badge: true },
+  { to: '/admin/audit-logs', label: 'Audit Log', icon: ScrollText },
+];
 
-function Sidebar({ collapsed, onToggle, mobileOpen, onMobileClose }) {
-  const location = useLocation()
+export default function Sidebar({ collapsed, onToggle, mobileOpen, onMobileClose }) {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { user, logout } = useAuth();
+  const [activeSOSCount, setActiveSOSCount] = useState(0);
+
+  // Poll active SOS count for sidebar badge every 15s
+  useEffect(() => {
+    async function checkSOS() {
+      try {
+        const feed = await adminService.getSOSFeed({ status: 'active' });
+        setActiveSOSCount(feed.active_count || 0);
+      } catch {}
+    }
+    checkSOS();
+    const interval = setInterval(checkSOS, 15000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleLogout = async () => {
+    if (logout) await logout();
+    navigate('/login');
+  };
 
   return (
     <>
-      {/* Mobile sidebar */}
-      <div
-        className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
-          mobileOpen ? 'opacity-100' : 'pointer-events-none opacity-0'
-        }`}
-        onClick={onMobileClose}
-      />
+      {/* Mobile backdrop */}
+      {mobileOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-slate-950/70 backdrop-blur-xs lg:hidden transition-opacity"
+          onClick={onMobileClose}
+        />
+      )}
+
+      {/* Sidebar container */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 flex shrink-0 flex-col border-r border-gray-800 bg-gray-900/95 backdrop-blur-sm transition-all duration-300 lg:static ${
-          collapsed ? 'lg:w-16' : 'lg:w-64'
-        } ${
-          mobileOpen ? 'w-64 translate-x-0' : 'w-64 -translate-x-full lg:translate-x-0'
-        }`}
+        className={`fixed inset-y-0 left-0 z-50 flex flex-col bg-slate-900 border-r border-slate-800 text-slate-300 transition-all duration-300 select-none lg:static ${
+          collapsed ? 'lg:w-20' : 'lg:w-64'
+        } ${mobileOpen ? 'w-64 translate-x-0' : 'w-64 -translate-x-full lg:translate-x-0'}`}
       >
-        <div className="flex items-center justify-between border-b border-gray-800 p-4">
-          {!collapsed && (
-            <span className="text-sm font-semibold text-gray-400">Navigation</span>
-          )}
+        {/* Brand header */}
+        <div className="h-16 px-4 flex items-center justify-between border-b border-slate-800 shrink-0">
+          <div className="flex items-center gap-2.5 overflow-hidden">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-red-600 to-rose-500 text-white flex items-center justify-center font-black shadow-md shrink-0">
+              <Shield className="w-5 h-5" />
+            </div>
+            {!collapsed && (
+              <div className="truncate">
+                <span className="font-extrabold text-white text-sm tracking-tight block">
+                  CrimeSense<span className="text-red-500 font-bold ml-1 text-xs uppercase px-1.5 py-0.2 bg-red-950/60 rounded border border-red-800/60">Admin</span>
+                </span>
+                <span className="text-[10px] text-slate-400 block -mt-0.5">Control & Intelligence</span>
+              </div>
+            )}
+          </div>
+
           <div className="flex items-center gap-1">
-            {/* Collapse toggle - desktop only */}
+            {/* Desktop collapse toggle */}
             <button
+              type="button"
               onClick={onToggle}
-              className="hidden rounded-lg p-2 text-gray-400 transition-colors hover:bg-gray-800 hover:text-white lg:block"
+              className="hidden lg:flex p-1.5 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors"
               title={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
             >
-              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                {collapsed ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
-                )}
-              </svg>
+              {collapsed ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
             </button>
-            {/* Close button on mobile */}
+
+            {/* Mobile close */}
             <button
+              type="button"
               onClick={onMobileClose}
-              className="rounded-lg p-2 text-gray-400 transition-colors hover:bg-gray-800 hover:text-white lg:hidden"
-              title="Close sidebar"
+              className="lg:hidden p-1.5 text-slate-400 hover:text-white rounded-lg"
             >
-              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
+              <X className="w-5 h-5" />
             </button>
           </div>
         </div>
 
-        <nav className="flex flex-1 flex-col gap-1 p-3">
-          {navItems.map((item) => {
-            const isActive = location.pathname === item.to
+        {/* Navigation list */}
+        <nav className="flex-1 overflow-y-auto p-3 space-y-1">
+          {ADMIN_NAV_ITEMS.map((item) => {
+            const Icon = item.icon;
+            const isActive =
+              location.pathname === item.to ||
+              (item.to === '/admin/overview' && (location.pathname === '/admin' || location.pathname === '/admin/dashboard'));
+
             return (
               <Link
                 key={item.to}
                 to={item.to}
                 onClick={onMobileClose}
-                className={`group flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all ${
+                className={`group relative flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition-all ${
                   isActive
-                    ? 'bg-blue-600/20 text-blue-400'
-                    : 'text-gray-400 hover:bg-gray-800 hover:text-white'
+                    ? 'bg-red-600 text-white shadow-md shadow-red-600/20'
+                    : 'text-slate-400 hover:text-slate-100 hover:bg-slate-800/70'
                 }`}
                 title={collapsed ? item.label : undefined}
               >
-                <svg
-                  className={`h-5 w-5 shrink-0 ${isActive ? 'text-blue-400' : 'text-gray-500 group-hover:text-gray-300'}`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d={item.icon} />
-                </svg>
-                <span className="truncate lg:hidden">{item.label}</span>
+                <Icon className={`w-4 h-4 shrink-0 transition-transform group-hover:scale-110 ${isActive ? 'text-white' : 'text-slate-400 group-hover:text-slate-200'}`} />
+
                 {!collapsed && (
-                  <>
-                    <span className="hidden truncate lg:inline">{item.label}</span>
-                    {isActive && (
-                      <span className="ml-auto hidden h-1.5 w-1.5 rounded-full bg-blue-400 lg:block" />
-                    )}
-                  </>
+                  <span className="truncate flex-1">{item.label}</span>
+                )}
+
+                {item.badge && activeSOSCount > 0 && (
+                  <span
+                    className={`shrink-0 flex items-center justify-center px-1.5 py-0.5 rounded-full text-[10px] font-black animate-pulse ${
+                      isActive ? 'bg-white text-red-700' : 'bg-red-600 text-white'
+                    }`}
+                  >
+                    {activeSOSCount}
+                  </span>
                 )}
               </Link>
-            )
+            );
           })}
         </nav>
 
-        <div className="border-t border-gray-800 p-3">
-          {!collapsed ? (
-            <div className="rounded-lg bg-gray-800/50 p-3">
-              <p className="text-xs font-medium text-gray-300">System Status</p>
-              <div className="mt-2 flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-green-500" />
-                <span className="text-xs text-gray-500">All systems operational</span>
+        {/* Switch to User View & Admin Profile Footer */}
+        <div className="p-3 border-t border-slate-800 shrink-0 space-y-2">
+          {/* Switch to User Mobile App */}
+          <Link
+            to="/app"
+            className={`flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-slate-300 hover:text-white text-xs font-semibold transition-all border border-slate-700/60 ${
+              collapsed ? 'justify-center' : ''
+            }`}
+            title="Open Citizen Safety App"
+          >
+            <Smartphone className="w-4 h-4 text-emerald-400 shrink-0" />
+            {!collapsed && <span className="truncate">Citizen App View</span>}
+          </Link>
+
+          {/* Admin profile snippet & logout */}
+          <div className="flex items-center justify-between pt-1">
+            <div className="flex items-center gap-2 overflow-hidden">
+              <div className="w-8 h-8 rounded-lg bg-red-700 text-white flex items-center justify-center font-bold text-xs shrink-0">
+                {user?.name ? user.name[0].toUpperCase() : 'A'}
               </div>
+              {!collapsed && (
+                <div className="truncate text-left min-w-0">
+                  <p className="text-xs font-bold text-white truncate">{user?.name || 'Administrator'}</p>
+                  <p className="text-[10px] text-slate-400 truncate">{user?.email || 'admin@crimesense.com'}</p>
+                </div>
+              )}
             </div>
-          ) : (
-            <div className="flex justify-center">
-              <span className="h-2 w-2 rounded-full bg-green-500" />
-            </div>
-          )}
+
+            {!collapsed && (
+              <button
+                type="button"
+                onClick={handleLogout}
+                className="p-1.5 text-slate-400 hover:text-red-400 hover:bg-slate-800 rounded-lg transition-colors"
+                title="Log out"
+              >
+                <LogOut className="w-4 h-4" />
+              </button>
+            )}
+          </div>
         </div>
       </aside>
     </>
-  )
+  );
 }
-
-export default Sidebar

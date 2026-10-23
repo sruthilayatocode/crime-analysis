@@ -21,7 +21,44 @@
   }
 }
 
-/* Leaflet dark theme overrides */
+/* ---------------------------------------------------------------------- */
+/* Utility: hide scrollbar while preserving scroll functionality           */
+/* ---------------------------------------------------------------------- */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE / Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;             /* Chrome / Safari */
+}
+
+/* ---------------------------------------------------------------------- */
+/* animate-in helpers (Tailwind v3-compatible)                             */
+/* ---------------------------------------------------------------------- */
+@keyframes fade-in-50 {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slide-in-from-bottom-6 {
+  from { transform: translateY(1.5rem); opacity: 0; }
+  to   { transform: translateY(0);      opacity: 1; }
+}
+@keyframes slide-in-from-top-3 {
+  from { transform: translateY(-0.75rem); opacity: 0; }
+  to   { transform: translateY(0);        opacity: 1; }
+}
+
+.animate-in { animation-fill-mode: both; }
+
+.fade-in-50        { animation: fade-in-50 0.15s ease-out; }
+.slide-in-from-bottom-6 { animation: slide-in-from-bottom-6 0.3s ease-out; }
+.slide-in-from-top-3    { animation: slide-in-from-top-3 0.2s ease-out; }
+.duration-150 { animation-duration: 0.15s; }
+.duration-300 { animation-duration: 0.3s; }
+
+/* ---------------------------------------------------------------------- */
+/* Leaflet dark theme overrides                                             */
+/* ---------------------------------------------------------------------- */
 .leaflet-container {
   background: #0a0f1e;
   font-family: inherit;

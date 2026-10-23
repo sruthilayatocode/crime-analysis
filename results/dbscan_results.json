@@ -1,0 +1,530 @@
+{
+  "total_records": 596,
+  "micro_records": 127,
+  "sweep": [
+    {
+      "eps_meters": 250,
+      "min_pts": 3,
+      "clusters_full": 12,
+      "noise_points_full": 14,
+      "noise_share_pct_full": 2.35,
+      "largest_cluster_full": 469,
+      "clusters_micro": 11,
+      "noise_points_micro": 14,
+      "noise_share_pct_micro": 11.02,
+      "largest_cluster_micro": 41
+    },
+    {
+      "eps_meters": 250,
+      "min_pts": 5,
+      "clusters_full": 9,
+      "noise_points_full": 24,
+      "noise_share_pct_full": 4.03,
+      "largest_cluster_full": 469,
+      "clusters_micro": 8,
+      "noise_points_micro": 24,
+      "noise_share_pct_micro": 18.9,
+      "largest_cluster_micro": 41
+    },
+    {
+      "eps_meters": 250,
+      "min_pts": 10,
+      "clusters_full": 4,
+      "noise_points_full": 55,
+      "noise_share_pct_full": 9.23,
+      "largest_cluster_full": 469,
+      "clusters_micro": 3,
+      "noise_points_micro": 55,
+      "noise_share_pct_micro": 43.31,
+      "largest_cluster_micro": 41
+    },
+    {
+      "eps_meters": 250,
+      "min_pts": 15,
+      "clusters_full": 4,
+      "noise_points_full": 55,
+      "noise_share_pct_full": 9.23,
+      "largest_cluster_full": 469,
+      "clusters_micro": 3,
+      "noise_points_micro": 55,
+      "noise_share_pct_micro": 43.31,
+      "largest_cluster_micro": 41
+    },
+    {
+      "eps_meters": 250,
+      "min_pts": 20,
+      "clusters_full": 2,
+      "noise_points_full": 86,
+      "noise_share_pct_full": 14.43,
+      "largest_cluster_full": 469,
+      "clusters_micro": 1,
+      "noise_points_micro": 86,
+      "noise_share_pct_micro": 67.72,
+      "largest_cluster_micro": 41
+    },
+    {
+      "eps_meters": 500,
+      "min_pts": 3,
+      "clusters_full": 12,
+      "noise_points_full": 14,
+      "noise_share_pct_full": 2.35,
+      "largest_cluster_full": 469,
+      "clusters_micro": 11,
+      "noise_points_micro": 14,
+      "noise_share_pct_micro": 11.02,
+      "largest_cluster_micro": 41
+    },
+    {
+      "eps_meters": 500,
+      "min_pts": 5,
+      "clusters_full": 9,
+      "noise_points_full": 24,
+      "noise_share_pct_full": 4.03,
+      "largest_cluster_full": 469,
+      "clusters_micro": 8,
+      "noise_points_micro": 24,
+      "noise_share_pct_micro": 18.9,
+      "largest_cluster_micro": 41
+    },
+    {
+      "eps_meters": 500,
+      "min_pts": 10,
+      "clusters_full": 4,
+      "noise_points_full": 55,
+      "noise_share_pct_full": 9.23,
+      "largest_cluster_full": 469,
+      "clusters_micro": 3,
+      "noise_points_micro": 55,
+      "noise_share_pct_micro": 43.31,
+      "largest_cluster_micro": 41
+    },
+    {
+      "eps_meters": 500,
+      "min_pts": 15,
+      "clusters_full": 4,
+      "noise_points_full": 55,
+      "noise_share_pct_full": 9.23,
+      "largest_cluster_full": 469,
+      "clusters_micro": 3,
+      "noise_points_micro": 55,
+      "noise_share_pct_micro": 43.31,
+      "largest_cluster_micro": 41
+    },
+    {
+      "eps_meters": 500,
+      "min_pts": 20,
+      "clusters_full": 2,
+      "noise_points_full": 86,
+      "noise_share_pct_full": 14.43,
+      "largest_cluster_full": 469,
+      "clusters_micro": 1,
+      "noise_points_micro": 86,
+      "noise_share_pct_micro": 67.72,
+      "largest_cluster_micro": 41
+    },
+    {
+      "eps_meters": 750,
+      "min_pts": 3,
+      "clusters_full": 11,
+      "noise_points_full": 13,
+      "noise_share_pct_full": 2.18,
+      "largest_cluster_full": 477,
+      "clusters_micro": 11,
+      "noise_points_micro": 13,
+      "noise_share_pct_micro": 10.24,
+      "largest_cluster_micro": 41
+    },
+    {
+      "eps_meters": 750,
+      "min_pts": 5,
+      "clusters_full": 8,
+      "noise_points_full": 23,
+      "noise_share_pct_full": 3.86,
+      "largest_cluster_full": 477,
+      "clusters_micro": 8,
+      "noise_points_micro": 23,
+      "noise_share_pct_micro": 18.11,
+      "largest_cluster_micro": 41
+    },
+    {
+      "eps_meters": 750,
+      "min_pts": 10,
+      "clusters_full": 4,
+      "noise_points_full": 47,
+      "noise_share_pct_full": 7.89,
+      "largest_cluster_full": 477,
+      "clusters_micro": 3,
+      "noise_points_micro": 55,
+      "noise_share_pct_micro": 43.31,
+      "largest_cluster_micro": 41
+    },
+    {
+      "eps_meters": 750,
+      "min_pts": 15,
+      "clusters_full": 4,
+      "noise_points_full": 47,
+      "noise_share_pct_full": 7.89,
+      "largest_cluster_full": 477,
+      "clusters_micro": 3,
+      "noise_points_micro": 55,
+      "noise_share_pct_micro": 43.31,
+      "largest_cluster_micro": 41
+    },
+    {
+      "eps_meters": 750,
+      "min_pts": 20,
+      "clusters_full": 2,
+      "noise_points_full": 78,
+      "noise_share_pct_full": 13.09,
+      "largest_cluster_full": 477,
+      "clusters_micro": 1,
+      "noise_points_micro": 86,
+      "noise_share_pct_micro": 67.72,
+      "largest_cluster_micro": 41
+    },
+    {
+      "eps_meters": 1000,
+      "min_pts": 3,
+      "clusters_full": 11,
+      "noise_points_full": 13,
+      "noise_share_pct_full": 2.18,
+      "largest_cluster_full": 477,
+      "clusters_micro": 11,
+      "noise_points_micro": 13,
+      "noise_share_pct_micro": 10.24,
+      "largest_cluster_micro": 41
+    },
+    {
+      "eps_meters": 1000,
+      "min_pts": 5,
+      "clusters_full": 8,
+      "noise_points_full": 23,
+      "noise_share_pct_full": 3.86,
+      "largest_cluster_full": 477,
+      "clusters_micro": 8,
+      "noise_points_micro": 23,
+      "noise_share_pct_micro": 18.11,
+      "largest_cluster_micro": 41
+    },
+    {
+      "eps_meters": 1000,
+      "min_pts": 10,
+      "clusters_full": 4,
+      "noise_points_full": 47,
+      "noise_share_pct_full": 7.89,
+      "largest_cluster_full": 477,
+      "clusters_micro": 3,
+      "noise_points_micro": 55,
+      "noise_share_pct_micro": 43.31,
+      "largest_cluster_micro": 41
+    },
+    {
+      "eps_meters": 1000,
+      "min_pts": 15,
+      "clusters_full": 4,
+      "noise_points_full": 47,
+      "noise_share_pct_full": 7.89,
+      "largest_cluster_full": 477,
+      "clusters_micro": 3,
+      "noise_points_micro": 55,
+      "noise_share_pct_micro": 43.31,
+      "largest_cluster_micro": 41
+    },
+    {
+      "eps_meters": 1000,
+      "min_pts": 20,
+      "clusters_full": 2,
+      "noise_points_full": 78,
+      "noise_share_pct_full": 13.09,
+      "largest_cluster_full": 477,
+      "clusters_micro": 1,
+      "noise_points_micro": 86,
+      "noise_share_pct_micro": 67.72,
+      "largest_cluster_micro": 41
+    },
+    {
+      "eps_meters": 1500,
+      "min_pts": 3,
+      "clusters_full": 11,
+      "noise_points_full": 13,
+      "noise_share_pct_full": 2.18,
+      "largest_cluster_full": 477,
+      "clusters_micro": 11,
+      "noise_points_micro": 13,
+      "noise_share_pct_micro": 10.24,
+      "largest_cluster_micro": 41
+    },
+    {
+      "eps_meters": 1500,
+      "min_pts": 5,
+      "clusters_full": 8,
+      "noise_points_full": 23,
+      "noise_share_pct_full": 3.86,
+      "largest_cluster_full": 477,
+      "clusters_micro": 8,
+      "noise_points_micro": 23,
+      "noise_share_pct_micro": 18.11,
+      "largest_cluster_micro": 41
+    },
+    {
+      "eps_meters": 1500,
+      "min_pts": 10,
+      "clusters_full": 4,
+      "noise_points_full": 47,
+      "noise_share_pct_full": 7.89,
+      "largest_cluster_full": 477,
+      "clusters_micro": 3,
+      "noise_points_micro": 55,
+      "noise_share_pct_micro": 43.31,
+      "largest_cluster_micro": 41
+    },
+    {
+      "eps_meters": 1500,
+      "min_pts": 15,
+      "clusters_full": 4,
+      "noise_points_full": 47,
+      "noise_share_pct_full": 7.89,
+      "largest_cluster_full": 477,
+      "clusters_micro": 3,
+      "noise_points_micro": 55,
+      "noise_share_pct_micro": 43.31,
+      "largest_cluster_micro": 41
+    },
+    {
+      "eps_meters": 1500,
+      "min_pts": 20,
+      "clusters_full": 2,
+      "noise_points_full": 78,
+      "noise_share_pct_full": 13.09,
+      "largest_cluster_full": 477,
+      "clusters_micro": 1,
+      "noise_points_micro": 86,
+      "noise_share_pct_micro": 67.72,
+      "largest_cluster_micro": 41
+    },
+    {
+      "eps_meters": 2000,
+      "min_pts": 3,
+      "clusters_full": 11,
+      "noise_points_full": 13,
+      "noise_share_pct_full": 2.18,
+      "largest_cluster_full": 477,
+      "clusters_micro": 11,
+      "noise_points_micro": 13,
+      "noise_share_pct_micro": 10.24,
+      "largest_cluster_micro": 41
+    },
+    {
+      "eps_meters": 2000,
+      "min_pts": 5,
+      "clusters_full": 8,
+      "noise_points_full": 23,
+      "noise_share_pct_full": 3.86,
+      "largest_cluster_full": 477,
+      "clusters_micro": 8,
+      "noise_points_micro": 23,
+      "noise_share_pct_micro": 18.11,
+      "largest_cluster_micro": 41
+    },
+    {
+      "eps_meters": 2000,
+      "min_pts": 10,
+      "clusters_full": 4,
+      "noise_points_full": 47,
+      "noise_share_pct_full": 7.89,
+      "largest_cluster_full": 477,
+      "clusters_micro": 3,
+      "noise_points_micro": 55,
+      "noise_share_pct_micro": 43.31,
+      "largest_cluster_micro": 41
+    },
+    {
+      "eps_meters": 2000,
+      "min_pts": 15,
+      "clusters_full": 4,
+      "noise_points_full": 47,
+      "noise_share_pct_full": 7.89,
+      "largest_cluster_full": 477,
+      "clusters_micro": 3,
+      "noise_points_micro": 55,
+      "noise_share_pct_micro": 43.31,
+      "largest_cluster_micro": 41
+    },
+    {
+      "eps_meters": 2000,
+      "min_pts": 20,
+      "clusters_full": 2,
+      "noise_points_full": 78,
+      "noise_share_pct_full": 13.09,
+      "largest_cluster_full": 477,
+      "clusters_micro": 1,
+      "noise_points_micro": 86,
+      "noise_share_pct_micro": 67.72,
+      "largest_cluster_micro": 41
+    }
+  ],
+  "representative_clustering_500m_minpts5": {
+    "0": {
+      "count": 469,
+      "dominant_locations": [
+        [
+          "Vellore District",
+          200
+        ],
+        [
+          "Vellore",
+          186
+        ],
+        [
+          "Vellore Town",
+          77
+        ]
+      ],
+      "sample_coord": [
+        12.9165,
+        79.1325
+      ]
+    },
+    "1": {
+      "count": 5,
+      "dominant_locations": [
+        [
+          "Katpadi",
+          5
+        ]
+      ],
+      "sample_coord": [
+        13.043505,
+        79.24041
+      ]
+    },
+    "2": {
+      "count": 8,
+      "dominant_locations": [
+        [
+          "Ranipet",
+          8
+        ]
+      ],
+      "sample_coord": [
+        12.9284,
+        79.333
+      ]
+    },
+    "3": {
+      "count": 6,
+      "dominant_locations": [
+        [
+          "Tiruvannamalai",
+          6
+        ]
+      ],
+      "sample_coord": [
+        12.2253,
+        79.0747
+      ]
+    },
+    "4": {
+      "count": 41,
+      "dominant_locations": [
+        [
+          "Katpadi",
+          37
+        ],
+        [
+          "Katpadi railway station",
+          1
+        ],
+        [
+          "Katpadi (abduction); Palar river bed (assault)",
+          1
+        ]
+      ],
+      "sample_coord": [
+        12.9806,
+        79.1368
+      ]
+    },
+    "5": {
+      "count": 15,
+      "dominant_locations": [
+        [
+          "Gudiyattam",
+          11
+        ],
+        [
+          "Gudiyattam Railway Station",
+          1
+        ],
+        [
+          "TN-AP border check post, near Gudiyatham",
+          1
+        ]
+      ],
+      "sample_coord": [
+        12.9461,
+        78.8686
+      ]
+    },
+    "6": {
+      "count": 7,
+      "dominant_locations": [
+        [
+          "Vellore Fort",
+          7
+        ]
+      ],
+      "sample_coord": [
+        12.923,
+        79.1325
+      ]
+    },
+    "7": {
+      "count": 5,
+      "dominant_locations": [
+        [
+          "Arcot",
+          5
+        ]
+      ],
+      "sample_coord": [
+        12.9048,
+        79.3339
+      ]
+    },
+    "8": {
+      "count": 16,
+      "dominant_locations": [
+        [
+          "Chennai",
+          16
+        ]
+      ],
+      "sample_coord": [
+        13.0827,
+        80.2707
+      ]
+    },
+    "-1": {
+      "count": 24,
+      "dominant_locations": [
+        [
+          "Tirupattur",
+          4
+        ],
+        [
+          "Pernambut",
+          3
+        ],
+        [
+          "Ambur",
+          3
+        ]
+      ],
+      "sample_coord": [
+        12.9675,
+        79.943
+      ]
+    }
+  }
+}

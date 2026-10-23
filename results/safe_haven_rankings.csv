@@ -1,0 +1,16 @@
+target_location,haven_name,amenity_type,distance_m,guardianship_weight_wc,opening_status_opt,walk_decay,haven_zone_risk_Zp,risk_penalty_term,utility_score_H,lat,lon
+Katpadi,Katpadi Police Station,police,260.1,1.0,1.0,0.5944,4.26,0.9574,0.5691,12.9825,79.1382
+Katpadi,Apollo Pharmacy Katpadi,pharmacy,264.0,0.6,0.85,0.5898,4.24,0.9576,0.288,12.979,79.135
+Katpadi,Indian Oil Petrol Bunk Katpadi,fuel,591.6,0.5,1.0,0.3063,2.35,0.9765,0.1495,12.984,79.141
+Katpadi,Sri Narayani Hospital Extension Clinic,clinic,811.3,0.8,0.85,0.1974,1.09,0.9891,0.1328,12.975,79.132
+Katpadi,MedPlus Pharmacy,pharmacy,667.9,0.6,0.85,0.2629,1.91,0.9809,0.1315,12.986,79.1395
+CMC,CMC Hospital Main Emergency,hospital,39.4,0.9,1.0,0.9242,1.58,0.9842,0.8187,12.925,79.135
+CMC,CMC In-House Pharmacy,pharmacy,101.0,0.6,1.0,0.817,9.01,0.9099,0.4461,12.9242,79.134
+CMC,Vellore South Police Station,police,543.6,1.0,1.0,0.3372,28.17,0.7183,0.2422,12.9215,79.131
+CMC,HP Petrol Pump Ida Scudder Rd,fuel,390.2,0.5,1.0,0.4582,0.22,0.9978,0.2286,12.9275,79.137
+CMC,Old Bus Stand Vellore,bus_station,502.0,0.5,1.0,0.3664,0.24,0.9976,0.1828,12.929,79.133
+Bagayam,Bagayam Police Outpost,police,282.3,1.0,1.0,0.5686,0.0,1.0,0.5686,12.869,79.1355
+Bagayam,CHAD CMC Hospital Bagayam,hospital,279.5,0.9,1.0,0.5718,0.02,0.9998,0.5145,12.873,79.136
+Bagayam,Santhosh Pharmacy Bagayam,pharmacy,94.7,0.6,0.85,0.8274,0.01,0.9999,0.4219,12.872,79.1345
+Bagayam,Bagayam Bus Terminus,bus_station,89.1,0.5,1.0,0.8368,0.0,1.0,0.4184,12.8705,79.1338
+Bagayam,Bharat Petroleum Fuel Station,fuel,625.5,0.5,0.85,0.2862,0.0,1.0,0.1217,12.866,79.132

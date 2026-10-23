@@ -5,26 +5,44 @@ import HotspotMap from '../components/HotspotMap'
 import RecentCrimeReports from '../components/RecentCrimeReports'
 import RecentAlerts from '../components/RecentAlerts'
 import PageHeader from '../components/PageHeader'
+import CrimeTypeDistribution from '../components/CrimeTypeDistribution'
+import RiskIntelligence from '../components/RiskIntelligence'
+import SeverityInsight from '../components/SeverityInsight'
+import AffectedAreas from '../components/AffectedAreas'
+import IntelligenceSummary from '../components/IntelligenceSummary'
+import AdminSOSLiveAlerts from '../components/AdminSOSLiveAlerts'
 import { useCrimeData } from '../hooks/useCrimeData'
 import {
   buildKpis,
   trendByYear,
-  countByCrimeType,
   toHotspotMarker,
   deriveAlerts,
 } from '../utils/crimeInsights'
+import {
+  buildCrimeTypeDistribution,
+  buildRiskDistribution,
+  buildSeverityInsight,
+  buildAffectedAreas,
+  buildIntelligenceStatements,
+} from '../utils/crimeIntelligence'
 
 function Dashboard() {
   const { crimes, hotspots, loading, error } = useCrimeData()
 
   const kpis = useMemo(() => buildKpis(crimes), [crimes])
   const trend = useMemo(() => trendByYear(crimes), [crimes])
-  const crimeTypes = useMemo(() => countByCrimeType(crimes), [crimes])
   const mapMarkers = useMemo(
     () => (Array.isArray(hotspots) ? hotspots : []).map(toHotspotMarker),
     [hotspots]
   )
   const recentAlerts = useMemo(() => deriveAlerts(crimes).slice(0, 5), [crimes])
+
+  // Crime Intelligence Overview calculations (all derived from the live records).
+  const crimeTypeDist = useMemo(() => buildCrimeTypeDistribution(crimes), [crimes])
+  const riskDist = useMemo(() => buildRiskDistribution(crimes), [crimes])
+  const severity = useMemo(() => buildSeverityInsight(crimes), [crimes])
+  const affectedAreas = useMemo(() => buildAffectedAreas(crimes), [crimes])
+  const intelligence = useMemo(() => buildIntelligenceStatements(crimes), [crimes])
 
   if (loading) {
     return (
@@ -46,6 +64,9 @@ function Dashboard() {
 
   return (
     <div className="space-y-6">
+      {/* Real-time SOS Alerts Banner */}
+      <AdminSOSLiveAlerts />
+
       <PageHeader
         title="Welcome back, Admin"
         description="Live statistics computed from the validated CrimeSense dataset."
@@ -65,31 +86,27 @@ function Dashboard() {
       {/* Stat Cards */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {kpis.map((stat) => (
-          <StatCard key={stat.id} label={stat.label} value={stat.value} color={stat.color} />
+          <StatCard key={stat.id} label={stat.label} value={stat.value}
+                    color={stat.color} total={crimes.length} />
         ))}
       </div>
 
       {/* Chart and Map */}
       <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
-        <CrimeTrendChart data={trend} />
+        <CrimeTrendChart data={trend} loading={loading} error={error} />
         <HotspotMap markers={mapMarkers} />
       </div>
 
-      {/* Crime type distribution */}
-      <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6">
-        <h2 className="text-lg font-semibold text-white">Crime Type Distribution</h2>
-        <p className="text-sm text-gray-500">Incidents grouped by crime_type from the API records</p>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {crimeTypes.map((item) => (
-            <span
-              key={item.label}
-              className="rounded-lg border border-gray-800 bg-gray-800/40 px-3 py-1.5 text-sm text-gray-300"
-            >
-              <span className="font-medium text-white">{item.count}</span> {item.label}
-            </span>
-          ))}
-        </div>
+      {/* Crime Intelligence Overview */}
+      <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
+        <CrimeTypeDistribution data={crimeTypeDist} />
+        <RiskIntelligence data={riskDist} total={crimes.length} />
       </div>
+      <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
+        <AffectedAreas data={affectedAreas} />
+        <SeverityInsight insight={severity} />
+      </div>
+      <IntelligenceSummary statements={intelligence} total={crimes.length} />
 
       {/* Reports and Alerts */}
       <div className="grid grid-cols-1 gap-6 xl:grid-cols-3">

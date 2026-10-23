@@ -1,0 +1,150 @@
+{
+  "summary": {
+    "test_environment": "Simulated GPS Sandbox (Controlled Synthetic Playback)",
+    "dwell_threshold_minutes": 10.0,
+    "prompt_window_seconds": 60.0,
+    "cooldown_minutes": 30.0,
+    "heartbeat_interval_seconds": 30.0,
+    "evaluated_transitions_count": 9,
+    "mean_fsm_eval_latency_ms": 2.51,
+    "p95_fsm_eval_latency_ms": 10.84,
+    "all_transitions_verified": true
+  },
+  "timeline": [
+    {
+      "minute": 0.0,
+      "simulated_time": "20:00:00",
+      "gps_coord": [
+        12.985,
+        79.13
+      ],
+      "zone_detected": "GREEN",
+      "action": "Resident walking in residential lane",
+      "prior_state": "SAFE",
+      "post_state": "SAFE",
+      "prompt_active": false,
+      "alert_dispatched": false,
+      "event_notes": "Heartbeat registered; normal baseline"
+    },
+    {
+      "minute": 2.0,
+      "simulated_time": "20:02:00",
+      "gps_coord": [
+        12.9165,
+        79.1325
+      ],
+      "zone_detected": "RED",
+      "action": "Enters Red Sector; GPS stationary tracking starts",
+      "prior_state": "SAFE",
+      "post_state": "IN_RED",
+      "prompt_active": false,
+      "alert_dispatched": false,
+      "event_notes": "Transition SAFE -> IN_RED; T_dwell countdown armed"
+    },
+    {
+      "minute": 5.0,
+      "simulated_time": "20:05:00",
+      "gps_coord": [
+        12.9165,
+        79.1325
+      ],
+      "zone_detected": "RED",
+      "action": "Stationary dwell (3 min elapsed in red zone)",
+      "prior_state": "IN_RED",
+      "post_state": "IN_RED",
+      "prompt_active": false,
+      "alert_dispatched": false,
+      "event_notes": "Stationary dwell time 3 < T_dwell (10m)"
+    },
+    {
+      "minute": 8.0,
+      "simulated_time": "20:08:00",
+      "gps_coord": [
+        12.9165,
+        79.1325
+      ],
+      "zone_detected": "RED",
+      "action": "Stationary dwell (6 min elapsed in red zone)",
+      "prior_state": "IN_RED",
+      "post_state": "IN_RED",
+      "prompt_active": false,
+      "alert_dispatched": false,
+      "event_notes": "Stationary dwell time 6 < T_dwell (10m)"
+    },
+    {
+      "minute": 11.0,
+      "simulated_time": "20:11:00",
+      "gps_coord": [
+        12.9165,
+        79.1325
+      ],
+      "zone_detected": "RED",
+      "action": "Stationary dwell (9 min elapsed in red zone)",
+      "prior_state": "IN_RED",
+      "post_state": "IN_RED",
+      "prompt_active": false,
+      "alert_dispatched": false,
+      "event_notes": "Stationary dwell time 9 < T_dwell (10m)"
+    },
+    {
+      "minute": 12.0,
+      "simulated_time": "20:12:01",
+      "gps_coord": [
+        12.9165,
+        79.1325
+      ],
+      "zone_detected": "RED",
+      "action": "Inactivity threshold T_dwell (10 min) exceeded",
+      "prior_state": "IN_RED",
+      "post_state": "WARNING",
+      "prompt_active": true,
+      "alert_dispatched": false,
+      "event_notes": "Transition IN_RED -> PROMPT_ACTIVE; 60s safety challenge displayed"
+    },
+    {
+      "minute": 13.03,
+      "simulated_time": "20:13:03",
+      "gps_coord": [
+        12.9165,
+        79.1325
+      ],
+      "zone_detected": "RED",
+      "action": "60-second challenge window expired with zero response",
+      "prior_state": "PROMPT_ACTIVE",
+      "post_state": "AUTO_ALERT_SENT",
+      "prompt_active": false,
+      "alert_dispatched": true,
+      "event_notes": "Transition PROMPT_ACTIVE -> ALERT_DISPATCHED; Automated SOS payload generated"
+    },
+    {
+      "minute": 18.0,
+      "simulated_time": "20:18:03",
+      "gps_coord": [
+        12.9165,
+        79.1325
+      ],
+      "zone_detected": "RED",
+      "action": "Repeated dwell check during cooldown window",
+      "prior_state": "ALERT_DISPATCHED",
+      "post_state": "AUTO_ALERT_SENT",
+      "prompt_active": false,
+      "alert_dispatched": false,
+      "event_notes": "T_cool (30 min) active; repeat alert suppressed to prevent spam"
+    },
+    {
+      "minute": 25.0,
+      "simulated_time": "20:25:00",
+      "gps_coord": [
+        12.93,
+        79.134
+      ],
+      "zone_detected": "YELLOW",
+      "action": "User moves out of Red zone into Yellow zone",
+      "prior_state": "ALERT_DISPATCHED",
+      "post_state": "SAFE",
+      "prompt_active": false,
+      "alert_dispatched": false,
+      "event_notes": "FSM resets to SAFE state automatically"
+    }
+  ]
+}

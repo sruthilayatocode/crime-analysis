@@ -1,0 +1,10 @@
+minute,simulated_time,gps_coord,zone_detected,action,prior_state,post_state,prompt_active,alert_dispatched,event_notes
+0.0,20:00:00,"[12.985, 79.13]",GREEN,Resident walking in residential lane,SAFE,SAFE,False,False,Heartbeat registered; normal baseline
+2.0,20:02:00,"[12.9165, 79.1325]",RED,Enters Red Sector; GPS stationary tracking starts,SAFE,IN_RED,False,False,Transition SAFE -> IN_RED; T_dwell countdown armed
+5.0,20:05:00,"[12.9165, 79.1325]",RED,Stationary dwell (3 min elapsed in red zone),IN_RED,IN_RED,False,False,Stationary dwell time 3 < T_dwell (10m)
+8.0,20:08:00,"[12.9165, 79.1325]",RED,Stationary dwell (6 min elapsed in red zone),IN_RED,IN_RED,False,False,Stationary dwell time 6 < T_dwell (10m)
+11.0,20:11:00,"[12.9165, 79.1325]",RED,Stationary dwell (9 min elapsed in red zone),IN_RED,IN_RED,False,False,Stationary dwell time 9 < T_dwell (10m)
+12.0,20:12:01,"[12.9165, 79.1325]",RED,Inactivity threshold T_dwell (10 min) exceeded,IN_RED,WARNING,True,False,Transition IN_RED -> PROMPT_ACTIVE; 60s safety challenge displayed
+13.03,20:13:03,"[12.9165, 79.1325]",RED,60-second challenge window expired with zero response,PROMPT_ACTIVE,AUTO_ALERT_SENT,False,True,Transition PROMPT_ACTIVE -> ALERT_DISPATCHED; Automated SOS payload generated
+18.0,20:18:03,"[12.9165, 79.1325]",RED,Repeated dwell check during cooldown window,ALERT_DISPATCHED,AUTO_ALERT_SENT,False,False,T_cool (30 min) active; repeat alert suppressed to prevent spam
+25.0,20:25:00,"[12.93, 79.134]",YELLOW,User moves out of Red zone into Yellow zone,ALERT_DISPATCHED,SAFE,False,False,FSM resets to SAFE state automatically

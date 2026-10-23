@@ -1,0 +1,247 @@
+{
+  "query_timestamp": "2026-10-21T18:30:43.016988+00:00",
+  "lambda_meters": 500.0,
+  "weights": {
+    "police": 1.0,
+    "hospital": 0.9,
+    "clinic": 0.8,
+    "townhall": 0.7,
+    "marketplace": 0.7,
+    "pharmacy": 0.6,
+    "bus_station": 0.5,
+    "fuel": 0.5
+  },
+  "results": {
+    "Katpadi": {
+      "source": "CACHED_FALLBACK",
+      "query_timestamp": "2026-10-21T18:30:43.016988+00:00",
+      "total_candidates": 6,
+      "top_5": [
+        {
+          "target_location": "Katpadi",
+          "haven_name": "Katpadi Police Station",
+          "amenity_type": "police",
+          "distance_m": 260.1,
+          "guardianship_weight_wc": 1.0,
+          "opening_status_opt": 1.0,
+          "walk_decay": 0.5944,
+          "haven_zone_risk_Zp": 4.26,
+          "risk_penalty_term": 0.9574,
+          "utility_score_H": 0.5691,
+          "lat": 12.9825,
+          "lon": 79.1382
+        },
+        {
+          "target_location": "Katpadi",
+          "haven_name": "Apollo Pharmacy Katpadi",
+          "amenity_type": "pharmacy",
+          "distance_m": 264.0,
+          "guardianship_weight_wc": 0.6,
+          "opening_status_opt": 0.85,
+          "walk_decay": 0.5898,
+          "haven_zone_risk_Zp": 4.24,
+          "risk_penalty_term": 0.9576,
+          "utility_score_H": 0.288,
+          "lat": 12.979,
+          "lon": 79.135
+        },
+        {
+          "target_location": "Katpadi",
+          "haven_name": "Indian Oil Petrol Bunk Katpadi",
+          "amenity_type": "fuel",
+          "distance_m": 591.6,
+          "guardianship_weight_wc": 0.5,
+          "opening_status_opt": 1.0,
+          "walk_decay": 0.3063,
+          "haven_zone_risk_Zp": 2.35,
+          "risk_penalty_term": 0.9765,
+          "utility_score_H": 0.1495,
+          "lat": 12.984,
+          "lon": 79.141
+        },
+        {
+          "target_location": "Katpadi",
+          "haven_name": "Sri Narayani Hospital Extension Clinic",
+          "amenity_type": "clinic",
+          "distance_m": 811.3,
+          "guardianship_weight_wc": 0.8,
+          "opening_status_opt": 0.85,
+          "walk_decay": 0.1974,
+          "haven_zone_risk_Zp": 1.09,
+          "risk_penalty_term": 0.9891,
+          "utility_score_H": 0.1328,
+          "lat": 12.975,
+          "lon": 79.132
+        },
+        {
+          "target_location": "Katpadi",
+          "haven_name": "MedPlus Pharmacy",
+          "amenity_type": "pharmacy",
+          "distance_m": 667.9,
+          "guardianship_weight_wc": 0.6,
+          "opening_status_opt": 0.85,
+          "walk_decay": 0.2629,
+          "haven_zone_risk_Zp": 1.91,
+          "risk_penalty_term": 0.9809,
+          "utility_score_H": 0.1315,
+          "lat": 12.986,
+          "lon": 79.1395
+        }
+      ]
+    },
+    "CMC": {
+      "source": "CACHED_FALLBACK",
+      "query_timestamp": "2026-10-21T18:30:43.016988+00:00",
+      "total_candidates": 5,
+      "top_5": [
+        {
+          "target_location": "CMC",
+          "haven_name": "CMC Hospital Main Emergency",
+          "amenity_type": "hospital",
+          "distance_m": 39.4,
+          "guardianship_weight_wc": 0.9,
+          "opening_status_opt": 1.0,
+          "walk_decay": 0.9242,
+          "haven_zone_risk_Zp": 1.58,
+          "risk_penalty_term": 0.9842,
+          "utility_score_H": 0.8187,
+          "lat": 12.925,
+          "lon": 79.135
+        },
+        {
+          "target_location": "CMC",
+          "haven_name": "CMC In-House Pharmacy",
+          "amenity_type": "pharmacy",
+          "distance_m": 101.0,
+          "guardianship_weight_wc": 0.6,
+          "opening_status_opt": 1.0,
+          "walk_decay": 0.817,
+          "haven_zone_risk_Zp": 9.01,
+          "risk_penalty_term": 0.9099,
+          "utility_score_H": 0.4461,
+          "lat": 12.9242,
+          "lon": 79.134
+        },
+        {
+          "target_location": "CMC",
+          "haven_name": "Vellore South Police Station",
+          "amenity_type": "police",
+          "distance_m": 543.6,
+          "guardianship_weight_wc": 1.0,
+          "opening_status_opt": 1.0,
+          "walk_decay": 0.3372,
+          "haven_zone_risk_Zp": 28.17,
+          "risk_penalty_term": 0.7183,
+          "utility_score_H": 0.2422,
+          "lat": 12.9215,
+          "lon": 79.131
+        },
+        {
+          "target_location": "CMC",
+          "haven_name": "HP Petrol Pump Ida Scudder Rd",
+          "amenity_type": "fuel",
+          "distance_m": 390.2,
+          "guardianship_weight_wc": 0.5,
+          "opening_status_opt": 1.0,
+          "walk_decay": 0.4582,
+          "haven_zone_risk_Zp": 0.22,
+          "risk_penalty_term": 0.9978,
+          "utility_score_H": 0.2286,
+          "lat": 12.9275,
+          "lon": 79.137
+        },
+        {
+          "target_location": "CMC",
+          "haven_name": "Old Bus Stand Vellore",
+          "amenity_type": "bus_station",
+          "distance_m": 502.0,
+          "guardianship_weight_wc": 0.5,
+          "opening_status_opt": 1.0,
+          "walk_decay": 0.3664,
+          "haven_zone_risk_Zp": 0.24,
+          "risk_penalty_term": 0.9976,
+          "utility_score_H": 0.1828,
+          "lat": 12.929,
+          "lon": 79.133
+        }
+      ]
+    },
+    "Bagayam": {
+      "source": "CACHED_FALLBACK",
+      "query_timestamp": "2026-10-21T18:30:43.016988+00:00",
+      "total_candidates": 5,
+      "top_5": [
+        {
+          "target_location": "Bagayam",
+          "haven_name": "Bagayam Police Outpost",
+          "amenity_type": "police",
+          "distance_m": 282.3,
+          "guardianship_weight_wc": 1.0,
+          "opening_status_opt": 1.0,
+          "walk_decay": 0.5686,
+          "haven_zone_risk_Zp": 0.0,
+          "risk_penalty_term": 1.0,
+          "utility_score_H": 0.5686,
+          "lat": 12.869,
+          "lon": 79.1355
+        },
+        {
+          "target_location": "Bagayam",
+          "haven_name": "CHAD CMC Hospital Bagayam",
+          "amenity_type": "hospital",
+          "distance_m": 279.5,
+          "guardianship_weight_wc": 0.9,
+          "opening_status_opt": 1.0,
+          "walk_decay": 0.5718,
+          "haven_zone_risk_Zp": 0.02,
+          "risk_penalty_term": 0.9998,
+          "utility_score_H": 0.5145,
+          "lat": 12.873,
+          "lon": 79.136
+        },
+        {
+          "target_location": "Bagayam",
+          "haven_name": "Santhosh Pharmacy Bagayam",
+          "amenity_type": "pharmacy",
+          "distance_m": 94.7,
+          "guardianship_weight_wc": 0.6,
+          "opening_status_opt": 0.85,
+          "walk_decay": 0.8274,
+          "haven_zone_risk_Zp": 0.01,
+          "risk_penalty_term": 0.9999,
+          "utility_score_H": 0.4219,
+          "lat": 12.872,
+          "lon": 79.1345
+        },
+        {
+          "target_location": "Bagayam",
+          "haven_name": "Bagayam Bus Terminus",
+          "amenity_type": "bus_station",
+          "distance_m": 89.1,
+          "guardianship_weight_wc": 0.5,
+          "opening_status_opt": 1.0,
+          "walk_decay": 0.8368,
+          "haven_zone_risk_Zp": 0.0,
+          "risk_penalty_term": 1.0,
+          "utility_score_H": 0.4184,
+          "lat": 12.8705,
+          "lon": 79.1338
+        },
+        {
+          "target_location": "Bagayam",
+          "haven_name": "Bharat Petroleum Fuel Station",
+          "amenity_type": "fuel",
+          "distance_m": 625.5,
+          "guardianship_weight_wc": 0.5,
+          "opening_status_opt": 0.85,
+          "walk_decay": 0.2862,
+          "haven_zone_risk_Zp": 0.0,
+          "risk_penalty_term": 1.0,
+          "utility_score_H": 0.1217,
+          "lat": 12.866,
+          "lon": 79.132
+        }
+      ]
+    }
+  }
+}

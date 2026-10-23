@@ -1,0 +1,10 @@
+ds_meters,dt_days,pairs_space_close,observed_X,expected_mean,expected_std,ratio_obs_exp,pseudo_p,significant_005,significant_bonferroni
+250,7,110888,962,948.9,34.28,1.014,0.355,False,False
+250,14,110888,1686,1733.83,58.05,0.972,0.805,False,False
+250,30,110888,3036,3266.83,96.36,0.929,0.996,False,False
+500,7,110888,962,948.33,34.65,1.014,0.338,False,False
+500,14,110888,1686,1732.14,54.69,0.973,0.797,False,False
+500,30,110888,3036,3264.55,100.44,0.93,0.992,False,False
+1000,7,114647,985,980.25,35.05,1.005,0.456,False,False
+1000,14,114647,1728,1792.53,56.4,0.964,0.871,False,False
+1000,30,114647,3109,3379.55,97.54,0.92,0.998,False,False

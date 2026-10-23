@@ -1,0 +1,20 @@
+[
+  {
+    "headline": "Replace with the actual incident headline",
+    "source_url": "https://example.com/real-source-article",
+    "published_date": "2025-01-10",
+    "incident_date": "2025-01-09",
+    "source": "The Hindu",
+    "crime_type": "murder",
+    "description": "Replace with a factual description from the source article.",
+    "district": "Vellore",
+    "locality": "Vellore",
+    "state": "Tamil Nadu",
+    "latitude": "",
+    "longitude": "",
+    "location_confidence": "",
+    "location_source": "",
+    "severity_score": "",
+    "risk_level": ""
+  }
+]

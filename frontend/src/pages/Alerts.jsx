@@ -7,6 +7,7 @@ import EmptyState from '../components/EmptyState'
 import FilterButtons from '../components/FilterButtons'
 import PageHeader from '../components/PageHeader'
 import Card from '../components/Card'
+import AdminSOSLiveAlerts from '../components/AdminSOSLiveAlerts'
 import { useCrimeData } from '../hooks/useCrimeData'
 import { buildAlertSummary, deriveAlerts, deriveAlertHistory } from '../utils/crimeInsights'
 
@@ -34,6 +35,9 @@ function Alerts() {
 
   return (
     <div className="space-y-6">
+      {/* Real-time SOS Alerts Banner */}
+      <AdminSOSLiveAlerts />
+
       <PageHeader
         title="Alerts"
         description="Safety alerts derived from validated crime incidents."

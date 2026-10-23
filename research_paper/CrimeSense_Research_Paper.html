@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CrimeSense: IEEE Research Paper</title>
+<style>
+  @page {
+    size: A4;
+    margin: 1.5cm;
+  }
+  body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 10pt;
+    line-height: 1.25;
+    color: #111;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 20px;
+  }
+  .no-print-toolbar {
+    max-width: 900px;
+    margin: 0 auto 20px auto;
+    background: #1a365d;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  .no-print-toolbar button {
+    background: #e2e8f0;
+    color: #1a365d;
+    font-weight: bold;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 11pt;
+  }
+  .no-print-toolbar button:hover {
+    background: #fff;
+  }
+  .paper-container {
+    max-width: 850px;
+    margin: 0 auto;
+    background: white;
+    padding: 40px 50px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+  }
+  .title {
+    text-align: center;
+    font-size: 18pt;
+    font-weight: bold;
+    margin-bottom: 12px;
+    line-height: 1.2;
+    color: #0d1b2a;
+  }
+  .authors {
+    text-align: center;
+    font-size: 10.5pt;
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #2b2d42;
+  }
+  .affiliation {
+    text-align: center;
+    font-size: 9pt;
+    font-style: italic;
+    color: #4a5568;
+    margin-bottom: 6px;
+  }
+  .conference-note {
+    text-align: center;
+    font-size: 9pt;
+    font-weight: bold;
+    color: #9b2c2c;
+    margin-bottom: 18px;
+  }
+  .divider {
+    border-top: 1px solid #cbd5e0;
+    margin-bottom: 16px;
+  }
+  .two-column {
+    column-count: 2;
+    column-gap: 22px;
+    text-align: justify;
+  }
+  .abstract-box {
+    margin-bottom: 14px;
+  }
+  .abstract-title {
+    font-weight: bold;
+    font-size: 9pt;
+  }
+  .abstract-text {
+    font-size: 9pt;
+    font-style: italic;
+  }
+  .keywords {
+    font-size: 9pt;
+    margin-top: 6px;
+    margin-bottom: 14px;
+  }
+  h2 {
+    font-size: 10.5pt;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 14px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    color: #0d1b2a;
+    border-bottom: 0.5px solid #a0aec0;
+    padding-bottom: 2px;
+  }
+  h3 {
+    font-size: 9.5pt;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 10px;
+    margin-bottom: 4px;
+    color: #1a365d;
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 6px;
+    text-indent: 14px;
+  }
+  .equation {
+    text-align: center;
+    margin: 8px 0;
+    font-family: "Cambria Math", "Times New Roman", serif;
+    font-weight: bold;
+    font-size: 9pt;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 7.5pt;
+    line-height: 1.15;
+  }
+  th, td {
+    border: 1px solid #cbd5e0;
+    padding: 4px 5px;
+    text-align: left;
+  }
+  th {
+    background-color: #1a365d;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+  }
+  tr:nth-child(even) {
+    background-color: #f7fafc;
+  }
+  .table-title {
+    font-size: 8pt;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 2px;
+    text-transform: uppercase;
+  }
+  .references {
+    font-size: 8pt;
+    line-height: 1.2;
+  }
+  .references p {
+    text-indent: -18px;
+    padding-left: 18px;
+    margin-bottom: 4px;
+  }
+  @media print {
+    body {
+      background: white;
+      padding: 0;
+    }
+    .no-print-toolbar {
+      display: none;
+    }
+    .paper-container {
+      max-width: 100%;
+      box-shadow: none;
+      padding: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="no-print-toolbar">
+  <div>
+    <strong>CrimeSense Research Paper (IEEE Format)</strong> — Ready for Review & Submission
+  </div>
+  <div>
+    <button onclick="window.print()">🖨️ Print / Save as PDF</button>
+  </div>
+</div>
+
+<div class="paper-container">
+  <div class="title">CrimeSense: A Unified Crime Hotspot Visualization, Zone Classification and Personal Safety Platform with Pattern Recurrence Analysis for Vellore, India</div>
+  
+  <div class="authors">Sruthilaya J D (24MID0184) &nbsp;|&nbsp; Mahithaa R (24MID0239) &nbsp;|&nbsp; Sujeetha S (24MID0163)</div>
+  <div class="affiliation">School of Computer Science and Engineering, Vellore Institute of Technology, Vellore, Tamil Nadu, India<br>Emails: {sruthilaya.jd2024, mahithaa.r2024, sujeetha.s2024}@vitstudent.ac.in</div>
+  <div class="conference-note">Target Submission: International Conference on Computing, Communications and Cyber-Security, IIT Kanpur</div>
+
+  <div class="divider"></div>
+
+  <div class="two-column">
+    <div class="abstract-box">
+      <span class="abstract-title">Abstract—</span>
+      <span class="abstract-text">We developed CrimeSense to help users explore crime reports in Vellore and examine reported incidents around a selected location. The current system uses an SQLite database containing 596 news-derived incident records and includes an administrative dashboard for viewing and managing these records. We present an interpretable zone classification model that marks locations green, yellow, or red using spatial and temporal decay. To support pedestrian safety, we formulate design specifications for a pre-visit destination advisory, an OpenStreetMap-based safe haven finder relying on natural surveillance, and an automated red-zone inactivity state machine. In addition, we describe a pattern recurrence formulation applying Knox space-time permutation tests and association rules to identify sequential crime trends. Finally, we report database verification audits, role-separated authentication checks, and privacy safeguards conforming to the Indian Digital Personal Data Protection Act, followed by a formal evaluation protocol.</span>
+    </div>
+
+    <div class="keywords">
+      <strong>Keywords—</strong>Crime hotspot visualization, spatio-temporal risk classification, safe haven discovery, near-repeat pattern recurrence, personal safety, emergency SOS alerting, news-derived crime analytics, spatial decision support.
+    </div>
+
+    <h2>I. Introduction</h2>
+    <p>Crime incidents do not distribute uniformly across urban terrain. Across decades of empirical spatial criminology, research has confirmed the "law of crime concentration" [1], which posits that a disproportionately large fraction of criminal infractions concentrates within a remarkably narrow collection of micro-places, intersections, and street segments [2]. Criminological frameworks explain this phenomenon through Routine Activity Theory [3], wherein crime requires the convergence in space and time of motivated perpetrators, suitable targets, and the absence of capable guardianship. Crime Pattern Theory [4] further establishes that perpetrators typically operate within overlapping awareness spaces formed by everyday activity nodes and transition pathways.</p>
+    <p>Modern law enforcement agencies routinely leverage spatial analytics, such as Kernel Density Estimation (KDE) [5], [6] and density-based spatial clustering (DBSCAN) [7], to target patrol strategies, achieving notable localized crime reductions [8]. However, existing systems exhibit two fundamental paradigm gaps that leave ordinary citizens vulnerable: (1) Analytical Asymmetry: advanced hotspot mapping is designed strictly for institutional analysts, while official statistics [11] are published annually at municipal scale; and (2) Purely Reactive Safety Paradigms: commercial mobile applications [12] function as passive panic buttons, triggering only after an attack occurs, with zero environmental intelligence.</p>
+    <p>To bridge these divides, this paper introduces <strong>CrimeSense</strong> for Vellore, Tamil Nadu, India. We mine an authenticated news-corpus of 596 verified reports [13], [14] and build an integrated dual-interface platform connecting administrative hotspot analytics with civilian protection.</p>
+
+    <h2>II. Related Work</h2>
+    <p>Spatial crime analysis relies on clustering algorithms to translate discrete event points into continuous risk surfaces. Classical Kernel Density Estimation (KDE) calculates spatial density surfaces [19], while temporal extensions weight recent incidents higher [6]. DBSCAN identifies clusters of arbitrary geometry without demanding predefined grid boundaries, isolating isolated crimes as noise [7], [20]. Predictive architectures using self-exciting point processes [10] or Risk Terrain Modeling [9], [21] demand massive dispatch registries rarely open in developing nations [22], [23].</p>
+    <p>The near-repeat hypothesis posits that once an offense occurs, neighboring targets face temporary surges in victimization risk [17], [24], evaluated via Knox permutation tests [16]. In urban navigation, safe routing trades distance against risk [25]. Jane Jacobs [15] observed that vibrant streetscapes with commercial establishments foster safety through "eyes on the street", corroborated by Oscar Newman's Defensible Space theory [26]. Table I compares prior works relative to CrimeSense.</p>
+
+    <div class="table-title">Table I. Taxonomy of Prior Work vs CrimeSense</div>
+    <table>
+      <tr><th>Category</th><th>Scope</th><th>Gaps Addressed by CrimeSense</th></tr>
+      <tr><td>Hotspot Mapping [5], [6]</td><td>Density surfaces for analysts</td><td>Lacks citizen zone badges, haven finder, and alerts</td></tr>
+      <tr><td>Risk Modeling [9], [10]</td><td>Mathematical surfaces from police CAD</td><td>Requires non-public data; lacks citizen dwell escalation</td></tr>
+      <tr><td>Near-Repeat [17], [24]</td><td>Burglary space-time tests</td><td>Confined to papers; no delivery to mobile safety apps</td></tr>
+      <tr><td>Safe Routing [25]</td><td>Path optimization</td><td>Focuses on route path rather than immediate haven recovery</td></tr>
+      <tr><td>Panic Apps [12]</td><td>Manual shake/tap SMS</td><td>Completely reactive; zero crime contextual intelligence</td></tr>
+    </table>
+
+    <h2>III. System Architecture & Design</h2>
+    <p>CrimeSense is structured as a decoupled multi-tier architecture uniting a React mobile resident app, desktop admin console, Flask REST API with role enforcement and Google OAuth 2.0 verification [28], and single-source SQLite persistence.</p>
+
+    <h3>A. Dynamic Zone Classification Engine</h3>
+    <p>For query point q, candidate crimes within radius &rho; (default 1000 m) are filtered via great-circle Haversine distance [29]:</p>
+    <div class="equation">d(q, i) = 2R &middot; arcsin(&radic;a), &nbsp; R = 6371 km &nbsp; (1)</div>
+    <p>Each incident i contributes based on severity s<sub>i</sub> &isin; [2, 10], linear distance decay &delta;(d) = 1 - (d / &rho;), and recency weight w(a) &isin; {1.0, 0.7, 0.4}:</p>
+    <div class="equation">R(q) = &sum;<sub>i &isin; N(q)</sub> s<sub>i</sub> &middot; &delta;(d(q, i)) &middot; w(a<sub>i</sub>) &nbsp; (2)</div>
+    <div class="equation">Z(q) = min(100, 100 &middot; [R(q) / R<sub>ref</sub>]) &nbsp; (3)</div>
+    <p>Scores map to Green (Z &lt; 30), Yellow (30 &le; Z &lt; 60), and Red (Z &ge; 60).</p>
+
+    <div class="table-title">Table II. Zone Engine Parameters</div>
+    <table>
+      <tr><th>Parameter</th><th>Symbol</th><th>Default Value</th></tr>
+      <tr><td>Search Radius</td><td>&rho;</td><td>1000 m (500–1500 m)</td></tr>
+      <tr><td>Severity Score</td><td>s<sub>i</sub></td><td>2.0 to 10.0</td></tr>
+      <tr><td>Distance Decay</td><td>&delta;(d)</td><td>1 - (d / &rho;)</td></tr>
+      <tr><td>Recency Weight</td><td>w(a)</td><td>1.0 (&le;6 mo), 0.7, 0.4</td></tr>
+      <tr><td>Saturation Cap</td><td>R<sub>ref</sub></td><td>35.0 calibrated</td></tr>
+      <tr><td>Zone Thresholds</td><td>Z</td><td>Red &ge; 60; Yellow 30–59; Green &lt; 30</td></tr>
+    </table>
+
+    <h3>B. Safe-Haven Spatial Optimization</h3>
+    <p>When an individual feels unsafe, CrimeSense identifies nearby public social hubs (supermarkets, 24/7 pharmacies, police posts, clinics) where natural surveillance operates. Candidate havens within 2000 m are ranked by utility score:</p>
+    <div class="equation">H(p) = w<sub>c</sub> &middot; o(p, t) &middot; exp(-d<sub>p</sub> / &lambda;) &middot; (1 - Z<sub>p</sub> / 100) &nbsp; (4)</div>
+    <p>where w<sub>c</sub> is guardianship weight (Police: 1.0, Hospital: 0.9, Market: 0.7, Pharmacy: 0.65), o(p, t) is opening status, and Z<sub>p</sub> penalizes havens in hotspots.</p>
+
+    <div class="table-title">Table III. Safe-Haven Weights</div>
+    <table>
+      <tr><th>Facility Category</th><th>OSM Filter</th><th>Weight</th></tr>
+      <tr><td>Police Station</td><td>amenity=police</td><td>1.00</td></tr>
+      <tr><td>Hospital / Clinic</td><td>amenity=hospital</td><td>0.90</td></tr>
+      <tr><td>Government Office</td><td>office=government</td><td>0.75</td></tr>
+      <tr><td>Supermarket / Mall</td><td>shop=supermarket</td><td>0.70</td></tr>
+      <tr><td>24/7 Pharmacy / Fuel</td><td>amenity=pharmacy</td><td>0.65</td></tr>
+    </table>
+
+    <h3>C. Pre-Visit Destination Advisory</h3>
+    <p>When a resident checks a prospective destination, a rule engine produces an advisory card detailing incident counts, date ranges, crime types, and guidance (e.g., "Elevated severe reports; companion travel recommended; prefer daylight") without stigmatizing neighborhoods.</p>
+
+    <h3>D. Autonomous Red-Zone Dwell Escalation</h3>
+    <p>Manual SOS triggers via a 2-second press with 5-second countdown. For silent incapacitation, a finite-state machine monitors location heartbeats in Red Zones: if stationary for 10 minutes without screen interaction, an "Are you safe?" challenge is presented for 60 seconds. Lack of response triggers automated emergency SMS dispatch with last-known coordinates.</p>
+
+    <h3>E. Pattern-Recurrence Analytics</h3>
+    <p>Knox space-time interaction permutation tests compute:</p>
+    <div class="equation">X = &sum;<sub>i &lt; j</sub> 1[d<sub>ij</sub> &le; &Delta;s] &middot; 1[|t<sub>i</sub> - t<sub>j</sub>| &le; &Delta;t] &nbsp; (5)</div>
+    <p>over &Delta;s &isin; {250, 500, 1000} m and &Delta;t &isin; {7, 14, 30} days across 999 permutations, coupled with sequential association rule lift (Lift > 1.2) to detect repeating crime patterns.</p>
+
+    <h2>IV. Verification & Dataset Results</h2>
+    <p>The single-source-of-truth SQLite database (crimesense.db) holds 596 verified crime records, all audited with 100% valid URLs, coordinates within Tamil Nadu bounds, and standardized ISO dates. GET /api/health returns 100% connected status.</p>
+
+    <div class="table-title">Table IV. Quality Audit of Crimes (N = 596)</div>
+    <table>
+      <tr><th>Metric</th><th>Observed Count</th><th>Rate</th></tr>
+      <tr><td>Verified Source URLs</td><td>596 / 596</td><td>100.00%</td></tr>
+      <tr><td>Geocoded Coordinates</td><td>596 / 596</td><td>100.00%</td></tr>
+      <tr><td>Standardized Dates</td><td>596 / 596</td><td>100.00%</td></tr>
+      <tr><td>Duplicate Records</td><td>0</td><td>0.00%</td></tr>
+      <tr><td>High Risk Incidents</td><td>150</td><td>25.17%</td></tr>
+      <tr><td>Medium Risk Incidents</td><td>138</td><td>23.15%</td></tr>
+      <tr><td>Low Risk Incidents</td><td>308</td><td>51.68%</td></tr>
+    </table>
+
+    <h2>V. Proposed Evaluation Protocol</h2>
+    <p>We specify rolling temporal split evaluation using Predictive Accuracy Index (PAI = [n/N] / [a/A] &ge; 2.5), Knox Near-Repeat Ratio (NRR &ge; 1.35, p &lt; 0.01), Valid@5 haven accuracy (&ge; 85%), and System Usability Scale (SUS &ge; 78.0).</p>
+
+    <h2>VI. Discussion & Ethics</h2>
+    <p>CrimeSense actively avoids pejorative labeling by classifying zones as "Reported Incidents," excludes enforcement prediction loops, and adheres to India's DPDP Act 2023 through opt-in tracking and audited admin logs [35].</p>
+
+    <h2>VII. Conclusion</h2>
+    <p>CrimeSense bridges the divide between institutional spatial intelligence and proactive citizen protection. Future work includes field haven audits and rolling temporal calibration.</p>
+
+    <h2>References</h2>
+    <div class="references">
+      <p>[1] D. Weisburd, "The law of crime concentration," <em>Criminology</em>, 2015.</p>
+      <p>[2] L. W. Sherman et al., "Hot spots of predatory crime," <em>Criminology</em>, 1989.</p>
+      <p>[3] L. E. Cohen and M. Felson, "Social change and crime rate trends," <em>Amer. Sociol. Rev.</em>, 1979.</p>
+      <p>[4] P. J. Brantingham and P. L. Brantingham, <em>Patterns in Crime</em>, Macmillan, 1984.</p>
+      <p>[5] S. Chainey et al., "Utility of hotspot mapping," <em>Secur. J.</em>, 2008.</p>
+      <p>[6] Y. Hu et al., "Predictive crime hotspot mapping," <em>Appl. Geogr.</em>, 2018.</p>
+      <p>[7] M. Ester et al., "DBSCAN clustering in large spatial databases," <em>Proc. KDD</em>, 1996.</p>
+      <p>[8] A. A. Braga et al., "Hot spots policing effects," <em>Campbell Syst. Rev.</em>, 2019.</p>
+      <p>[9] J. M. Caplan et al., "Risk terrain modeling," <em>Justice Quart.</em>, 2011.</p>
+      <p>[10] G. O. Mohler et al., "Self-exciting point process modeling," <em>JASA</em>, 2011.</p>
+      <p>[11] NCRB, "Crime in India 2022," Ministry of Home Affairs, 2023.</p>
+      <p>[12] D. Chand et al., "WoSApp: Mobile application for safety," <em>Proc. TENCON</em>, 2016.</p>
+      <p>[13] M. S. Gerber, "Predicting crime using Twitter and KDE," <em>DSS</em>, 2014.</p>
+      <p>[14] A. Umair et al., "Spatiotemporal analysis of web news," <em>Appl. Sci.</em>, 2020.</p>
+      <p>[15] J. Jacobs, <em>The Death and Life of Great American Cities</em>, 1961.</p>
+      <p>[16] E. G. Knox, "Detection of space-time interactions," <em>JRSS C</em>, 1964.</p>
+      <p>[17] M. Townsley et al., "Infectious burglaries: near repeat hypothesis," <em>BJ Crim.</em>, 2003.</p>
+      <p>[18] R. Agrawal and R. Srikant, "Fast algorithms for association rules," <em>Proc. VLDB</em>, 1994.</p>
+      <p>[19] B. W. Silverman, <em>Density Estimation</em>, Chapman & Hall, 1986.</p>
+      <p>[20] X. Zhang et al., "Machine learning for crime hotspots," <em>IEEE Access</em>, 2020.</p>
+      <p>[21] Z. Marchment and P. Gill, "Risk terrain modelling meta-analysis," <em>Crime Sci.</em>, 2021.</p>
+      <p>[22] O. Kounadi et al., "Spatial crime forecasting review," <em>Crime Sci.</em>, 2020.</p>
+      <p>[23] V. Mandalapu et al., "Crime prediction ML/DL review," <em>IEEE Access</em>, 2023.</p>
+      <p>[24] S. D. Johnson et al., "Space-time patterns of risk," <em>JQC</em>, 2007.</p>
+      <p>[25] E. Galbrun et al., "Safe navigation in urban environments," <em>Proc. UrbComp</em>, 2014.</p>
+      <p>[26] O. Newman, <em>Defensible Space</em>, Macmillan, 1972.</p>
+      <p>[27] M. Haklay and P. Weber, "OpenStreetMap," <em>IEEE Pervasive Comput.</em>, 2008.</p>
+      <p>[28] N. Sakimura et al., "OpenID Connect Core 1.0," OpenID Foundation, 2014.</p>
+      <p>[29] R. W. Sinnott, "Virtues of the haversine," <em>Sky Telescope</em>, 1984.</p>
+      <p>[30] J. Brooke, "SUS: A quick and dirty usability scale," 1996.</p>
+      <p>[31] R. Richardson et al., "Dirty data, bad predictions," <em>NYU Law Rev.</em>, 2019.</p>
+      <p>[32] D. Ensign et al., "Runaway feedback loops in predictive policing," <em>Proc. FAT*</em>, 2018.</p>
+      <p>[33] K. Lum and W. Isaac, "To predict and serve?," <em>Significance</em>, 2016.</p>
+      <p>[34] A. R. Beresford and F. Stajano, "Location privacy," <em>IEEE Pervasive Comput.</em>, 2003.</p>
+      <p>[35] Govt of India, "Digital Personal Data Protection Act, 2023," 2023.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -35,7 +35,8 @@ export function useCrimeData() {
           if (!cancelled) setHotspots([])
         }
       } catch (e) {
-        if (!cancelled) setError(e.message || 'Unable to load crime data.')
+        if (cancelled) return
+        setError(e.message || 'Unable to load crime data.')
       } finally {
         if (!cancelled) setLoading(false)
       }

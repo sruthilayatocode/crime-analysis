@@ -25,7 +25,7 @@ const colorStyles = {
   },
 }
 
-function StatCard({ label, value, change, trend, color = 'blue' }) {
+function StatCard({ label, value, color = 'blue', total }) {
   const styles = colorStyles[color] || colorStyles.blue
 
   return (
@@ -39,12 +39,11 @@ function StatCard({ label, value, change, trend, color = 'blue' }) {
         </span>
       </div>
       <p className={`mt-3 text-3xl font-bold ${styles.text}`}>{value.toLocaleString()}</p>
-      <div className="mt-2 flex items-center gap-2">
-        <span className={`text-xs font-medium ${trend === 'up' ? 'text-red-400' : 'text-green-400'}`}>
-          {change}
+      {typeof total === 'number' && Number.isFinite(total) && (
+        <span className="mt-1 block text-xs text-gray-500">
+          Of {total.toLocaleString()} validated incidents
         </span>
-        <span className="text-xs text-gray-500">vs last month</span>
-      </div>
+      )}
     </div>
   )
 }
