@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   ShieldAlert,
   PhoneCall,
@@ -14,6 +15,7 @@ import {
   ExternalLink,
   Bell,
   BellRing,
+  ArrowLeft,
 } from 'lucide-react';
 import { useSOS } from '../../context/SOSContext';
 import {
@@ -35,6 +37,7 @@ const RELATIONSHIP_OPTIONS = [
 ];
 
 export default function UserSOS() {
+  const navigate = useNavigate();
   const {
     contacts,
     refreshContacts,
@@ -198,14 +201,25 @@ export default function UserSOS() {
   return (
     <div className="flex-1 p-4 pb-24 space-y-5 max-w-md mx-auto w-full">
       {/* Top Header */}
-      <div className="text-center pt-2">
-        <h1 className="text-xl font-black text-slate-900 tracking-tight flex items-center justify-center gap-2">
-          <ShieldAlert className="w-6 h-6 text-red-600 stroke-[2.5]" />
-          <span>Emergency Assistance</span>
-        </h1>
-        <p className="text-xs text-slate-500 mt-0.5">
-          Press & hold 2 seconds to dispatch instant distress alerts
-        </p>
+      <div className="relative flex items-center justify-center pt-2">
+        <button
+          type="button"
+          onClick={() => navigate('/user')}
+          className="absolute left-0 p-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 active:scale-95 transition-all flex items-center justify-center"
+          title="Back to Home"
+          aria-label="Back to Home"
+        >
+          <ArrowLeft className="w-5 h-5 stroke-[2.5]" />
+        </button>
+        <div className="text-center">
+          <h1 className="text-xl font-black text-slate-900 tracking-tight flex items-center justify-center gap-2">
+            <ShieldAlert className="w-6 h-6 text-red-600 stroke-[2.5]" />
+            <span>Emergency Assistance</span>
+          </h1>
+          <p className="text-xs text-slate-500 mt-0.5">
+            Press & hold 2 seconds to dispatch instant distress alerts
+          </p>
+        </div>
       </div>
 
       {/* Main SOS Trigger Widget */}
