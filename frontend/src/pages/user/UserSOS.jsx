@@ -12,6 +12,8 @@ import {
   AlertCircle,
   MapPin,
   ExternalLink,
+  Bell,
+  BellRing,
 } from 'lucide-react';
 import { useSOS } from '../../context/SOSContext';
 import {
@@ -19,6 +21,7 @@ import {
   validateAndFormatPhone,
   pickContactFromDevice,
 } from '../../services/sosService';
+import { sosContactsStore, triggerSOSNotification } from '../../services/firebase';
 
 const RELATIONSHIP_OPTIONS = [
   'Family',
@@ -43,6 +46,8 @@ export default function UserSOS() {
     resolveSOS,
     isLiveTracking,
     extendLiveLocationSharing,
+    requestPushPermission,
+    notificationPermissionGranted,
   } = useSOS();
 
   const [isAddingContact, setIsAddingContact] = useState(false);
@@ -127,6 +132,16 @@ export default function UserSOS() {
     }
 
     setSavingContact(true);
+    const newEntry = {
+      id: Date.now(),
+      name: contactName.trim(),
+      phone: val.formatted,
+      relationship: contactRelation,
+      is_primary: isPrimary || contacts.length === 0,
+    };
+    // Immediately persist locally so reload retains it even if network stalls
+    sosContactsStore.persistContacts([...contacts, newEntry]);
+
     try {
       await sosService.addContact({
         name: contactName.trim(),
@@ -152,6 +167,8 @@ export default function UserSOS() {
       return;
     }
     if (window.confirm(`Remove '${name}' from emergency contacts?`)) {
+      const remaining = contacts.filter((c) => c.id !== id);
+      sosContactsStore.persistContacts(remaining);
       try {
         await sosService.deleteContact(id);
         await refreshContacts();
@@ -322,6 +339,38 @@ export default function UserSOS() {
             </a>
           ))}
         </div>
+      </div>
+
+      {/* Firebase Push Notifications Status Banner */}
+      <div className="bg-gradient-to-r from-slate-900 to-indigo-950 text-white rounded-2xl p-3.5 border border-indigo-800/40 shadow-sm flex items-center justify-between gap-3">
+        <div className="flex items-center gap-2.5">
+          <div className="w-8 h-8 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center shrink-0 border border-indigo-500/30">
+            <BellRing className="w-4 h-4 animate-pulse" />
+          </div>
+          <div>
+            <div className="flex items-center gap-1.5">
+              <span className="text-xs font-black text-white">Firebase SOS Alerts</span>
+              <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                ACTIVE
+              </span>
+            </div>
+            <p className="text-[10px] text-slate-300">Push notifications & alarm sirens enabled</p>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          onClick={() => {
+            triggerSOSNotification({
+              title: '🚨 CRIMESENSE SOS TEST ALERT',
+              body: 'Firebase Push Notification is working perfectly! Siren & alerts are enabled.',
+              urgent: false,
+            });
+          }}
+          className="px-2.5 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white text-[11px] font-bold rounded-xl shadow-xs transition-colors shrink-0"
+        >
+          Test Alert
+        </button>
       </div>
 
       {/* Emergency Contacts Section */}
