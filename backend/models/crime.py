@@ -1,3 +1,4 @@
+from datetime import datetime
 from database import db
 
 
@@ -122,6 +123,18 @@ class Crime(db.Model):
 
     severity = db.Column(
         db.String(30),
+        nullable=True
+    )
+
+    status = db.Column(
+        db.String(20),
+        default="APPROVED",
+        nullable=True
+    )
+
+    created_at = db.Column(
+        db.DateTime,
+        default=datetime.utcnow,
         nullable=True
     )
 
