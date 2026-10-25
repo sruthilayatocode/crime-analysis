@@ -65,6 +65,22 @@ export function AuthProvider({ children }) {
     setUser(null);
   };
 
+  const verifyEmail = async (token) => {
+    return authService.verifyEmail(token);
+  };
+
+  const resendVerification = async (email) => {
+    return authService.resendVerification(email);
+  };
+
+  const forgotPassword = async (email) => {
+    return authService.forgotPassword(email);
+  };
+
+  const resetPassword = async (token, password) => {
+    return authService.resetPassword(token, password);
+  };
+
   const value = {
     user,
     role: user?.role || null,
@@ -74,6 +90,10 @@ export function AuthProvider({ children }) {
     signup,
     googleAuth,
     logout,
+    verifyEmail,
+    resendVerification,
+    forgotPassword,
+    resetPassword,
     refreshUser: initAuth,
   };
 

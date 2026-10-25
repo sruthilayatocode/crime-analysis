@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import { Shield, Lock, Mail, User as UserIcon, Eye, EyeOff, AlertCircle, ArrowRight } from 'lucide-react';
 import GoogleAuthButton from '../components/GoogleAuthButton';
 
@@ -20,6 +21,11 @@ export default function Register() {
     e.preventDefault();
     if (!name || !email || !password) {
       setError('Please fill in all required fields.');
+      return;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.trim())) {
+      setError('Please enter a valid email address.');
       return;
     }
     if (password !== confirmPassword) {

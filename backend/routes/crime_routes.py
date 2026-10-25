@@ -380,29 +380,31 @@ def pending_reports():
     return jsonify({
         "success": True,
         "count": len(reports),
-        "data": reports
+        "data": reports,
+        "pending_crimes": reports
     }), 200
 
 
-@crime_bp.route("/api/admin/crimes/<int:crime_id>/approve", methods=["PATCH"])
+@crime_bp.route("/api/admin/crimes/<int:crime_id>/approve", methods=["PATCH", "PUT", "POST"])
 @role_required("ADMIN")
 def approve_report(crime_id):
     """Admin approves a citizen incident report."""
-    data = request.get_json() or {}
+    data = request.get_json(silent=True) or {}
     notes = data.get("admin_notes", "")
     approved = crime_service.approve_report(crime_id, g.current_user, notes)
     return jsonify({
         "success": True,
         "message": "Incident report approved",
-        "data": approved
+        "data": approved,
+        "status": "APPROVED"
     }), 200
 
 
-@crime_bp.route("/api/admin/crimes/<int:crime_id>/reject", methods=["PATCH"])
+@crime_bp.route("/api/admin/crimes/<int:crime_id>/reject", methods=["PATCH", "PUT", "POST"])
 @role_required("ADMIN")
 def reject_report(crime_id):
     """Admin rejects a citizen incident report."""
-    data = request.get_json() or {}
+    data = request.get_json(silent=True) or {}
     notes = data.get("admin_notes", "")
     rejected = crime_service.reject_report(crime_id, g.current_user, notes)
     return jsonify({
@@ -490,6 +492,52 @@ def get_ml_hotspots():
         return jsonify(result), 200
     except Exception as exc:
         return jsonify({"success": False, "message": f"ML analysis failed: {exc}"}), 500
+
+
+@crime_bp.route("/api/ml/predict-risk", methods=["POST"])
+def predict_crime_risk():
+    """Predict risk level, risk score, and class probabilities using trained ML model."""
+    payload = request.get_json(silent=True)
+    if not isinstance(payload, dict):
+        return jsonify({
+            "success": False,
+            "message": "Request body must be a JSON object containing incident features"
+        }), 400
+
+    try:
+        from ml.predict import predict_risk
+        prediction = predict_risk(payload)
+        return jsonify({
+            "success": True,
+            "data": prediction
+        }), 200
+    except Exception as exc:
+        return jsonify({
+            "success": False,
+            "message": f"ML risk prediction failed: {exc}"
+        }), 500
+
+
+@crime_bp.route("/api/ml/model-info", methods=["GET"])
+def get_ml_model_info():
+    """Return trained model metadata, evaluation metrics, and feature lists."""
+    import os
+    import json
+    meta_path = os.path.join(
+        os.path.dirname(__file__), "..", "..", "ml", "models", "model_metadata.json"
+    )
+    if os.path.exists(meta_path):
+        import json
+        with open(meta_path, "r", encoding="utf-8") as f:
+            metadata = json.load(f)
+        return jsonify({
+            "success": True,
+            "data": metadata
+        }), 200
+    return jsonify({
+        "success": False,
+        "message": "Model metadata not found"
+    }), 404
 
 
 

@@ -39,8 +39,12 @@ export default function GoogleAuthButton({ onError: parentOnError, mode = 'signi
   const clientId = rawClientId.trim();
   const isConfigured = Boolean(
     clientId &&
+    clientId !== 'your_actual_google_client_id' &&
     clientId !== 'your-google-client-id.apps.googleusercontent.com' &&
-    clientId !== 'your-google-oauth-client-id.apps.googleusercontent.com'
+    clientId !== 'your-google-oauth-client-id.apps.googleusercontent.com' &&
+    clientId !== 'not-configured' &&
+    !clientId.startsWith('your_') &&
+    !clientId.startsWith('your-')
   );
 
   const from = location.state?.from?.pathname;

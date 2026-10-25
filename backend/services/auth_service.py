@@ -87,31 +87,43 @@ def admin_required(f):
     @wraps(f)
     @login_required
     def decorated(*args, **kwargs):
-        if getattr(g, "current_user", None) is None or g.current_user.role != "admin":
+        user = getattr(g, "current_user", None)
+        if user is None or str(user.role or "").strip().lower() != "admin":
             return jsonify({"success": False, "message": "Access denied. Admin privileges required."}), 403
         return f(*args, **kwargs)
     return decorated
 
 
-def verify_google_id_token(token_str: str):
+def verify_google_id_token(token_str: str, client_id: str = None):
     """
     Verify Google ID token with google.oauth2.id_token.verify_oauth2_token.
     Validates:
-    - Audience == GOOGLE_CLIENT_ID (when configured)
+    - Audience == GOOGLE_CLIENT_ID (configured server-side)
     - Issuer in ('accounts.google.com', 'https://accounts.google.com')
     - Expiry
     - email_verified == True
+    - Non-empty email and subject (google_id)
     """
-    client_id = os.getenv("GOOGLE_CLIENT_ID") or os.getenv("VITE_GOOGLE_CLIENT_ID")
+    if not token_str or not isinstance(token_str, str):
+        raise ValueError("Invalid Google credential: token must be a non-empty string.")
+
+    if not client_id:
+        client_id = os.getenv("GOOGLE_CLIENT_ID") or os.getenv("VITE_GOOGLE_CLIENT_ID")
     if client_id:
         client_id = client_id.strip()
+
+    if not client_id:
+        raise ValueError("Google Sign-In is not configured on the server (missing GOOGLE_CLIENT_ID).")
 
     try:
         idinfo = id_token.verify_oauth2_token(
             token_str,
             google_requests.Request(),
-            audience=client_id if client_id else None
+            audience=client_id
         )
+    except ValueError as e:
+        # e.g., Token expired, wrong audience, or invalid signature detected by google-auth
+        raise ValueError(f"Google ID token verification failed: {e}")
     except Exception as e:
         # Fallback to tokeninfo endpoint if certificate refresh requires HTTP
         try:
@@ -129,11 +141,10 @@ def verify_google_id_token(token_str: str):
     if iss not in ["accounts.google.com", "https://accounts.google.com"]:
         raise ValueError(f"Invalid Google token issuer: '{iss}'")
 
-    # 2. Audience check (if client_id configured)
-    if client_id:
-        aud = idinfo.get("aud")
-        if aud != client_id:
-            raise ValueError(f"Google Client ID audience mismatch: expected '{client_id}', got '{aud}'")
+    # 2. Audience check (verify aud matches configured client_id)
+    aud = idinfo.get("aud")
+    if aud != client_id:
+        raise ValueError(f"Google Client ID audience mismatch: expected '{client_id}', got '{aud}'")
 
     # 3. Expiry check
     exp = idinfo.get("exp")

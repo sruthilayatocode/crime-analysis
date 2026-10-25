@@ -8,26 +8,56 @@
  *   GET /api/hotspots -> { success, message, source, count, data: [hotspot, ...] }
  */
 
-export { API_BASE_URL } from './apiConfig';
+import { API_BASE_URL, API_BASE } from './apiConfig';
+export { API_BASE_URL, API_BASE };
 
-async function request(path) {
-  const response = await fetch(`${API_BASE_URL}${path}`)
+async function request(path, options = {}) {
+  const token =
+    localStorage.getItem('crimesense_token') ||
+    localStorage.getItem('token') ||
+    localStorage.getItem('authToken');
+  const headers = {
+    'Content-Type': 'application/json',
+    ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    ...(options.headers || {}),
+  };
+
+  const response = await fetch(`${API_BASE_URL}${path}`, {
+    ...options,
+    headers,
+  });
+
+  const payload = await response.json().catch(() => ({}));
   if (!response.ok) {
-    throw new Error(`Request to ${path} failed with status ${response.status}`)
+    throw new Error(payload.message || `Request to ${path} failed with status ${response.status}`);
   }
-  const payload = await response.json()
+
   // Tolerate either the backend envelope ({ data: [...] }) or a bare array.
-  if (Array.isArray(payload)) return payload
-  if (Array.isArray(payload && payload.data)) return payload.data
-  return []
+  if (Array.isArray(payload)) return payload;
+  if (Array.isArray(payload && payload.data)) return payload.data;
+  return payload;
 }
 
 /** Fetch all validated crime records from the backend (/api/crimes). */
 export async function getCrimes() {
-  return request('/api/crimes')
+  return request('/api/crimes');
 }
 
 /** Fetch the verified hotspot analysis from the backend (/api/hotspots). */
 export async function getHotspots() {
-  return request('/api/hotspots')
+  return request('/api/hotspots');
+}
+
+/** Submit a citizen incident report to the backend (/api/crimes/report). */
+export async function reportCrime(reportData) {
+  return request('/api/crimes/report', {
+    method: 'POST',
+    body: JSON.stringify(reportData),
+  });
+}
+
+/** Fetch reports submitted by the logged-in citizen (/api/crimes/my-reports). */
+export async function getMyReports() {
+  const res = await request('/api/crimes/my-reports');
+  return Array.isArray(res) ? res : res.data || [];
 }

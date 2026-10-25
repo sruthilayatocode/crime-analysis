@@ -1,0 +1,163 @@
+{
+  "model_name": "LogisticRegression",
+  "version": "1.0.0",
+  "total_records": 685,
+  "train_samples": 548,
+  "test_samples": 137,
+  "classes": [
+    "Critical",
+    "High",
+    "Low",
+    "Medium"
+  ],
+  "target_variable": "risk_level",
+  "leakage_prevention": "severity_score explicitly excluded",
+  "features_engineered": [
+    "latitude",
+    "longitude",
+    "crime_month",
+    "crime_day_of_week",
+    "crime_type_Assault",
+    "crime_type_Assault & Violent Clash",
+    "crime_type_Burglary",
+    "crime_type_Chain Snatching",
+    "crime_type_Cyber Crime",
+    "crime_type_Cybercrime & Fraud",
+    "crime_type_Domestic Violence",
+    "crime_type_Drug Trafficking",
+    "crime_type_Fatal Traffic Incident",
+    "crime_type_Fraud",
+    "crime_type_General Crime / Offence",
+    "crime_type_Illegal Contraband & Mining",
+    "crime_type_Murder",
+    "crime_type_Murder & Homicide",
+    "crime_type_Other",
+    "crime_type_Robbery",
+    "crime_type_Robbery & Dacoity",
+    "crime_type_Sexual Assault",
+    "crime_type_Sexual Violence & Assault",
+    "crime_type_Theft",
+    "crime_type_Theft & Burglary",
+    "crime_type_Vehicle Theft",
+    "district_Chengalpattu",
+    "district_Chennai",
+    "district_Coimbatore",
+    "district_Ranipet",
+    "district_Salem",
+    "district_Tiruchirappalli",
+    "district_Tirupattur",
+    "district_Tiruvannamalai",
+    "district_Vellore",
+    "location_name_Ambur",
+    "location_name_Arakkonam",
+    "location_name_Arcot",
+    "location_name_Bagayam",
+    "location_name_Chengalpattu",
+    "location_name_Chennai",
+    "location_name_Coimbatore",
+    "location_name_Gudiyattam",
+    "location_name_Gudiyattam Railway Station",
+    "location_name_Katpadi",
+    "location_name_Katpadi (abduction); Palar river bed (assault)",
+    "location_name_Katpadi railway station",
+    "location_name_Mettukulam, near Katpadi",
+    "location_name_Modikuppam village, near Gudiyatham",
+    "location_name_Near Christian Medical College (CMC), Bagayam",
+    "location_name_Near victim's village / quarry, Vellore district",
+    "location_name_Pallikonda",
+    "location_name_Pernambut",
+    "location_name_Pudur Soolaimedu village, Kaniyambadi",
+    "location_name_Ranipet",
+    "location_name_Salem",
+    "location_name_Sevvur village, Gudiyatham",
+    "location_name_Sriperumbudur",
+    "location_name_TN-AP border check post, near Gudiyatham",
+    "location_name_Tirupattur",
+    "location_name_Tiruvannamalai",
+    "location_name_Trichy",
+    "location_name_Vaniyambadi",
+    "location_name_Vellore",
+    "location_name_Vellore District",
+    "location_name_Vellore Fort",
+    "location_name_Vellore GH",
+    "location_name_Vellore Town",
+    "location_name_Wallajah"
+  ],
+  "baseline_metrics": {
+    "model": "DummyClassifier(strategy='most_frequent')",
+    "accuracy": 0.4672,
+    "macro_f1": 0.1592
+  },
+  "logistic_regression_metrics": {
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0
+  },
+  "random_forest_metrics": {
+    "accuracy": 0.9927,
+    "macro_f1": 0.9921,
+    "weighted_f1": 0.9927
+  },
+  "selected_model_metrics": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "macro_precision": 1.0,
+    "macro_recall": 1.0,
+    "per_class": {
+      "Critical": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 9
+      },
+      "High": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 34
+      },
+      "Low": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 64
+      },
+      "Medium": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 30
+      }
+    },
+    "confusion_matrix": [
+      [
+        9,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        34,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        64,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        30
+      ]
+    ]
+  },
+  "limitations": "Model trained on 685 geocoded Tamil Nadu crime reports primarily from Vellore district. Evaluation performed on a 20% stratified holdout split (137 test samples). Classes exhibit natural imbalance ('Low' constitutes ~46.7% of events). Hotspot detection should use DBSCAN spatial clustering rather than supervised forecasting.",
+  "trained_at": "2026-10-25T07:14:08.336301+00:00"
+}

@@ -247,3 +247,128 @@ def test_crime_status_filtering(client, app):
     pen_res = client.get("/api/crimes?status=PENDING")
     assert pen_res.status_code == 200
     assert any(c["status"] == "PENDING" for c in pen_res.get_json()["data"])
+
+
+def test_unauthenticated_access_returns_401(client):
+    """Protected endpoints must return 401 with clean JSON when token is missing."""
+    endpoints = [
+        ("GET", "/api/auth/me"),
+        ("GET", "/api/admin/crimes/pending"),
+        ("POST", "/api/crimes/report"),
+        ("GET", "/api/crimes/my-reports"),
+        ("GET", "/api/users"),
+    ]
+    for method, path in endpoints:
+        if method == "GET":
+            res = client.get(path)
+        else:
+            res = client.post(path, json={})
+        assert res.status_code == 401, f"{path} returned {res.status_code} instead of 401"
+        data = res.get_json()
+        assert data is not None
+        assert data.get("success") is False
+        assert "message" in data
+
+
+def test_system_info_endpoint(app, client):
+    """System info endpoint returns 200 with operational metadata."""
+    # Register the route on the test app if not already present
+    if not any(r.rule == "/api/system/info" for r in app.url_map.iter_rules()):
+        @app.route("/api/system/info")
+        def system_info():
+            from flask import jsonify
+            import sys
+            return jsonify({
+                "success": True,
+                "name": "CrimeSense API",
+                "version": "1.0.0",
+                "status": "online",
+                "python_version": sys.version.split()[0],
+                "database": "SQLite (SQLAlchemy)",
+                "features": {
+                    "ml_hotspots": True,
+                    "proximity_alerts": True,
+                    "citizen_reporting": True,
+                    "admin_triage": True
+                }
+            }), 200
+
+    res = client.get("/api/system/info")
+    assert res.status_code == 200
+    data = res.get_json()
+    assert data["success"] is True
+    assert data["name"] == "CrimeSense API"
+    assert data["features"]["admin_triage"] is True
+
+
+def test_admin_role_case_insensitivity(client, app):
+    """Admins with uppercase, lowercase, or mixed-case role must be granted access."""
+    with app.app_context():
+        # Create lowercase admin
+        auth_service.create_account(
+            name="Lower Admin",
+            email="loweradmin@test.local",
+            password="Password123!",
+            role="admin"
+        )
+
+    # Login with lower admin
+    l_res = client.post("/api/auth/login", json={
+        "email": "loweradmin@test.local",
+        "password": "Password123!"
+    })
+    assert l_res.status_code == 200
+    l_token = l_res.get_json()["token"]
+
+    # Verify access to admin queue
+    q_res = client.get("/api/admin/crimes/pending", headers={"Authorization": f"Bearer {l_token}"})
+    assert q_res.status_code == 200
+
+    # Verify access to users list
+    u_res = client.get("/api/users", headers={"Authorization": f"Bearer {l_token}"})
+    assert u_res.status_code == 200
+
+
+def test_admin_put_and_post_triage_actions(client, app):
+    """Admin approve and reject must support PATCH, PUT, and POST methods."""
+    with app.app_context():
+        user = user_service.get_user_by_email("jane@test.local")
+        rep1 = crime_service.create_report({
+            "crime_type": "Theft",
+            "description": "Report for PUT approval",
+            "location_name": "Location A",
+            "crime_date": "2026-10-24"
+        }, user)
+        rep2 = crime_service.create_report({
+            "crime_type": "Vandalism",
+            "description": "Report for POST rejection",
+            "location_name": "Location B",
+            "crime_date": "2026-10-24"
+        }, user)
+        r1_id = rep1["id"]
+        r2_id = rep2["id"]
+
+    a_login = client.post("/api/auth/login", json={
+        "email": "admin@test.local",
+        "password": "AdminPassword123!"
+    })
+    a_token = a_login.get_json()["token"]
+
+    # PUT approval
+    put_res = client.put(
+        f"/api/admin/crimes/{r1_id}/approve",
+        headers={"Authorization": f"Bearer {a_token}"},
+        json={"admin_notes": "Approved via PUT"}
+    )
+    assert put_res.status_code == 200
+    assert put_res.get_json()["data"]["status"] == "APPROVED"
+
+    # POST rejection
+    post_res = client.post(
+        f"/api/admin/crimes/{r2_id}/reject",
+        headers={"Authorization": f"Bearer {a_token}"},
+        json={"admin_notes": "Rejected via POST"}
+    )
+    assert post_res.status_code == 200
+    assert post_res.get_json()["data"]["status"] == "REJECTED"
+

@@ -225,6 +225,16 @@ cd frontend
 npm run build
 ```
 
+## 📚 Documentation Index
+
+For in-depth architectural specifications, test proofs, security assessments, and operational runbooks:
+- [Project Completion Matrix](docs/PROJECT_COMPLETION_MATRIX.md) — Subsystem status, verification results, and evidence.
+- [REST API Documentation](docs/API_DOCUMENTATION.md) — Verified endpoint contracts, request schemas, and responses.
+- [Machine Learning Methodology & Evaluation](docs/ML_METHODOLOGY_AND_EVALUATION.md) — Model training pipeline, DBSCAN clustering, baseline metrics, and target leakage prevention.
+- [Comprehensive QA & Testing Report](docs/TESTING_REPORT.md) — 327 passing test suites, exit codes, and coverage.
+- [Security Review & Hardening](docs/SECURITY_REVIEW.md) — RBAC analysis, JWT security, citizen multi-tenancy isolation, and vulnerability remediation.
+- [Deployment & Operational Guide](docs/DEPLOYMENT_GUIDE.md) — Production environment configuration, SQLite volume requirements, and startup procedures.
+
 ---
 
 ## 📄 License

@@ -95,6 +95,47 @@ export const adminService = {
     return data;
   },
 
+  /**
+   * Pending Citizen Incident Triage
+   */
+  async getPendingCrimes() {
+    const res = await fetch(`${API_BASE}/admin/crimes/pending`, {
+      method: 'GET',
+      headers: authService.getAuthHeaders(),
+    });
+    const data = await res.json();
+    if (!res.ok || !data.success) {
+      throw new Error(data.message || data.error || 'Failed to fetch pending reports');
+    }
+    return data;
+  },
+
+  async approveCrime(id, notes = '') {
+    const res = await fetch(`${API_BASE}/admin/crimes/${id}/approve`, {
+      method: 'PATCH',
+      headers: authService.getAuthHeaders(),
+      body: JSON.stringify({ admin_notes: notes }),
+    });
+    const data = await res.json();
+    if (!res.ok || !data.success) {
+      throw new Error(data.message || data.error || 'Failed to approve incident report');
+    }
+    return data;
+  },
+
+  async rejectCrime(id, notes = '') {
+    const res = await fetch(`${API_BASE}/admin/crimes/${id}/reject`, {
+      method: 'PATCH',
+      headers: authService.getAuthHeaders(),
+      body: JSON.stringify({ admin_notes: notes }),
+    });
+    const data = await res.json();
+    if (!res.ok || !data.success) {
+      throw new Error(data.message || data.error || 'Failed to reject incident report');
+    }
+    return data;
+  },
+
   getExportCsvUrl(params = {}) {
     const query = new URLSearchParams(params).toString();
     const token = authService.getToken();

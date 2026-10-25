@@ -21,6 +21,9 @@ import AdminAuditLog from '../pages/admin/AdminAuditLog';
 // Auth & Public pages
 import Login from '../pages/Login';
 import Register from '../pages/Register';
+import ForgotPassword from '../pages/ForgotPassword';
+import ResetPassword from '../pages/ResetPassword';
+import VerifyEmail from '../pages/VerifyEmail';
 import NotFound from '../pages/NotFound';
 import PublicSharedLocation from '../pages/PublicSharedLocation';
 
@@ -100,6 +103,9 @@ const router = createBrowserRouter([
   { path: '/login', element: <Login /> },
   { path: '/register', element: <Register /> },
   { path: '/signup', element: <Register /> },
+  { path: '/forgot-password', element: <ForgotPassword /> },
+  { path: '/reset-password', element: <ResetPassword /> },
+  { path: '/verify-email', element: <VerifyEmail /> },
 
   // Catch-all
   { path: '*', element: <NotFound /> },

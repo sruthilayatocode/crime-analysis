@@ -18,6 +18,9 @@ import {
   ChevronLeft,
   ChevronRight,
   ExternalLink,
+  Clock3,
+  XCircle,
+  ShieldCheck,
 } from 'lucide-react';
 import { MapContainer, TileLayer, Marker, Popup, Circle } from 'react-leaflet';
 import L from 'leaflet';
@@ -96,6 +99,12 @@ export default function AdminCrimeData() {
   const [importResult, setImportResult] = useState(null);
   const [toastMsg, setToastMsg] = useState('');
 
+  // Pending Citizen Incident Triage State
+  const [pendingCrimes, setPendingCrimes] = useState([]);
+  const [loadingPending, setLoadingPending] = useState(false);
+  const [triageNotes, setTriageNotes] = useState({});
+  const [triageActionLoading, setTriageActionLoading] = useState(null);
+
   // Form state
   const [formData, setFormData] = useState({
     title: '',
@@ -134,13 +143,55 @@ export default function AdminCrimeData() {
     }
   }, [page, perPage, searchTerm, selectedType, selectedSeverity, sortBy, sortOrder]);
 
+  const fetchPendingCrimes = useCallback(async () => {
+    setLoadingPending(true);
+    try {
+      const res = await adminService.getPendingCrimes();
+      setPendingCrimes(Array.isArray(res) ? res : res.data || []);
+    } catch (err) {
+      console.error('Failed to fetch pending reports:', err);
+    } finally {
+      setLoadingPending(false);
+    }
+  }, []);
+
   useEffect(() => {
     fetchCrimes();
-  }, [fetchCrimes]);
+    fetchPendingCrimes();
+  }, [fetchCrimes, fetchPendingCrimes]);
 
   const showToast = (msg) => {
     setToastMsg(msg);
     setTimeout(() => setToastMsg(''), 4000);
+  };
+
+  const handleApproveReport = async (crimeId) => {
+    setTriageActionLoading(crimeId);
+    try {
+      const notes = triageNotes[crimeId] || '';
+      await adminService.approveCrime(crimeId, notes);
+      showToast(`Incident #${crimeId} approved and added to active registry!`);
+      setPendingCrimes((prev) => prev.filter((c) => c.id !== crimeId));
+      fetchCrimes();
+    } catch (err) {
+      showToast(`Failed to approve: ${err.message}`);
+    } finally {
+      setTriageActionLoading(null);
+    }
+  };
+
+  const handleRejectReport = async (crimeId) => {
+    setTriageActionLoading(crimeId);
+    try {
+      const notes = triageNotes[crimeId] || '';
+      await adminService.rejectCrime(crimeId, notes);
+      showToast(`Incident #${crimeId} rejected.`);
+      setPendingCrimes((prev) => prev.filter((c) => c.id !== crimeId));
+    } catch (err) {
+      showToast(`Failed to reject: ${err.message}`);
+    } finally {
+      setTriageActionLoading(null);
+    }
   };
 
   const handleOpenAdd = () => {
@@ -270,16 +321,21 @@ export default function AdminCrimeData() {
         <div className="flex flex-wrap items-center gap-2">
           {/* View Tab Toggle */}
           <div className="bg-slate-900 border border-slate-800 p-1 rounded-xl flex gap-1 text-xs">
-            {['both', 'table', 'map'].map((tab) => (
+            {['both', 'table', 'map', 'pending'].map((tab) => (
               <button
                 key={tab}
                 type="button"
                 onClick={() => setActiveTab(tab)}
-                className={`px-3 py-1.5 rounded-lg font-bold capitalize transition-all ${
+                className={`px-3 py-1.5 rounded-lg font-bold capitalize transition-all flex items-center gap-1.5 ${
                   activeTab === tab ? 'bg-red-600 text-white shadow-sm' : 'text-slate-400 hover:text-white'
                 }`}
               >
-                {tab}
+                <span>{tab === 'pending' ? 'Pending Triage' : tab}</span>
+                {tab === 'pending' && pendingCrimes.length > 0 && (
+                  <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-amber-400 text-slate-950 font-black animate-pulse">
+                    {pendingCrimes.length}
+                  </span>
+                )}
               </button>
             ))}
           </div>
@@ -589,6 +645,137 @@ export default function AdminCrimeData() {
               </button>
             </div>
           </div>
+        </div>
+      )}
+
+      {/* ===================================================================== */}
+      {/* PENDING CITIZEN TRIAGE QUEUE (if activeTab is 'pending')              */}
+      {/* ===================================================================== */}
+      {activeTab === 'pending' && (
+        <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden space-y-4 p-5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+            <div>
+              <h3 className="text-base font-bold text-white flex items-center gap-2">
+                <ShieldCheck className="w-5 h-5 text-amber-400" />
+                <span>Citizen Incident Triage Queue</span>
+                <span className="text-xs px-2.5 py-0.5 rounded-full bg-amber-400/10 text-amber-400 border border-amber-400/30 font-bold">
+                  {pendingCrimes.length} Awaiting Verification
+                </span>
+              </h3>
+              <p className="text-xs text-slate-400 mt-1">
+                Review submitted citizen reports. Approving adds the incident to the active registry and feeds DBSCAN clustering and risk maps.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={fetchPendingCrimes}
+              disabled={loadingPending}
+              className="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold border border-slate-700 flex items-center gap-1.5 transition-colors self-start sm:self-auto"
+            >
+              <RefreshCw className={`w-3.5 h-3.5 text-blue-400 ${loadingPending ? 'animate-spin' : ''}`} />
+              <span>Refresh Queue</span>
+            </button>
+          </div>
+
+          {loadingPending ? (
+            <div className="py-16 text-center text-slate-400 text-xs">
+              <RefreshCw className="w-6 h-6 animate-spin text-amber-400 mx-auto mb-2" />
+              Loading pending reports...
+            </div>
+          ) : pendingCrimes.length === 0 ? (
+            <div className="py-16 text-center text-slate-400 space-y-2">
+              <div className="w-12 h-12 rounded-2xl bg-emerald-950/60 text-emerald-400 border border-emerald-800/60 mx-auto flex items-center justify-center">
+                <CheckCircle2 className="w-6 h-6" />
+              </div>
+              <h4 className="text-sm font-bold text-slate-200">Triage Queue is Empty</h4>
+              <p className="text-xs text-slate-500 max-w-sm mx-auto">
+                All citizen-submitted incident reports have been reviewed and verified. Newly filed reports will appear here automatically.
+              </p>
+            </div>
+          ) : (
+            <div className="space-y-4">
+              {pendingCrimes.map((crime) => (
+                <div
+                  key={crime.id}
+                  className="bg-slate-950 border border-slate-800 rounded-2xl p-4 space-y-3 hover:border-slate-700 transition-colors"
+                >
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800/60 pb-3">
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono text-xs text-slate-500 font-bold">#{crime.id}</span>
+                      <span className="font-bold text-sm text-white">{crime.crime_type}</span>
+                      <span
+                        className="text-[10px] font-bold px-2 py-0.5 rounded-full"
+                        style={{
+                          backgroundColor: `${getSeverityColor(crime.severity)}20`,
+                          color: getSeverityColor(crime.severity),
+                          border: `1px solid ${getSeverityColor(crime.severity)}40`,
+                        }}
+                      >
+                        {crime.severity || 'Medium'} Severity
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-3 text-xs text-slate-400">
+                      <span>Reported by: <strong className="text-slate-200">{crime.reported_by_name || 'Citizen'}</strong></span>
+                      <span>Date: <strong className="text-slate-200">{crime.crime_date ? new Date(crime.crime_date).toLocaleDateString() : 'N/A'}</strong></span>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+                    <div className="md:col-span-2 space-y-2">
+                      <div className="flex items-center gap-1.5 text-slate-300 font-medium">
+                        <MapPin className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+                        <span>{crime.location_name || crime.locality || 'Location unverified'}</span>
+                        {crime.latitude && crime.longitude && (
+                          <span className="text-[10px] font-mono text-slate-500">
+                            ({crime.latitude.toFixed(4)}, {crime.longitude.toFixed(4)})
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-slate-400 bg-slate-900/80 p-3 rounded-xl border border-slate-800/80 text-xs leading-relaxed">
+                        {crime.description || 'No additional narrative provided.'}
+                      </p>
+                    </div>
+
+                    <div className="space-y-2 flex flex-col justify-between">
+                      <div>
+                        <label className="text-[10px] uppercase font-bold text-slate-400 block mb-1">
+                          Admin Review Notes (Optional)
+                        </label>
+                        <textarea
+                          rows={2}
+                          placeholder="Feedback or rationale..."
+                          value={triageNotes[crime.id] || ''}
+                          onChange={(e) => setTriageNotes({ ...triageNotes, [crime.id]: e.target.value })}
+                          className="w-full text-xs p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 focus:outline-none focus:border-blue-500"
+                        />
+                      </div>
+
+                      <div className="flex items-center gap-2 pt-1">
+                        <button
+                          type="button"
+                          disabled={triageActionLoading === crime.id}
+                          onClick={() => handleApproveReport(crime.id)}
+                          className="flex-1 py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-xs active:scale-95 transition-all flex items-center justify-center gap-1.5 disabled:opacity-50"
+                        >
+                          <CheckCircle2 className="w-3.5 h-3.5" />
+                          <span>Approve</span>
+                        </button>
+                        <button
+                          type="button"
+                          disabled={triageActionLoading === crime.id}
+                          onClick={() => handleRejectReport(crime.id)}
+                          className="flex-1 py-2 px-3 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-xs shadow-xs active:scale-95 transition-all flex items-center justify-center gap-1.5 disabled:opacity-50"
+                        >
+                          <XCircle className="w-3.5 h-3.5" />
+                          <span>Reject</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       )}
 

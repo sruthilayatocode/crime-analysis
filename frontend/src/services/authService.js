@@ -2,14 +2,17 @@ import { API_BASE } from './apiConfig';
 
 export const authService = {
   getToken() {
-    return localStorage.getItem('crimesense_token');
+    return localStorage.getItem('crimesense_token') || localStorage.getItem('token') || localStorage.getItem('authToken');
   },
 
   setToken(token) {
     if (token) {
       localStorage.setItem('crimesense_token', token);
+      localStorage.setItem('token', token);
     } else {
       localStorage.removeItem('crimesense_token');
+      localStorage.removeItem('token');
+      localStorage.removeItem('authToken');
     }
   },
 
@@ -153,5 +156,56 @@ export const authService = {
       throw new Error(data.error || 'Failed to update settings');
     }
     return data.settings;
+  },
+
+  async verifyEmail(token) {
+    const res = await fetch(`${API_BASE}/auth/verify-email?token=${encodeURIComponent(token)}`, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+    });
+    const data = await res.json();
+    if (!res.ok || !data.success) {
+      throw new Error(data.message || 'Email verification failed');
+    }
+    return data;
+  },
+
+  async resendVerification(email) {
+    const res = await fetch(`${API_BASE}/auth/resend-verification`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    });
+    const data = await res.json();
+    if (!res.ok || !data.success) {
+      throw new Error(data.message || 'Failed to resend verification email');
+    }
+    return data;
+  },
+
+  async forgotPassword(email) {
+    const res = await fetch(`${API_BASE}/auth/forgot-password`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    });
+    const data = await res.json();
+    if (!res.ok || !data.success) {
+      throw new Error(data.message || 'Failed to request password reset');
+    }
+    return data;
+  },
+
+  async resetPassword(token, password) {
+    const res = await fetch(`${API_BASE}/auth/reset-password`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token, password }),
+    });
+    const data = await res.json();
+    if (!res.ok || !data.success) {
+      throw new Error(data.message || 'Failed to reset password');
+    }
+    return data;
   },
 };

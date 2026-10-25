@@ -1,9 +1,21 @@
-from flask import Flask, jsonify, request
-from pathlib import Path
+import sys
 import os
+from pathlib import Path
+from flask import Flask, jsonify, request
 from dotenv import load_dotenv
 
 load_dotenv()
+
+# Ensure backend directory has top priority on sys.path
+BACKEND_DIR = Path(__file__).resolve().parent
+if str(BACKEND_DIR) in sys.path:
+    sys.path.remove(str(BACKEND_DIR))
+sys.path.insert(0, str(BACKEND_DIR))
+
+# Ensure repository root is on sys.path for top-level ml and config packages
+PROJECT_ROOT = BACKEND_DIR.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.append(str(PROJECT_ROOT))
 
 
 from database import db
@@ -25,7 +37,7 @@ import os
 
 
 def seed_admin_user(app_instance):
-    """Seed default admin user from environment variables if none exists."""
+    """Seed default admin user and demo citizen user from environment variables if none exists."""
     with app_instance.app_context():
         admin_email = os.getenv("ADMIN_EMAIL", "admin@crimesense.com").strip().lower()
         admin_password = os.getenv("ADMIN_PASSWORD", "Admin@123")
@@ -49,8 +61,36 @@ def seed_admin_user(app_instance):
             db.session.commit()
             print(f"[Seed] Admin user verified: {admin_email}")
 
+        # Demo Citizen user (for login quick-fill / demo evaluation)
+        demo_user_email = os.getenv("DEMO_USER_EMAIL", "user@crimesense.com").strip().lower()
+        demo_user_password = os.getenv("DEMO_USER_PASSWORD", "User@123")
+        demo_user_name = os.getenv("DEMO_USER_NAME", "Demo Citizen User")
+
+        demo_user = User.query.filter_by(email=demo_user_email).first()
+        if not demo_user:
+            new_citizen = User(
+                name=demo_user_name,
+                email=demo_user_email,
+                role="user",
+                is_active=True
+            )
+            new_citizen.set_password(demo_user_password)
+            db.session.add(new_citizen)
+            db.session.commit()
+            print(f"[Seed] Demo citizen user verified: {demo_user_email}")
+
 
 app = Flask(__name__)
+
+from services.errors import ApiError
+
+
+@app.errorhandler(ApiError)
+def handle_api_error(error):
+    """Handle all ApiError subclasses and return consistent JSON responses."""
+    response = jsonify(error.to_dict())
+    response.status_code = error.status_code
+    return response
 
 
 
@@ -208,6 +248,21 @@ def ensure_schema_migrations():
             conn.execute(text("CREATE INDEX IF NOT EXISTS idx_alerts_lat_lng ON alerts (latitude, longitude)"))
             conn.execute(text("CREATE INDEX IF NOT EXISTS idx_alerts_user_id ON alerts (user_id)"))
 
+            # Check users table columns for verification and password reset
+            res_users = conn.execute(text("PRAGMA table_info(users)")).fetchall()
+            user_cols = [r[1] for r in res_users]
+            if "is_verified" not in user_cols:
+                conn.execute(text("ALTER TABLE users ADD COLUMN is_verified BOOLEAN DEFAULT 0"))
+                conn.execute(text("UPDATE users SET is_verified = 1"))
+            if "verification_token_hash" not in user_cols:
+                conn.execute(text("ALTER TABLE users ADD COLUMN verification_token_hash VARCHAR(64)"))
+            if "verification_token_expires_at" not in user_cols:
+                conn.execute(text("ALTER TABLE users ADD COLUMN verification_token_expires_at DATETIME"))
+            if "reset_token_hash" not in user_cols:
+                conn.execute(text("ALTER TABLE users ADD COLUMN reset_token_hash VARCHAR(64)"))
+            if "reset_token_expires_at" not in user_cols:
+                conn.execute(text("ALTER TABLE users ADD COLUMN reset_token_expires_at DATETIME"))
+
             # Ensure compatibility view for audit_log -> audit_logs
             conn.execute(text("CREATE VIEW IF NOT EXISTS audit_log AS SELECT * FROM audit_logs"))
 
@@ -278,7 +333,7 @@ def health_check():
             "crimes_count": crimes_count,
             "users_count": users_count,
             "sos_events_count": sos_events_count,
-            "db_file_path": str(DB_PATH),
+            "db_initialized": True,
             "server_time": server_time,
         }), 200
 
@@ -289,7 +344,7 @@ def health_check():
             "service": "CrimeSense Backend",
             "db_connected": False,
             "error": str(e),
-            "db_file_path": str(DB_PATH),
+            "db_initialized": False,
             "server_time": server_time,
         }), 503
 
@@ -311,6 +366,25 @@ def project_info():
             "Crime data visualization"
         ]
     })
+
+
+@app.route("/api/system/info")
+def system_info():
+    """Return system information and operational status."""
+    return jsonify({
+        "success": True,
+        "name": "CrimeSense API",
+        "version": "1.0.0",
+        "status": "online",
+        "python_version": sys.version.split()[0],
+        "database": "SQLite (SQLAlchemy)",
+        "features": {
+            "ml_hotspots": True,
+            "proximity_alerts": True,
+            "citizen_reporting": True,
+            "admin_triage": True
+        }
+    }), 200
 
 
 if __name__ == "__main__":

@@ -17,11 +17,13 @@ import {
   AlertCircle,
   Check,
   Compass,
+  ShieldAlert,
 } from 'lucide-react';
 
 import PreciseSearchBar from '../../components/user/PreciseSearchBar';
 import ZoneStatusCard from '../../components/user/ZoneStatusCard';
 import LocationPermissionExplainer from '../../components/user/LocationPermissionExplainer';
+import CitizenReportModal from '../../components/user/CitizenReportModal';
 import { useUserLocation } from '../../hooks/useUserLocation';
 import { fetchZoneRisk, saveLocation, VELLORE_LOCALITY_PRESETS } from '../../services/zoneService';
 
@@ -98,6 +100,7 @@ export default function UserHome() {
   // Pick on Map mode
   const [isPickingOnMap, setIsPickingOnMap] = useState(false);
   const [pickedCoords, setPickedCoords] = useState(null);
+  const [showReportModal, setShowReportModal] = useState(false);
 
   // Handle URL query parameters (e.g. from Saved Places 'View on Map')
   useEffect(() => {
@@ -287,6 +290,14 @@ export default function UserHome() {
         {/* Locality chips when not in pick mode */}
         {!isPickingOnMap && (
           <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pointer-events-auto py-1 pb-1.5 px-0.5">
+            <button
+              type="button"
+              onClick={() => setShowReportModal(true)}
+              className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap shadow-xs bg-red-600 text-white hover:bg-red-700 min-h-[32px] transition-all"
+            >
+              <ShieldAlert className="w-3.5 h-3.5 text-white" />
+              <span>Report Incident</span>
+            </button>
             {VELLORE_LOCALITY_PRESETS.slice(0, 4).map((preset) => (
               <button
                 key={preset.name}
@@ -460,6 +471,14 @@ export default function UserHome() {
           />
         </div>
       )}
+
+      {/* 5. Citizen Incident Reporting Modal */}
+      <CitizenReportModal
+        isOpen={showReportModal}
+        onClose={() => setShowReportModal(false)}
+        initialCoords={activeCoords}
+        initialLocation={currentLocality}
+      />
     </div>
   );
 }

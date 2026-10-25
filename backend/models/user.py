@@ -14,6 +14,11 @@ class User(db.Model):
     avatar_url = db.Column(db.String(500), nullable=True)
     role = db.Column(db.String(20), default="user", nullable=False)  # 'user' | 'admin'
     is_active = db.Column(db.Boolean, default=True, nullable=False)
+    is_verified = db.Column(db.Boolean, default=False, nullable=False)
+    verification_token_hash = db.Column(db.String(64), nullable=True, index=True)
+    verification_token_expires_at = db.Column(db.DateTime, nullable=True)
+    reset_token_hash = db.Column(db.String(64), nullable=True, index=True)
+    reset_token_expires_at = db.Column(db.DateTime, nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     last_login_at = db.Column(db.DateTime, nullable=True)
 
@@ -34,6 +39,7 @@ class User(db.Model):
             "avatar_url": self.avatar_url,
             "role": self.role,
             "is_active": self.is_active,
+            "is_verified": bool(self.is_verified),
             "created_at": self.created_at.isoformat() if self.created_at else None,
             "last_login_at": self.last_login_at.isoformat() if self.last_login_at else None,
         }
