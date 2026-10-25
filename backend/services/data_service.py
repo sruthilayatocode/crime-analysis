@@ -19,12 +19,15 @@ def get_all_crimes(
     locality: Optional[str] = None,
     risk_level: Optional[str] = None,
     search: Optional[str] = None,
+    status: Optional[str] = None,
     limit: Optional[int] = None,
     offset: Optional[int] = None,
 ) -> List[Crime]:
     """Query crime records directly from the SQLite database with optional filters."""
     query = Crime.query
 
+    if status:
+        query = query.filter(Crime.status.ilike(status))
     if crime_type:
         query = query.filter(Crime.crime_type.ilike(f"%{crime_type}%"))
     if district:
@@ -52,6 +55,7 @@ def get_all_crimes(
         query = query.limit(limit)
 
     return query.all()
+
 
 
 def get_crime_by_id(crime_id: int) -> Optional[Crime]:
@@ -99,6 +103,13 @@ def create_crime(payload: Dict[str, Any]) -> Crime:
         location_source=payload.get("location_source"),
         severity_score=float(payload["severity_score"]) if payload.get("severity_score") not in (None, "") else None,
         risk_level=payload.get("risk_level"),
+        status=payload.get("status") or "APPROVED",
+        reported_by_id=payload.get("reported_by_id"),
+        reported_by_name=payload.get("reported_by_name"),
+        admin_notes=payload.get("admin_notes"),
+        reviewed_at=payload.get("reviewed_at"),
+        reviewed_by_id=payload.get("reviewed_by_id"),
+        reviewed_by_name=payload.get("reviewed_by_name"),
         location_name=payload.get("location_name") or payload.get("locality"),
         crime_date=payload.get("crime_date") or payload.get("published_date"),
         severity=payload.get("severity") or payload.get("risk_level"),
@@ -129,6 +140,13 @@ def update_crime(crime_id: int, payload: Dict[str, Any]) -> Optional[Crime]:
         "location_name",
         "crime_date",
         "severity",
+        "status",
+        "reported_by_id",
+        "reported_by_name",
+        "admin_notes",
+        "reviewed_at",
+        "reviewed_by_id",
+        "reviewed_by_name",
     ]:
         if field in payload and payload[field] is not None:
             setattr(crime, field, payload[field])
@@ -171,3 +189,94 @@ def get_hotspots() -> List[Dict[str, Any]]:
     """Compute hotspots directly from SQLite DB."""
     from services.hotspot_service import get_hotspots_from_db
     return get_hotspots_from_db()
+
+
+# Columns of a crime record exposed by the API (compatibility layer)
+CRIME_COLUMNS = [
+    "id",
+    "crime_type",
+    "description",
+    "latitude",
+    "longitude",
+    "location_name",
+    "crime_date",
+    "severity",
+    "article_id",
+    "title",
+    "source",
+    "url",
+    "district",
+    "location_confidence",
+    "location_source",
+    "severity_score",
+    "risk_level",
+    "status",
+    "reported_by_id",
+    "reported_by_name",
+    "admin_notes",
+    "reviewed_at",
+    "reviewed_by_id",
+    "reviewed_by_name",
+    "created_at",
+]
+
+
+class CrimeRepository:
+    """
+    Crime record storage backed by SQLite via SQLAlchemy.
+    """
+
+    def list_crimes(self, status=None, reported_by_id=None):
+        from models.crime import Crime
+        query = Crime.query
+        if status and status.upper() != "ALL":
+            query = query.filter(Crime.status == status.upper())
+        if reported_by_id is not None:
+            query = query.filter(Crime.reported_by_id == reported_by_id)
+        crimes = query.order_by(Crime.id).all()
+        return [c.to_dict() for c in crimes]
+
+
+    def get_crime(self, crime_id):
+        from database import db
+        from models.crime import Crime
+        crime = db.session.get(Crime, crime_id)
+        if crime is None:
+            return None
+        return crime.to_dict()
+
+    def insert_crime(self, payload):
+        from database import db
+        from models.crime import Crime
+        new_crime = Crime(**payload)
+        db.session.add(new_crime)
+        db.session.commit()
+        return new_crime.to_dict()
+
+    def update_crime(self, crime_id, payload):
+        from database import db
+        from models.crime import Crime
+        crime = db.session.get(Crime, crime_id)
+        if crime is None:
+            return None
+        for field, value in payload.items():
+            setattr(crime, field, value)
+        db.session.commit()
+        return crime.to_dict()
+
+    def delete_crime(self, crime_id):
+        from database import db
+        from models.crime import Crime
+        crime = db.session.get(Crime, crime_id)
+        if crime is None:
+            return False
+        db.session.delete(crime)
+        db.session.commit()
+        return True
+
+
+def get_crime_repository():
+    """
+    Return the active crime record repository.
+    """
+    return CrimeRepository()

@@ -402,3 +402,19 @@ def delete_saved_location(loc_id):
         "message": "Place removed from saved destinations."
     }), 200
 
+
+from utils.decorators import role_required, token_required
+
+
+@user_bp.route("/s", methods=["GET"])
+@user_bp.route("/api/users", methods=["GET"])
+@role_required("ADMIN")
+def list_users():
+    users = User.query.all()
+    return jsonify({
+        "success": True,
+        "count": len(users),
+        "data": [u.to_dict() for u in users]
+    }), 200
+
+

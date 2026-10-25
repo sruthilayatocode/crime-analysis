@@ -39,9 +39,10 @@ def build_auth_response(user: User, status_code=200, message="Authentication suc
 
 
 @auth_bp.route("/signup", methods=["POST"])
+@auth_bp.route("/register", methods=["POST"])
 def signup():
     ip_addr = request.remote_addr or "127.0.0.1"
-    if not check_rate_limit(f"signup_{ip_addr}", max_requests=5, window_seconds=60):
+    if not check_rate_limit(f"signup_{ip_addr}", max_requests=10, window_seconds=60):
         return jsonify({"success": False, "message": "Too many signup attempts. Please try again later."}), 429
 
     data = request.get_json() or {}
@@ -59,13 +60,18 @@ def signup():
     if existing_user:
         return jsonify({"success": False, "message": "An account with this email already exists."}), 400
 
-    role = "user"
+    if request.path.endswith("/register"):
+        role = data.get("role") or "USER"
+    else:
+        role = data.get("role") or "user"
+
     new_user = User(name=name, email=email, role=role)
     new_user.set_password(password)
     db.session.add(new_user)
     db.session.commit()
 
     return build_auth_response(new_user, status_code=201, message="Account created successfully.")
+
 
 
 @auth_bp.route("/login", methods=["POST"])

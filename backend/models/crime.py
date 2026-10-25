@@ -22,8 +22,8 @@ class Crime(db.Model):
     # Unique identifier from the validated data pipeline.
     article_id = db.Column(
         db.String(64),
-        unique=True,
-        nullable=False,
+        unique=False,
+        nullable=True,
         index=True
     )
 
@@ -132,6 +132,36 @@ class Crime(db.Model):
         nullable=True
     )
 
+    reported_by_id = db.Column(
+        db.Integer,
+        nullable=True
+    )
+
+    reported_by_name = db.Column(
+        db.String(150),
+        nullable=True
+    )
+
+    admin_notes = db.Column(
+        db.Text,
+        nullable=True
+    )
+
+    reviewed_at = db.Column(
+        db.DateTime,
+        nullable=True
+    )
+
+    reviewed_by_id = db.Column(
+        db.Integer,
+        nullable=True
+    )
+
+    reviewed_by_name = db.Column(
+        db.String(150),
+        nullable=True
+    )
+
     created_at = db.Column(
         db.DateTime,
         default=datetime.utcnow,
@@ -157,8 +187,17 @@ class Crime(db.Model):
             "location_source": self.location_source,
             "severity_score": self.severity_score,
             "risk_level": self.risk_level,
+            "status": self.status or "APPROVED",
+            "reported_by_id": self.reported_by_id,
+            "reported_by_name": self.reported_by_name,
+            "admin_notes": self.admin_notes,
+            "reviewed_at": self.reviewed_at.isoformat() if isinstance(self.reviewed_at, datetime) else self.reviewed_at,
+            "reviewed_by_id": self.reviewed_by_id,
+            "reviewed_by_name": self.reviewed_by_name,
+            "created_at": self.created_at.isoformat() if isinstance(self.created_at, datetime) else str(self.created_at) if self.created_at else None,
             # Legacy fields (kept so old clients keep working)
             "location_name": self.location_name or self.locality,
             "crime_date": self.crime_date or self.published_date,
             "severity": self.severity or self.risk_level
         }
+

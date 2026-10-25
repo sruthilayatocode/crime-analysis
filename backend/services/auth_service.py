@@ -160,3 +160,69 @@ def verify_google_id_token(token_str: str):
         "avatar_url": avatar_url,
     }
 
+
+def create_account(name, email, password, role="USER"):
+    from database import db
+    from models.user import User
+    from services.errors import ConflictError, ValidationError
+    if not email:
+        raise ValidationError("Email is required")
+    if not password:
+        raise ValidationError("Password is required")
+    existing = User.query.filter(User.email == email.lower().strip()).first()
+    if existing:
+        raise ConflictError("An account with this email already exists")
+    user = User(
+        name=name.strip(),
+        email=email.lower().strip(),
+        role=role.lower() if role else "user",
+    )
+    user.set_password(password)
+    db.session.add(user)
+    db.session.commit()
+    return user
+
+
+def register_user(data):
+    name = (data.get("name") or "").strip()
+    email = (data.get("email") or "").strip()
+    password = data.get("password") or ""
+    role = data.get("role") or "USER"
+    return create_account(name, email, password, role)
+
+
+def authenticate(email, password):
+    from models.user import User
+    from services.errors import UnauthorizedError, ValidationError
+    if not email or not password:
+        raise ValidationError("Email and password are required")
+    user = User.query.filter(User.email == email.lower().strip()).first()
+    if not user or not user.check_password(password):
+        raise UnauthorizedError("Invalid email or password")
+    return user
+
+
+def create_token(user, expires_in_hours=None):
+    return generate_access_token(user)
+
+
+def build_session(user):
+    token = generate_access_token(user)
+    return {
+        "token": token,
+        "access_token": token,
+        "user": user.to_dict() if hasattr(user, "to_dict") else {
+            "id": user.id,
+            "name": user.name,
+            "email": user.email,
+            "role": user.role
+        }
+    }
+
+
+def get_authenticated_user(user_id):
+    from database import db
+    from models.user import User
+    return db.session.get(User, user_id)
+
+
