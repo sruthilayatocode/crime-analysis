@@ -55,37 +55,35 @@ app = Flask(__name__)
 
 
 # --------------------------------------------------------------------------- #
-# SQLite database configuration
+# Database configuration (Supports DATABASE_URL or SQLite)
 # --------------------------------------------------------------------------- #
-# Use an ABSOLUTE path so the application always opens the SAME database file
-# no matter which working directory Flask is started from. The previous
-# relative URI ("sqlite:///crimesense.db") was fragile: depending on how the
-# server was launched it resolved to different "instance" folders, which is
-# exactly why /api/crimes sometimes returned 0 records even though the
-# validated 89-row dataset lived in backend/instance/crimesense.db.
-BASE_DIR = Path(__file__).resolve().parent
-DB_DIR = BASE_DIR / "instance"
-DB_DIR.mkdir(parents=True, exist_ok=True)
-DB_PATH = (DB_DIR / "crimesense.db").resolve()
+custom_db_url = os.getenv("DATABASE_URL", "").strip()
 
-# Log DB path at server startup
-print(f"[Database] SQLite database path: {DB_PATH.as_posix()}")
+if custom_db_url:
+    # Fix Heroku/Render postgres:// URI to postgresql:// for SQLAlchemy
+    if custom_db_url.startswith("postgres://"):
+        custom_db_url = custom_db_url.replace("postgres://", "postgresql://", 1)
+    app.config["SQLALCHEMY_DATABASE_URI"] = custom_db_url
+    print(f"[Database] Using cloud DATABASE_URL: {custom_db_url.split('@')[-1] if '@' in custom_db_url else 'configured'}")
+else:
+    BASE_DIR = Path(__file__).resolve().parent
+    DB_DIR = BASE_DIR / "instance"
+    DB_DIR.mkdir(parents=True, exist_ok=True)
+    DB_PATH = (DB_DIR / "crimesense.db").resolve()
+    print(f"[Database] SQLite database path: {DB_PATH.as_posix()}")
 
-# Fail fast with clear error if the DB file is missing
-if not DB_PATH.exists():
-    raise FileNotFoundError(
-        f"CRITICAL ERROR: SQLite database file not found at '{DB_PATH}'. "
-        "Please run 'python scripts/init_database_schema.py' and 'python scripts/import_crimes.py' first."
-    )
+    if not DB_PATH.exists():
+        print(f"[Database] SQLite DB file '{DB_PATH}' will be initialized automatically.")
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + DB_PATH.as_posix()
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {
-    "connect_args": {
-        "timeout": 30,
-        "check_same_thread": False,
+    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + DB_PATH.as_posix()
+    app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {
+        "connect_args": {
+            "timeout": 30,
+            "check_same_thread": False,
+        }
     }
-}
+
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 
 
@@ -108,13 +106,31 @@ def _cors_preflight():
     if request.method == "OPTIONS":
         resp = jsonify({})
         resp.status_code = 204
+        origin = request.headers.get("Origin")
+        is_allowed = (
+            origin in ALLOWED_ORIGINS
+            or (origin and (origin.endswith(".web.app") or origin.endswith(".firebaseapp.com")))
+            or os.getenv("CORS_ALLOW_ALL", "").lower() in ("true", "1")
+        )
+        if is_allowed and origin:
+            resp.headers["Access-Control-Allow-Origin"] = origin
+            resp.headers["Access-Control-Allow-Credentials"] = "true"
+            resp.headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, DELETE, OPTIONS"
+            resp.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
+            resp.headers["Access-Control-Max-Age"] = "600"
+            resp.headers["Vary"] = "Origin"
         return resp
 
 
 @app.after_request
 def _apply_security_and_cors_headers(response):
     origin = request.headers.get("Origin")
-    if origin in ALLOWED_ORIGINS:
+    is_allowed = (
+        origin in ALLOWED_ORIGINS
+        or (origin and (origin.endswith(".web.app") or origin.endswith(".firebaseapp.com")))
+        or os.getenv("CORS_ALLOW_ALL", "").lower() in ("true", "1")
+    )
+    if is_allowed and origin:
         response.headers["Access-Control-Allow-Origin"] = origin
         response.headers["Access-Control-Allow-Credentials"] = "true"
         response.headers["Access-Control-Allow-Methods"] = (

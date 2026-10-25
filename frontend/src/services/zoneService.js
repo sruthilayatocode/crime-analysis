@@ -5,7 +5,7 @@
  * resolving search queries, and managing local saved locations & emergency contacts.
  */
 
-export const API_BASE_URL = import.meta.env.VITE_API_URL || '';
+export { API_BASE_URL } from './apiConfig';
 
 // Pre-configured Vellore localities for instant search suggestions
 export const VELLORE_LOCALITY_PRESETS = [

@@ -8,7 +8,7 @@
  *   GET /api/hotspots -> { success, message, source, count, data: [hotspot, ...] }
  */
 
-export const API_BASE_URL = import.meta.env.VITE_API_URL || ''
+export { API_BASE_URL } from './apiConfig';
 
 async function request(path) {
   const response = await fetch(`${API_BASE_URL}${path}`)

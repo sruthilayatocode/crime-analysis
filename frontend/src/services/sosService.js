@@ -1,6 +1,6 @@
 import { authService } from './authService';
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || '/api';
+import { API_BASE } from './apiConfig';
 
 /**
  * Validate and format an Indian or international phone number into E.164 standard.
