@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply bg-gray-950 text-gray-100 antialiased;
+  }
+
+  * {
+    @apply border-gray-800;
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Utility: hide scrollbar while preserving scroll functionality           */
+/* ---------------------------------------------------------------------- */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE / Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;             /* Chrome / Safari */
+}
+
+/* ---------------------------------------------------------------------- */
+/* animate-in helpers (Tailwind v3-compatible)                             */
+/* ---------------------------------------------------------------------- */
+@keyframes fade-in-50 {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slide-in-from-bottom-6 {
+  from { transform: translateY(1.5rem); opacity: 0; }
+  to   { transform: translateY(0);      opacity: 1; }
+}
+@keyframes slide-in-from-top-3 {
+  from { transform: translateY(-0.75rem); opacity: 0; }
+  to   { transform: translateY(0);        opacity: 1; }
+}
+
+.animate-in { animation-fill-mode: both; }
+
+.fade-in-50        { animation: fade-in-50 0.15s ease-out; }
+.slide-in-from-bottom-6 { animation: slide-in-from-bottom-6 0.3s ease-out; }
+.slide-in-from-top-3    { animation: slide-in-from-top-3 0.2s ease-out; }
+.duration-150 { animation-duration: 0.15s; }
+.duration-300 { animation-duration: 0.3s; }
+
+/* ---------------------------------------------------------------------- */
+/* Leaflet dark theme overrides                                             */
+/* ---------------------------------------------------------------------- */
+.leaflet-container {
+  background: #0a0f1e;
+  font-family: inherit;
+}
+
+.leaflet-control-zoom a {
+  background: #1f2937 !important;
+  color: #9ca3af !important;
+  border-color: #374151 !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background: #374151 !important;
+  color: #ffffff !important;
+}
+
+.leaflet-control-attribution {
+  background: rgba(17, 24, 39, 0.8) !important;
+  color: #6b7280 !important;
+}
+
+.leaflet-control-attribution a {
+  color: #9ca3af !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: #1f2937 !important;
+  color: #f3f4f6 !important;
+  border: 1px solid #374151 !important;
+  border-radius: 0.5rem !important;
+}
+
+.leaflet-popup-tip {
+  background: #1f2937 !important;
+  border: 1px solid #374151 !important;
+}
+
+.leaflet-popup-close-button {
+  color: #9ca3af !important;
+}
+
+.leaflet-popup-close-button:hover {
+  color: #ffffff !important;
+}

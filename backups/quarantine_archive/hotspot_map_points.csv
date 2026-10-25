@@ -1,0 +1,787 @@
+﻿article_id,title,crime_type,published_date,locality,latitude,longitude,location_confidence,severity_score,risk_level
+70d2d39686e4ee8b,Four get 20 years imprisonment in 2022 Katpadi gang-rape case,Sexual Assault,"Thu, 30 Jan 2025 08:00:00 GMT",Katpadi,13.043505,79.240410,HIGH,10,Critical
+7f8d8bb99a06b88d,PMK leader murder: Two PFI members among four held near Pallikonda in TN,Murder,"Wed, 10 Dec 2025 08:00:00 GMT",Pallikonda,12.905489,78.940936,HIGH,10,Critical
+6d0af82e41412bac,BJP functionary’s son among two held for robbery near Katpadi,Robbery,"Sun, 08 Jun 2025 07:00:00 GMT",Katpadi,13.043505,79.240410,HIGH,8,High
+95bd3fe1551abbee,Seven persons arrested for burglary near Katpadi,Theft,"Wed, 26 Mar 2025 07:00:00 GMT",Katpadi,13.043505,79.240410,HIGH,2,Low
+88c7453bc795d930,Two persons held for robbery in Katpadi,Robbery,"Thu, 25 Jul 2024 07:00:00 GMT",Katpadi,13.043505,79.240410,HIGH,8,High
+0055b4c19472ef06,Tamil Nadu: 2 held for gang rape of woman near Vellore Fort,Sexual Assault,"Mon, 20 Jan 2020 08:00:00 GMT",Vellore Fort,12.920467,79.128182,HIGH,10,Critical
+6a1ea1d19042bd28,"Sexually assaulted by her teacher, Class VI girl drops out of school near Katpadi",Assault,"Thu, 05 Mar 2020 08:00:00 GMT",Katpadi,13.043505,79.240410,HIGH,8,High
+6a1d7312d77447f7,"Night burglary at jewelry workshop in Vellore Fort, Vellore: Gold ingots stolen",Burglary,"Mon, 13 Jan 2025 14:15:00 GMT",Vellore Fort,12.91958,79.133557,HIGH,5.4,Medium
+487d2573e9e74aff,"Retired professor from Otteri, Vellore duped of Rs 38 lakh in digital arrest scam",Cyber Crime,"Sun, 22 Feb 2026 08:37:00 GMT",Otteri,12.896485,79.145174,HIGH,5.8,Medium
+28bad548ce0bb097,Pedestrian assaulted and robbed near Officers Line railway overbridge in Vellore,Robbery,"Thu, 16 Jan 2025 08:13:00 GMT",Officers Line,12.924116,79.128683,HIGH,7.0,High
+caaaf6d6ce6cb648,Land document forgery: Three arrested by anti-land grabbing wing in Kaspa,Fraud,"Wed, 14 Jan 2026 12:45:00 GMT",Kaspa,12.914015,79.11943,HIGH,5.5,Medium
+77ac4c06fa8f5a66,Gang extorting protection money from vegetable vendors in Kangeyanallur arrested,Extortion,"Sun, 06 Oct 2024 19:14:00 GMT",Kangeyanallur,12.955804,79.150377,HIGH,6.6,High
+06a4a297a688f147,Phishing link OTP fraud: Bank customer in Allapuram loses Rs 1.8 lakh,Cyber Crime,"Fri, 23 May 2025 06:48:00 GMT",Allapuram,12.909227,79.124759,HIGH,4.7,Medium
+29684d09138cd488,Gang extorting protection money from vegetable vendors in Gudiyatham arrested,Extortion,"Mon, 23 Dec 2024 19:21:00 GMT",Gudiyatham,12.946589,78.875754,HIGH,7.3,High
+65798b80e51821b5,Land document forgery: Three arrested by anti-land grabbing wing in Katpadi,Fraud,"Tue, 21 Apr 2026 16:06:00 GMT",Katpadi,12.978462,79.140606,HIGH,5.3,Medium
+1eeb2d8a7178d2c2,"Auto-rickshaw stolen from parking lot near Kangeyanallur, Vellore",Vehicle Theft,"Thu, 19 Feb 2026 17:54:00 GMT",Kangeyanallur,12.947566,79.150279,HIGH,2.1,Low
+f98c9fedc190902e,Part-time job investment fraud: Youth from Sathuvachari loses Rs 6 lakh,Cyber Crime,"Fri, 16 May 2025 07:46:00 GMT",Sathuvachari,12.939815,79.163632,HIGH,5.9,Medium
+7f646692ff275a54,Clash between two village youth groups during festival in CMC Vellore,Assault,"Wed, 05 Mar 2025 18:05:00 GMT",CMC Vellore,12.925319,79.137256,HIGH,4.9,Medium
+faa4d13e0c47edd3,Two men posing as vigilance officers extort money from merchant in Melmonavoor,Extortion,"Tue, 18 Nov 2025 17:36:00 GMT",Melmonavoor,12.890845,79.089454,HIGH,6.6,High
+8f36752db54c8db3,"Rival factions clash with knives near Gudiyatham bus terminus, Vellore",Attempt to Murder,"Fri, 29 May 2026 08:54:00 GMT",Gudiyatham,12.941341,78.869922,HIGH,7.8,High
+24e0f4c04eb6d5cc,"Brass lamps and temple donation box burgled near Officers Line, Vellore",Theft,"Sat, 21 Feb 2026 18:17:00 GMT",Officers Line,12.917694,79.133432,HIGH,2.3,Low
+3fd528a0015f43fd,"Armed gang intercepts trader near Saidapet in Vellore, robs Rs 4.5 lakh",Robbery,"Sun, 06 Jul 2025 11:23:00 GMT",Saidapet,12.920004,79.14637,HIGH,8.4,High
+7f41167b1b238872,Two-wheeler stolen outside Thottapalayam commercial complex in Vellore,Theft,"Wed, 10 Dec 2025 14:44:00 GMT",Thottapalayam,12.923799,79.137432,HIGH,3.1,Low
+abfe1608ff702837,"Inter-district bike lifting gang busted in CMC Vellore, 18 motorcycles seized",Vehicle Theft,"Tue, 28 Nov 2023 08:38:00 GMT",CMC Vellore,12.924105,79.134929,HIGH,3.4,Low
+fc4fc33d46997dd1,"Inter-district bike lifting gang busted in Vellore Fort, 18 motorcycles seized",Vehicle Theft,"Wed, 01 Oct 2025 13:10:00 GMT",Vellore Fort,12.921482,79.123472,HIGH,2.5,Low
+553c09784101b211,Machetes and sharp lethal weapons seized from abandoned shed in Sathuvachari,Illegal Weapons,"Mon, 19 May 2025 13:43:00 GMT",Sathuvachari,12.934451,79.164158,HIGH,7.0,High
+64e5ba69d76baa57,"Cash and valuables stolen from locked house near Sainathapuram, Vellore",Theft,"Wed, 29 Jan 2025 13:52:00 GMT",Sainathapuram,12.913255,79.145772,HIGH,2.6,Low
+9a561b5497f6e403,Part-time job investment fraud: Youth from Vellore Fort loses Rs 6 lakh,Cyber Crime,"Thu, 11 Jun 2026 18:17:00 GMT",Vellore Fort,12.916056,79.123566,HIGH,5.9,Medium
+ec76219d2abea382,"Inter-district bike lifting gang busted in Gandhi Nagar, 18 motorcycles seized",Vehicle Theft,"Thu, 11 Jun 2026 12:41:00 GMT",Gandhi Nagar,12.957352,79.148353,HIGH,3.4,Low
+40e4172a403c4f8e,Gang extorting protection money from vegetable vendors in Sathuvachari arrested,Extortion,"Thu, 07 May 2026 14:47:00 GMT",Sathuvachari,12.93503,79.161428,HIGH,6.9,High
+a32ea7149c9bf3db,"Two college students arrested for series of chain snatchings across Sainathapuram, Vellore",Chain Snatching,"Sun, 26 Oct 2025 18:23:00 GMT",Sainathapuram,12.914157,79.138803,HIGH,4.2,Medium
+7adf0ed19bb3fe12,"Retired professor from Vellore Fort, Vellore duped of Rs 38 lakh in digital arrest scam",Cyber Crime,"Thu, 12 Mar 2026 22:31:00 GMT",Vellore Fort,12.924288,79.126103,HIGH,5.4,Medium
+7818971279adbb47,"Rival factions clash with knives near Sankaranpalayam bus terminus, Vellore",Attempt to Murder,"Sun, 25 Jan 2026 09:09:00 GMT",Sankaranpalayam,12.913795,79.112982,HIGH,8.1,High
+2871a60be91e1dcf,Culprit gets 20 years rigorous imprisonment in Thottapalayam sexual assault case,Sexual Assault,"Mon, 15 Dec 2025 19:38:00 GMT",Thottapalayam,12.933699,79.134705,HIGH,9.3,Critical
+f8d858ccb8cd5eab,"History-sheeter killed in gang clash near Katpadi, Vellore",Murder,"Wed, 15 Jul 2026 20:33:00 GMT",Katpadi,12.982091,79.13242,HIGH,9.6,Critical
+7715f85ab96a008b,"Woman loses four-sovereign gold chain to bike-borne snatchers in Sathuvachari, Vellore",Chain Snatching,"Tue, 06 Jan 2026 09:43:00 GMT",Sathuvachari,12.928813,79.170495,HIGH,4.5,Medium
+f3b3d2bf23b34456,"Inter-district bike lifting gang busted in Kalinjur, 18 motorcycles seized",Vehicle Theft,"Thu, 16 May 2024 16:07:00 GMT",Kalinjur,12.962091,79.137512,HIGH,3.4,Low
+387c2d04be01aece,"Battery and diesel pilferage from parked lorries near Kaspa, Vellore",Theft,"Sat, 22 Mar 2025 20:00:00 GMT",Kaspa,12.919843,79.119403,HIGH,2.1,Low
+1a7aab404a326df3,"Brass lamps and temple donation box burgled near Officers Line, Vellore",Theft,"Tue, 24 Feb 2026 15:53:00 GMT",Officers Line,12.916735,79.135206,HIGH,3.0,Low
+1aac1edb4f66e953,"School student rescued within 6 hours of abduction in Gandhi Nagar, Vellore",Kidnapping,"Sat, 08 Nov 2025 12:09:00 GMT",Gandhi Nagar,12.957147,79.149481,HIGH,8.3,High
+188e04041d9f057c,Mobile phone theft gang apprehended near Katpadi in Vellore,Theft,"Mon, 24 Mar 2025 22:58:00 GMT",Katpadi,12.986625,79.140483,HIGH,2.1,Low
+86dd72ea842f8064,Clash between two village youth groups during festival in Sathuvachari,Assault,"Mon, 15 Jun 2026 21:01:00 GMT",Sathuvachari,12.935537,79.166102,HIGH,4.3,Medium
+fcdb0cde9c6b8af9,"Elderly woman injured in chain snatching incident near Officers Line, Vellore",Chain Snatching,"Sun, 05 Jul 2026 15:15:00 GMT",Officers Line,12.92591,79.127208,HIGH,3.8,Medium
+6f36f7a352949b85,"Retired professor from Otteri, Vellore duped of Rs 38 lakh in digital arrest scam",Cyber Crime,"Tue, 10 Feb 2026 08:46:00 GMT",Otteri,12.891835,79.143399,HIGH,5.8,Medium
+f8f52ae562b0102e,"Auto-rickshaw stolen from parking lot near KV Kuppam, Vellore",Vehicle Theft,"Wed, 05 Feb 2025 10:08:00 GMT",KV Kuppam,12.988211,79.053164,HIGH,3.0,Low
+54cb16a28d015412,"Inter-district bike lifting gang busted in Katpadi, 18 motorcycles seized",Vehicle Theft,"Fri, 07 Nov 2025 19:13:00 GMT",Katpadi,12.977486,79.139286,HIGH,2.5,Low
+f25c64b4e27f6dcd,"Shopkeeper assaulted by drunken trio over refusal of credit in Allapuram, Vellore",Assault,"Wed, 20 Dec 2023 12:45:00 GMT",Allapuram,12.917178,79.116806,HIGH,4.4,Medium
+50290cf827b8b6a3,"Petrol bunk cashier robbed at knife-point near Konavattam, Vellore",Robbery,"Wed, 10 Dec 2025 17:28:00 GMT",Konavattam,12.920935,79.176277,HIGH,7.3,High
+f0813867895527b3,"Retired professor from Sainathapuram, Vellore duped of Rs 38 lakh in digital arrest scam",Cyber Crime,"Mon, 19 Aug 2024 09:15:00 GMT",Sainathapuram,12.913336,79.135334,HIGH,5.7,Medium
+5531dd0cf8356d2b,"Break-in at electronics showroom near Sankaranpalayam, Vellore",Burglary,"Tue, 23 Jun 2026 06:37:00 GMT",Sankaranpalayam,12.919874,79.121288,HIGH,5.6,Medium
+7a7279779464e018,"Two college students arrested for series of chain snatchings across Pernambut, Vellore",Chain Snatching,"Wed, 29 Oct 2025 13:00:00 GMT",Pernambut,12.936055,78.716218,HIGH,4.5,Medium
+6c2a6e7c580c58a5,"Break-in at electronics showroom near Pernambut, Vellore",Burglary,"Sat, 31 Jan 2026 13:04:00 GMT",Pernambut,12.930705,78.719203,HIGH,5.4,Medium
+3ba9009eddf171b9,"Night burglary at jewelry workshop in Konavattam, Vellore: Gold ingots stolen",Burglary,"Sun, 06 Sep 2026 12:34:00 GMT",Konavattam,12.930034,79.167639,HIGH,5.7,Medium
+7b4c0ca4f491ca41,"Shopkeeper assaulted by drunken trio over refusal of credit in CMC Vellore, Vellore",Assault,"Mon, 28 Jul 2025 12:06:00 GMT",CMC Vellore,12.927719,79.140688,HIGH,4.0,Medium
+85801db207ff9683,"Shopkeeper assaulted by drunken trio over refusal of credit in Virupakshipuram, Vellore",Assault,"Tue, 28 Jan 2025 09:03:00 GMT",Virupakshipuram,12.899587,79.127355,HIGH,3.6,Medium
+fa98caff474a3741,Pedestrian assaulted and robbed near Katpadi railway overbridge in Vellore,Robbery,"Mon, 23 Jun 2025 09:15:00 GMT",Katpadi,12.980604,79.133397,HIGH,7.6,High
+78dd959a67f0a579,"Hit-and-run driver arrested after pedestrian killed near Pernambut, Vellore",Road Incident Offence,"Tue, 18 Aug 2026 10:27:00 GMT",Pernambut,12.939937,78.722178,HIGH,3.7,Low
+9507d5e7c604949f,"Woman loses four-sovereign gold chain to bike-borne snatchers in Old Town, Vellore",Chain Snatching,"Tue, 25 Aug 2026 13:55:00 GMT",Old Town,12.920487,79.134587,HIGH,3.9,Medium
+a8b39bd2b7c4831f,"Ganja peddling racket busted near Katpadi, Vellore: 14 kg contraband seized",Drug Trafficking,"Tue, 15 Aug 2023 09:03:00 GMT",Katpadi,12.977534,79.139948,HIGH,5.7,Medium
+fe4eaeea2a5cff0b,"Inter-district bike lifting gang busted in Konavattam, 18 motorcycles seized",Vehicle Theft,"Thu, 03 Oct 2024 06:05:00 GMT",Konavattam,12.926882,79.174824,HIGH,2.6,Low
+d0268a17afb4b866,"Auto-rickshaw stolen from parking lot near Katpadi, Vellore",Vehicle Theft,"Tue, 02 May 2023 11:26:00 GMT",Katpadi,12.982203,79.13416,HIGH,2.9,Low
+9369254e7061d791,Mobile phone theft gang apprehended near Thottapalayam in Vellore,Theft,"Sun, 20 Apr 2025 18:57:00 GMT",Thottapalayam,12.928908,79.141887,HIGH,3.5,Low
+0b9e6909ef86a553,Reckless truck collision leaves two motorists injured near Katpadi junction,Road Incident Offence,"Fri, 21 Aug 2026 15:27:00 GMT",Katpadi,12.982133,79.13571,HIGH,2.6,Low
+d0d2d906c8d0649d,Merchant abducted for Rs 20 lakh ransom near Gudiyatham; police rescue victim,Kidnapping,"Wed, 22 Apr 2026 07:37:00 GMT",Gudiyatham,12.940591,78.871135,HIGH,8.9,High
+7cf2f0bc64f9647b,Culprit gets 20 years rigorous imprisonment in KV Kuppam sexual assault case,Sexual Assault,"Thu, 01 Feb 2024 16:03:00 GMT",KV Kuppam,12.990067,79.062538,HIGH,9.4,Critical
+965d4d9af16fef49,Part-time job investment fraud: Youth from Thorapadi loses Rs 6 lakh,Cyber Crime,"Wed, 02 Sep 2026 22:58:00 GMT",Thorapadi,12.90614,79.116938,HIGH,5.6,Medium
+69b5c986ba36aa06,Apartment burglary reported near Abdullapuram while family attended wedding,Burglary,"Mon, 06 Apr 2026 08:38:00 GMT",Abdullapuram,12.889661,79.066635,HIGH,5.2,Medium
+1c3d54a743c9d50e,Land document forgery: Three arrested by anti-land grabbing wing in Thottapalayam,Fraud,"Fri, 01 May 2026 18:07:00 GMT",Thottapalayam,12.926722,79.144956,HIGH,4.4,Medium
+bde9a6e0e813129b,Part-time job investment fraud: Youth from Sathuvachari loses Rs 6 lakh,Cyber Crime,"Thu, 19 Oct 2023 13:37:00 GMT",Sathuvachari,12.930944,79.163883,HIGH,5.5,Medium
+59e05e992dc86b8a,"Shopkeeper assaulted by drunken trio over refusal of credit in Pallikonda, Vellore",Assault,"Fri, 14 Nov 2025 08:26:00 GMT",Pallikonda,12.911105,78.942997,HIGH,3.9,Medium
+592b8f03bb8f8b53,"Retired professor from Konavattam, Vellore duped of Rs 38 lakh in digital arrest scam",Cyber Crime,"Sat, 15 Apr 2023 16:15:00 GMT",Konavattam,12.919796,79.167453,HIGH,5.7,Medium
+d66a6079249a0e28,Land document forgery: Three arrested by anti-land grabbing wing in Bagayam,Fraud,"Mon, 09 Mar 2026 15:29:00 GMT",Bagayam,12.866222,79.139171,HIGH,4.4,Medium
+55ee96b9717d1c6a,"Man arrested under POCSO Act for molesting minor near Sathuvachari, Vellore",Sexual Assault,"Fri, 07 Feb 2025 06:29:00 GMT",Sathuvachari,12.929738,79.166754,HIGH,9.9,Critical
+c52395ea9a841bdf,Two men posing as vigilance officers extort money from merchant in Sankaranpalayam,Extortion,"Thu, 16 Oct 2025 09:04:00 GMT",Sankaranpalayam,12.914066,79.112341,HIGH,7.4,High
+2ee7dd921a20559c,Phishing link OTP fraud: Bank customer in CMC Vellore loses Rs 1.8 lakh,Cyber Crime,"Wed, 17 Sep 2025 14:08:00 GMT",CMC Vellore,12.924101,79.138385,HIGH,4.9,Medium
+633d40a31b342674,"Inter-district bike lifting gang busted in Otteri, 18 motorcycles seized",Vehicle Theft,"Sun, 05 Feb 2023 13:23:00 GMT",Otteri,12.894734,79.148764,HIGH,2.5,Low
+79e0794071fb0f5b,"History-sheeter killed in gang clash near Gudiyatham, Vellore",Murder,"Thu, 01 Dec 2022 22:00:00 GMT",Gudiyatham,12.942174,78.873287,HIGH,9.4,Critical
+057a31e43009e770,"Elderly woman injured in chain snatching incident near Kaspa, Vellore",Chain Snatching,"Thu, 10 Oct 2024 15:59:00 GMT",Kaspa,12.912979,79.123749,HIGH,4.8,Medium
+b04efe8feea91729,Clash between two village youth groups during festival in Shenbakkam,Assault,"Sat, 09 Mar 2024 14:07:00 GMT",Shenbakkam,12.934992,79.112295,HIGH,4.4,Medium
+2d4b453026414efc,"Auto-rickshaw stolen from parking lot near Shenbakkam, Vellore",Vehicle Theft,"Thu, 10 Oct 2024 10:17:00 GMT",Shenbakkam,12.933094,79.113837,HIGH,2.3,Low
+2656855ab25eca7b,Finance firm proprietor booked for cheating depositors of Rs 1.2 crore in Bagayam,Fraud,"Fri, 18 Apr 2025 16:13:00 GMT",Bagayam,12.869787,79.138113,HIGH,4.2,Medium
+6545a69fe58f2a58,"Ganja peddling racket busted near Kangeyanallur, Vellore: 14 kg contraband seized",Drug Trafficking,"Wed, 15 May 2024 22:31:00 GMT",Kangeyanallur,12.955734,79.147989,HIGH,5.8,Medium
+e25b6364d403c3e2,"Elderly woman injured in chain snatching incident near Anaicut, Vellore",Chain Snatching,"Tue, 27 Jan 2026 08:40:00 GMT",Anaicut,12.878445,78.978129,HIGH,3.9,Medium
+039f2f18e9952ddf,"Country-made pistol and live ammunition seized from suspect near Bagayam, Vellore",Illegal Weapons,"Thu, 22 May 2025 07:00:00 GMT",Bagayam,12.871172,79.133854,HIGH,7.2,High
+249014f372dd58a4,"Attempt to murder municipal worker in Pallikonda, three remanded",Attempt to Murder,"Sat, 08 Mar 2025 14:10:00 GMT",Pallikonda,12.90804,78.940969,HIGH,8.4,High
+0984e3ad5f0ad982,Husband arrested in Katpadi for attempt to burn wife over dowry demand,Domestic Violence,"Wed, 09 Oct 2024 19:35:00 GMT",Katpadi,12.98161,79.136569,HIGH,7.6,High
+2e3f39017e30deef,"Country-made pistol and live ammunition seized from suspect near Kalinjur, Vellore",Illegal Weapons,"Sun, 08 Feb 2026 10:34:00 GMT",Kalinjur,12.966005,79.133696,HIGH,7.8,High
+9da228cefd8e952b,"Cash and valuables stolen from locked house near Saidapet, Vellore",Theft,"Thu, 09 Jul 2026 10:27:00 GMT",Saidapet,12.925907,79.140437,HIGH,2.2,Low
+ca21d61eab1eece3,Two men posing as vigilance officers extort money from merchant in VIT Campus,Extortion,"Sun, 07 Jun 2026 17:57:00 GMT",VIT Campus,12.963559,79.161132,HIGH,7.2,High
+2300f3e49f958020,Two-wheeler stolen outside Vellore Fort commercial complex in Vellore,Theft,"Sat, 21 Jan 2023 17:13:00 GMT",Vellore Fort,12.923835,79.128474,HIGH,2.1,Low
+564912600b061475,"Inter-district bike lifting gang busted in Sathuvachari, 18 motorcycles seized",Vehicle Theft,"Sat, 27 Jul 2024 10:59:00 GMT",Sathuvachari,12.933547,79.170807,HIGH,2.3,Low
+96a13b9db0923bef,"Auto-rickshaw stolen from parking lot near Konavattam, Vellore",Vehicle Theft,"Sat, 25 Mar 2023 11:56:00 GMT",Konavattam,12.924955,79.166195,HIGH,2.8,Low
+ddd649482ac5ace1,"Auto-rickshaw stolen from parking lot near Gudiyatham, Vellore",Vehicle Theft,"Wed, 02 Apr 2025 16:50:00 GMT",Gudiyatham,12.944903,78.86561,HIGH,2.8,Low
+3244cccef954b5dd,"Night burglary at jewelry workshop in Pallikonda, Vellore: Gold ingots stolen",Burglary,"Sat, 09 Dec 2023 13:17:00 GMT",Pallikonda,12.910514,78.936609,HIGH,5.0,Medium
+9599e54239355e9b,"Man hacked to death over property dispute near Pallikonda, Vellore",Murder,"Wed, 25 Feb 2026 18:55:00 GMT",Pallikonda,12.903327,78.939487,HIGH,9.7,Critical
+3fd5e702defa69d6,Clash between two village youth groups during festival in Katpadi,Assault,"Fri, 26 Apr 2024 13:01:00 GMT",Katpadi,12.979669,79.134192,HIGH,3.8,Medium
+6863e99847df4d55,Serial house-break thief held near VIT Campus by Vellore police,Burglary,"Tue, 23 Jul 2024 16:17:00 GMT",VIT Campus,12.974492,79.155998,HIGH,5.0,Medium
+98fffb59627faa5a,"Woman loses four-sovereign gold chain to bike-borne snatchers in Kaspa, Vellore",Chain Snatching,"Sun, 14 Dec 2025 16:01:00 GMT",Kaspa,12.917046,79.125681,HIGH,4.9,Medium
+c1154f693b8e59cf,"Unauthorized biometric Aadhaar enabled payment fraud reported in Pernambut, Vellore",Cyber Crime,"Thu, 14 May 2026 11:37:00 GMT",Pernambut,12.93936,78.717401,HIGH,4.6,Medium
+101abe96e1e91534,Pedestrian assaulted and robbed near Vellore Collectorate railway overbridge in Vellore,Robbery,"Tue, 16 May 2023 07:06:00 GMT",Vellore Collectorate,12.931571,79.160317,HIGH,8.5,High
+bfeb9c002d8af0b0,Gang extorting protection money from vegetable vendors in Old Town arrested,Extortion,"Thu, 26 Jun 2025 16:27:00 GMT",Old Town,12.91393,79.129433,HIGH,7.0,High
+17dae6e3bfc8469d,Machetes and sharp lethal weapons seized from abandoned shed in Abdullapuram,Illegal Weapons,"Fri, 19 Sep 2025 09:24:00 GMT",Abdullapuram,12.887115,79.064842,HIGH,7.3,High
+682fa86ad2487a81,"Battery and diesel pilferage from parked lorries near Otteri, Vellore",Theft,"Sun, 07 Apr 2024 14:02:00 GMT",Otteri,12.890142,79.149849,HIGH,2.1,Low
+45f9a4714f126fd9,"POCSO case registered against tuition teacher in KV Kuppam, Vellore",Sexual Assault,"Mon, 01 Jan 2024 22:59:00 GMT",KV Kuppam,12.990941,79.061305,HIGH,9.2,Critical
+b7d86bbfd749e13d,Reckless truck collision leaves two motorists injured near Melmonavoor junction,Road Incident Offence,"Tue, 17 Dec 2024 12:23:00 GMT",Melmonavoor,12.894669,79.089875,HIGH,3.0,Low
+87051e1e88fa9dda,"Break-in at electronics showroom near KV Kuppam, Vellore",Burglary,"Sun, 07 Dec 2025 16:39:00 GMT",KV Kuppam,12.991187,79.059926,HIGH,4.5,Medium
+1904eb9ba5b9300b,"Night burglary at jewelry workshop in Ariyur, Vellore: Gold ingots stolen",Burglary,"Wed, 05 Mar 2025 15:32:00 GMT",Ariyur,12.885097,79.0829,HIGH,4.9,Medium
+6a11404333152548,"History-sheeter killed in gang clash near KV Kuppam, Vellore",Murder,"Tue, 29 Jul 2025 16:25:00 GMT",KV Kuppam,12.982933,79.063449,HIGH,9.4,Critical
+84fe07cd4f78792d,Apartment burglary reported near Sathuvachari while family attended wedding,Burglary,"Thu, 10 Oct 2024 10:12:00 GMT",Sathuvachari,12.930122,79.163444,HIGH,4.8,Medium
+178f0556e1c78564,"Petrol bunk cashier robbed at knife-point near Sathuvachari, Vellore",Robbery,"Sat, 09 Aug 2025 16:29:00 GMT",Sathuvachari,12.92965,79.163902,HIGH,8.4,High
+df57f1c393d2b07a,Part-time job investment fraud: Youth from Sathuvachari loses Rs 6 lakh,Cyber Crime,"Fri, 12 Dec 2025 12:32:00 GMT",Sathuvachari,12.936715,79.16168,HIGH,5.5,Medium
+d53df8c96a2ff9ef,Merchant abducted for Rs 20 lakh ransom near Gandhi Nagar; police rescue victim,Kidnapping,"Fri, 28 Mar 2025 08:18:00 GMT",Gandhi Nagar,12.959216,79.147611,HIGH,7.9,High
+f4e5287cbc1aed6e,"Man hacked to death over property dispute near Dharapadavedu, Vellore",Murder,"Fri, 21 Nov 2025 16:05:00 GMT",Dharapadavedu,12.968083,79.146702,HIGH,9.5,Critical
+98b26c40aa4626d2,"Attempt to murder municipal worker in Dharapadavedu, three remanded",Attempt to Murder,"Tue, 30 Apr 2024 15:14:00 GMT",Dharapadavedu,12.968179,79.146011,HIGH,8.2,High
+0194a49efdd5d520,"Unauthorized biometric Aadhaar enabled payment fraud reported in Allapuram, Vellore",Cyber Crime,"Sat, 16 Mar 2024 06:02:00 GMT",Allapuram,12.916263,79.117992,HIGH,5.3,Medium
+9e13243dda557754,"Country-made pistol and live ammunition seized from suspect near Gudiyatham, Vellore",Illegal Weapons,"Tue, 01 Sep 2026 08:29:00 GMT",Gudiyatham,12.94531,78.866931,HIGH,7.5,High
+6311561e43d169ec,"Inter-district bike lifting gang busted in Officers Line, 18 motorcycles seized",Vehicle Theft,"Wed, 19 Nov 2025 12:45:00 GMT",Officers Line,12.922869,79.134519,HIGH,3.1,Low
+cefb17c9b50df86f,"Petrol bunk cashier robbed at knife-point near Virupakshipuram, Vellore",Robbery,"Tue, 10 Sep 2024 18:15:00 GMT",Virupakshipuram,12.902809,79.119897,HIGH,7.9,High
+acf7f7a2570dcbe4,"Shopkeeper assaulted by drunken trio over refusal of credit in Saidapet, Vellore",Assault,"Sat, 03 Jan 2026 09:49:00 GMT",Saidapet,12.915525,79.147029,HIGH,3.8,Medium
+9a12445f3bd022d6,"Woman hospitalised after physical torture by in-laws in Melmonavoor, Vellore",Domestic Violence,"Tue, 01 Apr 2025 22:29:00 GMT",Melmonavoor,12.898739,79.091164,HIGH,6.8,High
+4352d3fb7facc100,"Auto-rickshaw stolen from parking lot near Vellore Collectorate, Vellore",Vehicle Theft,"Fri, 08 May 2026 09:29:00 GMT",Vellore Collectorate,12.935826,79.160359,HIGH,3.5,Low
+0cd041bb0ad1a11d,"School student rescued within 6 hours of abduction in Abdullapuram, Vellore",Kidnapping,"Wed, 26 Aug 2026 22:35:00 GMT",Abdullapuram,12.881123,79.066373,HIGH,8.3,High
+ce9984c747fb69f8,Machetes and sharp lethal weapons seized from abandoned shed in Gandhi Nagar,Illegal Weapons,"Fri, 15 Aug 2025 22:27:00 GMT",Gandhi Nagar,12.956081,79.147589,HIGH,8.3,High
+a2e94a69556e271f,Reckless truck collision leaves two motorists injured near Pallikonda junction,Road Incident Offence,"Mon, 07 Oct 2024 20:57:00 GMT",Pallikonda,12.902671,78.936687,HIGH,2.6,Low
+e06b99eb5df1b4b4,Mobile phone theft gang apprehended near Konavattam in Vellore,Theft,"Tue, 01 Sep 2026 20:16:00 GMT",Konavattam,12.92109,79.166631,HIGH,2.3,Low
+73e97750fd3281eb,Part-time job investment fraud: Youth from Thottapalayam loses Rs 6 lakh,Cyber Crime,"Fri, 22 Nov 2024 14:49:00 GMT",Thottapalayam,12.924936,79.137902,HIGH,4.6,Medium
+b553e31b78a2bdad,"Cash and valuables stolen from locked house near Pernambut, Vellore",Theft,"Thu, 05 Sep 2024 13:17:00 GMT",Pernambut,12.937809,78.715056,HIGH,2.6,Low
+b5af58aa2d3076f4,Reckless truck collision leaves two motorists injured near Abdullapuram junction,Road Incident Offence,"Tue, 27 May 2025 13:17:00 GMT",Abdullapuram,12.890638,79.066171,HIGH,3.6,Low
+60fdbe033a8b8960,"Brass lamps and temple donation box burgled near Pallikonda, Vellore",Theft,"Sat, 04 Oct 2025 08:08:00 GMT",Pallikonda,12.906316,78.936807,HIGH,2.3,Low
+63752b8f7cf17402,"Cash and valuables stolen from locked house near Thottapalayam, Vellore",Theft,"Thu, 16 Jul 2026 10:45:00 GMT",Thottapalayam,12.930303,79.144734,HIGH,3.1,Low
+4cd3f529a738f676,"Battery and diesel pilferage from parked lorries near Ariyur, Vellore",Theft,"Sat, 01 Aug 2026 19:21:00 GMT",Ariyur,12.886483,79.082852,HIGH,2.5,Low
+f85e8e82ad53c208,"Rival factions clash with knives near CMC Vellore bus terminus, Vellore",Attempt to Murder,"Fri, 01 Aug 2025 07:13:00 GMT",CMC Vellore,12.924111,79.138897,HIGH,8.2,High
+04a75df5b021be52,Culprit gets 20 years rigorous imprisonment in Sankaranpalayam sexual assault case,Sexual Assault,"Thu, 18 Jul 2024 06:54:00 GMT",Sankaranpalayam,12.917273,79.122397,HIGH,9.1,Critical
+11a00b9d276adc2e,"Two college students arrested for series of chain snatchings across Gudiyatham, Vellore",Chain Snatching,"Mon, 21 Oct 2024 18:30:00 GMT",Gudiyatham,12.951611,78.871649,HIGH,4.5,Medium
+b0d2ff109e56a32b,SUV stolen using duplicate smart key near Bagayam residential layout,Vehicle Theft,"Tue, 30 Jun 2026 15:48:00 GMT",Bagayam,12.868998,79.131637,HIGH,2.4,Low
+0fbb7975ecedb1d8,Gang extorting protection money from vegetable vendors in Ariyur arrested,Extortion,"Wed, 12 Aug 2026 21:01:00 GMT",Ariyur,12.877783,79.077734,HIGH,7.5,High
+e12dc8ca9bc85940,"Rival factions clash with knives near Dharapadavedu bus terminus, Vellore",Attempt to Murder,"Tue, 09 Dec 2025 18:46:00 GMT",Dharapadavedu,12.967412,79.137663,HIGH,7.9,High
+04b0b32d49717bad,"Rival factions clash with knives near CMC Vellore bus terminus, Vellore",Attempt to Murder,"Fri, 28 Aug 2026 10:39:00 GMT",CMC Vellore,12.927144,79.138502,HIGH,8.3,High
+bfe7f1bfbf62c207,Part-time job investment fraud: Youth from Allapuram loses Rs 6 lakh,Cyber Crime,"Mon, 21 Jul 2025 06:05:00 GMT",Allapuram,12.908947,79.120766,HIGH,4.8,Medium
+dd872375cf76b9df,SUV stolen using duplicate smart key near Pallikonda residential layout,Vehicle Theft,"Sun, 10 Mar 2024 20:11:00 GMT",Pallikonda,12.909288,78.943899,HIGH,2.3,Low
+6b177adc9041102a,Reckless truck collision leaves two motorists injured near Shenbakkam junction,Road Incident Offence,"Sun, 22 Jun 2025 18:17:00 GMT",Shenbakkam,12.935414,79.11248,HIGH,3.6,Low
+fcfa9da1b48648ae,SUV stolen using duplicate smart key near Pernambut residential layout,Vehicle Theft,"Sat, 03 Aug 2024 14:53:00 GMT",Pernambut,12.93548,78.717516,HIGH,2.6,Low
+b4398a8eb6044dcb,Reckless truck collision leaves two motorists injured near VIT Campus junction,Road Incident Offence,"Sat, 10 Jan 2026 07:22:00 GMT",VIT Campus,12.964858,79.154428,HIGH,2.0,Low
+d78aec2f91c018f8,"Hit-and-run driver arrested after pedestrian killed near Sathuvachari, Vellore",Road Incident Offence,"Thu, 07 May 2026 12:53:00 GMT",Sathuvachari,12.929775,79.16685,HIGH,2.7,Low
+395b604644a35b72,"History-sheeter killed in gang clash near Otteri, Vellore",Murder,"Fri, 20 Mar 2026 13:08:00 GMT",Otteri,12.885708,79.144586,HIGH,9.7,Critical
+90b982965af00ad1,Clash between two village youth groups during festival in Salavanpet,Assault,"Fri, 28 Feb 2025 12:29:00 GMT",Salavanpet,12.910955,79.131179,HIGH,4.8,Medium
+b89350f70967237b,"Break-in at electronics showroom near Kalinjur, Vellore",Burglary,"Fri, 28 Feb 2025 11:19:00 GMT",Kalinjur,12.961025,79.13271,HIGH,6.0,Medium
+8aba452647ecef58,"Bus conductor assaulted by passenger near Thottapalayam bus stop, Vellore",Assault,"Wed, 14 Jan 2026 15:36:00 GMT",Thottapalayam,12.933495,79.137272,HIGH,4.9,Medium
+280a87c326938752,"Armed gang intercepts trader near Saidapet in Vellore, robs Rs 4.5 lakh",Robbery,"Thu, 11 Jul 2024 18:45:00 GMT",Saidapet,12.926628,79.139566,HIGH,7.2,High
+3b9da8e23185b450,"Armed gang intercepts trader near Virupakshipuram in Vellore, robs Rs 4.5 lakh",Robbery,"Tue, 05 May 2026 09:44:00 GMT",Virupakshipuram,12.892457,79.127205,HIGH,7.9,High
+af2fbc8eafbde563,Finance firm proprietor booked for cheating depositors of Rs 1.2 crore in Saidapet,Fraud,"Sat, 22 Jan 2022 17:34:00 GMT",Saidapet,12.916649,79.138263,HIGH,4.5,Medium
+201a03e472b21d2d,"Attempt to murder municipal worker in Katpadi, three remanded",Attempt to Murder,"Wed, 09 Jul 2025 08:32:00 GMT",Katpadi,12.982759,79.133011,HIGH,8.2,High
+704c0518c22c9dab,Pedestrian assaulted and robbed near Old Town railway overbridge in Vellore,Robbery,"Sun, 07 Jan 2024 19:52:00 GMT",Old Town,12.922193,79.134779,HIGH,8.5,High
+86cd97a0f04ef413,"Woman found dead with head injuries near Bagayam lake bund, Vellore",Murder,"Sun, 10 Aug 2025 17:40:00 GMT",Bagayam,12.870378,79.138559,HIGH,10.0,Critical
+46fe2ea6e1ca72d5,"Break-in at electronics showroom near Officers Line, Vellore",Burglary,"Fri, 23 Aug 2024 10:27:00 GMT",Officers Line,12.927544,79.132316,HIGH,4.5,Medium
+e24bd3615a7d8fec,SUV stolen using duplicate smart key near Pernambut residential layout,Vehicle Theft,"Tue, 19 May 2026 21:29:00 GMT",Pernambut,12.936009,78.713248,HIGH,2.4,Low
+7a92744d0a24aa46,"Shopkeeper assaulted by drunken trio over refusal of credit in Allapuram, Vellore",Assault,"Fri, 31 Oct 2025 14:20:00 GMT",Allapuram,12.91738,79.122234,HIGH,4.1,Medium
+783d9c4e776ce816,"Two college students arrested for series of chain snatchings across Otteri, Vellore",Chain Snatching,"Wed, 14 Feb 2024 14:56:00 GMT",Otteri,12.896892,79.152854,HIGH,4.3,Medium
+03e7611d2cf26297,"Armed gang intercepts trader near Old Town in Vellore, robs Rs 4.5 lakh",Robbery,"Tue, 26 Aug 2025 18:21:00 GMT",Old Town,12.913836,79.1256,HIGH,8.4,High
+51ece9e7b8112193,"Inter-district bike lifting gang busted in Vellore Fort, 18 motorcycles seized",Vehicle Theft,"Tue, 16 Jun 2026 11:31:00 GMT",Vellore Fort,12.915617,79.125333,HIGH,3.5,Low
+aac488564679780c,Mobile phone theft gang apprehended near Otteri in Vellore,Theft,"Wed, 25 Dec 2024 14:35:00 GMT",Otteri,12.88534,79.145361,HIGH,3.0,Low
+356e50c6a4575538,Mobile phone theft gang apprehended near KV Kuppam in Vellore,Theft,"Wed, 08 Apr 2026 08:15:00 GMT",KV Kuppam,12.990958,79.052183,HIGH,2.5,Low
+145268b7b350c75a,Mobile phone theft gang apprehended near Pernambut in Vellore,Theft,"Sat, 07 Sep 2024 13:44:00 GMT",Pernambut,12.935318,78.716482,HIGH,2.6,Low
+cfa9f5a5603bdf36,"Retired professor from Katpadi, Vellore duped of Rs 38 lakh in digital arrest scam",Cyber Crime,"Wed, 31 Dec 2025 21:28:00 GMT",Katpadi,12.982986,79.135911,HIGH,4.8,Medium
+ac41dd064ddc32d9,"Ganja peddling racket busted near Gudiyatham, Vellore: 14 kg contraband seized",Drug Trafficking,"Sat, 17 Feb 2024 15:14:00 GMT",Gudiyatham,12.950992,78.874729,HIGH,5.6,Medium
+4030f6827a47ceed,"Rival factions clash with knives near Gandhi Nagar bus terminus, Vellore",Attempt to Murder,"Mon, 05 May 2025 15:42:00 GMT",Gandhi Nagar,12.962927,79.147336,HIGH,7.7,High
+6aa44b43091d04a5,Mobile phone theft gang apprehended near Katpadi in Vellore,Theft,"Sun, 31 Aug 2025 22:22:00 GMT",Katpadi,12.98318,79.137138,HIGH,2.9,Low
+4911c952a4aefef7,"Woman hospitalised after physical torture by in-laws in Thottapalayam, Vellore",Domestic Violence,"Thu, 09 Oct 2025 16:22:00 GMT",Thottapalayam,12.927284,79.133714,HIGH,6.1,High
+5819c4f879e183b0,"Shopkeeper assaulted by drunken trio over refusal of credit in Virupakshipuram, Vellore",Assault,"Sat, 18 May 2024 15:16:00 GMT",Virupakshipuram,12.892813,79.121098,HIGH,4.6,Medium
+02986eb75ec9db6e,"Unauthorized biometric Aadhaar enabled payment fraud reported in Otteri, Vellore",Cyber Crime,"Thu, 09 Apr 2026 16:07:00 GMT",Otteri,12.889783,79.145737,HIGH,4.8,Medium
+7875dd26c88e330c,"Fake government job racket busted in Thottapalayam, Vellore: Kingpin held",Fraud,"Thu, 19 Dec 2024 11:12:00 GMT",Thottapalayam,12.930119,79.143953,HIGH,5.4,Medium
+5e4b02b46cf948b8,Finance firm proprietor booked for cheating depositors of Rs 1.2 crore in Bagayam,Fraud,"Sat, 05 Sep 2026 14:46:00 GMT",Bagayam,12.876804,79.13569,HIGH,5.0,Medium
+1672407056ec15a5,"Rival factions clash with knives near Virupakshipuram bus terminus, Vellore",Attempt to Murder,"Fri, 26 Sep 2025 15:06:00 GMT",Virupakshipuram,12.892796,79.130976,HIGH,8.4,High
+1ba6ef264a6cdb68,"Man arrested under POCSO Act for molesting minor near Pallikonda, Vellore",Sexual Assault,"Thu, 08 Jan 2026 10:17:00 GMT",Pallikonda,12.908961,78.94161,HIGH,9.4,Critical
+6eb3737a443df82f,"Fake government job racket busted in Bagayam, Vellore: Kingpin held",Fraud,"Wed, 28 Jan 2026 15:44:00 GMT",Bagayam,12.873112,79.129462,HIGH,5.3,Medium
+0f84825204d7088a,"Ganja peddling racket busted near Virupakshipuram, Vellore: 14 kg contraband seized",Drug Trafficking,"Thu, 23 Nov 2023 21:06:00 GMT",Virupakshipuram,12.897456,79.126675,HIGH,6.0,Medium
+bfa7913269e7d1c6,"Man hacked to death over property dispute near Gudiyatham, Vellore",Murder,"Sun, 20 Oct 2024 15:30:00 GMT",Gudiyatham,12.940182,78.867943,HIGH,9.4,Critical
+46bee74bbcd15e31,"Brass lamps and temple donation box burgled near Thorapadi, Vellore",Theft,"Tue, 24 Jun 2025 11:03:00 GMT",Thorapadi,12.904913,79.109184,HIGH,2.8,Low
+10d32c6f314e06c3,"POCSO case registered against tuition teacher in Sainathapuram, Vellore",Sexual Assault,"Wed, 09 Sep 2026 08:36:00 GMT",Sainathapuram,12.913584,79.138823,HIGH,9.2,Critical
+3dcfe3a673137cac,"Battery and diesel pilferage from parked lorries near Old Town, Vellore",Theft,"Tue, 28 Jan 2025 10:09:00 GMT",Old Town,12.915253,79.1241,HIGH,2.1,Low
+44f9b500a0129adf,Pedestrian assaulted and robbed near CMC Vellore railway overbridge in Vellore,Robbery,"Tue, 04 Jun 2024 08:15:00 GMT",CMC Vellore,12.92571,79.132908,HIGH,7.7,High
+5c83a6a32e79e360,"Woman loses four-sovereign gold chain to bike-borne snatchers in Sathuvachari, Vellore",Chain Snatching,"Sun, 02 Aug 2026 13:49:00 GMT",Sathuvachari,12.938768,79.169831,HIGH,4.0,Medium
+cc59ccd4eec43c29,Finance firm proprietor booked for cheating depositors of Rs 1.2 crore in CMC Vellore,Fraud,"Tue, 19 Aug 2025 20:19:00 GMT",CMC Vellore,12.922103,79.135565,HIGH,4.3,Medium
+88d20ee8584a379a,SUV stolen using duplicate smart key near Vellore Fort residential layout,Vehicle Theft,"Wed, 07 Aug 2024 15:36:00 GMT",Vellore Fort,12.917159,79.124073,HIGH,2.5,Low
+82f14bd2e4a4e396,"POCSO case registered against tuition teacher in Saidapet, Vellore",Sexual Assault,"Sun, 09 Nov 2025 09:48:00 GMT",Saidapet,12.923037,79.145245,HIGH,9.7,Critical
+b5ade83594255bd4,"Woman found dead with head injuries near Dharapadavedu lake bund, Vellore",Murder,"Sun, 19 Apr 2026 14:42:00 GMT",Dharapadavedu,12.960117,79.137874,HIGH,9.7,Critical
+56c29b3ee92dd27e,Culprit gets 20 years rigorous imprisonment in Sathuvachari sexual assault case,Sexual Assault,"Sun, 03 May 2026 11:35:00 GMT",Sathuvachari,12.93468,79.162371,HIGH,9.3,Critical
+afe5fe96e7b40c00,Part-time job investment fraud: Youth from KV Kuppam loses Rs 6 lakh,Cyber Crime,"Fri, 02 Jan 2026 19:28:00 GMT",KV Kuppam,12.991083,79.05974,HIGH,5.5,Medium
+bd5eb88791873b63,"Petrol bunk cashier robbed at knife-point near Otteri, Vellore",Robbery,"Mon, 25 May 2026 20:04:00 GMT",Otteri,12.885513,79.144184,HIGH,7.9,High
+66b38c5a754d3675,Culprit gets 20 years rigorous imprisonment in Pernambut sexual assault case,Sexual Assault,"Wed, 15 May 2024 12:27:00 GMT",Pernambut,12.937235,78.715645,HIGH,9.4,Critical
+4a89f0e0f12ed977,Pedestrian assaulted and robbed near Old Town railway overbridge in Vellore,Robbery,"Sun, 26 Apr 2026 10:58:00 GMT",Old Town,12.915406,79.133816,HIGH,8.4,High
+189f2d49f7e5ac74,"Night burglary at jewelry workshop in Kangeyanallur, Vellore: Gold ingots stolen",Burglary,"Sat, 14 Mar 2026 08:03:00 GMT",Kangeyanallur,12.945479,79.14586,HIGH,5.1,Medium
+c02fe28b8152bec5,"Man hacked to death over property dispute near Ariyur, Vellore",Murder,"Sun, 07 Jun 2026 15:28:00 GMT",Ariyur,12.877992,79.082968,HIGH,10.0,Critical
+903b45c365e0fe6b,"Petrol bunk cashier robbed at knife-point near Pernambut, Vellore",Robbery,"Fri, 05 Jun 2026 18:17:00 GMT",Pernambut,12.932059,78.720631,HIGH,8.2,High
+f8d66b71a693a508,"Elderly woman injured in chain snatching incident near Officers Line, Vellore",Chain Snatching,"Wed, 10 Sep 2025 20:05:00 GMT",Officers Line,12.919498,79.129446,HIGH,4.0,Medium
+1067c9dca1f6ed29,SUV stolen using duplicate smart key near Sathuvachari residential layout,Vehicle Theft,"Sun, 10 Aug 2025 16:38:00 GMT",Sathuvachari,12.940295,79.169306,HIGH,2.9,Low
+6afc308074d75bb0,Two men posing as vigilance officers extort money from merchant in Thottapalayam,Extortion,"Mon, 16 Feb 2026 13:43:00 GMT",Thottapalayam,12.926188,79.137308,HIGH,7.5,High
+0ca49e8dd34a487f,"Cash and valuables stolen from locked house near Pernambut, Vellore",Theft,"Fri, 17 May 2024 07:48:00 GMT",Pernambut,12.933475,78.719999,HIGH,2.2,Low
+bf555fbd2dad96db,"History-sheeter killed in gang clash near Old Town, Vellore",Murder,"Wed, 28 Aug 2024 22:41:00 GMT",Old Town,12.912612,79.127886,HIGH,9.1,Critical
+9f09c33b6f9604f7,Two men posing as vigilance officers extort money from merchant in Katpadi,Extortion,"Fri, 23 May 2025 11:37:00 GMT",Katpadi,12.987904,79.132415,HIGH,6.9,High
+fcd72898fc3fb7cf,Two men posing as vigilance officers extort money from merchant in Anaicut,Extortion,"Tue, 09 Sep 2025 08:30:00 GMT",Anaicut,12.880167,78.987074,HIGH,6.5,High
+1a904f26fbe192b5,"Brass lamps and temple donation box burgled near Kalinjur, Vellore",Theft,"Fri, 20 Jun 2025 16:42:00 GMT",Kalinjur,12.962348,79.141906,HIGH,2.3,Low
+0e506b30a7f00c8c,"History-sheeter killed in gang clash near Gandhi Nagar, Vellore",Murder,"Tue, 24 Mar 2026 16:26:00 GMT",Gandhi Nagar,12.962043,79.144719,HIGH,10.0,Critical
+6a3f5a57e2fe0c70,"Country-made pistol and live ammunition seized from suspect near Thorapadi, Vellore",Illegal Weapons,"Fri, 19 Jan 2024 20:05:00 GMT",Thorapadi,12.901469,79.108329,HIGH,8.4,High
+94283afd2c08ca1e,Land document forgery: Three arrested by anti-land grabbing wing in Gudiyatham,Fraud,"Sun, 15 Jun 2025 09:49:00 GMT",Gudiyatham,12.949994,78.871331,HIGH,5.5,Medium
+d86a32c1df88e1d7,"Attempt to murder municipal worker in KV Kuppam, three remanded",Attempt to Murder,"Sun, 21 Sep 2025 06:42:00 GMT",KV Kuppam,12.98142,79.056721,HIGH,7.9,High
+f46ad922db8392e5,"Auto-rickshaw stolen from parking lot near Kaspa, Vellore",Vehicle Theft,"Sat, 24 Aug 2024 19:03:00 GMT",Kaspa,12.910678,79.117551,HIGH,2.4,Low
+6244cfc5b36dfd25,Pedestrian assaulted and robbed near Pallikonda railway overbridge in Vellore,Robbery,"Sun, 05 Jul 2026 21:40:00 GMT",Pallikonda,12.910785,78.944838,HIGH,7.1,High
+9373475879440c0c,Merchant abducted for Rs 20 lakh ransom near Katpadi; police rescue victim,Kidnapping,"Mon, 27 Jan 2025 12:17:00 GMT",Katpadi,12.979656,79.131609,HIGH,7.8,High
+a0128c6aca367602,"Night burglary at jewelry workshop in Sathuvachari, Vellore: Gold ingots stolen",Burglary,"Wed, 28 May 2025 20:56:00 GMT",Sathuvachari,12.935857,79.163432,HIGH,5.9,Medium
+2949861b7929a8ce,Apartment burglary reported near Sainathapuram while family attended wedding,Burglary,"Sun, 03 Mar 2024 06:40:00 GMT",Sainathapuram,12.910492,79.136219,HIGH,4.9,Medium
+d1c483e394fa5a9d,"Petrol bunk cashier robbed at knife-point near Konavattam, Vellore",Robbery,"Sat, 03 May 2025 11:19:00 GMT",Konavattam,12.925186,79.166959,HIGH,8.4,High
+925c701abd61ff71,"Unauthorized biometric Aadhaar enabled payment fraud reported in Alamelumangapuram, Vellore",Cyber Crime,"Fri, 10 Oct 2025 19:05:00 GMT",Alamelumangapuram,12.939621,79.182005,HIGH,5.6,Medium
+4a53c1f9eca12ded,"Bus conductor assaulted by passenger near Officers Line bus stop, Vellore",Assault,"Sat, 28 Feb 2026 20:07:00 GMT",Officers Line,12.927254,79.135072,HIGH,4.0,Medium
+524a5e0c0b0db2c7,"Break-in at electronics showroom near Anaicut, Vellore",Burglary,"Tue, 19 Mar 2024 21:59:00 GMT",Anaicut,12.879695,78.984503,HIGH,5.8,Medium
+9562d72882a1bbae,"Shopkeeper assaulted by drunken trio over refusal of credit in Katpadi, Vellore",Assault,"Tue, 17 Sep 2024 14:26:00 GMT",Katpadi,12.979009,79.136853,HIGH,4.4,Medium
+15171ecffa4ff57b,SUV stolen using duplicate smart key near Virupakshipuram residential layout,Vehicle Theft,"Thu, 29 Aug 2024 13:29:00 GMT",Virupakshipuram,12.893582,79.124357,HIGH,2.0,Low
+9cf9bdad94d553f1,Finance firm proprietor booked for cheating depositors of Rs 1.2 crore in CMC Vellore,Fraud,"Tue, 11 Mar 2025 08:17:00 GMT",CMC Vellore,12.926869,79.134136,HIGH,4.3,Medium
+b93e83a5959ac28e,"Petrol bunk cashier robbed at knife-point near Konavattam, Vellore",Robbery,"Wed, 31 Jul 2024 16:59:00 GMT",Konavattam,12.927967,79.172746,HIGH,7.9,High
+6267d1c62e2e735e,Apartment burglary reported near Vellore Fort while family attended wedding,Burglary,"Thu, 16 May 2024 06:18:00 GMT",Vellore Fort,12.91873,79.12317,HIGH,5.8,Medium
+51de9c5a947b5941,"Unauthorized biometric Aadhaar enabled payment fraud reported in Officers Line, Vellore",Cyber Crime,"Sun, 27 Oct 2024 21:55:00 GMT",Officers Line,12.923315,79.129441,HIGH,5.3,Medium
+261b3dbe8011f4a3,"Woman found dead with head injuries near Thorapadi lake bund, Vellore",Murder,"Sat, 05 Sep 2026 17:21:00 GMT",Thorapadi,12.902201,79.117452,HIGH,9.6,Critical
+891e75e9519a5711,Pedestrian assaulted and robbed near Gandhi Nagar railway overbridge in Vellore,Robbery,"Mon, 06 Oct 2025 18:29:00 GMT",Gandhi Nagar,12.965642,79.142035,HIGH,7.4,High
+87d566b5629423ca,"School student rescued within 6 hours of abduction in Allapuram, Vellore",Kidnapping,"Fri, 07 Apr 2023 13:36:00 GMT",Allapuram,12.912918,79.117492,HIGH,8.1,High
+d7d985e6e09858d9,"Auto-rickshaw stolen from parking lot near Otteri, Vellore",Vehicle Theft,"Wed, 30 Jul 2025 07:20:00 GMT",Otteri,12.89527,79.14674,HIGH,2.7,Low
+751aba2b5ec47874,"Youth attacked with machete following verbal feud in Katpadi, Vellore",Attempt to Murder,"Wed, 30 Nov 2022 10:31:00 GMT",Katpadi,12.986535,79.132518,HIGH,7.6,High
+0cb0020e777399d9,Reckless truck collision leaves two motorists injured near Pallikonda junction,Road Incident Offence,"Fri, 21 Feb 2025 20:06:00 GMT",Pallikonda,12.905376,78.944451,HIGH,4.0,Low
+61015107ecc6d075,SUV stolen using duplicate smart key near CMC Vellore residential layout,Vehicle Theft,"Fri, 22 Aug 2025 06:46:00 GMT",CMC Vellore,12.921963,79.140678,HIGH,2.5,Low
+c5f675bde6492196,"Hit-and-run driver arrested after pedestrian killed near Otteri, Vellore",Road Incident Offence,"Sat, 21 Mar 2026 08:30:00 GMT",Otteri,12.889896,79.146205,HIGH,3.9,Low
+274fd30fd4613a2c,Reckless truck collision leaves two motorists injured near Old Town junction,Road Incident Offence,"Wed, 15 May 2024 16:39:00 GMT",Old Town,12.923111,79.133272,HIGH,3.4,Low
+3b5df284e5719846,"Retired professor from Salavanpet, Vellore duped of Rs 38 lakh in digital arrest scam",Cyber Crime,"Thu, 28 Nov 2024 08:54:00 GMT",Salavanpet,12.916299,79.133355,HIGH,5.5,Medium
+c1a237e7a37b1802,"Petrol bunk cashier robbed at knife-point near KV Kuppam, Vellore",Robbery,"Fri, 12 Dec 2025 18:20:00 GMT",KV Kuppam,12.991718,79.054333,HIGH,7.9,High
+dca82ca470e17ab6,"Fake government job racket busted in Otteri, Vellore: Kingpin held",Fraud,"Thu, 28 May 2026 13:47:00 GMT",Otteri,12.896526,79.146447,HIGH,5.4,Medium
+5e7c2046b2648dc6,Phishing link OTP fraud: Bank customer in CMC Vellore loses Rs 1.8 lakh,Cyber Crime,"Fri, 20 Feb 2026 09:28:00 GMT",CMC Vellore,12.919882,79.131691,HIGH,6.0,Medium
+a41c7ddd7b1f224b,"Bus conductor assaulted by passenger near Gandhi Nagar bus stop, Vellore",Assault,"Wed, 03 Jun 2026 06:02:00 GMT",Gandhi Nagar,12.962792,79.145086,HIGH,3.7,Medium
+d6cb0648f8cb5dc6,Pedestrian assaulted and robbed near VIT Campus railway overbridge in Vellore,Robbery,"Wed, 29 Jan 2025 15:22:00 GMT",VIT Campus,12.963643,79.158158,HIGH,8.2,High
+b71819fb4ce42410,Pedestrian assaulted and robbed near Sankaranpalayam railway overbridge in Vellore,Robbery,"Sun, 16 Mar 2025 13:33:00 GMT",Sankaranpalayam,12.916529,79.120216,HIGH,8.3,High
+a05fed1f264908b1,"Inter-district bike lifting gang busted in Pallikonda, 18 motorcycles seized",Vehicle Theft,"Tue, 16 Dec 2025 11:10:00 GMT",Pallikonda,12.910479,78.941292,HIGH,3.2,Low
+7f4b0faed6351175,Part-time job investment fraud: Youth from Pallikonda loses Rs 6 lakh,Cyber Crime,"Wed, 15 Jul 2026 13:31:00 GMT",Pallikonda,12.910475,78.940634,HIGH,5.5,Medium
+bca7c98feb9d0799,"Man arrested under POCSO Act for molesting minor near Katpadi, Vellore",Sexual Assault,"Wed, 15 Mar 2023 13:29:00 GMT",Katpadi,12.985775,79.13058,HIGH,10.0,Critical
+3bcd7afd20f4b534,Serial house-break thief held near Salavanpet by Vellore police,Burglary,"Sun, 24 Aug 2025 14:42:00 GMT",Salavanpet,12.906312,79.13431,HIGH,5.5,Medium
+37e050695f97b61a,Gang extorting protection money from vegetable vendors in Katpadi arrested,Extortion,"Thu, 27 Aug 2026 15:43:00 GMT",Katpadi,12.986807,79.140633,HIGH,7.7,High
+6c9a9c25a64ebc53,"Two college students arrested for series of chain snatchings across CMC Vellore, Vellore",Chain Snatching,"Fri, 07 Feb 2025 20:22:00 GMT",CMC Vellore,12.926168,79.13549,HIGH,4.4,Medium
+a588b7daaac4f6fa,"Break-in at electronics showroom near Anaicut, Vellore",Burglary,"Fri, 03 Jun 2022 19:44:00 GMT",Anaicut,12.869661,78.988102,HIGH,5.8,Medium
+0b689554db53241e,Merchant abducted for Rs 20 lakh ransom near Kaspa; police rescue victim,Kidnapping,"Thu, 04 Jun 2026 12:24:00 GMT",Kaspa,12.920456,79.120046,HIGH,8.4,High
+4f093619a29e74eb,Land document forgery: Three arrested by anti-land grabbing wing in Thorapadi,Fraud,"Sat, 24 Feb 2024 13:24:00 GMT",Thorapadi,12.904899,79.108906,HIGH,4.5,Medium
+1de9f5fbc863afdb,Gang extorting protection money from vegetable vendors in Salavanpet arrested,Extortion,"Wed, 22 Oct 2025 15:44:00 GMT",Salavanpet,12.91293,79.133278,HIGH,6.7,High
+f353b78898c4b908,"Hit-and-run driver arrested after pedestrian killed near Sankaranpalayam, Vellore",Road Incident Offence,"Thu, 04 Dec 2025 18:17:00 GMT",Sankaranpalayam,12.919992,79.122434,HIGH,3.1,Low
+5c6cb1e8f5867c9d,Merchant abducted for Rs 20 lakh ransom near Kaspa; police rescue victim,Kidnapping,"Mon, 26 Jan 2026 21:53:00 GMT",Kaspa,12.916476,79.123728,HIGH,8.9,High
+883f8fd42c85b07b,"Break-in at electronics showroom near Ariyur, Vellore",Burglary,"Sat, 27 May 2023 13:38:00 GMT",Ariyur,12.88544,79.088004,HIGH,5.8,Medium
+f50b00cbe37eb3b7,Machetes and sharp lethal weapons seized from abandoned shed in Pernambut,Illegal Weapons,"Mon, 22 Apr 2024 12:39:00 GMT",Pernambut,12.931767,78.723749,HIGH,7.9,High
+312e7e196b1b16de,"Ganja peddling racket busted near Alamelumangapuram, Vellore: 14 kg contraband seized",Drug Trafficking,"Thu, 12 Mar 2026 09:57:00 GMT",Alamelumangapuram,12.93716,79.177361,HIGH,6.0,Medium
+f6b26fd779729a47,"Youth attacked with machete following verbal feud in Sathuvachari, Vellore",Attempt to Murder,"Tue, 21 Jan 2025 15:50:00 GMT",Sathuvachari,12.940663,79.166354,HIGH,8.3,High
+8396b2bc6489af73,"Cash and valuables stolen from locked house near Pernambut, Vellore",Theft,"Fri, 24 Oct 2025 17:46:00 GMT",Pernambut,12.935572,78.717491,HIGH,3.3,Low
+3c5f56ecf0504455,"Cash and valuables stolen from locked house near Salavanpet, Vellore",Theft,"Mon, 01 Jun 2026 16:47:00 GMT",Salavanpet,12.917166,79.135661,HIGH,2.6,Low
+eb2df5b86acf24eb,Land document forgery: Three arrested by anti-land grabbing wing in Shenbakkam,Fraud,"Sun, 13 Apr 2025 10:50:00 GMT",Shenbakkam,12.933619,79.114535,HIGH,4.1,Medium
+f0917f3a19076c1a,Part-time job investment fraud: Youth from Bagayam loses Rs 6 lakh,Cyber Crime,"Mon, 07 Jul 2025 22:32:00 GMT",Bagayam,12.868475,79.137136,HIGH,5.2,Medium
+58b073cb23bb79b3,SUV stolen using duplicate smart key near Old Town residential layout,Vehicle Theft,"Sun, 26 Mar 2023 14:58:00 GMT",Old Town,12.918743,79.12577,HIGH,2.7,Low
+0a600090494193e4,"Retired professor from Allapuram, Vellore duped of Rs 38 lakh in digital arrest scam",Cyber Crime,"Tue, 03 Sep 2024 15:47:00 GMT",Allapuram,12.911468,79.118957,HIGH,5.8,Medium
+963883c27e067617,SUV stolen using duplicate smart key near Bagayam residential layout,Vehicle Theft,"Sun, 26 Apr 2026 18:54:00 GMT",Bagayam,12.87373,79.130536,HIGH,2.1,Low
+feef35a0aafd2ed7,"Cash and valuables stolen from locked house near Gudiyatham, Vellore",Theft,"Sat, 06 Jul 2024 08:50:00 GMT",Gudiyatham,12.941562,78.874059,HIGH,2.7,Low
+2fa8536b5df8a6a8,Phishing link OTP fraud: Bank customer in Sainathapuram loses Rs 1.8 lakh,Cyber Crime,"Fri, 16 May 2025 09:29:00 GMT",Sainathapuram,12.905456,79.145908,HIGH,5.0,Medium
+78e399eb4a590944,Land document forgery: Three arrested by anti-land grabbing wing in Sathuvachari,Fraud,"Thu, 11 Dec 2025 14:37:00 GMT",Sathuvachari,12.931162,79.161018,HIGH,4.7,Medium
+c1e9613c1799119a,"Petrol bunk cashier robbed at knife-point near Saidapet, Vellore",Robbery,"Sun, 23 Nov 2025 17:06:00 GMT",Saidapet,12.923538,79.147967,HIGH,7.7,High
+92abf1c12a6cb481,"Banned gutkha and tobacco products worth Rs 3 lakh confiscated near Pallikonda, Vellore",Drug Trafficking,"Thu, 29 Aug 2024 06:39:00 GMT",Pallikonda,12.902747,78.943233,HIGH,6.8,Medium
+8ae3331093c92e7f,"Man hacked to death over property dispute near Bagayam, Vellore",Murder,"Mon, 14 Oct 2024 16:58:00 GMT",Bagayam,12.873549,79.130716,HIGH,9.1,Critical
+4d121848022738b2,"Armed gang intercepts trader near Sainathapuram in Vellore, robs Rs 4.5 lakh",Robbery,"Fri, 28 Nov 2025 08:40:00 GMT",Sainathapuram,12.90976,79.140204,HIGH,7.6,High
+646d87a5bef8d681,"Night burglary at jewelry workshop in Katpadi, Vellore: Gold ingots stolen",Burglary,"Tue, 24 Dec 2024 15:41:00 GMT",Katpadi,12.979079,79.137299,HIGH,5.5,Medium
+348bd887d97ca027,"Night burglary at jewelry workshop in Sankaranpalayam, Vellore: Gold ingots stolen",Burglary,"Thu, 13 Mar 2025 07:02:00 GMT",Sankaranpalayam,12.913351,79.111944,HIGH,4.6,Medium
+c991f12eb38e75d8,Part-time job investment fraud: Youth from Abdullapuram loses Rs 6 lakh,Cyber Crime,"Wed, 10 Sep 2025 09:06:00 GMT",Abdullapuram,12.887789,79.06799,HIGH,5.3,Medium
+fe357cc5b7c14a2f,SUV stolen using duplicate smart key near Bagayam residential layout,Vehicle Theft,"Wed, 11 Mar 2026 18:29:00 GMT",Bagayam,12.86563,79.130361,HIGH,2.4,Low
+7c1b1c89fc82b28e,Two-wheeler stolen outside Gandhi Nagar commercial complex in Vellore,Theft,"Tue, 23 Dec 2025 19:37:00 GMT",Gandhi Nagar,12.959867,79.138893,HIGH,2.0,Low
+1b907af262cba060,Apartment burglary reported near Vellore Collectorate while family attended wedding,Burglary,"Wed, 20 Mar 2024 19:41:00 GMT",Vellore Collectorate,12.931447,79.162409,HIGH,5.8,Medium
+987487367654c686,Pedestrian assaulted and robbed near Gandhi Nagar railway overbridge in Vellore,Robbery,"Tue, 08 Sep 2026 19:17:00 GMT",Gandhi Nagar,12.961856,79.144958,HIGH,7.4,High
+3f166bb14e517e23,"Youth attacked with machete following verbal feud in Old Town, Vellore",Attempt to Murder,"Thu, 09 Jul 2026 12:28:00 GMT",Old Town,12.917597,79.123045,HIGH,7.6,High
+6d2ec3f1c769fd21,Pedestrian assaulted and robbed near Thorapadi railway overbridge in Vellore,Robbery,"Thu, 01 May 2025 17:06:00 GMT",Thorapadi,12.901859,79.108973,HIGH,8.4,High
+52c23492a3c0abef,"Ganja peddling racket busted near Katpadi, Vellore: 14 kg contraband seized",Drug Trafficking,"Fri, 08 Jul 2022 17:03:00 GMT",Katpadi,12.980536,79.130968,HIGH,6.3,Medium
+a8550c5b0298c2ba,Phishing link OTP fraud: Bank customer in Melmonavoor loses Rs 1.8 lakh,Cyber Crime,"Tue, 08 Apr 2025 09:54:00 GMT",Melmonavoor,12.893311,79.092831,HIGH,4.6,Medium
+a432deec77f706a8,"History-sheeter killed in gang clash near Officers Line, Vellore",Murder,"Fri, 16 Feb 2024 12:41:00 GMT",Officers Line,12.920795,79.129247,HIGH,9.8,Critical
+aa397532eaa18967,Husband arrested in Anaicut for attempt to burn wife over dowry demand,Domestic Violence,"Thu, 06 Mar 2025 12:04:00 GMT",Anaicut,12.877688,78.988156,HIGH,7.1,High
+8e732ba3b1dcfeed,"Elderly woman injured in chain snatching incident near Bagayam, Vellore",Chain Snatching,"Thu, 10 Oct 2024 12:37:00 GMT",Bagayam,12.871175,79.134249,HIGH,4.9,Medium
+6736b1cb6f2728a7,Husband arrested in Gudiyatham for attempt to burn wife over dowry demand,Domestic Violence,"Thu, 30 Apr 2026 16:49:00 GMT",Gudiyatham,12.943525,78.874315,HIGH,6.4,High
+1e53f400d91a6000,"Ganja peddling racket busted near Vellore Fort, Vellore: 14 kg contraband seized",Drug Trafficking,"Fri, 02 Jan 2026 14:54:00 GMT",Vellore Fort,12.916175,79.127411,HIGH,6.1,Medium
+0e1487aea8c15047,Part-time job investment fraud: Youth from Salavanpet loses Rs 6 lakh,Cyber Crime,"Tue, 08 Mar 2022 14:51:00 GMT",Salavanpet,12.908419,79.128101,HIGH,5.6,Medium
+83a750eacceda1ea,Part-time job investment fraud: Youth from Katpadi loses Rs 6 lakh,Cyber Crime,"Fri, 02 May 2025 16:01:00 GMT",Katpadi,12.981744,79.138744,HIGH,5.5,Medium
+0e2f6f03694861c7,"Battery and diesel pilferage from parked lorries near Katpadi, Vellore",Theft,"Tue, 27 Jan 2026 10:47:00 GMT",Katpadi,12.986427,79.132715,HIGH,3.3,Low
+24cb7fb5dc67c10c,"Shopkeeper assaulted by drunken trio over refusal of credit in Kaspa, Vellore",Assault,"Fri, 28 Feb 2025 08:30:00 GMT",Kaspa,12.913726,79.127864,HIGH,4.5,Medium
+7bedd1a27f8d437e,Apartment burglary reported near Bagayam while family attended wedding,Burglary,"Sat, 05 Jul 2025 22:37:00 GMT",Bagayam,12.868848,79.129394,HIGH,5.7,Medium
+98288594268e38e6,"Hit-and-run driver arrested after pedestrian killed near Melmonavoor, Vellore",Road Incident Offence,"Tue, 15 Sep 2026 13:39:00 GMT",Melmonavoor,12.899785,79.085651,HIGH,3.5,Low
+217c28a5509bea43,"History-sheeter killed in gang clash near Kaspa, Vellore",Murder,"Thu, 24 Sep 2026 15:29:00 GMT",Kaspa,12.913108,79.122514,HIGH,9.9,Critical
+4168fc864b0fd37e,"History-sheeter killed in gang clash near Kalinjur, Vellore",Murder,"Tue, 06 Aug 2024 09:31:00 GMT",Kalinjur,12.963057,79.142155,HIGH,9.8,Critical
+7cb333afc5741673,"Armed gang intercepts trader near Vellore Fort in Vellore, robs Rs 4.5 lakh",Robbery,"Thu, 15 Aug 2024 08:57:00 GMT",Vellore Fort,12.920817,79.129147,HIGH,8.1,High
+95c8640e87b0a77d,"Woman hospitalised after physical torture by in-laws in Gudiyatham, Vellore",Domestic Violence,"Tue, 17 Mar 2026 08:08:00 GMT",Gudiyatham,12.950712,78.876413,HIGH,6.4,High
+90d97f466491ceef,"Armed gang intercepts trader near Pernambut in Vellore, robs Rs 4.5 lakh",Robbery,"Tue, 16 Jun 2026 18:38:00 GMT",Pernambut,12.938383,78.720776,HIGH,7.5,High
+de25b39fff6cd33c,Serial house-break thief held near CMC Vellore by Vellore police,Burglary,"Thu, 21 Aug 2025 22:38:00 GMT",CMC Vellore,12.919559,79.136795,HIGH,4.8,Medium
+18e5f5835d0f34b1,"School student rescued within 6 hours of abduction in Katpadi, Vellore",Kidnapping,"Fri, 26 Dec 2025 09:54:00 GMT",Katpadi,12.977854,79.137157,HIGH,8.4,High
+d9b165688ccabdbb,Part-time job investment fraud: Youth from Gudiyatham loses Rs 6 lakh,Cyber Crime,"Sun, 27 Apr 2025 19:21:00 GMT",Gudiyatham,12.947738,78.867482,HIGH,5.1,Medium
+67987bc5c51fb6cf,"Petrol bunk cashier robbed at knife-point near Abdullapuram, Vellore",Robbery,"Tue, 23 Jul 2024 19:46:00 GMT",Abdullapuram,12.888778,79.0738,HIGH,7.6,High
+1cd23f2fb070edc4,"Woman hospitalised after physical torture by in-laws in Konavattam, Vellore",Domestic Violence,"Fri, 07 Aug 2026 16:42:00 GMT",Konavattam,12.928501,79.175383,HIGH,6.7,High
+12dd49b6840c17f1,Part-time job investment fraud: Youth from Gandhi Nagar loses Rs 6 lakh,Cyber Crime,"Fri, 20 Mar 2026 21:04:00 GMT",Gandhi Nagar,12.964731,79.149784,HIGH,4.8,Medium
+4fa59cc5f1054cc6,Two men posing as vigilance officers extort money from merchant in Vellore Collectorate,Extortion,"Fri, 13 Feb 2026 08:27:00 GMT",Vellore Collectorate,12.937383,79.163062,HIGH,7.2,High
+5f9a530c2229365b,"Youth attacked with machete following verbal feud in Katpadi, Vellore",Attempt to Murder,"Fri, 10 Jul 2026 10:35:00 GMT",Katpadi,12.986192,79.137661,HIGH,7.8,High
+de681993301c58be,"Bus conductor assaulted by passenger near Pernambut bus stop, Vellore",Assault,"Thu, 18 Jun 2026 09:26:00 GMT",Pernambut,12.939359,78.716692,HIGH,4.4,Medium
+2b0763275c23754d,"Woman found dead with head injuries near Katpadi lake bund, Vellore",Murder,"Sun, 07 Dec 2025 19:55:00 GMT",Katpadi,12.982181,79.136885,HIGH,9.5,Critical
+dd44d8b1d6790b44,"Attempt to murder municipal worker in VIT Campus, three remanded",Attempt to Murder,"Fri, 27 Jan 2023 15:38:00 GMT",VIT Campus,12.9713,79.150784,HIGH,7.6,High
+e293c4af2d098ff6,"Woman loses four-sovereign gold chain to bike-borne snatchers in Virupakshipuram, Vellore",Chain Snatching,"Sun, 23 Feb 2025 22:13:00 GMT",Virupakshipuram,12.903686,79.128064,HIGH,4.8,Medium
+b968063c6b3309db,Husband arrested in Dharapadavedu for attempt to burn wife over dowry demand,Domestic Violence,"Fri, 04 Sep 2026 13:54:00 GMT",Dharapadavedu,12.969874,79.139864,HIGH,6.4,High
+29dbe851adb212db,Two-wheeler stolen outside Sankaranpalayam commercial complex in Vellore,Theft,"Wed, 08 Jul 2026 09:48:00 GMT",Sankaranpalayam,12.912501,79.12255,HIGH,2.7,Low
+2d0a0db07306bd62,SUV stolen using duplicate smart key near Kaspa residential layout,Vehicle Theft,"Sun, 26 Apr 2026 19:54:00 GMT",Kaspa,12.914804,79.124458,HIGH,2.1,Low
+76fe2d5ad9e1690c,"Woman loses four-sovereign gold chain to bike-borne snatchers in Thorapadi, Vellore",Chain Snatching,"Sat, 15 Nov 2025 06:38:00 GMT",Thorapadi,12.907696,79.110454,HIGH,4.7,Medium
+8f6d907820d9a2b1,"Break-in at electronics showroom near Katpadi, Vellore",Burglary,"Fri, 22 Dec 2023 14:01:00 GMT",Katpadi,12.981797,79.132485,HIGH,5.6,Medium
+73e4c20a21182303,"Inter-district bike lifting gang busted in Sathuvachari, 18 motorcycles seized",Vehicle Theft,"Mon, 08 Jun 2026 16:22:00 GMT",Sathuvachari,12.937738,79.164037,HIGH,3.1,Low
+373d0a7da916b920,"School student rescued within 6 hours of abduction in Kaspa, Vellore",Kidnapping,"Sun, 15 Mar 2026 18:04:00 GMT",Kaspa,12.911786,79.12417,HIGH,8.4,High
+8cd80d836416207b,"Shopkeeper assaulted by drunken trio over refusal of credit in Gudiyatham, Vellore",Assault,"Fri, 16 Jan 2026 08:47:00 GMT",Gudiyatham,12.942586,78.868886,HIGH,4.8,Medium
+4d2a83a420ca80b6,Husband arrested in Alamelumangapuram for attempt to burn wife over dowry demand,Domestic Violence,"Sat, 12 Jul 2025 19:29:00 GMT",Alamelumangapuram,12.937305,79.180313,HIGH,6.8,High
+43fabd64331a78f5,"Cash and valuables stolen from locked house near Pernambut, Vellore",Theft,"Wed, 09 Jul 2025 15:46:00 GMT",Pernambut,12.937573,78.715859,HIGH,2.9,Low
+2cb81919692b76f8,Phishing link OTP fraud: Bank customer in Kaspa loses Rs 1.8 lakh,Cyber Crime,"Sat, 18 Oct 2025 08:56:00 GMT",Kaspa,12.909195,79.121044,HIGH,5.2,Medium
+82c29ce9ed1d27d5,"Shopkeeper assaulted by drunken trio over refusal of credit in Allapuram, Vellore",Assault,"Mon, 07 Sep 2026 22:42:00 GMT",Allapuram,12.910891,79.115476,HIGH,5.0,Medium
+229a8b7356ecc591,"Auto-rickshaw stolen from parking lot near Katpadi, Vellore",Vehicle Theft,"Wed, 23 Apr 2025 18:38:00 GMT",Katpadi,12.981678,79.133057,HIGH,2.2,Low
+cd2de8422990b702,"Fake government job racket busted in Sathuvachari, Vellore: Kingpin held",Fraud,"Wed, 15 Apr 2026 15:13:00 GMT",Sathuvachari,12.936437,79.165124,HIGH,4.8,Medium
+dc275f7da492d8ab,"Woman loses four-sovereign gold chain to bike-borne snatchers in Pallikonda, Vellore",Chain Snatching,"Fri, 10 May 2024 15:20:00 GMT",Pallikonda,12.899697,78.941452,HIGH,4.4,Medium
+c3ac889faf5189aa,Pedestrian assaulted and robbed near Abdullapuram railway overbridge in Vellore,Robbery,"Sat, 12 Sep 2026 19:11:00 GMT",Abdullapuram,12.888917,79.066105,HIGH,7.8,High
+65582249cff97d81,"Two college students arrested for series of chain snatchings across Kaspa, Vellore",Chain Snatching,"Tue, 28 Apr 2026 22:35:00 GMT",Kaspa,12.913968,79.122316,HIGH,3.6,Medium
+8bbe661edd224f54,"Woman found dead with head injuries near Pallikonda lake bund, Vellore",Murder,"Sun, 30 Jun 2024 08:25:00 GMT",Pallikonda,12.903509,78.936611,HIGH,9.7,Critical
+5b49683881e2ea9c,Serial house-break thief held near Old Town by Vellore police,Burglary,"Mon, 22 Jan 2024 19:01:00 GMT",Old Town,12.921437,79.131553,HIGH,4.7,Medium
+cba2ca6e83932396,"Break-in at electronics showroom near Katpadi, Vellore",Burglary,"Sun, 11 Jan 2026 16:10:00 GMT",Katpadi,12.984028,79.136657,HIGH,5.0,Medium
+b3b1cdca76b40820,"POCSO case registered against tuition teacher in Gudiyatham, Vellore",Sexual Assault,"Tue, 12 Nov 2024 20:53:00 GMT",Gudiyatham,12.947111,78.874155,HIGH,9.8,Critical
+593eddd733bd73f9,Two-wheeler stolen outside Kalinjur commercial complex in Vellore,Theft,"Thu, 04 Jul 2024 08:27:00 GMT",Kalinjur,12.965957,79.137384,HIGH,2.8,Low
+443efe4b86a60dcb,Gang extorting protection money from vegetable vendors in Konavattam arrested,Extortion,"Sat, 04 May 2024 19:37:00 GMT",Konavattam,12.92219,79.16746,HIGH,6.6,High
+c5d1e016ceb2eee8,"Bus conductor assaulted by passenger near Sathuvachari bus stop, Vellore",Assault,"Mon, 23 Jun 2025 13:21:00 GMT",Sathuvachari,12.93448,79.172127,HIGH,4.0,Medium
+75beb2d024e96b36,Culprit gets 20 years rigorous imprisonment in Gudiyatham sexual assault case,Sexual Assault,"Fri, 09 Feb 2024 22:40:00 GMT",Gudiyatham,12.946418,78.866808,HIGH,9.8,Critical
+060e18b5823dde14,"Auto-rickshaw stolen from parking lot near Katpadi, Vellore",Vehicle Theft,"Fri, 28 Jun 2024 10:15:00 GMT",Katpadi,12.980283,79.13862,HIGH,3.2,Low
+a81f020328b036c8,"Woman loses four-sovereign gold chain to bike-borne snatchers in KV Kuppam, Vellore",Chain Snatching,"Tue, 12 May 2026 12:11:00 GMT",KV Kuppam,12.991868,79.054262,HIGH,4.4,Medium
+d56571268fe120d3,"Hit-and-run driver arrested after pedestrian killed near Konavattam, Vellore",Road Incident Offence,"Tue, 02 Dec 2025 08:11:00 GMT",Konavattam,12.925285,79.166197,HIGH,3.9,Low
+3b9b78856dbce0a1,Phishing link OTP fraud: Bank customer in Sankaranpalayam loses Rs 1.8 lakh,Cyber Crime,"Wed, 23 Oct 2024 20:43:00 GMT",Sankaranpalayam,12.919797,79.119264,HIGH,4.9,Medium
+b4f4b72989614f65,Phishing link OTP fraud: Bank customer in Salavanpet loses Rs 1.8 lakh,Cyber Crime,"Tue, 17 Oct 2023 16:55:00 GMT",Salavanpet,12.91025,79.134658,HIGH,5.0,Medium
+3e0c8064dcad6aee,"Break-in at electronics showroom near Old Town, Vellore",Burglary,"Sat, 15 Aug 2026 15:50:00 GMT",Old Town,12.923823,79.124441,HIGH,6.0,Medium
+8c8369d300965e6d,"Elderly woman injured in chain snatching incident near Vellore Fort, Vellore",Chain Snatching,"Thu, 29 Jan 2026 17:32:00 GMT",Vellore Fort,12.924042,79.132016,HIGH,3.7,Medium
+78a78e940304ab83,Serial house-break thief held near Konavattam by Vellore police,Burglary,"Tue, 25 Aug 2026 20:02:00 GMT",Konavattam,12.919453,79.170144,HIGH,5.9,Medium
+9bbe5006514e9766,SUV stolen using duplicate smart key near Kalinjur residential layout,Vehicle Theft,"Wed, 27 May 2026 08:41:00 GMT",Kalinjur,12.962202,79.132154,HIGH,2.2,Low
+c65a2a5725aa7cd1,"Woman hospitalised after physical torture by in-laws in Saidapet, Vellore",Domestic Violence,"Fri, 16 Feb 2024 22:24:00 GMT",Saidapet,12.923936,79.137834,HIGH,7.4,High
+afb295e25de4448a,"Fake government job racket busted in Pernambut, Vellore: Kingpin held",Fraud,"Fri, 20 Oct 2023 12:20:00 GMT",Pernambut,12.935551,78.721479,HIGH,4.6,Medium
+69d421bcfcea792d,Land document forgery: Three arrested by anti-land grabbing wing in Bagayam,Fraud,"Sun, 14 Sep 2025 10:03:00 GMT",Bagayam,12.868097,79.127906,HIGH,5.4,Medium
+9e80c8f47a7ca4e5,"Bus conductor assaulted by passenger near VIT Campus bus stop, Vellore",Assault,"Wed, 25 Jun 2025 08:32:00 GMT",VIT Campus,12.972415,79.153936,HIGH,4.5,Medium
+cd915dad6b3af073,Machetes and sharp lethal weapons seized from abandoned shed in Gudiyatham,Illegal Weapons,"Sun, 21 Jan 2024 13:45:00 GMT",Gudiyatham,12.95127,78.87327,HIGH,7.3,High
+0eca347903a60423,"Ganja peddling racket busted near Bagayam, Vellore: 14 kg contraband seized",Drug Trafficking,"Wed, 13 Aug 2025 22:33:00 GMT",Bagayam,12.874807,79.128805,HIGH,6.0,Medium
+f4cf997978ea66ac,"Inter-district bike lifting gang busted in Katpadi, 18 motorcycles seized",Vehicle Theft,"Sun, 06 Jul 2025 17:58:00 GMT",Katpadi,12.982653,79.13062,HIGH,2.2,Low
+9135086431a1668a,Gang extorting protection money from vegetable vendors in Gudiyatham arrested,Extortion,"Tue, 29 Jul 2025 16:43:00 GMT",Gudiyatham,12.947754,78.868926,HIGH,7.1,High
+2018ea312f90b3f3,"Banned gutkha and tobacco products worth Rs 3 lakh confiscated near Pallikonda, Vellore",Drug Trafficking,"Thu, 20 Nov 2025 16:04:00 GMT",Pallikonda,12.900489,78.939488,HIGH,6.4,Medium
+26779f96b906c3e6,Two men posing as vigilance officers extort money from merchant in Virupakshipuram,Extortion,"Mon, 13 Oct 2025 18:18:00 GMT",Virupakshipuram,12.90071,79.122628,HIGH,6.8,High
+ac5c204e77241cd6,"Woman found dead with head injuries near VIT Campus lake bund, Vellore",Murder,"Wed, 18 Mar 2026 16:05:00 GMT",VIT Campus,12.974542,79.157044,HIGH,9.7,Critical
+ccc911fe90ff5d2d,Three held for selling banned painkiller tablets to college students in Kalinjur,Drug Trafficking,"Fri, 14 Mar 2025 17:19:00 GMT",Kalinjur,12.969303,79.139239,HIGH,6.5,Medium
+92084a21fda42d3b,Pedestrian assaulted and robbed near Officers Line railway overbridge in Vellore,Robbery,"Thu, 13 Feb 2025 15:35:00 GMT",Officers Line,12.918575,79.131296,HIGH,7.3,High
+6e128b7c0b2834c4,"Bus conductor assaulted by passenger near Kangeyanallur bus stop, Vellore",Assault,"Wed, 18 Jun 2025 10:42:00 GMT",Kangeyanallur,12.950373,79.153041,HIGH,4.8,Medium
+d79fdde472119d4e,"Woman loses four-sovereign gold chain to bike-borne snatchers in Gudiyatham, Vellore",Chain Snatching,"Mon, 08 Jun 2026 11:13:00 GMT",Gudiyatham,12.945222,78.865616,HIGH,4.8,Medium
+9fa56520ddee971d,"Banned gutkha and tobacco products worth Rs 3 lakh confiscated near Gandhi Nagar, Vellore",Drug Trafficking,"Sat, 06 Sep 2025 12:14:00 GMT",Gandhi Nagar,12.966409,79.143165,HIGH,6.1,Medium
+5e698824489c037a,"Auto-rickshaw stolen from parking lot near Gandhi Nagar, Vellore",Vehicle Theft,"Mon, 21 Mar 2022 08:18:00 GMT",Gandhi Nagar,12.957829,79.14104,HIGH,2.5,Low
+ff97ee7ea2b749a4,"Bus conductor assaulted by passenger near Old Town bus stop, Vellore",Assault,"Wed, 21 Feb 2024 22:49:00 GMT",Old Town,12.918997,79.128428,HIGH,4.2,Medium
+d8ccc29b46853303,"Inter-district bike lifting gang busted in Salavanpet, 18 motorcycles seized",Vehicle Theft,"Sat, 27 Sep 2025 07:42:00 GMT",Salavanpet,12.916592,79.135024,HIGH,3.1,Low
+a91c386b595722ac,"Petrol bunk cashier robbed at knife-point near Sankaranpalayam, Vellore",Robbery,"Fri, 15 Nov 2024 11:46:00 GMT",Sankaranpalayam,12.918338,79.118549,HIGH,7.2,High
+7c981c8e3fe91aec,Phishing link OTP fraud: Bank customer in Sainathapuram loses Rs 1.8 lakh,Cyber Crime,"Wed, 30 Jul 2025 17:43:00 GMT",Sainathapuram,12.912714,79.145173,HIGH,5.4,Medium
+f03c0c6261b35753,"Battery and diesel pilferage from parked lorries near Gudiyatham, Vellore",Theft,"Thu, 15 Aug 2024 15:48:00 GMT",Gudiyatham,12.946622,78.869388,HIGH,2.8,Low
+c0861608dfada2d0,"History-sheeter killed in gang clash near Thottapalayam, Vellore",Murder,"Sat, 17 Aug 2024 13:34:00 GMT",Thottapalayam,12.931526,79.138719,HIGH,9.1,Critical
+d84cc125ccb7f8d8,Husband arrested in Gudiyatham for attempt to burn wife over dowry demand,Domestic Violence,"Sat, 29 Aug 2026 12:23:00 GMT",Gudiyatham,12.941673,78.868226,HIGH,6.1,High
+33502d16dafbb321,"Shopkeeper assaulted by drunken trio over refusal of credit in Katpadi, Vellore",Assault,"Sat, 19 Oct 2024 20:29:00 GMT",Katpadi,12.986639,79.138567,HIGH,3.6,Medium
+e99fc82e5ea17c08,Mobile phone theft gang apprehended near Thottapalayam in Vellore,Theft,"Sun, 14 Jul 2024 22:33:00 GMT",Thottapalayam,12.924519,79.133805,HIGH,2.1,Low
+2786188ca5e85d50,"Break-in at electronics showroom near Saidapet, Vellore",Burglary,"Fri, 09 May 2025 07:41:00 GMT",Saidapet,12.92615,79.13701,HIGH,5.1,Medium
+d753cb7ae5d30bbf,"Brass lamps and temple donation box burgled near Gudiyatham, Vellore",Theft,"Thu, 10 Jul 2025 09:45:00 GMT",Gudiyatham,12.943539,78.873008,HIGH,2.2,Low
+9f944e7443e2a1e5,"Cash and valuables stolen from locked house near CMC Vellore, Vellore",Theft,"Mon, 04 Mar 2024 15:05:00 GMT",CMC Vellore,12.928252,79.132927,HIGH,2.5,Low
+c5ba3107e9ef27cf,Husband arrested in Old Town for attempt to burn wife over dowry demand,Domestic Violence,"Sun, 19 May 2024 20:57:00 GMT",Old Town,12.917249,79.127948,HIGH,6.6,High
+cb35caa0702741fc,Finance firm proprietor booked for cheating depositors of Rs 1.2 crore in Gudiyatham,Fraud,"Tue, 12 Aug 2025 08:58:00 GMT",Gudiyatham,12.941238,78.871946,HIGH,4.9,Medium
+5e7d2402f0a675a2,"Inter-district bike lifting gang busted in Virupakshipuram, 18 motorcycles seized",Vehicle Theft,"Wed, 19 Aug 2026 17:59:00 GMT",Virupakshipuram,12.896849,79.121387,HIGH,3.3,Low
+c752aee7cdd6e2b2,"Elderly woman injured in chain snatching incident near Katpadi, Vellore",Chain Snatching,"Wed, 28 Jan 2026 18:32:00 GMT",Katpadi,12.987244,79.135953,HIGH,4.2,Medium
+b65d71b5a5ee5279,"Inter-district bike lifting gang busted in Bagayam, 18 motorcycles seized",Vehicle Theft,"Thu, 17 Jul 2025 08:23:00 GMT",Bagayam,12.87566,79.137632,HIGH,2.0,Low
+71df69847512dea9,Husband arrested in Alamelumangapuram for attempt to burn wife over dowry demand,Domestic Violence,"Sat, 13 Jun 2026 09:53:00 GMT",Alamelumangapuram,12.944135,79.184887,HIGH,7.5,High
+d6b788640ebd2368,"Brass lamps and temple donation box burgled near CMC Vellore, Vellore",Theft,"Thu, 20 Jun 2024 10:08:00 GMT",CMC Vellore,12.926082,79.137717,HIGH,2.7,Low
+234ecb128175f7f1,"Armed gang intercepts trader near Gandhi Nagar in Vellore, robs Rs 4.5 lakh",Robbery,"Sat, 17 Aug 2024 06:57:00 GMT",Gandhi Nagar,12.960751,79.139144,HIGH,8.4,High
+8057344020dcc906,"Two college students arrested for series of chain snatchings across Gandhi Nagar, Vellore",Chain Snatching,"Wed, 05 Aug 2026 09:49:00 GMT",Gandhi Nagar,12.958248,79.139338,HIGH,3.6,Medium
+fd5f1065327524d6,Phishing link OTP fraud: Bank customer in Kalinjur loses Rs 1.8 lakh,Cyber Crime,"Wed, 04 Jun 2025 09:03:00 GMT",Kalinjur,12.970847,79.139842,HIGH,5.1,Medium
+f51fc33b0b540e32,Mobile phone theft gang apprehended near Thorapadi in Vellore,Theft,"Sun, 23 Aug 2026 08:07:00 GMT",Thorapadi,12.900482,79.111944,HIGH,3.2,Low
+71e3596fdd73de8e,Land document forgery: Three arrested by anti-land grabbing wing in Virupakshipuram,Fraud,"Thu, 12 Sep 2024 06:40:00 GMT",Virupakshipuram,12.903714,79.121485,HIGH,5.2,Medium
+88ca8445f54a89cf,"Woman found dead with head injuries near Kaspa lake bund, Vellore",Murder,"Sun, 04 May 2025 10:18:00 GMT",Kaspa,12.920153,79.126618,HIGH,9.2,Critical
+7d8a7e929fc674b0,"POCSO case registered against tuition teacher in Old Town, Vellore",Sexual Assault,"Tue, 11 Nov 2025 17:15:00 GMT",Old Town,12.918718,79.129259,HIGH,9.1,Critical
+6129d315db7a46ba,Pedestrian assaulted and robbed near Kalinjur railway overbridge in Vellore,Robbery,"Sun, 06 Apr 2025 08:33:00 GMT",Kalinjur,12.964503,79.142833,HIGH,8.5,High
+f9a491ca6f5b82fa,"Petrol bunk cashier robbed at knife-point near Melmonavoor, Vellore",Robbery,"Fri, 04 Feb 2022 22:34:00 GMT",Melmonavoor,12.898582,79.093776,HIGH,7.9,High
+25a2db7162763c3c,"Auto-rickshaw stolen from parking lot near Pallikonda, Vellore",Vehicle Theft,"Tue, 23 Jan 2024 18:23:00 GMT",Pallikonda,12.904008,78.941512,HIGH,3.4,Low
+d20f651b54b837d3,"Shopkeeper assaulted by drunken trio over refusal of credit in Sainathapuram, Vellore",Assault,"Fri, 09 Jan 2026 17:50:00 GMT",Sainathapuram,12.907326,79.135419,HIGH,3.7,Medium
+88f64832bc89d9c8,"Bus conductor assaulted by passenger near Pernambut bus stop, Vellore",Assault,"Mon, 04 May 2026 09:49:00 GMT",Pernambut,12.937431,78.721319,HIGH,4.9,Medium
+5e1e1fa9c5eec296,"Woman found dead with head injuries near Pernambut lake bund, Vellore",Murder,"Fri, 20 Jun 2025 10:02:00 GMT",Pernambut,12.938916,78.714032,HIGH,9.4,Critical
+82649da423011bbe,"Inter-district bike lifting gang busted in Vellore Collectorate, 18 motorcycles seized",Vehicle Theft,"Mon, 23 Jun 2025 11:53:00 GMT",Vellore Collectorate,12.939515,79.166044,HIGH,2.0,Low
+f4c9095708f9bd55,"Brass lamps and temple donation box burgled near Sainathapuram, Vellore",Theft,"Sun, 25 Aug 2024 21:40:00 GMT",Sainathapuram,12.911503,79.142106,HIGH,2.6,Low
+505db254676c83ff,Pedestrian assaulted and robbed near Allapuram railway overbridge in Vellore,Robbery,"Wed, 11 Mar 2026 08:45:00 GMT",Allapuram,12.907433,79.122542,HIGH,7.4,High
+c9b5b60daef4c723,SUV stolen using duplicate smart key near Shenbakkam residential layout,Vehicle Theft,"Thu, 22 Aug 2024 07:18:00 GMT",Shenbakkam,12.935206,79.114151,HIGH,3.2,Low
+fc0c4f8e101eff24,"Rival factions clash with knives near Allapuram bus terminus, Vellore",Attempt to Murder,"Mon, 13 Apr 2026 07:20:00 GMT",Allapuram,12.913631,79.124147,HIGH,8.4,High
+33757fc1bd220d0d,"Inter-district bike lifting gang busted in Gandhi Nagar, 18 motorcycles seized",Vehicle Theft,"Thu, 21 Sep 2023 18:52:00 GMT",Gandhi Nagar,12.9575,79.142476,HIGH,2.1,Low
+0e4041a869c215fc,Clash between two village youth groups during festival in Kangeyanallur,Assault,"Sat, 10 May 2025 07:48:00 GMT",Kangeyanallur,12.956828,79.152209,HIGH,4.9,Medium
+344ff630d3105798,"POCSO case registered against tuition teacher in VIT Campus, Vellore",Sexual Assault,"Sun, 26 May 2024 17:55:00 GMT",VIT Campus,12.968843,79.160207,HIGH,9.4,Critical
+b3f4f6fb84c1332e,Machetes and sharp lethal weapons seized from abandoned shed in Gandhi Nagar,Illegal Weapons,"Sun, 01 Dec 2024 16:17:00 GMT",Gandhi Nagar,12.958437,79.145149,HIGH,7.8,High
+e48b64e2f5b92369,"Battery and diesel pilferage from parked lorries near Officers Line, Vellore",Theft,"Wed, 08 Jul 2026 19:56:00 GMT",Officers Line,12.921332,79.127818,HIGH,3.0,Low
+f881a24079540851,Pedestrian assaulted and robbed near Gudiyatham railway overbridge in Vellore,Robbery,"Thu, 14 Aug 2025 18:21:00 GMT",Gudiyatham,12.941808,78.867025,HIGH,7.1,High
+33d5bb3104f4e8cb,"Cash and valuables stolen from locked house near Shenbakkam, Vellore",Theft,"Thu, 06 Aug 2026 08:27:00 GMT",Shenbakkam,12.941436,79.11731,HIGH,2.9,Low
+c781dcc5838ab125,"Fake government job racket busted in Gudiyatham, Vellore: Kingpin held",Fraud,"Thu, 03 Apr 2025 15:20:00 GMT",Gudiyatham,12.948667,78.876689,HIGH,4.7,Medium
+76e1eb95c3a8a80c,"Inter-district bike lifting gang busted in Shenbakkam, 18 motorcycles seized",Vehicle Theft,"Wed, 17 Jun 2026 15:19:00 GMT",Shenbakkam,12.934213,79.118106,HIGH,3.3,Low
+7e1f1fa38d9419c5,"Man hacked to death over property dispute near Bagayam, Vellore",Murder,"Thu, 07 Aug 2025 11:44:00 GMT",Bagayam,12.866188,79.130871,HIGH,9.9,Critical
+cd5e149966e1c08e,"Night burglary at jewelry workshop in Old Town, Vellore: Gold ingots stolen",Burglary,"Sat, 29 Jun 2024 19:17:00 GMT",Old Town,12.918172,79.12604,HIGH,5.1,Medium
+12a54e0e1cbbabf2,"Inter-district bike lifting gang busted in Bagayam, 18 motorcycles seized",Vehicle Theft,"Sun, 06 Jul 2025 22:51:00 GMT",Bagayam,12.874368,79.128474,HIGH,2.3,Low
+acfd2d10e76bdd43,Reckless truck collision leaves two motorists injured near Kangeyanallur junction,Road Incident Offence,"Fri, 22 Mar 2024 06:09:00 GMT",Kangeyanallur,12.946248,79.153677,HIGH,2.8,Low
+8ea930684817be1e,Finance firm proprietor booked for cheating depositors of Rs 1.2 crore in Ariyur,Fraud,"Fri, 13 Dec 2024 20:02:00 GMT",Ariyur,12.886058,79.08362,HIGH,5.1,Medium
+b45f5ea75c20b880,Clash between two village youth groups during festival in Alamelumangapuram,Assault,"Fri, 01 May 2026 17:23:00 GMT",Alamelumangapuram,12.945915,79.182091,HIGH,4.3,Medium
+fa5be858e3f175f5,SUV stolen using duplicate smart key near Old Town residential layout,Vehicle Theft,"Wed, 19 Aug 2026 17:23:00 GMT",Old Town,12.922226,79.126427,HIGH,3.3,Low
+84d2463ec69825bb,Pedestrian assaulted and robbed near KV Kuppam railway overbridge in Vellore,Robbery,"Sun, 09 Feb 2025 10:33:00 GMT",KV Kuppam,12.986003,79.061504,HIGH,8.1,High
+79851237a600969f,"Petrol bunk cashier robbed at knife-point near Thorapadi, Vellore",Robbery,"Tue, 10 Jun 2025 14:15:00 GMT",Thorapadi,12.905917,79.11528,HIGH,7.2,High
+88ab51fa21d51d30,Culprit gets 20 years rigorous imprisonment in Melmonavoor sexual assault case,Sexual Assault,"Sat, 14 Jan 2023 11:31:00 GMT",Melmonavoor,12.899392,79.088478,HIGH,9.2,Critical
+5bdbc31c806d5d57,"Brass lamps and temple donation box burgled near Kalinjur, Vellore",Theft,"Wed, 15 Oct 2025 09:16:00 GMT",Kalinjur,12.968354,79.133417,HIGH,3.4,Low
+3b5c58747d36967f,"Cash and valuables stolen from locked house near Pernambut, Vellore",Theft,"Thu, 26 Dec 2024 20:13:00 GMT",Pernambut,12.930585,78.722123,HIGH,3.4,Low
+7986cf6955db78a7,"Petrol bunk cashier robbed at knife-point near Pallikonda, Vellore",Robbery,"Fri, 27 May 2022 21:12:00 GMT",Pallikonda,12.911046,78.943199,HIGH,8.3,High
+2722c6a1e8dfa58a,Mobile phone theft gang apprehended near Vellore Fort in Vellore,Theft,"Sat, 07 Feb 2026 20:11:00 GMT",Vellore Fort,12.919581,79.127449,HIGH,3.2,Low
+1aee31d9bb8e0bb0,"Banned gutkha and tobacco products worth Rs 3 lakh confiscated near Thorapadi, Vellore",Drug Trafficking,"Thu, 15 Aug 2024 08:51:00 GMT",Thorapadi,12.900342,79.106865,HIGH,6.3,Medium
+00add7a47d515c83,"Attempt to murder municipal worker in Kalinjur, three remanded",Attempt to Murder,"Wed, 12 Jun 2024 17:45:00 GMT",Kalinjur,12.963568,79.142831,HIGH,7.9,High
+107bca4991f3a706,"Cash and valuables stolen from locked house near Thottapalayam, Vellore",Theft,"Fri, 29 May 2026 15:54:00 GMT",Thottapalayam,12.92393,79.14178,HIGH,2.5,Low
+d42a52de6b8c215f,"Two college students arrested for series of chain snatchings across Pernambut, Vellore",Chain Snatching,"Tue, 31 Mar 2026 17:32:00 GMT",Pernambut,12.933149,78.714424,HIGH,4.5,Medium
+2f42fee34c712896,"Country-made pistol and live ammunition seized from suspect near Old Town, Vellore",Illegal Weapons,"Mon, 13 Apr 2026 10:15:00 GMT",Old Town,12.921705,79.128399,HIGH,8.1,High
+0cf5412084ad5708,"Night burglary at jewelry workshop in Sathuvachari, Vellore: Gold ingots stolen",Burglary,"Sun, 14 Jan 2024 17:35:00 GMT",Sathuvachari,12.929961,79.163962,HIGH,5.2,Medium
+fe2cfbe12e346cce,Two men posing as vigilance officers extort money from merchant in Salavanpet,Extortion,"Thu, 28 Aug 2025 10:39:00 GMT",Salavanpet,12.913121,79.131285,HIGH,7.9,High
+0ed22bf71b66eaee,"Inter-district bike lifting gang busted in Gandhi Nagar, 18 motorcycles seized",Vehicle Theft,"Sat, 03 Feb 2024 15:25:00 GMT",Gandhi Nagar,12.963062,79.142854,HIGH,3.2,Low
+4febdb1d46315943,Finance firm proprietor booked for cheating depositors of Rs 1.2 crore in KV Kuppam,Fraud,"Mon, 21 Oct 2024 08:08:00 GMT",KV Kuppam,12.982114,79.05249,HIGH,5.4,Medium
+9503d22ece998a12,"Night burglary at jewelry workshop in Officers Line, Vellore: Gold ingots stolen",Burglary,"Fri, 25 Nov 2022 08:28:00 GMT",Officers Line,12.924824,79.128368,HIGH,5.7,Medium
+20949d59ad39a443,"Armed gang intercepts trader near Kangeyanallur in Vellore, robs Rs 4.5 lakh",Robbery,"Mon, 22 Sep 2025 17:08:00 GMT",Kangeyanallur,12.951642,79.152237,HIGH,7.6,High
+4556cc12efb3ce8f,"Night burglary at jewelry workshop in VIT Campus, Vellore: Gold ingots stolen",Burglary,"Wed, 09 Oct 2024 11:49:00 GMT",VIT Campus,12.974982,79.151984,HIGH,4.5,Medium
+6cceff9301fb1e50,"History-sheeter killed in gang clash near Vellore Collectorate, Vellore",Murder,"Thu, 10 Aug 2023 22:58:00 GMT",Vellore Collectorate,12.936741,79.168082,HIGH,9.2,Critical
+94257e51cec1692b,Two-wheeler stolen outside Salavanpet commercial complex in Vellore,Theft,"Wed, 26 Jun 2024 22:57:00 GMT",Salavanpet,12.909426,79.128117,HIGH,2.8,Low
+aa22a3fa702caa00,"Bus conductor assaulted by passenger near Vellore Collectorate bus stop, Vellore",Assault,"Mon, 10 Feb 2025 14:12:00 GMT",Vellore Collectorate,12.931509,79.15916,HIGH,3.5,Medium
+64a76d2e04c19c20,"Inter-district bike lifting gang busted in Bagayam, 18 motorcycles seized",Vehicle Theft,"Fri, 10 Oct 2025 14:08:00 GMT",Bagayam,12.87284,79.130743,HIGH,3.4,Low
+bf44a4b19c254a71,Two men posing as vigilance officers extort money from merchant in Kaspa,Extortion,"Tue, 11 Nov 2025 08:32:00 GMT",Kaspa,12.911162,79.120222,HIGH,7.2,High
+9dccb14a20e01850,Serial house-break thief held near Dharapadavedu by Vellore police,Burglary,"Wed, 30 Oct 2024 10:10:00 GMT",Dharapadavedu,12.969365,79.139182,HIGH,4.7,Medium
+3c0764542968933b,"Bus conductor assaulted by passenger near Kaspa bus stop, Vellore",Assault,"Tue, 05 Nov 2024 16:53:00 GMT",Kaspa,12.912258,79.124856,HIGH,3.8,Medium
+e59487ffbba8a671,SUV stolen using duplicate smart key near Anaicut residential layout,Vehicle Theft,"Sun, 22 Jan 2023 06:05:00 GMT",Anaicut,12.876478,78.983598,HIGH,3.4,Low
+2cd7ffbbbf8e628f,"Man hacked to death over property dispute near Officers Line, Vellore",Murder,"Sat, 16 May 2026 12:49:00 GMT",Officers Line,12.926809,79.128733,HIGH,9.5,Critical
+6151c4fa4da0101a,"Armed gang intercepts trader near Sathuvachari in Vellore, robs Rs 4.5 lakh",Robbery,"Thu, 13 Nov 2025 06:31:00 GMT",Sathuvachari,12.932001,79.170282,HIGH,7.0,High
+1f1f2ff64a3a8b94,"Woman found dead with head injuries near Vellore Collectorate lake bund, Vellore",Murder,"Sun, 06 Oct 2024 15:41:00 GMT",Vellore Collectorate,12.940536,79.162846,HIGH,9.8,Critical
+170419459175fad2,"Man hacked to death over property dispute near Shenbakkam, Vellore",Murder,"Tue, 05 Sep 2023 13:51:00 GMT",Shenbakkam,12.936729,79.113724,HIGH,9.9,Critical
+aacde591cc718ed2,Mobile phone theft gang apprehended near CMC Vellore in Vellore,Theft,"Fri, 26 Jul 2024 15:29:00 GMT",CMC Vellore,12.923267,79.138701,HIGH,2.8,Low
+20ae9d53bf3b2c2c,"History-sheeter killed in gang clash near Thottapalayam, Vellore",Murder,"Sat, 31 Jan 2026 11:28:00 GMT",Thottapalayam,12.933189,79.14003,HIGH,9.8,Critical
+b0da594097f6a7ca,"Ganja peddling racket busted near Anaicut, Vellore: 14 kg contraband seized",Drug Trafficking,"Tue, 26 Aug 2025 12:21:00 GMT",Anaicut,12.876861,78.983506,HIGH,6.1,Medium
+cb4952ee67c43249,"Elderly woman injured in chain snatching incident near Alamelumangapuram, Vellore",Chain Snatching,"Tue, 10 Jun 2025 16:46:00 GMT",Alamelumangapuram,12.942595,79.179944,HIGH,4.5,Medium
+170c86faf83b1818,"Elderly woman injured in chain snatching incident near Salavanpet, Vellore",Chain Snatching,"Fri, 20 Sep 2024 09:20:00 GMT",Salavanpet,12.907447,79.136307,HIGH,4.8,Medium
+09431cf0b5be487f,Pedestrian assaulted and robbed near Dharapadavedu railway overbridge in Vellore,Robbery,"Wed, 04 Mar 2026 14:28:00 GMT",Dharapadavedu,12.964609,79.139053,HIGH,7.1,High
+b2bf716859879afd,Land document forgery: Three arrested by anti-land grabbing wing in Vellore Collectorate,Fraud,"Thu, 19 Feb 2026 07:18:00 GMT",Vellore Collectorate,12.941605,79.161891,HIGH,4.4,Medium
+e858b6e1aae8c735,"Woman found dead with head injuries near Thorapadi lake bund, Vellore",Murder,"Tue, 10 Jun 2025 12:48:00 GMT",Thorapadi,12.901542,79.111659,HIGH,9.2,Critical
+1d025b6136eb0a3c,Husband arrested in Kalinjur for attempt to burn wife over dowry demand,Domestic Violence,"Mon, 21 Sep 2026 20:31:00 GMT",Kalinjur,12.970393,79.139854,HIGH,6.5,High
+4bdf00de8281ec26,Land document forgery: Three arrested by anti-land grabbing wing in Anaicut,Fraud,"Wed, 11 Sep 2024 06:05:00 GMT",Anaicut,12.873543,78.987381,HIGH,4.9,Medium
+157ba329065d8b21,Part-time job investment fraud: Youth from Gudiyatham loses Rs 6 lakh,Cyber Crime,"Sat, 16 Sep 2023 20:15:00 GMT",Gudiyatham,12.950949,78.86847,HIGH,5.4,Medium
+97367c4978f13d71,"Banned gutkha and tobacco products worth Rs 3 lakh confiscated near Saidapet, Vellore",Drug Trafficking,"Tue, 30 Jun 2026 07:03:00 GMT",Saidapet,12.916022,79.136756,HIGH,6.8,Medium
+333f3e9c6457f003,"Two college students arrested for series of chain snatchings across Bagayam, Vellore",Chain Snatching,"Sun, 02 Nov 2025 21:18:00 GMT",Bagayam,12.874871,79.135908,HIGH,4.4,Medium
+e5f7b06c27be5645,"School student rescued within 6 hours of abduction in VIT Campus, Vellore",Kidnapping,"Tue, 25 Feb 2025 19:08:00 GMT",VIT Campus,12.974863,79.15941,HIGH,7.8,High
+dad1cc1bf4e51fe2,Part-time job investment fraud: Youth from Sathuvachari loses Rs 6 lakh,Cyber Crime,"Sat, 06 Jul 2024 18:23:00 GMT",Sathuvachari,12.938695,79.172435,HIGH,4.6,Medium
+1118983821e4cabf,"History-sheeter killed in gang clash near Kaspa, Vellore",Murder,"Fri, 07 Feb 2025 18:32:00 GMT",Kaspa,12.913051,79.117329,HIGH,9.1,Critical
+1fb5b36af4d62745,"Man hacked to death over property dispute near Kaspa, Vellore",Murder,"Thu, 15 Dec 2022 09:08:00 GMT",Kaspa,12.910502,79.117849,HIGH,9.3,Critical
+9681386c93bcbf95,Phishing link OTP fraud: Bank customer in Vellore Fort loses Rs 1.8 lakh,Cyber Crime,"Thu, 21 Jul 2022 17:50:00 GMT",Vellore Fort,12.916582,79.127706,HIGH,4.7,Medium
+5dcb0ccf5b3a9720,"Brass lamps and temple donation box burgled near Sathuvachari, Vellore",Theft,"Thu, 13 Oct 2022 17:48:00 GMT",Sathuvachari,12.929239,79.167528,HIGH,2.2,Low
+b8230f93460fc5ff,"Auto-rickshaw stolen from parking lot near Katpadi, Vellore",Vehicle Theft,"Fri, 18 Sep 2026 18:32:00 GMT",Katpadi,12.987435,79.134222,HIGH,2.1,Low
+41ed149fbad11199,"Hit-and-run driver arrested after pedestrian killed near Sathuvachari, Vellore",Road Incident Offence,"Tue, 20 Jan 2026 10:45:00 GMT",Sathuvachari,12.934765,79.168323,HIGH,3.5,Low
+98961f41b99d6513,"POCSO case registered against tuition teacher in Abdullapuram, Vellore",Sexual Assault,"Sun, 31 Aug 2025 22:29:00 GMT",Abdullapuram,12.885829,79.067111,HIGH,9.1,Critical
+8469cb638467ff80,"POCSO case registered against tuition teacher in Sathuvachari, Vellore",Sexual Assault,"Mon, 21 Sep 2026 10:20:00 GMT",Sathuvachari,12.937479,79.161041,HIGH,9.5,Critical
+f5010a8d511d010b,"Woman loses four-sovereign gold chain to bike-borne snatchers in Sathuvachari, Vellore",Chain Snatching,"Tue, 13 Jun 2023 11:25:00 GMT",Sathuvachari,12.934712,79.168545,HIGH,4.7,Medium
+05d6136db9977fc6,"Ganja peddling racket busted near Thorapadi, Vellore: 14 kg contraband seized",Drug Trafficking,"Fri, 03 Jun 2022 16:32:00 GMT",Thorapadi,12.909307,79.110826,HIGH,6.8,Medium
+24a990d34d050f77,"Woman hospitalised after physical torture by in-laws in Sainathapuram, Vellore",Domestic Violence,"Sun, 29 Sep 2024 21:45:00 GMT",Sainathapuram,12.903104,79.136084,HIGH,8.0,High
+fd23ef4344a40300,"Hit-and-run driver arrested after pedestrian killed near Sainathapuram, Vellore",Road Incident Offence,"Mon, 01 Sep 2025 06:23:00 GMT",Sainathapuram,12.909503,79.137038,HIGH,2.2,Low
+6553ed83e96b0fc5,"Unauthorized biometric Aadhaar enabled payment fraud reported in Konavattam, Vellore",Cyber Crime,"Wed, 26 Feb 2025 19:37:00 GMT",Konavattam,12.922625,79.17195,HIGH,4.9,Medium
+d19499da6c95e4af,"Rival factions clash with knives near Allapuram bus terminus, Vellore",Attempt to Murder,"Tue, 02 Dec 2025 13:46:00 GMT",Allapuram,12.918578,79.117559,HIGH,8.5,High
+c96237e383c28e37,"Break-in at electronics showroom near Sainathapuram, Vellore",Burglary,"Thu, 03 Sep 2026 11:33:00 GMT",Sainathapuram,12.911443,79.139837,HIGH,4.9,Medium
+84aa774b25b8b734,Husband arrested in Pallikonda for attempt to burn wife over dowry demand,Domestic Violence,"Fri, 14 Nov 2025 18:09:00 GMT",Pallikonda,12.909159,78.941367,HIGH,7.6,High
+465342b50d57739e,"Inter-district bike lifting gang busted in Konavattam, 18 motorcycles seized",Vehicle Theft,"Sat, 04 May 2024 07:36:00 GMT",Konavattam,12.922793,79.176494,HIGH,2.2,Low
+922e634a89deabe0,"Shopkeeper assaulted by drunken trio over refusal of credit in Gandhi Nagar, Vellore",Assault,"Sun, 26 Feb 2023 12:01:00 GMT",Gandhi Nagar,12.965544,79.143051,HIGH,4.2,Medium
+bb4c6110fb9a7be1,Husband arrested in Otteri for attempt to burn wife over dowry demand,Domestic Violence,"Sun, 03 Aug 2025 10:26:00 GMT",Otteri,12.886806,79.151577,HIGH,6.3,High
+dbfdfd3f2b1e16ed,"Unauthorized biometric Aadhaar enabled payment fraud reported in Thottapalayam, Vellore",Cyber Crime,"Mon, 29 Jul 2024 22:49:00 GMT",Thottapalayam,12.925756,79.135938,HIGH,4.7,Medium
+815712f205070e77,Gang extorting protection money from vegetable vendors in Kaspa arrested,Extortion,"Sat, 30 Aug 2025 07:45:00 GMT",Kaspa,12.916699,79.124923,HIGH,8.0,High
+f9a2d3f8e5063ba9,"Youth attacked with machete following verbal feud in Sathuvachari, Vellore",Attempt to Murder,"Fri, 17 Apr 2026 16:42:00 GMT",Sathuvachari,12.93407,79.170499,HIGH,8.4,High
+8872d71962ee3d12,"Retired professor from Sainathapuram, Vellore duped of Rs 38 lakh in digital arrest scam",Cyber Crime,"Sat, 12 Jul 2025 16:11:00 GMT",Sainathapuram,12.914693,79.138768,HIGH,4.6,Medium
+27d09955f80ad9cf,"Fake government job racket busted in Vellore Fort, Vellore: Kingpin held",Fraud,"Tue, 30 Sep 2025 16:34:00 GMT",Vellore Fort,12.925393,79.12543,HIGH,4.7,Medium
+631a749ba82633d0,"Auto-rickshaw stolen from parking lot near Pernambut, Vellore",Vehicle Theft,"Mon, 15 Dec 2025 14:39:00 GMT",Pernambut,12.935748,78.713099,HIGH,2.3,Low
+9131c3f33f2be28b,"Country-made pistol and live ammunition seized from suspect near Melmonavoor, Vellore",Illegal Weapons,"Wed, 07 May 2025 14:35:00 GMT",Melmonavoor,12.899251,79.083544,HIGH,7.7,High
+411a42aff76d3538,"Woman loses four-sovereign gold chain to bike-borne snatchers in Sathuvachari, Vellore",Chain Snatching,"Mon, 02 Jun 2025 15:45:00 GMT",Sathuvachari,12.933155,79.161691,HIGH,3.5,Medium
+caa95a0187ad47e6,"School student rescued within 6 hours of abduction in Melmonavoor, Vellore",Kidnapping,"Tue, 08 Sep 2026 16:30:00 GMT",Melmonavoor,12.892639,79.093474,HIGH,8.8,High
+9a29e6839751046f,Reckless truck collision leaves two motorists injured near Thorapadi junction,Road Incident Offence,"Mon, 06 Oct 2025 18:57:00 GMT",Thorapadi,12.909658,79.111884,HIGH,3.1,Low
+c8eea35c79cb39b2,Mobile phone theft gang apprehended near KV Kuppam in Vellore,Theft,"Sun, 26 Jun 2022 10:18:00 GMT",KV Kuppam,12.989884,79.054855,HIGH,3.5,Low
+a677231ac171d127,"Two college students arrested for series of chain snatchings across Konavattam, Vellore",Chain Snatching,"Tue, 10 Feb 2026 17:59:00 GMT",Konavattam,12.923318,79.167011,HIGH,3.9,Medium
+d9d5ea21874bd55c,"Hit-and-run driver arrested after pedestrian killed near Bagayam, Vellore",Road Incident Offence,"Mon, 12 May 2025 21:13:00 GMT",Bagayam,12.865859,79.128191,HIGH,3.0,Low
+86c0809abf6d52ee,Mobile phone theft gang apprehended near Sankaranpalayam in Vellore,Theft,"Sun, 03 May 2026 13:03:00 GMT",Sankaranpalayam,12.918231,79.119524,HIGH,3.3,Low
+e7005bbb75276ff4,"Man hacked to death over property dispute near Sathuvachari, Vellore",Murder,"Sat, 28 Sep 2024 13:40:00 GMT",Sathuvachari,12.931699,79.171454,HIGH,9.6,Critical
+c3373e43c6046c7f,Land document forgery: Three arrested by anti-land grabbing wing in Vellore Collectorate,Fraud,"Sat, 21 Feb 2026 19:21:00 GMT",Vellore Collectorate,12.938704,79.164462,HIGH,4.9,Medium
+a18e3345fa37b90b,Reckless truck collision leaves two motorists injured near Katpadi junction,Road Incident Offence,"Wed, 21 Feb 2024 10:00:00 GMT",Katpadi,12.982799,79.137785,HIGH,3.3,Low
+6078970f6a74532c,"Cash and valuables stolen from locked house near KV Kuppam, Vellore",Theft,"Wed, 22 Mar 2023 19:41:00 GMT",KV Kuppam,12.990107,79.063324,HIGH,2.7,Low
+fb1a6e9f3ec92c00,SUV stolen using duplicate smart key near Katpadi residential layout,Vehicle Theft,"Thu, 28 May 2026 16:18:00 GMT",Katpadi,12.988415,79.140606,HIGH,3.3,Low
+fad5ab01995e2bcd,"Country-made pistol and live ammunition seized from suspect near Sathuvachari, Vellore",Illegal Weapons,"Sat, 20 Jan 2024 11:26:00 GMT",Sathuvachari,12.934632,79.1661,HIGH,8.3,High
+2fd2b41473805d20,Mobile phone theft gang apprehended near Pallikonda in Vellore,Theft,"Sun, 31 Mar 2024 07:53:00 GMT",Pallikonda,12.903609,78.94663,HIGH,3.1,Low
+5164e72540a43a33,"Country-made pistol and live ammunition seized from suspect near Ariyur, Vellore",Illegal Weapons,"Tue, 28 May 2024 07:00:00 GMT",Ariyur,12.88113,79.083201,HIGH,7.4,High
+84ac1ae0299bc525,Pedestrian assaulted and robbed near Sathuvachari railway overbridge in Vellore,Robbery,"Wed, 05 Nov 2025 09:59:00 GMT",Sathuvachari,12.934519,79.165117,HIGH,7.3,High
+26b985185764fdc1,Apartment burglary reported near Thottapalayam while family attended wedding,Burglary,"Thu, 26 May 2022 20:41:00 GMT",Thottapalayam,12.927988,79.14329,HIGH,4.7,Medium
+b3ef50ffa004dde9,Clash between two village youth groups during festival in Pallikonda,Assault,"Wed, 25 Mar 2026 20:41:00 GMT",Pallikonda,12.901627,78.940926,HIGH,4.5,Medium
+21705e214a930695,Mobile phone theft gang apprehended near Thottapalayam in Vellore,Theft,"Mon, 06 Apr 2026 06:47:00 GMT",Thottapalayam,12.926007,79.13503,HIGH,3.1,Low
+17d211bd6da895e8,"Break-in at electronics showroom near CMC Vellore, Vellore",Burglary,"Sun, 01 Jun 2025 12:11:00 GMT",CMC Vellore,12.927577,79.131417,HIGH,4.8,Medium
+82726d17542c86d7,Land document forgery: Three arrested by anti-land grabbing wing in VIT Campus,Fraud,"Mon, 24 Nov 2025 18:52:00 GMT",VIT Campus,12.969396,79.157439,HIGH,5.4,Medium
+aee19dd5996adf0e,Reckless truck collision leaves two motorists injured near Pallikonda junction,Road Incident Offence,"Tue, 17 Jun 2025 08:25:00 GMT",Pallikonda,12.905932,78.941637,HIGH,2.6,Low
+4cfcf0b4ef8a5eb5,"Break-in at electronics showroom near Sathuvachari, Vellore",Burglary,"Thu, 04 Apr 2024 10:30:00 GMT",Sathuvachari,12.936136,79.161815,HIGH,5.2,Medium
+89b1e8a71f059a3d,Gang extorting protection money from vegetable vendors in Thottapalayam arrested,Extortion,"Sun, 17 Aug 2025 14:21:00 GMT",Thottapalayam,12.922546,79.144901,HIGH,6.5,High
+06b92339af5f4a52,Husband arrested in Vellore Fort for attempt to burn wife over dowry demand,Domestic Violence,"Tue, 21 Oct 2025 06:16:00 GMT",Vellore Fort,12.924358,79.133217,HIGH,7.1,High
+337bd1271c02c78b,Two men posing as vigilance officers extort money from merchant in Sankaranpalayam,Extortion,"Fri, 20 Dec 2024 13:03:00 GMT",Sankaranpalayam,12.915182,79.120155,HIGH,7.0,High
+1dde26a46aa7f87a,Serial house-break thief held near KV Kuppam by Vellore police,Burglary,"Mon, 26 Aug 2024 15:10:00 GMT",KV Kuppam,12.991367,79.059759,HIGH,5.7,Medium
+34900ca295e9357a,Reckless truck collision leaves two motorists injured near Gudiyatham junction,Road Incident Offence,"Mon, 15 Sep 2025 15:44:00 GMT",Gudiyatham,12.94963,78.874257,HIGH,2.6,Low
+002925bda2e30520,Finance firm proprietor booked for cheating depositors of Rs 1.2 crore in Ariyur,Fraud,"Mon, 01 Jun 2026 17:39:00 GMT",Ariyur,12.88903,79.081576,HIGH,4.4,Medium
+250109af35ea59d7,Part-time job investment fraud: Youth from Gudiyatham loses Rs 6 lakh,Cyber Crime,"Tue, 10 Mar 2026 21:09:00 GMT",Gudiyatham,12.948336,78.876967,HIGH,6.0,Medium
+9dfd95b6e5c34baf,"Inter-district bike lifting gang busted in Salavanpet, 18 motorcycles seized",Vehicle Theft,"Thu, 29 Aug 2024 12:48:00 GMT",Salavanpet,12.907293,79.128312,HIGH,2.7,Low
+87dc1ce6916c2177,"Woman loses four-sovereign gold chain to bike-borne snatchers in Salavanpet, Vellore",Chain Snatching,"Wed, 11 Feb 2026 22:28:00 GMT",Salavanpet,12.914433,79.13521,HIGH,4.1,Medium
+5086c00b59c8f493,"Ganja peddling racket busted near VIT Campus, Vellore: 14 kg contraband seized",Drug Trafficking,"Sat, 05 Jul 2025 08:58:00 GMT",VIT Campus,12.967046,79.161822,HIGH,6.9,Medium
+a8663e6f083dc5a4,"Fake government job racket busted in CMC Vellore, Vellore: Kingpin held",Fraud,"Sat, 01 Feb 2025 22:12:00 GMT",CMC Vellore,12.923547,79.135407,HIGH,5.1,Medium
+61ec32deb5013d92,Two men posing as vigilance officers extort money from merchant in Pernambut,Extortion,"Tue, 18 Mar 2025 11:20:00 GMT",Pernambut,12.930532,78.716992,HIGH,7.1,High
+fac26d4904115a59,Merchant abducted for Rs 20 lakh ransom near VIT Campus; police rescue victim,Kidnapping,"Wed, 14 Aug 2024 09:43:00 GMT",VIT Campus,12.964075,79.159166,HIGH,8.2,High
+38947823086a8e8f,"Shopkeeper assaulted by drunken trio over refusal of credit in Sankaranpalayam, Vellore",Assault,"Tue, 08 Sep 2026 08:57:00 GMT",Sankaranpalayam,12.912134,79.118595,HIGH,3.6,Medium
+760bc0467876a018,"Elderly woman injured in chain snatching incident near Melmonavoor, Vellore",Chain Snatching,"Wed, 29 Jan 2025 20:08:00 GMT",Melmonavoor,12.898878,79.086646,HIGH,4.8,Medium
+7f9026fb19e66263,"Man arrested under POCSO Act for molesting minor near Gudiyatham, Vellore",Sexual Assault,"Sat, 07 Jun 2025 06:25:00 GMT",Gudiyatham,12.947165,78.873722,HIGH,9.9,Critical
+49c051d2b81aa41f,"Break-in at electronics showroom near Bagayam, Vellore",Burglary,"Fri, 02 Jan 2026 12:37:00 GMT",Bagayam,12.872194,79.137467,HIGH,4.7,Medium
+ceec178daca49a09,"School student rescued within 6 hours of abduction in Bagayam, Vellore",Kidnapping,"Wed, 05 Aug 2026 17:44:00 GMT",Bagayam,12.866928,79.132071,HIGH,8.2,High
+4dceebaf51ff2ccd,"Break-in at electronics showroom near Allapuram, Vellore",Burglary,"Sat, 31 Jan 2026 08:59:00 GMT",Allapuram,12.911503,79.115969,HIGH,5.6,Medium
+21f0f120d8468f15,"Petrol bunk cashier robbed at knife-point near Otteri, Vellore",Robbery,"Sun, 24 Nov 2024 19:23:00 GMT",Otteri,12.891115,79.147198,HIGH,8.4,High
+fff50f59854eac65,Clash between two village youth groups during festival in Kalinjur,Assault,"Fri, 15 Jul 2022 20:55:00 GMT",Kalinjur,12.971772,79.140074,HIGH,4.0,Medium
+c9fae702a51f8b88,Phishing link OTP fraud: Bank customer in Officers Line loses Rs 1.8 lakh,Cyber Crime,"Thu, 13 Jul 2023 18:05:00 GMT",Officers Line,12.916869,79.132042,HIGH,4.5,Medium
+12f864f2aef7b967,"Auto-rickshaw stolen from parking lot near Sankaranpalayam, Vellore",Vehicle Theft,"Wed, 04 Dec 2024 10:41:00 GMT",Sankaranpalayam,12.920508,79.113607,HIGH,3.1,Low
+8a8bccba156288fc,"Ganja peddling racket busted near Gandhi Nagar, Vellore: 14 kg contraband seized",Drug Trafficking,"Fri, 07 Mar 2025 13:53:00 GMT",Gandhi Nagar,12.964559,79.147429,HIGH,6.8,Medium
+4bbb379231471b89,Reckless truck collision leaves two motorists injured near Anaicut junction,Road Incident Offence,"Mon, 12 Jan 2026 15:29:00 GMT",Anaicut,12.869935,78.986017,HIGH,2.8,Low
+2f164b54c1737b4a,Machetes and sharp lethal weapons seized from abandoned shed in Old Town,Illegal Weapons,"Sat, 05 Oct 2024 19:34:00 GMT",Old Town,12.919448,79.130057,HIGH,8.2,High
+baf946c8049d4487,"Inter-district bike lifting gang busted in Pernambut, 18 motorcycles seized",Vehicle Theft,"Mon, 28 Apr 2025 13:29:00 GMT",Pernambut,12.939546,78.718568,HIGH,2.1,Low
+3058ed7b63a8f012,"Inter-district bike lifting gang busted in Konavattam, 18 motorcycles seized",Vehicle Theft,"Thu, 22 May 2025 12:59:00 GMT",Konavattam,12.92416,79.172955,HIGH,2.5,Low
+2b48c294e4a0bde3,Husband arrested in Officers Line for attempt to burn wife over dowry demand,Domestic Violence,"Tue, 27 Feb 2024 07:51:00 GMT",Officers Line,12.921995,79.128307,HIGH,6.6,High
+b845921576d9966c,"Woman loses four-sovereign gold chain to bike-borne snatchers in Kaspa, Vellore",Chain Snatching,"Sun, 10 Nov 2024 06:15:00 GMT",Kaspa,12.917483,79.11725,HIGH,4.1,Medium
+0517de51cd021a02,"Youth attacked with machete following verbal feud in Kaspa, Vellore",Attempt to Murder,"Sat, 21 Feb 2026 07:28:00 GMT",Kaspa,12.918981,79.11708,HIGH,7.8,High
+c0836ba68efe4371,"Attempt to murder municipal worker in Thorapadi, three remanded",Attempt to Murder,"Sat, 27 Dec 2025 07:15:00 GMT",Thorapadi,12.906176,79.107869,HIGH,8.0,High
+fdc1dca519f03939,"Petrol bunk cashier robbed at knife-point near Saidapet, Vellore",Robbery,"Wed, 24 Jul 2024 20:14:00 GMT",Saidapet,12.921411,79.13603,HIGH,7.1,High
+6b57eae550a546f0,"History-sheeter killed in gang clash near Konavattam, Vellore",Murder,"Wed, 29 Jan 2025 10:32:00 GMT",Konavattam,12.925541,79.168361,HIGH,9.0,Critical
+c88bf4d016156992,Clash between two village youth groups during festival in Kangeyanallur,Assault,"Sat, 30 Apr 2022 16:36:00 GMT",Kangeyanallur,12.951168,79.148097,HIGH,4.0,Medium
+621a675eadf0758a,"Youth attacked with machete following verbal feud in Bagayam, Vellore",Attempt to Murder,"Thu, 11 Dec 2025 16:15:00 GMT",Bagayam,12.874506,79.135728,HIGH,7.6,High
+be38897c08635edb,"Banned gutkha and tobacco products worth Rs 3 lakh confiscated near Pallikonda, Vellore",Drug Trafficking,"Sat, 15 Mar 2025 22:14:00 GMT",Pallikonda,12.901257,78.935784,HIGH,5.8,Medium
+b2571a17fbd735e8,"Fake government job racket busted in Gudiyatham, Vellore: Kingpin held",Fraud,"Wed, 21 May 2025 07:35:00 GMT",Gudiyatham,12.946778,78.876085,HIGH,4.9,Medium
+74a0cda6cd7fae61,"Hit-and-run driver arrested after pedestrian killed near KV Kuppam, Vellore",Road Incident Offence,"Fri, 31 Mar 2023 19:35:00 GMT",KV Kuppam,12.986784,79.063461,HIGH,2.9,Low
+e72baecf082f5414,"Man hacked to death over property dispute near Thottapalayam, Vellore",Murder,"Thu, 26 Jun 2025 18:50:00 GMT",Thottapalayam,12.924896,79.135867,HIGH,9.4,Critical
+2fd3537baa9c2596,SUV stolen using duplicate smart key near Bagayam residential layout,Vehicle Theft,"Tue, 23 Dec 2025 19:26:00 GMT",Bagayam,12.868973,79.128155,HIGH,2.8,Low
+98c42c1fceadd0ed,Merchant abducted for Rs 20 lakh ransom near Anaicut; police rescue victim,Kidnapping,"Sun, 12 Jul 2026 11:48:00 GMT",Anaicut,12.874573,78.981406,HIGH,7.6,High
+0fe2ee43434c7534,"Shopkeeper assaulted by drunken trio over refusal of credit in CMC Vellore, Vellore",Assault,"Sun, 04 May 2025 13:19:00 GMT",CMC Vellore,12.920019,79.136891,HIGH,3.8,Medium
+4e7383e749f53723,Merchant abducted for Rs 20 lakh ransom near Old Town; police rescue victim,Kidnapping,"Thu, 14 Mar 2024 20:58:00 GMT",Old Town,12.923527,79.125601,HIGH,8.5,High
+0924f3294bc56b11,"Petrol bunk cashier robbed at knife-point near Abdullapuram, Vellore",Robbery,"Fri, 31 Jul 2026 19:35:00 GMT",Abdullapuram,12.883314,79.069554,HIGH,8.4,High
+0b2cd5e5e3ccb897,"Inter-district bike lifting gang busted in Pallikonda, 18 motorcycles seized",Vehicle Theft,"Fri, 18 Jul 2025 13:16:00 GMT",Pallikonda,12.903929,78.945525,HIGH,3.4,Low
+fef776308fd6e26a,Merchant abducted for Rs 20 lakh ransom near Pallikonda; police rescue victim,Kidnapping,"Tue, 10 Feb 2026 20:54:00 GMT",Pallikonda,12.899642,78.945521,HIGH,7.5,High
+88a9a4679681828c,SUV stolen using duplicate smart key near Melmonavoor residential layout,Vehicle Theft,"Thu, 02 Oct 2025 12:03:00 GMT",Melmonavoor,12.89788,79.08576,HIGH,2.7,Low
+169c0456e03eeb64,"Man arrested under POCSO Act for molesting minor near Gudiyatham, Vellore",Sexual Assault,"Wed, 21 Jan 2026 08:12:00 GMT",Gudiyatham,12.948974,78.876692,HIGH,9.1,Critical
+4c25e9c6ef047f77,"Man hacked to death over property dispute near Sathuvachari, Vellore",Murder,"Sun, 27 Oct 2024 12:30:00 GMT",Sathuvachari,12.929557,79.167216,HIGH,9.7,Critical
+f9dfdfad81a01ce4,SUV stolen using duplicate smart key near Vellore Collectorate residential layout,Vehicle Theft,"Sat, 20 Jun 2026 15:58:00 GMT",Vellore Collectorate,12.932331,79.162505,HIGH,2.5,Low
+21811abb441238ba,Apartment burglary reported near Konavattam while family attended wedding,Burglary,"Wed, 08 Apr 2026 09:47:00 GMT",Konavattam,12.922262,79.171969,HIGH,4.9,Medium
+966eee751376fc3f,Three held for selling banned painkiller tablets to college students in Officers Line,Drug Trafficking,"Sat, 03 Sep 2022 13:44:00 GMT",Officers Line,12.922036,79.130236,HIGH,5.8,Medium
+2cc2d4db63df348a,Two men posing as vigilance officers extort money from merchant in Thottapalayam,Extortion,"Tue, 15 Apr 2025 18:58:00 GMT",Thottapalayam,12.932394,79.13988,HIGH,7.8,High
+01b511f08cfe2610,Gang extorting protection money from vegetable vendors in Salavanpet arrested,Extortion,"Sun, 14 Jun 2026 15:24:00 GMT",Salavanpet,12.907508,79.125118,HIGH,6.8,High
+c9e0bcda97f22b89,"Petrol bunk cashier robbed at knife-point near Pernambut, Vellore",Robbery,"Sat, 29 Nov 2025 17:19:00 GMT",Pernambut,12.941953,78.716996,HIGH,8.2,High
+c024ad0b74c2ce23,"POCSO case registered against tuition teacher in KV Kuppam, Vellore",Sexual Assault,"Sun, 20 Sep 2026 21:29:00 GMT",KV Kuppam,12.984564,79.056142,HIGH,9.9,Critical
+4a37779e25441ffc,"Battery and diesel pilferage from parked lorries near Kalinjur, Vellore",Theft,"Wed, 10 Jun 2026 19:02:00 GMT",Kalinjur,12.965274,79.14379,HIGH,2.5,Low
+55b2ce63aa6c58a6,"Auto-rickshaw stolen from parking lot near Virupakshipuram, Vellore",Vehicle Theft,"Thu, 24 Apr 2025 10:01:00 GMT",Virupakshipuram,12.894308,79.120231,HIGH,3.2,Low
+3b3076c24cb841ca,"Retired professor from Sathuvachari, Vellore duped of Rs 38 lakh in digital arrest scam",Cyber Crime,"Tue, 28 Apr 2026 18:36:00 GMT",Sathuvachari,12.929585,79.163661,HIGH,5.7,Medium
+723c8414b3ec99ff,"Two college students arrested for series of chain snatchings across Allapuram, Vellore",Chain Snatching,"Thu, 12 Sep 2024 16:16:00 GMT",Allapuram,12.917701,79.113011,HIGH,4.3,Medium
+76dbd4b7cdfc2855,"Break-in at electronics showroom near Otteri, Vellore",Burglary,"Sat, 07 Sep 2024 21:29:00 GMT",Otteri,12.890577,79.14568,HIGH,5.8,Medium
+b8a602376f2c9405,"Armed gang intercepts trader near Katpadi in Vellore, robs Rs 4.5 lakh",Robbery,"Tue, 30 Jun 2026 11:08:00 GMT",Katpadi,12.981712,79.134435,HIGH,7.5,High
+7923ad7dd3842f42,"Auto-rickshaw stolen from parking lot near Salavanpet, Vellore",Vehicle Theft,"Sat, 07 Sep 2024 11:58:00 GMT",Salavanpet,12.914202,79.129803,HIGH,3.1,Low
+19f2dd4aa55fe314,"Attempt to murder municipal worker in Salavanpet, three remanded",Attempt to Murder,"Sun, 24 Nov 2024 07:33:00 GMT",Salavanpet,12.913568,79.132326,HIGH,7.8,High
+6da6476c247e63a2,Reckless truck collision leaves two motorists injured near Sathuvachari junction,Road Incident Offence,"Sun, 08 Feb 2026 07:48:00 GMT",Sathuvachari,12.932379,79.168065,HIGH,3.9,Low
+25d861032a3e78e2,"Fake government job racket busted in Gudiyatham, Vellore: Kingpin held",Fraud,"Thu, 12 Mar 2026 13:04:00 GMT",Gudiyatham,12.943451,78.873254,HIGH,4.2,Medium
+ee00e68a0dc19f88,Culprit gets 20 years rigorous imprisonment in Katpadi sexual assault case,Sexual Assault,"Fri, 05 Jan 2024 12:32:00 GMT",Katpadi,12.984214,79.138947,HIGH,9.9,Critical
+419bc6eebfb95f3a,"Country-made pistol and live ammunition seized from suspect near Ariyur, Vellore",Illegal Weapons,"Fri, 31 Jan 2025 21:42:00 GMT",Ariyur,12.879139,79.07805,HIGH,7.8,High
+6ba2d5a51d2fe1c0,Land document forgery: Three arrested by anti-land grabbing wing in Shenbakkam,Fraud,"Sat, 04 Jan 2025 19:00:00 GMT",Shenbakkam,12.936826,79.113172,HIGH,5.3,Medium
+e0d4fa91da5b99b6,"Ganja peddling racket busted near Gudiyatham, Vellore: 14 kg contraband seized",Drug Trafficking,"Thu, 21 May 2026 15:01:00 GMT",Gudiyatham,12.945057,78.869322,HIGH,5.5,Medium
+2a4464bfe855ae3f,"Two college students arrested for series of chain snatchings across Dharapadavedu, Vellore",Chain Snatching,"Wed, 24 Dec 2025 19:51:00 GMT",Dharapadavedu,12.959517,79.138153,HIGH,3.7,Medium
+eb3d1896f910b181,"Night burglary at jewelry workshop in Pallikonda, Vellore: Gold ingots stolen",Burglary,"Sun, 02 Apr 2023 09:58:00 GMT",Pallikonda,12.9013,78.935432,HIGH,5.9,Medium
+f04898196f7442c9,"Night burglary at jewelry workshop in Bagayam, Vellore: Gold ingots stolen",Burglary,"Wed, 18 Mar 2026 13:12:00 GMT",Bagayam,12.868178,79.131002,HIGH,5.7,Medium
+03e3ec3f19babad7,"Battery and diesel pilferage from parked lorries near Konavattam, Vellore",Theft,"Sat, 10 May 2025 17:17:00 GMT",Konavattam,12.919836,79.17077,HIGH,2.8,Low
+9ae75d8a01e107d8,"Man arrested under POCSO Act for molesting minor near KV Kuppam, Vellore",Sexual Assault,"Sat, 10 Feb 2024 17:25:00 GMT",KV Kuppam,12.987834,79.055634,HIGH,9.0,Critical
+1320fe776e67bc90,"Break-in at electronics showroom near Gandhi Nagar, Vellore",Burglary,"Mon, 05 May 2025 13:19:00 GMT",Gandhi Nagar,12.96364,79.147557,HIGH,5.1,Medium
+c90a67a11655cd1c,Pedestrian assaulted and robbed near Sainathapuram railway overbridge in Vellore,Robbery,"Sun, 11 Feb 2024 07:05:00 GMT",Sainathapuram,12.908101,79.13604,HIGH,7.1,High
+d6b469806e5dae16,"Fake government job racket busted in Sathuvachari, Vellore: Kingpin held",Fraud,"Sun, 13 Jul 2025 21:03:00 GMT",Sathuvachari,12.934571,79.166828,HIGH,5.1,Medium
+c971b9ed1cde7b50,Land document forgery: Three arrested by anti-land grabbing wing in Saidapet,Fraud,"Fri, 26 Dec 2025 11:05:00 GMT",Saidapet,12.9156,79.144262,HIGH,5.1,Medium
+8a7c27443a3b7bc6,"Bus conductor assaulted by passenger near VIT Campus bus stop, Vellore",Assault,"Mon, 11 Aug 2025 16:36:00 GMT",VIT Campus,12.970944,79.151582,HIGH,5.0,Medium
+2c2b53776f575f1f,"Auto-rickshaw stolen from parking lot near Konavattam, Vellore",Vehicle Theft,"Fri, 18 Feb 2022 22:58:00 GMT",Konavattam,12.922451,79.172814,HIGH,3.2,Low
+97af4fe17d3fc870,"Hit-and-run driver arrested after pedestrian killed near Gudiyatham, Vellore",Road Incident Offence,"Sun, 19 Apr 2026 21:17:00 GMT",Gudiyatham,12.947809,78.871882,HIGH,3.1,Low
+d4fbfeb1514a3a23,Part-time job investment fraud: Youth from Sainathapuram loses Rs 6 lakh,Cyber Crime,"Sun, 08 Feb 2026 14:57:00 GMT",Sainathapuram,12.912591,79.138868,HIGH,4.5,Medium
+31bcc89939c84fb3,"Break-in at electronics showroom near Katpadi, Vellore",Burglary,"Wed, 03 Dec 2025 07:11:00 GMT",Katpadi,12.981734,79.139419,HIGH,5.2,Medium
+8498ddd1e9c15fb3,Culprit gets 20 years rigorous imprisonment in CMC Vellore sexual assault case,Sexual Assault,"Wed, 31 Dec 2025 18:59:00 GMT",CMC Vellore,12.921812,79.139086,HIGH,9.9,Critical
+9f79e8a570fe4ef5,Land document forgery: Three arrested by anti-land grabbing wing in Pernambut,Fraud,"Wed, 25 Mar 2026 13:36:00 GMT",Pernambut,12.935088,78.717997,HIGH,4.8,Medium
+7d50a0936583e383,"POCSO case registered against tuition teacher in Sathuvachari, Vellore",Sexual Assault,"Tue, 12 Mar 2024 08:32:00 GMT",Sathuvachari,12.935276,79.167976,HIGH,9.1,Critical
+e9964ad2e9810ee9,"Woman hospitalised after physical torture by in-laws in KV Kuppam, Vellore",Domestic Violence,"Sat, 08 Feb 2025 16:38:00 GMT",KV Kuppam,12.989963,79.053165,HIGH,6.1,High
+1762c01fff66cdce,Land document forgery: Three arrested by anti-land grabbing wing in Thottapalayam,Fraud,"Thu, 31 Oct 2024 18:49:00 GMT",Thottapalayam,12.932753,79.140223,HIGH,4.9,Medium
+3325d4ab03c7b56c,Husband arrested in Gandhi Nagar for attempt to burn wife over dowry demand,Domestic Violence,"Fri, 21 Nov 2025 14:50:00 GMT",Gandhi Nagar,12.962641,79.138823,HIGH,6.6,High
+ba35e941163de432,Reckless truck collision leaves two motorists injured near Allapuram junction,Road Incident Offence,"Fri, 09 Sep 2022 13:22:00 GMT",Allapuram,12.915752,79.118432,HIGH,2.8,Low
+2d05f5bb30ff3cf4,Three held for selling banned painkiller tablets to college students in Kalinjur,Drug Trafficking,"Sat, 12 Jul 2025 19:11:00 GMT",Kalinjur,12.961896,79.132059,HIGH,5.8,Medium
+f1732b1791aa1765,Apartment burglary reported near Kalinjur while family attended wedding,Burglary,"Wed, 04 Dec 2024 18:05:00 GMT",Kalinjur,12.967602,79.13362,HIGH,5.5,Medium
+22973ea5060dfb65,"Armed gang intercepts trader near Shenbakkam in Vellore, robs Rs 4.5 lakh",Robbery,"Fri, 31 May 2024 13:45:00 GMT",Shenbakkam,12.9369,79.122855,HIGH,7.7,High
+9be6f182bf0055a0,Pedestrian assaulted and robbed near Dharapadavedu railway overbridge in Vellore,Robbery,"Mon, 18 May 2026 10:24:00 GMT",Dharapadavedu,12.958857,79.145312,HIGH,7.1,High
+eb620434bed2df02,Mobile phone theft gang apprehended near Sainathapuram in Vellore,Theft,"Sun, 07 Jun 2026 20:23:00 GMT",Sainathapuram,12.906786,79.141767,HIGH,2.8,Low
+9c1ec3726e644798,"Auto-rickshaw stolen from parking lot near Gudiyatham, Vellore",Vehicle Theft,"Thu, 22 Feb 2024 10:05:00 GMT",Gudiyatham,12.940263,78.875815,HIGH,2.6,Low
+d2988dee00bcee16,Merchant abducted for Rs 20 lakh ransom near Vellore Fort; police rescue victim,Kidnapping,"Tue, 18 Aug 2026 22:26:00 GMT",Vellore Fort,12.916175,79.132209,HIGH,9.0,High
+daca516a94ae4734,Apartment burglary reported near Sankaranpalayam while family attended wedding,Burglary,"Sun, 15 Feb 2026 17:35:00 GMT",Sankaranpalayam,12.913441,79.122327,HIGH,4.7,Medium
+67b343f6a56f14d1,"Shopkeeper assaulted by drunken trio over refusal of credit in Ariyur, Vellore",Assault,"Tue, 16 Jun 2026 18:00:00 GMT",Ariyur,12.884994,79.083616,HIGH,4.2,Medium
+33fb418cf124fbd7,"Retired professor from Thorapadi, Vellore duped of Rs 38 lakh in digital arrest scam",Cyber Crime,"Fri, 18 Jul 2025 08:46:00 GMT",Thorapadi,12.900104,79.109375,HIGH,5.4,Medium
+7a5099c59e7a08dc,Machetes and sharp lethal weapons seized from abandoned shed in Kalinjur,Illegal Weapons,"Wed, 27 Mar 2024 10:17:00 GMT",Kalinjur,12.96426,79.132922,HIGH,7.7,High
+c198fe94e75c6c45,Reckless truck collision leaves two motorists injured near KV Kuppam junction,Road Incident Offence,"Wed, 10 Sep 2025 10:04:00 GMT",KV Kuppam,12.988868,79.063226,HIGH,2.1,Low
+bb1c288cd0caf2a8,Pedestrian assaulted and robbed near Virupakshipuram railway overbridge in Vellore,Robbery,"Fri, 22 May 2026 19:19:00 GMT",Virupakshipuram,12.902889,79.119811,HIGH,7.6,High
+56946890b8efbcb4,Merchant abducted for Rs 20 lakh ransom near Dharapadavedu; police rescue victim,Kidnapping,"Sun, 09 Feb 2025 17:16:00 GMT",Dharapadavedu,12.969296,79.143381,HIGH,8.1,High
+149e4b881f509c66,Three held for selling banned painkiller tablets to college students in Shenbakkam,Drug Trafficking,"Fri, 17 Nov 2023 21:38:00 GMT",Shenbakkam,12.934557,79.119144,HIGH,5.7,Medium
+7237f5bd511e44ea,"Ganja peddling racket busted near Alamelumangapuram, Vellore: 14 kg contraband seized",Drug Trafficking,"Sat, 23 Aug 2025 09:08:00 GMT",Alamelumangapuram,12.944271,79.178908,HIGH,6.5,Medium
+47d88584546f8ff5,"Woman hospitalised after physical torture by in-laws in Ariyur, Vellore",Domestic Violence,"Tue, 22 Jul 2025 16:53:00 GMT",Ariyur,12.879998,79.079764,HIGH,7.9,High
+89d351eb5fa137c8,Mobile phone theft gang apprehended near Konavattam in Vellore,Theft,"Wed, 18 Jun 2025 20:21:00 GMT",Konavattam,12.921481,79.172263,HIGH,2.2,Low
+e27b2e0ff67ff647,Finance firm proprietor booked for cheating depositors of Rs 1.2 crore in Salavanpet,Fraud,"Sun, 30 Nov 2025 10:19:00 GMT",Salavanpet,12.913244,79.135749,HIGH,4.8,Medium
+139e3bc28a3c3d2a,Apartment burglary reported near Old Town while family attended wedding,Burglary,"Mon, 22 Dec 2025 12:30:00 GMT",Old Town,12.913942,79.130797,HIGH,5.5,Medium
+78c94c0da5d10beb,"Hit-and-run driver arrested after pedestrian killed near Konavattam, Vellore",Road Incident Offence,"Wed, 23 Jul 2025 16:18:00 GMT",Konavattam,12.929553,79.176811,HIGH,2.5,Low
+64193232e79db284,Phishing link OTP fraud: Bank customer in Bagayam loses Rs 1.8 lakh,Cyber Crime,"Wed, 20 Nov 2024 21:36:00 GMT",Bagayam,12.87333,79.136508,HIGH,5.4,Medium
+fcff537a128b7c71,Serial house-break thief held near Konavattam by Vellore police,Burglary,"Sat, 15 Jun 2024 18:17:00 GMT",Konavattam,12.923728,79.168436,HIGH,5.9,Medium
+28d7ebc5172a2608,Part-time job investment fraud: Youth from CMC Vellore loses Rs 6 lakh,Cyber Crime,"Sat, 20 Jul 2024 17:07:00 GMT",CMC Vellore,12.927122,79.13428,HIGH,4.7,Medium
+021b5ead53527d08,"Armed gang intercepts trader near KV Kuppam in Vellore, robs Rs 4.5 lakh",Robbery,"Thu, 13 Apr 2023 11:43:00 GMT",KV Kuppam,12.988861,79.053526,HIGH,8.5,High
+b69b0751a6719674,"Attempt to murder municipal worker in Thorapadi, three remanded",Attempt to Murder,"Sun, 14 Jan 2024 20:45:00 GMT",Thorapadi,12.904006,79.109009,HIGH,8.1,High
+9e7f717c2496f41e,"Battery and diesel pilferage from parked lorries near Gandhi Nagar, Vellore",Theft,"Sat, 30 May 2026 08:52:00 GMT",Gandhi Nagar,12.956582,79.14203,HIGH,3.1,Low
+f91aef0008a944aa,Mobile phone theft gang apprehended near Bagayam in Vellore,Theft,"Sun, 28 Jul 2024 21:08:00 GMT",Bagayam,12.873217,79.136368,HIGH,3.0,Low
+5c81526cdb83069a,"Elderly woman injured in chain snatching incident near Gudiyatham, Vellore",Chain Snatching,"Sun, 04 May 2025 14:42:00 GMT",Gudiyatham,12.948261,78.869439,HIGH,3.9,Medium
+561fdfa58bf0c74a,"Petrol bunk cashier robbed at knife-point near Gudiyatham, Vellore",Robbery,"Wed, 05 Aug 2026 18:04:00 GMT",Gudiyatham,12.946383,78.871253,HIGH,8.0,High
+5749bd1c8385caf4,"Man hacked to death over property dispute near Katpadi, Vellore",Murder,"Mon, 03 Nov 2025 21:37:00 GMT",Katpadi,12.982079,79.135918,HIGH,10.0,Critical
+a9a69b376d2bd0dd,Finance firm proprietor booked for cheating depositors of Rs 1.2 crore in Katpadi,Fraud,"Wed, 17 Sep 2025 19:34:00 GMT",Katpadi,12.984225,79.140623,HIGH,5.1,Medium
+7075cc353532699c,"Shopkeeper assaulted by drunken trio over refusal of credit in Otteri, Vellore",Assault,"Sat, 04 Jul 2026 08:06:00 GMT",Otteri,12.894497,79.150977,HIGH,4.2,Medium
+ff3d42c869d7c2dd,"Banned gutkha and tobacco products worth Rs 3 lakh confiscated near Old Town, Vellore",Drug Trafficking,"Mon, 02 Dec 2024 17:10:00 GMT",Old Town,12.912641,79.130508,HIGH,5.7,Medium
+7dba9b9d1011fa48,Gang extorting protection money from vegetable vendors in Kaspa arrested,Extortion,"Tue, 23 Jan 2024 18:48:00 GMT",Kaspa,12.918601,79.117027,HIGH,7.8,High
+3245c04cba6be835,"Man hacked to death over property dispute near Katpadi, Vellore",Murder,"Sat, 09 Aug 2025 09:00:00 GMT",Katpadi,12.978321,79.137728,HIGH,9.8,Critical
+8d24fd75356e2147,"Inter-district bike lifting gang busted in Sathuvachari, 18 motorcycles seized",Vehicle Theft,"Fri, 24 Apr 2026 22:47:00 GMT",Sathuvachari,12.931524,79.170382,HIGH,2.6,Low
+08627cdb331df699,Land document forgery: Three arrested by anti-land grabbing wing in Sathuvachari,Fraud,"Tue, 26 Aug 2025 22:09:00 GMT",Sathuvachari,12.932551,79.16757,HIGH,4.4,Medium
+3f9d4bfab5b604a0,"Woman hospitalised after physical torture by in-laws in Pallikonda, Vellore",Domestic Violence,"Mon, 13 Jan 2025 21:06:00 GMT",Pallikonda,12.903544,78.945459,HIGH,7.9,High
+8f635ca15670c1d5,"Cash and valuables stolen from locked house near Salavanpet, Vellore",Theft,"Thu, 13 Feb 2025 09:53:00 GMT",Salavanpet,12.91745,79.136725,HIGH,2.2,Low
+a478cb211fae7bc6,Serial house-break thief held near Gudiyatham by Vellore police,Burglary,"Tue, 14 Mar 2023 17:19:00 GMT",Gudiyatham,12.944353,78.868075,HIGH,6.0,Medium
+d3f4c19477d3d200,Reckless truck collision leaves two motorists injured near Gandhi Nagar junction,Road Incident Offence,"Wed, 16 Apr 2025 22:30:00 GMT",Gandhi Nagar,12.955997,79.146901,HIGH,2.1,Low
+be75f35740f0be5e,"Shopkeeper assaulted by drunken trio over refusal of credit in Kaspa, Vellore",Assault,"Wed, 19 Feb 2025 20:46:00 GMT",Kaspa,12.910205,79.117174,HIGH,4.7,Medium
+1642a6054009350e,"Night burglary at jewelry workshop in Sathuvachari, Vellore: Gold ingots stolen",Burglary,"Sat, 28 Feb 2026 06:54:00 GMT",Sathuvachari,12.930011,79.167738,HIGH,5.7,Medium
+71db48d01e3a0d51,"POCSO case registered against tuition teacher in Bagayam, Vellore",Sexual Assault,"Tue, 25 Feb 2025 11:59:00 GMT",Bagayam,12.872617,79.134003,HIGH,9.2,Critical
+7cd90bd876c07198,Pedestrian assaulted and robbed near Ariyur railway overbridge in Vellore,Robbery,"Thu, 05 May 2022 22:11:00 GMT",Ariyur,12.882778,79.086934,HIGH,8.2,High
+e31ab2456b613c8f,"Armed gang intercepts trader near Katpadi in Vellore, robs Rs 4.5 lakh",Robbery,"Thu, 19 Jun 2025 19:29:00 GMT",Katpadi,12.97731,79.129855,HIGH,7.2,High
+22a7e64075b6f993,"Petrol bunk cashier robbed at knife-point near Pernambut, Vellore",Robbery,"Fri, 09 Aug 2024 18:01:00 GMT",Pernambut,12.938345,78.723204,HIGH,8.4,High
+66592aee9cfdeae6,"Inter-district bike lifting gang busted in Kaspa, 18 motorcycles seized",Vehicle Theft,"Thu, 11 Apr 2024 20:37:00 GMT",Kaspa,12.918799,79.125227,HIGH,3.1,Low
+9bb30fe152429d09,"Elderly woman injured in chain snatching incident near Officers Line, Vellore",Chain Snatching,"Fri, 05 Apr 2024 17:20:00 GMT",Officers Line,12.921926,79.133483,HIGH,4.2,Medium
+492a56967dae7d58,Clash between two village youth groups during festival in Dharapadavedu,Assault,"Fri, 27 Sep 2024 16:38:00 GMT",Dharapadavedu,12.963133,79.139995,HIGH,4.9,Medium
+0bd2f9a11c4d3afd,SUV stolen using duplicate smart key near Katpadi residential layout,Vehicle Theft,"Sun, 20 Jul 2025 09:22:00 GMT",Katpadi,12.984558,79.139396,HIGH,3.3,Low
+ba43aee6f251ef5c,Merchant abducted for Rs 20 lakh ransom near Melmonavoor; police rescue victim,Kidnapping,"Sat, 23 Aug 2025 11:52:00 GMT",Melmonavoor,12.889677,79.085132,HIGH,8.3,High
+cf84cc6b6b64f933,"Battery and diesel pilferage from parked lorries near Bagayam, Vellore",Theft,"Sat, 01 Jun 2024 08:43:00 GMT",Bagayam,12.874223,79.138639,HIGH,3.4,Low
+58e816f49691a24e,"Unauthorized biometric Aadhaar enabled payment fraud reported in Thottapalayam, Vellore",Cyber Crime,"Mon, 02 Mar 2026 13:19:00 GMT",Thottapalayam,12.929757,79.137638,HIGH,5.4,Medium
+17a51719f7204e8a,"Two college students arrested for series of chain snatchings across Anaicut, Vellore",Chain Snatching,"Sun, 06 Apr 2025 21:40:00 GMT",Anaicut,12.874408,78.977337,HIGH,4.2,Medium
+0a1cf391b8ad2ef2,"Brass lamps and temple donation box burgled near Old Town, Vellore",Theft,"Thu, 27 Nov 2025 11:35:00 GMT",Old Town,12.918501,79.130715,HIGH,3.2,Low
+6e624c4724f453b0,"Banned gutkha and tobacco products worth Rs 3 lakh confiscated near Sathuvachari, Vellore",Drug Trafficking,"Thu, 28 May 2026 10:11:00 GMT",Sathuvachari,12.931667,79.165203,HIGH,5.7,Medium
+354187dc6c7ffd86,"Petrol bunk cashier robbed at knife-point near Ariyur, Vellore",Robbery,"Tue, 19 Aug 2025 07:55:00 GMT",Ariyur,12.878369,79.077479,HIGH,7.4,High
+e4a05f12d655facc,"Auto-rickshaw stolen from parking lot near Gudiyatham, Vellore",Vehicle Theft,"Sun, 05 Jan 2025 21:08:00 GMT",Gudiyatham,12.941152,78.865034,HIGH,2.4,Low
+1ae10d3c7d799f29,"Two college students arrested for series of chain snatchings across Salavanpet, Vellore",Chain Snatching,"Thu, 16 Jul 2026 22:41:00 GMT",Salavanpet,12.913967,79.132569,HIGH,3.8,Medium
+1d982195afa1e7b9,Land document forgery: Three arrested by anti-land grabbing wing in Pernambut,Fraud,"Wed, 17 Dec 2025 21:26:00 GMT",Pernambut,12.934603,78.721002,HIGH,4.2,Medium
+ecc575ced7b1b8ea,SUV stolen using duplicate smart key near KV Kuppam residential layout,Vehicle Theft,"Fri, 16 Jan 2026 13:18:00 GMT",KV Kuppam,12.984339,79.055351,HIGH,2.8,Low
+9eede34606d2954f,"Petrol bunk cashier robbed at knife-point near Pallikonda, Vellore",Robbery,"Sun, 26 Apr 2026 15:10:00 GMT",Pallikonda,12.902341,78.94376,HIGH,7.2,High
+0690d31a1c312f3c,"Country-made pistol and live ammunition seized from suspect near Kalinjur, Vellore",Illegal Weapons,"Wed, 16 Oct 2024 21:35:00 GMT",Kalinjur,12.961479,79.134867,HIGH,7.9,High
+9f42d5235f3034d2,"Man hacked to death over property dispute near VIT Campus, Vellore",Murder,"Tue, 21 Oct 2025 09:17:00 GMT",VIT Campus,12.973163,79.150035,HIGH,9.9,Critical
+2e2e35798920b94a,Part-time job investment fraud: Youth from Vellore Collectorate loses Rs 6 lakh,Cyber Crime,"Sat, 06 Jul 2024 07:48:00 GMT",Vellore Collectorate,12.937013,79.161868,HIGH,5.4,Medium
+c1626c3e5fbe4bff,"POCSO case registered against tuition teacher in Kalinjur, Vellore",Sexual Assault,"Fri, 19 Aug 2022 14:22:00 GMT",Kalinjur,12.963078,79.141062,HIGH,10.0,Critical
+d0573436f6663db0,"Hit-and-run driver arrested after pedestrian killed near Katpadi, Vellore",Road Incident Offence,"Wed, 14 Feb 2024 20:55:00 GMT",Katpadi,12.981439,79.13303,HIGH,2.7,Low
+cc9423d36bcc86fe,Part-time job investment fraud: Youth from VIT Campus loses Rs 6 lakh,Cyber Crime,"Tue, 19 Nov 2024 19:10:00 GMT",VIT Campus,12.972894,79.152452,HIGH,5.7,Medium
+58d5557ddc4d9593,Husband arrested in Pallikonda for attempt to burn wife over dowry demand,Domestic Violence,"Wed, 16 Apr 2025 12:51:00 GMT",Pallikonda,12.902457,78.944223,HIGH,7.2,High
+a417f6e005022978,"Two college students arrested for series of chain snatchings across Gandhi Nagar, Vellore",Chain Snatching,"Mon, 29 Jun 2026 14:38:00 GMT",Gandhi Nagar,12.958913,79.142675,HIGH,4.3,Medium
+3509a203b76c76d2,Land document forgery: Three arrested by anti-land grabbing wing in Anaicut,Fraud,"Sun, 15 Jun 2025 15:18:00 GMT",Anaicut,12.87679,78.981241,HIGH,4.0,Medium
+b175e4941b9d85f2,"Unauthorized biometric Aadhaar enabled payment fraud reported in Pallikonda, Vellore",Cyber Crime,"Sun, 21 Sep 2025 09:08:00 GMT",Pallikonda,12.90603,78.939874,HIGH,5.4,Medium
+6ed705f129ef468d,"History-sheeter killed in gang clash near Vellore Collectorate, Vellore",Murder,"Sun, 30 Jul 2023 07:17:00 GMT",Vellore Collectorate,12.935181,79.163023,HIGH,9.3,Critical
+4ebc4fbeb26ee615,"Country-made pistol and live ammunition seized from suspect near Kaspa, Vellore",Illegal Weapons,"Sat, 20 Jul 2024 21:09:00 GMT",Kaspa,12.915976,79.121032,HIGH,7.3,High
+4e1559e6618fe56b,Apartment burglary reported near Pallikonda while family attended wedding,Burglary,"Sun, 18 May 2025 19:24:00 GMT",Pallikonda,12.904599,78.939731,HIGH,5.6,Medium
+4ed37e85ff5e058c,"Inter-district bike lifting gang busted in Shenbakkam, 18 motorcycles seized",Vehicle Theft,"Fri, 21 Nov 2025 08:25:00 GMT",Shenbakkam,12.936023,79.119342,HIGH,3.2,Low
+fd1cb45c8d0ec865,"Break-in at electronics showroom near Sainathapuram, Vellore",Burglary,"Sat, 17 Jun 2023 06:55:00 GMT",Sainathapuram,12.90798,79.142771,HIGH,5.1,Medium
+3bc8b5e7fc5c1689,Land document forgery: Three arrested by anti-land grabbing wing in Konavattam,Fraud,"Sat, 17 Feb 2024 20:40:00 GMT",Konavattam,12.920772,79.175933,HIGH,4.7,Medium
+d1792e6e7cc242c1,"Ganja peddling racket busted near Anaicut, Vellore: 14 kg contraband seized",Drug Trafficking,"Tue, 02 Jul 2024 08:50:00 GMT",Anaicut,12.875518,78.97814,HIGH,5.8,Medium
+eca4dd31da690f21,"Man arrested under POCSO Act for molesting minor near VIT Campus, Vellore",Sexual Assault,"Tue, 22 Apr 2025 19:52:00 GMT",VIT Campus,12.968743,79.157306,HIGH,9.8,Critical
+eb18fa23a15122be,"Ganja peddling racket busted near Thorapadi, Vellore: 14 kg contraband seized",Drug Trafficking,"Mon, 18 May 2026 16:53:00 GMT",Thorapadi,12.900352,79.112979,HIGH,6.5,Medium
+b270eac79341628c,"Ganja peddling racket busted near Anaicut, Vellore: 14 kg contraband seized",Drug Trafficking,"Wed, 08 Oct 2025 10:36:00 GMT",Anaicut,12.875061,78.982343,HIGH,5.6,Medium
+d71094c870f3fd68,"Night burglary at jewelry workshop in Gudiyatham, Vellore: Gold ingots stolen",Burglary,"Mon, 24 Aug 2026 06:07:00 GMT",Gudiyatham,12.948292,78.876946,HIGH,5.1,Medium
+8cc3acdc376af0b5,"Brass lamps and temple donation box burgled near Katpadi, Vellore",Theft,"Wed, 22 Mar 2023 20:29:00 GMT",Katpadi,12.986367,79.138023,HIGH,2.6,Low
+21f212bccd37b914,"Shopkeeper assaulted by drunken trio over refusal of credit in Kalinjur, Vellore",Assault,"Sat, 08 Aug 2026 12:44:00 GMT",Kalinjur,12.967644,79.141329,HIGH,4.8,Medium
+0051a62e90fec7be,Clash between two village youth groups during festival in Kalinjur,Assault,"Mon, 20 May 2024 08:41:00 GMT",Kalinjur,12.970278,79.137618,HIGH,3.7,Medium
+a99d53f775a56491,Mobile phone theft gang apprehended near Salavanpet in Vellore,Theft,"Wed, 12 Feb 2025 17:42:00 GMT",Salavanpet,12.912382,79.136582,HIGH,2.4,Low
+c003eb9753e6125b,"Woman loses four-sovereign gold chain to bike-borne snatchers in Ariyur, Vellore",Chain Snatching,"Sun, 26 Mar 2023 07:25:00 GMT",Ariyur,12.886682,79.080743,HIGH,3.9,Medium
+f76560cf273e3fad,Three held for selling banned painkiller tablets to college students in Dharapadavedu,Drug Trafficking,"Thu, 25 Dec 2025 13:27:00 GMT",Dharapadavedu,12.968046,79.143562,HIGH,6.6,Medium
+a2feaf33bd86dfde,Land document forgery: Three arrested by anti-land grabbing wing in Otteri,Fraud,"Thu, 26 Dec 2024 09:00:00 GMT",Otteri,12.889886,79.151024,HIGH,5.3,Medium
+13ea9fbb5ef5fdfd,"Banned gutkha and tobacco products worth Rs 3 lakh confiscated near Kalinjur, Vellore",Drug Trafficking,"Mon, 09 Feb 2026 10:37:00 GMT",Kalinjur,12.968308,79.135645,HIGH,6.4,Medium
+32a72e13cbf05bcb,"Attempt to murder municipal worker in Kaspa, three remanded",Attempt to Murder,"Sun, 16 Aug 2026 06:00:00 GMT",Kaspa,12.916132,79.120604,HIGH,8.2,High
+8f7c03924522a5e9,Clash between two village youth groups during festival in Gudiyatham,Assault,"Sun, 22 Feb 2026 09:20:00 GMT",Gudiyatham,12.950989,78.869162,HIGH,4.2,Medium
+2107e788c7da9d38,"Armed gang intercepts trader near Konavattam in Vellore, robs Rs 4.5 lakh",Robbery,"Tue, 03 Jun 2025 10:24:00 GMT",Konavattam,12.926331,79.17371,HIGH,7.8,High
+09b2fc5da98c9dc4,"Unauthorized biometric Aadhaar enabled payment fraud reported in Virupakshipuram, Vellore",Cyber Crime,"Sat, 09 Mar 2024 10:04:00 GMT",Virupakshipuram,12.903971,79.128951,HIGH,5.6,Medium
+517f8a7ff77d432c,"Petrol bunk cashier robbed at knife-point near Otteri, Vellore",Robbery,"Sun, 05 Jan 2025 11:28:00 GMT",Otteri,12.893251,79.153057,HIGH,7.9,High
+c70fb95fad20537f,"Man hacked to death over property dispute near Kalinjur, Vellore",Murder,"Sun, 20 Apr 2025 10:58:00 GMT",Kalinjur,12.968803,79.133188,HIGH,9.0,Critical
+43a4b4343f6190c2,"Two college students arrested for series of chain snatchings across Alamelumangapuram, Vellore",Chain Snatching,"Thu, 18 Dec 2025 20:55:00 GMT",Alamelumangapuram,12.940338,79.183233,HIGH,3.9,Medium
+cbb274455750e5ca,Clash between two village youth groups during festival in Vellore Collectorate,Assault,"Sat, 21 Feb 2026 10:48:00 GMT",Vellore Collectorate,12.941969,79.163134,HIGH,4.8,Medium
+366562c4d8954b93,"Armed gang intercepts trader near Dharapadavedu in Vellore, robs Rs 4.5 lakh",Robbery,"Thu, 13 Mar 2025 13:17:00 GMT",Dharapadavedu,12.968516,79.144732,HIGH,7.0,High
+9c00e6df0bd5e3a4,Culprit gets 20 years rigorous imprisonment in Vellore Fort sexual assault case,Sexual Assault,"Sat, 14 Jan 2023 15:13:00 GMT",Vellore Fort,12.916853,79.134012,HIGH,9.6,Critical
+b815bcc14b36e52a,Finance firm proprietor booked for cheating depositors of Rs 1.2 crore in Thottapalayam,Fraud,"Thu, 18 Sep 2025 12:47:00 GMT",Thottapalayam,12.928981,79.136253,HIGH,4.8,Medium
+2922fc084b4806ed,Three held for selling banned painkiller tablets to college students in Otteri,Drug Trafficking,"Thu, 02 May 2024 21:24:00 GMT",Otteri,12.886415,79.153663,HIGH,6.7,Medium
+01133de518fbd90a,"Break-in at electronics showroom near Gudiyatham, Vellore",Burglary,"Sun, 13 Sep 2026 08:33:00 GMT",Gudiyatham,12.948754,78.871496,HIGH,4.9,Medium
+6c05243a7c1e6ace,"Battery and diesel pilferage from parked lorries near Kaspa, Vellore",Theft,"Sun, 07 Jan 2024 17:59:00 GMT",Kaspa,12.913897,79.124437,HIGH,3.3,Low
+311ce26c34ff9e43,Husband arrested in Anaicut for attempt to burn wife over dowry demand,Domestic Violence,"Fri, 18 Jul 2025 19:23:00 GMT",Anaicut,12.869175,78.979599,HIGH,7.2,High
+538a9a818c51937c,"Elderly woman injured in chain snatching incident near Kalinjur, Vellore",Chain Snatching,"Sun, 30 Mar 2025 21:49:00 GMT",Kalinjur,12.970262,79.141825,HIGH,4.2,Medium
+134ed351383f9dd7,"Auto-rickshaw stolen from parking lot near Pernambut, Vellore",Vehicle Theft,"Wed, 04 Feb 2026 06:16:00 GMT",Pernambut,12.937577,78.722888,HIGH,2.6,Low
+2f30c76d5a68e843,Serial house-break thief held near Sankaranpalayam by Vellore police,Burglary,"Sat, 31 Jan 2026 18:32:00 GMT",Sankaranpalayam,12.913016,79.114255,HIGH,5.5,Medium
+e1b08c08545b931e,Serial house-break thief held near Anaicut by Vellore police,Burglary,"Fri, 26 Dec 2025 18:05:00 GMT",Anaicut,12.878095,78.981921,HIGH,5.6,Medium
+5b695cc8affbe72b,Land document forgery: Three arrested by anti-land grabbing wing in Sathuvachari,Fraud,"Wed, 02 Oct 2024 10:17:00 GMT",Sathuvachari,12.932608,79.16318,HIGH,4.7,Medium
+c883728c9030f3cb,"Brass lamps and temple donation box burgled near Pernambut, Vellore",Theft,"Sat, 21 Mar 2026 16:25:00 GMT",Pernambut,12.930479,78.714553,HIGH,2.2,Low
+8f1853cb167c5668,SUV stolen using duplicate smart key near Otteri residential layout,Vehicle Theft,"Sat, 29 Nov 2025 08:19:00 GMT",Otteri,12.888011,79.15121,HIGH,3.3,Low
+2b3d7fa02afcbeba,"Retired professor from Saidapet, Vellore duped of Rs 38 lakh in digital arrest scam",Cyber Crime,"Thu, 02 May 2024 07:15:00 GMT",Saidapet,12.916245,79.142109,HIGH,5.5,Medium
+5d424d4ee5dc2e44,"Bus conductor assaulted by passenger near Ariyur bus stop, Vellore",Assault,"Tue, 11 Aug 2026 09:29:00 GMT",Ariyur,12.879977,79.086286,HIGH,3.8,Medium
+0785968a07945a22,"Man hacked to death over property dispute near Sainathapuram, Vellore",Murder,"Wed, 29 Jan 2025 15:42:00 GMT",Sainathapuram,12.914249,79.143393,HIGH,9.3,Critical
+e3bc99d8aec698eb,Husband arrested in Salavanpet for attempt to burn wife over dowry demand,Domestic Violence,"Sat, 30 Mar 2024 09:00:00 GMT",Salavanpet,12.910456,79.128817,HIGH,7.8,High
+58d1de545f5d925b,"Inter-district bike lifting gang busted in Officers Line, 18 motorcycles seized",Vehicle Theft,"Wed, 25 Dec 2024 06:10:00 GMT",Officers Line,12.923473,79.129687,HIGH,2.9,Low
+14cdfcaaeff74604,Phishing link OTP fraud: Bank customer in CMC Vellore loses Rs 1.8 lakh,Cyber Crime,"Fri, 27 Jun 2025 22:33:00 GMT",CMC Vellore,12.92747,79.130166,HIGH,5.0,Medium
+5d5f8b1d7abc52f1,Part-time job investment fraud: Youth from Kangeyanallur loses Rs 6 lakh,Cyber Crime,"Sun, 12 May 2024 11:23:00 GMT",Kangeyanallur,12.946969,79.151673,HIGH,5.0,Medium
+a096ebe40822e256,"School student rescued within 6 hours of abduction in Pernambut, Vellore",Kidnapping,"Mon, 18 May 2026 09:49:00 GMT",Pernambut,12.938038,78.714782,HIGH,8.0,High
+9d126673edf5bcc5,Husband arrested in Bagayam for attempt to burn wife over dowry demand,Domestic Violence,"Thu, 20 Jun 2024 19:17:00 GMT",Bagayam,12.87236,79.136323,HIGH,7.7,High
+46604eee1e168639,"Cash and valuables stolen from locked house near Sainathapuram, Vellore",Theft,"Thu, 15 May 2025 08:31:00 GMT",Sainathapuram,12.910453,79.145567,HIGH,3.4,Low
+a59491febd7af1fa,Pedestrian assaulted and robbed near Otteri railway overbridge in Vellore,Robbery,"Tue, 26 Mar 2024 17:10:00 GMT",Otteri,12.890496,79.150276,HIGH,8.3,High
+edeabe1d6237e109,"Inter-district bike lifting gang busted in Sainathapuram, 18 motorcycles seized",Vehicle Theft,"Sun, 22 Feb 2026 09:14:00 GMT",Sainathapuram,12.914616,79.145297,HIGH,3.4,Low
+fa425402ca9d626a,"Attempt to murder municipal worker in Bagayam, three remanded",Attempt to Murder,"Tue, 02 Jan 2024 07:54:00 GMT",Bagayam,12.876609,79.135438,HIGH,8.3,High
+35733a3a3b15f416,Machetes and sharp lethal weapons seized from abandoned shed in Sathuvachari,Illegal Weapons,"Sun, 05 May 2024 07:30:00 GMT",Sathuvachari,12.931727,79.161128,HIGH,8.1,High
+c1552d6e213793b7,"Break-in at electronics showroom near Katpadi, Vellore",Burglary,"Tue, 18 Mar 2025 11:59:00 GMT",Katpadi,12.979138,79.13728,HIGH,5.0,Medium
+aafc449d7e4ec1e5,"Woman found dead with head injuries near Katpadi lake bund, Vellore",Murder,"Sat, 19 Oct 2024 17:07:00 GMT",Katpadi,12.986101,79.130818,HIGH,9.6,Critical
+2c12df681875b69a,Land document forgery: Three arrested by anti-land grabbing wing in Dharapadavedu,Fraud,"Wed, 24 Jan 2024 18:04:00 GMT",Dharapadavedu,12.968049,79.14596,HIGH,4.8,Medium
+e34a3a7c030a9dc7,"Cash and valuables stolen from locked house near Katpadi, Vellore",Theft,"Fri, 24 May 2024 15:20:00 GMT",Katpadi,12.986458,79.131801,HIGH,2.4,Low
+c5998cc91c970089,"Fake government job racket busted in Old Town, Vellore: Kingpin held",Fraud,"Sat, 22 Aug 2026 06:23:00 GMT",Old Town,12.922577,79.132901,HIGH,4.3,Medium
+c7088b5401bf329f,"Attempt to murder municipal worker in Shenbakkam, three remanded",Attempt to Murder,"Fri, 05 Jun 2026 13:29:00 GMT",Shenbakkam,12.934085,79.118752,HIGH,8.0,High
+74593a028467333f,"History-sheeter killed in gang clash near Kalinjur, Vellore",Murder,"Wed, 10 Sep 2025 12:46:00 GMT",Kalinjur,12.971101,79.141751,HIGH,9.5,Critical
+e445aa67210a4355,"Break-in at electronics showroom near Kaspa, Vellore",Burglary,"Sat, 06 May 2023 10:00:00 GMT",Kaspa,12.918458,79.117954,HIGH,5.7,Medium
+14a82bcc0798ed1f,Reckless truck collision leaves two motorists injured near KV Kuppam junction,Road Incident Offence,"Mon, 22 Dec 2025 06:21:00 GMT",KV Kuppam,12.987855,79.056435,HIGH,3.5,Low
+b06f2b5737387d18,"Break-in at electronics showroom near Vellore Collectorate, Vellore",Burglary,"Sun, 12 Jul 2026 15:06:00 GMT",Vellore Collectorate,12.934547,79.166515,HIGH,5.4,Medium
+871c17b10c21720d,Mobile phone theft gang apprehended near Thottapalayam in Vellore,Theft,"Sat, 02 May 2026 19:31:00 GMT",Thottapalayam,12.924229,79.143326,HIGH,2.2,Low
+250c26d6aac0e7cf,Reckless truck collision leaves two motorists injured near Kangeyanallur junction,Road Incident Offence,"Wed, 29 Apr 2026 22:26:00 GMT",Kangeyanallur,12.956058,79.156388,HIGH,2.6,Low
+d19bf8d7e2bea92a,Phishing link OTP fraud: Bank customer in Thottapalayam loses Rs 1.8 lakh,Cyber Crime,"Tue, 09 Jul 2024 20:47:00 GMT",Thottapalayam,12.928887,79.133792,HIGH,4.6,Medium
+fc13ad6ea7ff3eca,Clash between two village youth groups during festival in Pernambut,Assault,"Wed, 18 Feb 2026 22:08:00 GMT",Pernambut,12.941283,78.718355,HIGH,4.4,Medium
+96d9a9deed8d6cdb,Serial house-break thief held near Katpadi by Vellore police,Burglary,"Mon, 21 Jul 2025 08:37:00 GMT",Katpadi,12.977308,79.139875,HIGH,5.4,Medium
+13948475562fce1c,"Petrol bunk cashier robbed at knife-point near Vellore Fort, Vellore",Robbery,"Mon, 11 Aug 2025 10:15:00 GMT",Vellore Fort,12.918839,79.128444,HIGH,7.3,High
+c4aaae813cb9a5fc,"Woman hospitalised after physical torture by in-laws in Anaicut, Vellore",Domestic Violence,"Wed, 11 Jun 2025 18:44:00 GMT",Anaicut,12.875994,78.981813,HIGH,7.4,High
+9c91bcca8ec2a063,SUV stolen using duplicate smart key near Officers Line residential layout,Vehicle Theft,"Sun, 16 Jun 2024 16:28:00 GMT",Officers Line,12.919711,79.127165,HIGH,2.2,Low
+a1a9dc110d5a1a09,Serial house-break thief held near Old Town by Vellore police,Burglary,"Sun, 08 Feb 2026 12:08:00 GMT",Old Town,12.920596,79.124791,HIGH,4.8,Medium
+f53a5dff11cd43d5,Reckless truck collision leaves two motorists injured near Sainathapuram junction,Road Incident Offence,"Sat, 26 Oct 2024 09:09:00 GMT",Sainathapuram,12.908608,79.14152,HIGH,2.2,Low
+77fcd9e6f4b22e3a,"Elderly woman injured in chain snatching incident near Officers Line, Vellore",Chain Snatching,"Wed, 19 Aug 2026 20:20:00 GMT",Officers Line,12.927363,79.126689,HIGH,4.9,Medium
+cda04053d1e9f54f,"Shopkeeper assaulted by drunken trio over refusal of credit in Bagayam, Vellore",Assault,"Thu, 02 Oct 2025 17:49:00 GMT",Bagayam,12.869729,79.135139,HIGH,3.9,Medium
+3f6b777016db33c6,"Woman hospitalised after physical torture by in-laws in Sathuvachari, Vellore",Domestic Violence,"Sun, 07 Jun 2026 20:16:00 GMT",Sathuvachari,12.928885,79.169606,HIGH,7.7,High
+c2de79849836915f,"Fake government job racket busted in Old Town, Vellore: Kingpin held",Fraud,"Fri, 16 Feb 2024 11:51:00 GMT",Old Town,12.915498,79.131109,HIGH,4.4,Medium
+e2a922893327f874,"POCSO case registered against tuition teacher in Sathuvachari, Vellore",Sexual Assault,"Thu, 26 Dec 2024 07:13:00 GMT",Sathuvachari,12.932009,79.169963,HIGH,9.4,Critical
+47bf7e1695aa641b,Pedestrian assaulted and robbed near Thottapalayam railway overbridge in Vellore,Robbery,"Sun, 16 Jun 2024 10:05:00 GMT",Thottapalayam,12.92323,79.138675,HIGH,7.3,High
+5266ac0e68882a65,Machetes and sharp lethal weapons seized from abandoned shed in Gandhi Nagar,Illegal Weapons,"Sun, 16 Jan 2022 18:54:00 GMT",Gandhi Nagar,12.955904,79.147246,HIGH,8.4,High
+dbca0183a289d289,"Woman found dead with head injuries near Sainathapuram lake bund, Vellore",Murder,"Thu, 09 Oct 2025 13:06:00 GMT",Sainathapuram,12.910339,79.137259,HIGH,9.3,Critical
+6a7b3863827f3cc9,"History-sheeter killed in gang clash near Gudiyatham, Vellore",Murder,"Thu, 13 Mar 2025 09:00:00 GMT",Gudiyatham,12.949329,78.87449,HIGH,9.1,Critical
+04a896eae071bb78,"Armed gang intercepts trader near Pernambut in Vellore, robs Rs 4.5 lakh",Robbery,"Fri, 24 Apr 2026 10:12:00 GMT",Pernambut,12.938065,78.722943,HIGH,7.2,High
+43e3d482497c49c9,"Inter-district bike lifting gang busted in Thottapalayam, 18 motorcycles seized",Vehicle Theft,"Tue, 09 Jul 2024 08:37:00 GMT",Thottapalayam,12.927651,79.144989,HIGH,2.9,Low
+c18c73d05a56ebfb,SUV stolen using duplicate smart key near Konavattam residential layout,Vehicle Theft,"Sat, 08 Feb 2025 06:04:00 GMT",Konavattam,12.919818,79.17408,HIGH,3.2,Low
+d5d2abe9bba18194,Finance firm proprietor booked for cheating depositors of Rs 1.2 crore in VIT Campus,Fraud,"Sun, 16 Aug 2026 10:05:00 GMT",VIT Campus,12.964298,79.151038,HIGH,4.6,Medium
+6458ab2322176d6c,"Rival factions clash with knives near Katpadi bus terminus, Vellore",Attempt to Murder,"Mon, 19 Jun 2023 09:02:00 GMT",Katpadi,12.986502,79.130303,HIGH,8.3,High
+a223be44f864e80a,"Inter-district bike lifting gang busted in Allapuram, 18 motorcycles seized",Vehicle Theft,"Thu, 26 Jan 2023 11:59:00 GMT",Allapuram,12.908312,79.115362,HIGH,3.0,Low
+236d12de640f74cf,Part-time job investment fraud: Youth from Sathuvachari loses Rs 6 lakh,Cyber Crime,"Tue, 22 Jul 2025 21:01:00 GMT",Sathuvachari,12.939882,79.167502,HIGH,5.4,Medium
+e4f3a28988c5f893,Phishing link OTP fraud: Bank customer in Gandhi Nagar loses Rs 1.8 lakh,Cyber Crime,"Thu, 07 Aug 2025 11:22:00 GMT",Gandhi Nagar,12.958648,79.14995,HIGH,5.4,Medium
+7142a13502029d51,"Cash and valuables stolen from locked house near Katpadi, Vellore",Theft,"Thu, 16 Jul 2026 10:26:00 GMT",Katpadi,12.978969,79.14044,HIGH,2.8,Low
+eb9af239caf43e8d,"Ganja peddling racket busted near Gandhi Nagar, Vellore: 14 kg contraband seized",Drug Trafficking,"Fri, 08 May 2026 06:24:00 GMT",Gandhi Nagar,12.958358,79.143339,HIGH,5.9,Medium
+a759efd70264bb6c,Two men posing as vigilance officers extort money from merchant in Old Town,Extortion,"Tue, 02 Jul 2024 21:34:00 GMT",Old Town,12.913855,79.124822,HIGH,6.8,High
+67115298a7f87aa3,"Woman hospitalised after physical torture by in-laws in Officers Line, Vellore",Domestic Violence,"Tue, 25 Jun 2024 22:20:00 GMT",Officers Line,12.919981,79.126052,HIGH,7.8,High
+60badadde5dab3e2,"Bus conductor assaulted by passenger near Shenbakkam bus stop, Vellore",Assault,"Thu, 03 Apr 2025 06:20:00 GMT",Shenbakkam,12.936007,79.121971,HIGH,4.7,Medium
+42714369b7522eac,Gang extorting protection money from vegetable vendors in Vellore Fort arrested,Extortion,"Thu, 29 Aug 2024 22:22:00 GMT",Vellore Fort,12.914924,79.123685,HIGH,7.8,High
+657cd30c04b07031,"Brass lamps and temple donation box burgled near Sathuvachari, Vellore",Theft,"Mon, 29 Apr 2024 11:06:00 GMT",Sathuvachari,12.939328,79.161257,HIGH,3.1,Low
+6737542e0c72e118,"Woman loses four-sovereign gold chain to bike-borne snatchers in VIT Campus, Vellore",Chain Snatching,"Mon, 04 May 2026 14:34:00 GMT",VIT Campus,12.965267,79.155024,HIGH,4.9,Medium
+434075a10fec3a67,"POCSO case registered against tuition teacher in Katpadi, Vellore",Sexual Assault,"Mon, 29 Jan 2024 13:36:00 GMT",Katpadi,12.979194,79.139915,HIGH,9.9,Critical
+fe3b75dd313aa5ce,"Retired professor from Dharapadavedu, Vellore duped of Rs 38 lakh in digital arrest scam",Cyber Crime,"Wed, 17 Jul 2024 17:59:00 GMT",Dharapadavedu,12.96988,79.146599,HIGH,4.7,Medium
+87264bf63b6a8d1b,"Brass lamps and temple donation box burgled near Sathuvachari, Vellore",Theft,"Fri, 29 Mar 2024 11:15:00 GMT",Sathuvachari,12.938161,79.165113,HIGH,3.2,Low
+ca4ff0be11b7508d,Clash between two village youth groups during festival in Kalinjur,Assault,"Wed, 24 Dec 2025 17:58:00 GMT",Kalinjur,12.969726,79.137112,HIGH,4.8,Medium
+2042421d3af6e2b1,Two men posing as vigilance officers extort money from merchant in Katpadi,Extortion,"Thu, 16 Oct 2025 12:53:00 GMT",Katpadi,12.979759,79.133385,HIGH,7.4,High
+9a193c2e15c90f79,Finance firm proprietor booked for cheating depositors of Rs 1.2 crore in Saidapet,Fraud,"Sat, 10 Sep 2022 15:11:00 GMT",Saidapet,12.916969,79.137619,HIGH,4.4,Medium
+c69a11521769001f,"Ganja peddling racket busted near Salavanpet, Vellore: 14 kg contraband seized",Drug Trafficking,"Sun, 16 Feb 2025 07:14:00 GMT",Salavanpet,12.908458,79.130283,HIGH,6.0,Medium
+b505a4c0f40a3f6c,"Two college students arrested for series of chain snatchings across Gudiyatham, Vellore",Chain Snatching,"Sat, 11 Jan 2025 22:30:00 GMT",Gudiyatham,12.944048,78.874709,HIGH,4.6,Medium
+4713937d4704d387,"Bus conductor assaulted by passenger near Abdullapuram bus stop, Vellore",Assault,"Tue, 14 Apr 2026 10:21:00 GMT",Abdullapuram,12.890659,79.069603,HIGH,4.0,Medium
+0daefc0ad6afe25c,"Bus conductor assaulted by passenger near Vellore Collectorate bus stop, Vellore",Assault,"Fri, 14 Jun 2024 07:01:00 GMT",Vellore Collectorate,12.941125,79.165273,HIGH,4.0,Medium
+d754a5b709b08617,"Woman hospitalised after physical torture by in-laws in Old Town, Vellore",Domestic Violence,"Sat, 14 Mar 2026 09:54:00 GMT",Old Town,12.917429,79.128108,HIGH,6.5,High
+d965dd7b7c979968,"Woman loses four-sovereign gold chain to bike-borne snatchers in Gudiyatham, Vellore",Chain Snatching,"Sun, 06 Jul 2025 08:23:00 GMT",Gudiyatham,12.941678,78.873886,HIGH,4.3,Medium
+6e830bdd3b18ee1c,"Inter-district bike lifting gang busted in VIT Campus, 18 motorcycles seized",Vehicle Theft,"Thu, 05 Dec 2024 18:37:00 GMT",VIT Campus,12.966716,79.155649,HIGH,2.2,Low
+ac78561839cbed75,"Hit-and-run driver arrested after pedestrian killed near Pallikonda, Vellore",Road Incident Offence,"Thu, 04 Jun 2026 16:08:00 GMT",Pallikonda,12.906002,78.93752,HIGH,3.1,Low
+ca3f2c131065f053,"Night burglary at jewelry workshop in Virupakshipuram, Vellore: Gold ingots stolen",Burglary,"Fri, 12 Aug 2022 21:41:00 GMT",Virupakshipuram,12.897316,79.119188,HIGH,4.8,Medium

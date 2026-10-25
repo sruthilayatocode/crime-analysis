@@ -1,0 +1,109 @@
+{
+  "total_records": 596,
+  "unique_coordinates": 25,
+  "unique_vellore_coordinates": 16,
+  "unique_external_coordinates": 12,
+  "centroid_coordinate": [
+    12.9165,
+    79.1325
+  ],
+  "centroid_records": 469,
+  "centroid_percentage": 78.6913,
+  "records_within_1000m_of_centroid": 477,
+  "records_within_1100m_of_centroid": 477,
+  "vellore_district_records": 552,
+  "external_district_records": 44,
+  "district_breakdown": {
+    "Vellore": 552,
+    "Tirupattur": 4,
+    "Ranipet": 13,
+    "Chennai": 16,
+    "Tiruvannamalai": 5,
+    "Coimbatore": 2,
+    "Salem": 1,
+    "Chengalpattu": 1,
+    "Tiruchirappalli": 1,
+    "Madurai": 1
+  },
+  "crime_type_breakdown": {
+    "Fraud": 5,
+    "Theft": 12,
+    "Cyber Crime": 6,
+    "Sexual Assault": 13,
+    "Domestic Violence": 1,
+    "Other": 4,
+    "Murder": 37,
+    "Assault": 11,
+    "Robbery": 6,
+    "Vehicle Theft": 2,
+    "Chain Snatching": 1,
+    "Burglary": 1,
+    "Drug Trafficking": 4,
+    "Cybercrime & Fraud": 28,
+    "General Crime / Offence": 277,
+    "Illegal Contraband & Mining": 46,
+    "Theft & Burglary": 22,
+    "Murder & Homicide": 49,
+    "Sexual Violence & Assault": 26,
+    "Fatal Traffic Incident": 18,
+    "Assault & Violent Clash": 21,
+    "Robbery & Dacoity": 6
+  },
+  "risk_level_breakdown": {
+    "Medium": 138,
+    "Low": 308,
+    "High": 150
+  },
+  "confidence_breakdown": {
+    "UNKNOWN": 27,
+    "HIGH": 20,
+    "LOW": 53,
+    "MEDIUM": 3,
+    "high": 493
+  },
+  "severity_mean": 5.9243,
+  "severity_min": 2.0,
+  "severity_max": 10.0,
+  "top_5_coordinates": [
+    {
+      "coord": [
+        12.9165,
+        79.1325
+      ],
+      "count": 469,
+      "pct": 78.69
+    },
+    {
+      "coord": [
+        12.9806,
+        79.1368
+      ],
+      "count": 41,
+      "pct": 6.88
+    },
+    {
+      "coord": [
+        13.0827,
+        80.2707
+      ],
+      "count": 16,
+      "pct": 2.68
+    },
+    {
+      "coord": [
+        12.9461,
+        78.8686
+      ],
+      "count": 15,
+      "pct": 2.52
+    },
+    {
+      "coord": [
+        12.9284,
+        79.333
+      ],
+      "count": 8,
+      "pct": 1.34
+    }
+  ]
+}

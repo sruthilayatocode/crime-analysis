@@ -6,6 +6,8 @@ records. Routes call these functions instead of
 touching the database directly.
 """
 
+from datetime import datetime, timezone
+
 from services.data_service import (
     CRIME_COLUMNS,
     get_crime_repository,
@@ -15,6 +17,7 @@ from services.errors import (
     NotFoundError,
     ValidationError,
 )
+
 
 
 # Fields a client may send when creating/updating crimes.
@@ -227,6 +230,30 @@ def _build_payload(
 
         payload["risk_level"] = risk_level
 
+    if "status" in data:
+        status = data["status"]
+        if status is not None:
+            status = str(status).strip().upper()
+        payload["status"] = status or "APPROVED"
+
+    if "reported_by_id" in data:
+        payload["reported_by_id"] = data["reported_by_id"]
+
+    if "reported_by_name" in data:
+        payload["reported_by_name"] = data["reported_by_name"]
+
+    if "admin_notes" in data:
+        payload["admin_notes"] = data["admin_notes"]
+
+    if "reviewed_at" in data:
+        payload["reviewed_at"] = data["reviewed_at"]
+
+    if "reviewed_by_id" in data:
+        payload["reviewed_by_id"] = data["reviewed_by_id"]
+
+    if "reviewed_by_name" in data:
+        payload["reviewed_by_name"] = data["reviewed_by_name"]
+
     coordinate_fields = (
         "latitude",
         "longitude"
@@ -267,12 +294,16 @@ def _build_payload(
     return payload
 
 
-def list_crimes():
-    """Return all crime records."""
+def list_crimes(status=None, reported_by_id=None):
+    """Return all crime records, optionally filtered by status and reporter."""
 
     repository = get_crime_repository()
 
-    return repository.list_crimes()
+    return repository.list_crimes(
+        status=status,
+        reported_by_id=reported_by_id
+    )
+
 
 
 def get_crime(crime_id):
@@ -378,3 +409,67 @@ def delete_crime(crime_id):
         "id": crime_id,
         "deleted": True
     }
+
+
+def create_report(data, user):
+    """
+    Submit a citizen crime report with pending status.
+    """
+    if not isinstance(data, dict) or not data:
+        raise ValidationError(
+            "Request body must contain crime report data as JSON"
+        )
+
+    for field in ("crime_type", "description", "location_name", "crime_date"):
+        val = data.get(field)
+        if not val or not str(val).strip():
+            raise ValidationError(f"{field} is required")
+
+    payload = _build_payload(data)
+    payload["status"] = "PENDING"
+    payload["reported_by_id"] = user.id
+    payload["reported_by_name"] = user.name
+    payload["severity"] = data.get("severity") or "Medium"
+
+    repository = get_crime_repository()
+    return repository.insert_crime(payload)
+
+
+def list_user_reports(user_id):
+    """Return all reports submitted by a specific user."""
+    return list_crimes(reported_by_id=user_id)
+
+
+def list_pending_reports():
+    """Return all citizen reports awaiting administrative review."""
+    return list_crimes(status="PENDING")
+
+
+def approve_report(crime_id, admin_user, admin_notes=""):
+    """Approve a citizen crime report so it enters verified analytics."""
+    existing = get_crime(crime_id)
+    notes = str(admin_notes).strip() if admin_notes else existing.get("admin_notes")
+    payload = {
+        "status": "APPROVED",
+        "reviewed_by_id": admin_user.id,
+        "reviewed_by_name": admin_user.name,
+        "reviewed_at": datetime.now(timezone.utc),
+        "admin_notes": notes,
+    }
+    repository = get_crime_repository()
+    return repository.update_crime(crime_id, payload)
+
+
+def reject_report(crime_id, admin_user, admin_notes=""):
+    """Reject a citizen crime report."""
+    existing = get_crime(crime_id)
+    notes = str(admin_notes).strip() if admin_notes else existing.get("admin_notes")
+    payload = {
+        "status": "REJECTED",
+        "reviewed_by_id": admin_user.id,
+        "reviewed_by_name": admin_user.name,
+        "reviewed_at": datetime.now(timezone.utc),
+        "admin_notes": notes,
+    }
+    repository = get_crime_repository()
+    return repository.update_crime(crime_id, payload)

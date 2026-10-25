@@ -12,7 +12,7 @@ from __future__ import annotations
 import sqlite3
 from pathlib import Path
 
-DB_PATH = Path(__file__).resolve().parent.parent / "database" / "crimesense.db"
+DB_PATH = Path(__file__).resolve().parent / "instance" / "crimesense.db"
 
 # Columns returned by the public API (all 15 columns of the import file).
 COLUMNS = [
@@ -24,10 +24,14 @@ COLUMNS = [
 
 
 def get_connection() -> sqlite3.Connection:
-    """Open a read connection to the CrimeSense database."""
-    conn = sqlite3.connect(str(DB_PATH))
+    """Open a connection to the CrimeSense database with WAL & timeout."""
+    conn = sqlite3.connect(str(DB_PATH), timeout=30.0)
+    conn.execute("PRAGMA foreign_keys = ON;")
+    conn.execute("PRAGMA journal_mode = WAL;")
+    conn.execute("PRAGMA busy_timeout = 5000;")
     conn.row_factory = sqlite3.Row
     return conn
+
 
 
 def row_to_dict(row: sqlite3.Row) -> dict:
@@ -58,6 +62,6 @@ def query_one(sql: str, params: tuple = ()):
 def total_rows() -> int:
     conn = get_connection()
     try:
-        return conn.execute("SELECT COUNT(*) FROM crime_incidents").fetchone()[0]
+        return conn.execute("SELECT COUNT(*) FROM crimes").fetchone()[0]
     finally:
         conn.close()

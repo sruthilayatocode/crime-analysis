@@ -1,0 +1,103 @@
+{
+  "timestamp": "2026-10-21T18:32:40.853106+00:00",
+  "total_checks": 12,
+  "all_passed": true,
+  "checks": [
+    {
+      "endpoint": "/api/admin/overview",
+      "role_tested": "Anonymous (No Token)",
+      "expected_code": 401,
+      "actual_code": 401,
+      "latency_ms": 3.21,
+      "passed": true
+    },
+    {
+      "endpoint": "/api/admin/overview",
+      "role_tested": "Resident (role=user)",
+      "expected_code": 403,
+      "actual_code": 403,
+      "latency_ms": 3.56,
+      "passed": true
+    },
+    {
+      "endpoint": "/api/admin/overview",
+      "role_tested": "Administrator (role=admin)",
+      "expected_code": 200,
+      "actual_code": 200,
+      "latency_ms": 1571.02,
+      "passed": true
+    },
+    {
+      "endpoint": "/api/admin/users",
+      "role_tested": "Anonymous (No Token)",
+      "expected_code": 401,
+      "actual_code": 401,
+      "latency_ms": 0.53,
+      "passed": true
+    },
+    {
+      "endpoint": "/api/admin/users",
+      "role_tested": "Resident (role=user)",
+      "expected_code": 403,
+      "actual_code": 403,
+      "latency_ms": 1.25,
+      "passed": true
+    },
+    {
+      "endpoint": "/api/admin/users",
+      "role_tested": "Administrator (role=admin)",
+      "expected_code": 200,
+      "actual_code": 200,
+      "latency_ms": 6.02,
+      "passed": true
+    },
+    {
+      "endpoint": "/api/admin/audit-logs",
+      "role_tested": "Anonymous (No Token)",
+      "expected_code": 401,
+      "actual_code": 401,
+      "latency_ms": 0.31,
+      "passed": true
+    },
+    {
+      "endpoint": "/api/admin/audit-logs",
+      "role_tested": "Resident (role=user)",
+      "expected_code": 403,
+      "actual_code": 403,
+      "latency_ms": 0.81,
+      "passed": true
+    },
+    {
+      "endpoint": "/api/admin/audit-logs",
+      "role_tested": "Administrator (role=admin)",
+      "expected_code": 200,
+      "actual_code": 200,
+      "latency_ms": 3.98,
+      "passed": true
+    },
+    {
+      "endpoint": "/api/admin/crimes",
+      "role_tested": "Anonymous (No Token)",
+      "expected_code": 401,
+      "actual_code": 401,
+      "latency_ms": 0.29,
+      "passed": true
+    },
+    {
+      "endpoint": "/api/admin/crimes",
+      "role_tested": "Resident (role=user)",
+      "expected_code": 403,
+      "actual_code": 403,
+      "latency_ms": 0.84,
+      "passed": true
+    },
+    {
+      "endpoint": "/api/admin/crimes",
+      "role_tested": "Administrator (role=admin)",
+      "expected_code": 200,
+      "actual_code": 200,
+      "latency_ms": 2.52,
+      "passed": true
+    }
+  ]
+}

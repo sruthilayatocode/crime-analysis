@@ -27,6 +27,13 @@ def migrate_crime_schema():
         "location_source": "text",
         "severity_score": "integer",
         "risk_level": "text",
+        "status": "text",
+        "reported_by_id": "integer",
+        "reported_by_name": "text",
+        "admin_notes": "text",
+        "reviewed_at": "text",
+        "reviewed_by_id": "integer",
+        "reviewed_by_name": "text",
         "created_at": "text",
     }
 
@@ -47,6 +54,13 @@ def migrate_crime_schema():
                     )
                 )
 
+        # Set default status for existing records
+        db.session.execute(
+            db.text(
+                "UPDATE crimes SET status = 'APPROVED' WHERE status IS NULL OR status = ''"
+            )
+        )
+
     indexes = [
         "CREATE INDEX IF NOT EXISTS idx_crimes_crime_type ON crimes (crime_type)",
         "CREATE INDEX IF NOT EXISTS idx_crimes_severity ON crimes (severity)",
@@ -56,8 +70,11 @@ def migrate_crime_schema():
         "CREATE INDEX IF NOT EXISTS idx_crimes_district ON crimes (district)",
         "CREATE INDEX IF NOT EXISTS idx_crimes_risk_level ON crimes (risk_level)",
         "CREATE INDEX IF NOT EXISTS idx_crimes_url ON crimes (url)",
+        "CREATE INDEX IF NOT EXISTS idx_crimes_status ON crimes (status)",
+        "CREATE INDEX IF NOT EXISTS idx_crimes_reported_by ON crimes (reported_by_id)",
     ]
 
     with db.session.begin():
         for statement in indexes:
             db.session.execute(db.text(statement))
+
