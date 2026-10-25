@@ -1,15 +1,23 @@
 import React, { createContext, useContext, useState, useEffect, useRef, useCallback } from 'react';
 import { useAuth } from './AuthContext';
 import { sosService, playAlertBeep } from '../services/sosService';
+import {
+  requestNotificationPermission,
+  triggerSOSNotification,
+  listenToForegroundMessages,
+  sosContactsStore,
+} from '../services/firebase';
 
 const SOSContext = createContext(null);
 
 export function SOSProvider({ children }) {
   const { user } = useAuth();
 
-  const [contacts, setContacts] = useState([]);
+  // Initialize immediately from persistent store so reload NEVER loses contacts
+  const [contacts, setContacts] = useState(() => sosContactsStore.getStoredContacts());
   const [loadingContacts, setLoadingContacts] = useState(false);
   const [onboardingRequired, setOnboardingRequired] = useState(false);
+  const [notificationPermissionGranted, setNotificationPermissionGranted] = useState(false);
 
   // SOS Trigger & 5s Countdown State
   const [isCountingDown, setIsCountingDown] = useState(false);
@@ -53,40 +61,81 @@ export function SOSProvider({ children }) {
     };
   }, []);
 
-  // Request browser Notification permission
-  useEffect(() => {
-    if ('Notification' in window && Notification.permission === 'default') {
-      Notification.requestPermission().catch(() => {});
+  // Request Firebase / Browser Push Notification permission & listen to FCM events
+  const requestPushPermission = useCallback(async () => {
+    try {
+      const res = await requestNotificationPermission();
+      if (res && res.granted) {
+        setNotificationPermissionGranted(true);
+      }
+      return res;
+    } catch {
+      return { granted: false };
     }
   }, []);
 
+  useEffect(() => {
+    requestPushPermission();
+
+    // Listen to incoming Firebase Cloud Messaging push events
+    let unsubscribe = () => {};
+    listenToForegroundMessages((payload) => {
+      console.log('[SOSContext] Foreground SOS message:', payload);
+    }).then((unsub) => {
+      if (typeof unsub === 'function') unsubscribe = unsub;
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, [requestPushPermission]);
+
+  // Keep persistent storage updated whenever contacts change
+  useEffect(() => {
+    if (contacts && contacts.length > 0) {
+      sosContactsStore.persistContacts(contacts);
+    }
+  }, [contacts]);
+
   // Load contacts and check onboarding whenever user changes
   const refreshContacts = useCallback(async () => {
-    if (!user) {
-      setContacts([]);
+    const cached = sosContactsStore.getStoredContacts();
+    if (cached && cached.length > 0) {
+      setContacts(cached);
       setOnboardingRequired(false);
+    }
+
+    if (!user) {
+      // User is logging in or guest: Keep persistent contacts so reload never loses them!
       return;
     }
 
     setLoadingContacts(true);
     try {
       const data = await sosService.getOnboardingStatus();
-      setContacts(data.contacts || []);
-      // If user has 0 contacts, force mandatory onboarding
-      setOnboardingRequired(!data.has_sos_contacts);
-    } catch (err) {
-      // If session expired / not authenticated, reset silently
-      const msg = (err.message || '').toLowerCase();
-      if (
-        msg.includes('authentication') ||
-        msg.includes('unauthorized') ||
-        msg.includes('token') ||
-        msg.includes('401')
-      ) {
-        setContacts([]);
+      if (data && data.contacts && data.contacts.length > 0) {
+        setContacts(data.contacts);
+        sosContactsStore.persistContacts(data.contacts);
         setOnboardingRequired(false);
+      } else if (cached && cached.length > 0) {
+        // If database was empty for this user, automatically restore cached contacts to backend!
+        try {
+          await sosService.bulkSaveContacts(cached);
+          setContacts(cached);
+          setOnboardingRequired(false);
+        } catch {
+          setContacts(cached);
+          setOnboardingRequired(false);
+        }
       } else {
-        console.error('[SOSContext] Error loading contacts:', err);
+        setContacts([]);
+        setOnboardingRequired(true);
+      }
+    } catch (err) {
+      // If network fails or session expired, NEVER wipe cached contacts!
+      if (cached && cached.length > 0) {
+        setContacts(cached);
+        setOnboardingRequired(false);
       }
     } finally {
       setLoadingContacts(false);
@@ -264,7 +313,19 @@ export function SOSProvider({ children }) {
       if (res.success && res.event) {
         setActiveSosEvent(res.event);
         setIsLiveTracking(true);
-        setSosStatusMessage('Emergency SOS active! Contacts notified via SMS.');
+        setSosStatusMessage('Emergency SOS active! Contacts notified via SMS & Push.');
+
+        // Dispatch Firebase / Native Push Notification
+        triggerSOSNotification({
+          title: '🚨 CRIMESENSE SOS DISTRESS ALERT DISPATCHED',
+          body: `Emergency distress alert active at (${loc.latitude.toFixed(4)}, ${loc.longitude.toFixed(4)}). Live location broadcasted to ${contacts.length} emergency contact(s)!`,
+          urgent: true,
+          data: {
+            latitude: String(loc.latitude),
+            longitude: String(loc.longitude),
+            zone: loc.zone || 'red',
+          },
+        });
       }
     } catch (err) {
       console.error('[SOSContext] Failed to trigger SOS:', err);
@@ -397,6 +458,9 @@ export function SOSProvider({ children }) {
     // Dev Simulator
     simulatorOpen,
     setSimulatorOpen,
+    // Push & Firebase Notifications
+    requestPushPermission,
+    notificationPermissionGranted,
   };
 
   return <SOSContext.Provider value={value}>{children}</SOSContext.Provider>;

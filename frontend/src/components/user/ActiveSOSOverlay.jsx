@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   ShieldAlert,
   CheckCircle2,
@@ -10,6 +11,7 @@ import {
   Users,
   AlertTriangle,
   RefreshCw,
+  ArrowLeft,
 } from 'lucide-react';
 import { useSOS } from '../../context/SOSContext';
 
@@ -22,8 +24,10 @@ export default function ActiveSOSOverlay() {
     sosStatusMessage,
   } = useSOS();
 
+  const navigate = useNavigate();
   const [resolving, setResolving] = useState(false);
   const [elapsedMinutes, setElapsedMinutes] = useState(0);
+  const [isMinimized, setIsMinimized] = useState(false);
 
   useEffect(() => {
     if (!activeSosEvent) return;
@@ -37,6 +41,13 @@ export default function ActiveSOSOverlay() {
   }, [activeSosEvent]);
 
   if (!activeSosEvent) return null;
+
+  const handleComeBack = () => {
+    setIsMinimized(true);
+    if (window.location.pathname.includes('/sos')) {
+      navigate('/user');
+    }
+  };
 
   const handleResolve = async () => {
     if (window.confirm("Are you sure you want to mark yourself SAFE? This will send an all-clear notification to your contacts.")) {
@@ -54,12 +65,52 @@ export default function ActiveSOSOverlay() {
     activeSosEvent.maps_url ||
     `https://maps.google.com/?q=${activeSosEvent.latitude},${activeSosEvent.longitude}`;
 
+  // Minimized floating banner so user can browse maps/app while SOS stays active
+  if (isMinimized) {
+    return (
+      <div className="fixed top-3 inset-x-3 sm:inset-x-auto sm:w-[410px] mx-auto z-50 bg-gradient-to-r from-red-600 via-rose-600 to-red-700 text-white p-3 rounded-2xl shadow-2xl border-2 border-red-400 flex items-center justify-between gap-3 animate-pulse">
+        <div className="flex items-center gap-2.5">
+          <div className="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+            <ShieldAlert className="w-5 h-5 text-white" />
+          </div>
+          <div>
+            <div className="flex items-center gap-1.5">
+              <span className="text-xs font-black tracking-tight">SOS DISTRESS ACTIVE</span>
+              <span className="w-2 h-2 rounded-full bg-white animate-ping" />
+            </div>
+            <p className="text-[10px] text-red-100 font-medium">Broadcasting live coordinates</p>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          onClick={() => setIsMinimized(false)}
+          className="px-3 py-1.5 bg-white text-red-700 hover:bg-red-50 text-xs font-black rounded-xl shadow-xs active:scale-95 transition-all shrink-0"
+        >
+          Open Distress Panel
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-red-950/90 backdrop-blur-lg overflow-y-auto animate-in fade-in duration-200">
       <div className="bg-white rounded-3xl max-w-md w-full my-auto shadow-2xl border-2 border-red-500 overflow-hidden flex flex-col">
-        {/* Pulsing Emergency Banner */}
+        {/* Pulsing Emergency Banner with Back Arrow */}
         <div className="bg-gradient-to-r from-red-600 via-rose-600 to-red-600 text-white p-5 text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-white/10 animate-pulse pointer-events-none" />
+
+          {/* Come Back Arrow Button */}
+          <button
+            type="button"
+            onClick={handleComeBack}
+            className="absolute top-4 left-4 p-2 rounded-full bg-black/25 hover:bg-black/40 text-white flex items-center justify-center transition-transform active:scale-90 z-20 backdrop-blur-xs border border-white/20"
+            title="Come back to app"
+            aria-label="Back"
+          >
+            <ArrowLeft className="w-5 h-5 text-white stroke-[2.5]" />
+          </button>
+
           <div className="relative z-10 flex flex-col items-center">
             <div className="w-14 h-14 rounded-full bg-white/20 border border-white/40 flex items-center justify-center mb-2 animate-bounce">
               <ShieldAlert className="w-8 h-8 text-white stroke-[2.5]" />

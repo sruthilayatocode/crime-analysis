@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { useSOS } from '../../context/SOSContext';
 import { sosService, validateAndFormatPhone, pickContactFromDevice } from '../../services/sosService';
+import { sosContactsStore } from '../../services/firebase';
 
 const RELATIONSHIP_OPTIONS = [
   'Family',
@@ -154,6 +155,8 @@ export default function SOSOnboardingModal() {
     }
 
     setSubmitting(true);
+    // Immediately persist to local storage so even if page reloads right now, contacts remain!
+    sosContactsStore.persistContacts(validPayload);
     try {
       await sosService.bulkSaveContacts(validPayload);
       await refreshContacts();
