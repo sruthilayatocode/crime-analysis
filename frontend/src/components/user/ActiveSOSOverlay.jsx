@@ -197,26 +197,77 @@ export default function ActiveSOSOverlay() {
               <span>Notified Contacts ({notifiedContacts.length})</span>
             </span>
 
-            <div className="space-y-1.5">
+            <div className="space-y-2">
               {notifiedContacts.length > 0 ? (
-                notifiedContacts.map((c, i) => (
-                  <div
-                    key={i}
-                    className="p-2.5 rounded-xl bg-white border border-slate-200 flex items-center justify-between text-xs shadow-2xs"
-                  >
-                    <div>
-                      <span className="font-bold text-slate-800">{c.contact_name}</span>
-                      <span className="text-[11px] text-slate-500 font-mono block">
-                        {c.contact_phone}
-                      </span>
+                notifiedContacts.map((c, i) => {
+                  const isMock = c.provider === 'mock' || !c.provider;
+                  const isTwilio = c.provider === 'twilio';
+                  const isDelivered = c.status === 'delivered';
+                  const isFailed = c.status === 'failed';
+
+                  let badgeLabel = 'Event Recorded';
+                  let badgeClass = 'bg-slate-100 text-slate-700 border-slate-300';
+
+                  if (isTwilio && isDelivered) {
+                    badgeLabel = 'SMS Delivered';
+                    badgeClass = 'bg-emerald-50 text-emerald-700 border-emerald-200';
+                  } else if (isTwilio && (c.status === 'sent' || c.status === 'accepted')) {
+                    badgeLabel = 'Twilio Dispatched';
+                    badgeClass = 'bg-blue-50 text-blue-700 border-blue-200';
+                  } else if (isMock) {
+                    badgeLabel = 'Logged to Server (Dev)';
+                    badgeClass = 'bg-amber-50 text-amber-700 border-amber-200';
+                  } else if (isFailed) {
+                    badgeLabel = 'Delivery Failed';
+                    badgeClass = 'bg-red-50 text-red-700 border-red-200';
+                  }
+
+                  const phoneClean = (c.contact_phone || '').replace(/[^0-9]/g, '');
+                  const waText = encodeURIComponent(
+                    `🚨 EMERGENCY SOS from CrimeSense!\nI have triggered a distress alert at:\n${mapsUrl}\nRisk Zone: ${activeSosEvent.zone || 'High Risk'}\nPlease check on me immediately.`
+                  );
+
+                  return (
+                    <div
+                      key={i}
+                      className="p-3 rounded-2xl bg-white border border-slate-200 space-y-2 text-xs shadow-xs"
+                    >
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <span className="font-bold text-slate-800">{c.contact_name}</span>
+                          <span className="text-[11px] text-slate-500 font-mono block">
+                            {c.contact_phone}
+                          </span>
+                        </div>
+                        <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md border ${badgeClass}`}>
+                          {badgeLabel}
+                        </span>
+                      </div>
+
+                      {/* Direct Zero-Cost Phone & WhatsApp Dispatch Links */}
+                      <div className="flex items-center gap-2 pt-1 border-t border-slate-100">
+                        <a
+                          href={`tel:${c.contact_phone}`}
+                          className="flex-1 py-1.5 px-2 bg-red-50 hover:bg-red-100 text-red-700 font-bold rounded-lg text-center flex items-center justify-center gap-1 transition"
+                        >
+                          <PhoneCall className="w-3.5 h-3.5" />
+                          <span>Call</span>
+                        </a>
+                        <a
+                          href={`https://wa.me/${phoneClean}?text=${waText}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 py-1.5 px-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-bold rounded-lg text-center flex items-center justify-center gap-1 transition"
+                        >
+                          <span>WhatsApp</span>
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      </div>
                     </div>
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200">
-                      SMS Sent
-                    </span>
-                  </div>
-                ))
+                  );
+                })
               ) : (
-                <p className="text-xs text-slate-400 italic">Contacts dispatch queued.</p>
+                <p className="text-xs text-slate-400 italic">No emergency contacts configured.</p>
               )}
             </div>
           </div>

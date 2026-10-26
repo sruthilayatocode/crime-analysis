@@ -93,6 +93,30 @@ def handle_api_error(error):
     return response
 
 
+@app.errorhandler(404)
+def handle_404(error):
+    """Ensure any missing /api endpoints return JSON rather than HTML."""
+    if request.path.startswith("/api"):
+        return jsonify({
+            "success": False,
+            "message": f"Endpoint not found: {request.path}",
+            "status_code": 404
+        }), 404
+    return jsonify({"error": "Not Found", "message": "Resource not found."}), 404
+
+
+@app.errorhandler(500)
+def handle_500(error):
+    """Ensure internal server errors on /api endpoints return structured JSON."""
+    if request.path.startswith("/api"):
+        return jsonify({
+            "success": False,
+            "message": "Internal server error. Please try again later.",
+            "status_code": 500
+        }), 500
+    return jsonify({"error": "Internal Server Error"}), 500
+
+
 
 # --------------------------------------------------------------------------- #
 # Database configuration (Supports DATABASE_URL or SQLite)

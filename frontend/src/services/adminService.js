@@ -1,21 +1,12 @@
 import { authService } from './authService';
-
-import { API_BASE } from './apiConfig';
+import { API_BASE, apiFetch } from './apiConfig';
 
 export const adminService = {
   /**
    * 1. Overview & KPIs
    */
   async getOverview() {
-    const res = await fetch(`${API_BASE}/admin/overview`, {
-      method: 'GET',
-      headers: authService.getAuthHeaders(),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.message || data.error || 'Failed to fetch admin overview');
-    }
-    return data;
+    return apiFetch('/admin/overview', { method: 'GET' }, 'Fetch admin overview');
   },
 
   /**
@@ -46,94 +37,66 @@ export const adminService = {
     if (start_date) params.append('start_date', start_date);
     if (end_date) params.append('end_date', end_date);
 
-    const res = await fetch(`${API_BASE}/admin/crimes?${params.toString()}`, {
-      method: 'GET',
-      headers: authService.getAuthHeaders(),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.message || data.error || 'Failed to fetch crime records');
-    }
-    return data;
+    return apiFetch(`/admin/crimes?${params.toString()}`, { method: 'GET' }, 'Fetch crime records');
   },
 
   async createCrime(crimeData) {
-    const res = await fetch(`${API_BASE}/admin/crimes`, {
-      method: 'POST',
-      headers: authService.getAuthHeaders(),
-      body: JSON.stringify(crimeData),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.message || data.error || 'Failed to create crime incident');
-    }
-    return data;
+    return apiFetch(
+      '/admin/crimes',
+      {
+        method: 'POST',
+        body: JSON.stringify(crimeData),
+      },
+      'Create crime incident'
+    );
   },
 
   async updateCrime(id, crimeData) {
-    const res = await fetch(`${API_BASE}/admin/crimes/${id}`, {
-      method: 'PUT',
-      headers: authService.getAuthHeaders(),
-      body: JSON.stringify(crimeData),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.message || data.error || 'Failed to update crime incident');
-    }
-    return data;
+    return apiFetch(
+      `/admin/crimes/${id}`,
+      {
+        method: 'PUT',
+        body: JSON.stringify(crimeData),
+      },
+      'Update crime incident'
+    );
   },
 
   async deleteCrime(id) {
-    const res = await fetch(`${API_BASE}/admin/crimes/${id}`, {
-      method: 'DELETE',
-      headers: authService.getAuthHeaders(),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.message || data.error || 'Failed to delete crime incident');
-    }
-    return data;
+    return apiFetch(
+      `/admin/crimes/${id}`,
+      { method: 'DELETE' },
+      'Delete crime incident'
+    );
   },
 
   /**
    * Pending Citizen Incident Triage
    */
   async getPendingCrimes() {
-    const res = await fetch(`${API_BASE}/admin/crimes/pending`, {
-      method: 'GET',
-      headers: authService.getAuthHeaders(),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.message || data.error || 'Failed to fetch pending reports');
-    }
-    return data;
+    return apiFetch('/admin/crimes/pending', { method: 'GET' }, 'Fetch pending reports');
   },
 
   async approveCrime(id, notes = '') {
-    const res = await fetch(`${API_BASE}/admin/crimes/${id}/approve`, {
-      method: 'PATCH',
-      headers: authService.getAuthHeaders(),
-      body: JSON.stringify({ admin_notes: notes }),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.message || data.error || 'Failed to approve incident report');
-    }
-    return data;
+    return apiFetch(
+      `/admin/crimes/${id}/approve`,
+      {
+        method: 'PATCH',
+        body: JSON.stringify({ admin_notes: notes }),
+      },
+      'Approve incident report'
+    );
   },
 
   async rejectCrime(id, notes = '') {
-    const res = await fetch(`${API_BASE}/admin/crimes/${id}/reject`, {
-      method: 'PATCH',
-      headers: authService.getAuthHeaders(),
-      body: JSON.stringify({ admin_notes: notes }),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.message || data.error || 'Failed to reject incident report');
-    }
-    return data;
+    return apiFetch(
+      `/admin/crimes/${id}/reject`,
+      {
+        method: 'PATCH',
+        body: JSON.stringify({ admin_notes: notes }),
+      },
+      'Reject incident report'
+    );
   },
 
   getExportCsvUrl(params = {}) {
@@ -146,34 +109,25 @@ export const adminService = {
     const formData = new FormData();
     formData.append('file', file);
 
-    const token = authService.getToken();
-    const res = await fetch(`${API_BASE}/admin/crimes/import`, {
-      method: 'POST',
-      headers: {
-        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    return apiFetch(
+      '/admin/crimes/import',
+      {
+        method: 'POST',
+        body: formData,
       },
-      body: formData,
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.message || data.error || 'Failed to import CSV');
-    }
-    return data;
+      'Import CSV'
+    );
   },
 
   /**
    * 3. History & Trends Analytics
    */
   async getHistoricalTrends(year = 'all') {
-    const res = await fetch(`${API_BASE}/admin/analytics/trends?year=${year}`, {
-      method: 'GET',
-      headers: authService.getAuthHeaders(),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.message || data.error || 'Failed to load historical analytics');
-    }
-    return data;
+    return apiFetch(
+      `/admin/analytics/trends?year=${year}`,
+      { method: 'GET' },
+      'Load historical analytics'
+    );
   },
 
   /**
@@ -187,80 +141,48 @@ export const adminService = {
     if (q) params.append('q', q);
     if (role && role !== 'all') params.append('role', role);
 
-    const res = await fetch(`${API_BASE}/admin/users?${params.toString()}`, {
-      method: 'GET',
-      headers: authService.getAuthHeaders(),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.message || data.error || 'Failed to fetch user list');
-    }
-    return data;
+    return apiFetch(`/admin/users?${params.toString()}`, { method: 'GET' }, 'Fetch user list');
   },
 
   async getUserDetail(userId) {
-    const res = await fetch(`${API_BASE}/admin/users/${userId}`, {
-      method: 'GET',
-      headers: authService.getAuthHeaders(),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.message || data.error || 'Failed to load user detail');
-    }
-    return data;
+    return apiFetch(`/admin/users/${userId}`, { method: 'GET' }, 'Load user detail');
   },
 
   async changeUserRole(userId, role) {
-    const res = await fetch(`${API_BASE}/admin/users/${userId}/role`, {
-      method: 'PUT',
-      headers: authService.getAuthHeaders(),
-      body: JSON.stringify({ role }),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.message || data.error || 'Failed to update user role');
-    }
-    return data;
+    return apiFetch(
+      `/admin/users/${userId}/role`,
+      {
+        method: 'PUT',
+        body: JSON.stringify({ role }),
+      },
+      'Update user role'
+    );
   },
 
   async toggleUserActive(userId, isActive) {
-    const res = await fetch(`${API_BASE}/admin/users/${userId}/status`, {
-      method: 'PUT',
-      headers: authService.getAuthHeaders(),
-      body: JSON.stringify({ is_active: isActive }),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.message || data.error || 'Failed to update user status');
-    }
-    return data;
+    return apiFetch(
+      `/admin/users/${userId}/status`,
+      {
+        method: 'PUT',
+        body: JSON.stringify({ is_active: isActive }),
+      },
+      'Update user status'
+    );
   },
 
   async deleteUser(userId) {
-    const res = await fetch(`${API_BASE}/admin/users/${userId}`, {
-      method: 'DELETE',
-      headers: authService.getAuthHeaders(),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.message || data.error || 'Failed to delete user');
-    }
-    return data;
+    return apiFetch(
+      `/admin/users/${userId}`,
+      { method: 'DELETE' },
+      'Delete user'
+    );
   },
 
   /**
    * 5. Live Map (Consent-Guarded)
    */
   async getLiveMapUsers() {
-    const res = await fetch(`${API_BASE}/admin/live-map/users`, {
-      method: 'GET',
-      headers: authService.getAuthHeaders(),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.message || data.error || 'Failed to fetch live location stream');
-    }
-    return data;
+    return apiFetch('/admin/live-map/users', { method: 'GET' }, 'Fetch live location stream');
   },
 
   /**
@@ -273,41 +195,29 @@ export const adminService = {
     if (start_date) params.append('start_date', start_date);
     if (end_date) params.append('end_date', end_date);
 
-    const res = await fetch(`${API_BASE}/admin/sos-feed?${params.toString()}`, {
-      method: 'GET',
-      headers: authService.getAuthHeaders(),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.message || data.error || 'Failed to fetch SOS alerts');
-    }
-    return data;
+    return apiFetch(`/admin/sos-feed?${params.toString()}`, { method: 'GET' }, 'Fetch SOS alerts');
   },
 
   async resolveSOSEvent(eventId, notes = '') {
-    const res = await fetch(`${API_BASE}/admin/sos-events/${eventId}/resolve`, {
-      method: 'POST',
-      headers: authService.getAuthHeaders(),
-      body: JSON.stringify({ notes }),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.message || data.error || 'Failed to resolve SOS event');
-    }
-    return data;
+    return apiFetch(
+      `/admin/sos-events/${eventId}/resolve`,
+      {
+        method: 'POST',
+        body: JSON.stringify({ notes }),
+      },
+      'Resolve SOS event'
+    );
   },
 
   async addSOSNotes(eventId, notes) {
-    const res = await fetch(`${API_BASE}/admin/sos-events/${eventId}/notes`, {
-      method: 'PUT',
-      headers: authService.getAuthHeaders(),
-      body: JSON.stringify({ notes }),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.message || data.error || 'Failed to attach notes');
-    }
-    return data;
+    return apiFetch(
+      `/admin/sos-events/${eventId}/notes`,
+      {
+        method: 'PUT',
+        body: JSON.stringify({ notes }),
+      },
+      'Attach notes'
+    );
   },
 
   /**
@@ -321,14 +231,6 @@ export const adminService = {
     if (action && action !== 'all') params.append('action', action);
     if (admin) params.append('admin', admin);
 
-    const res = await fetch(`${API_BASE}/admin/audit-logs?${params.toString()}`, {
-      method: 'GET',
-      headers: authService.getAuthHeaders(),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.message || data.error || 'Failed to fetch audit logs');
-    }
-    return data;
+    return apiFetch(`/admin/audit-logs?${params.toString()}`, { method: 'GET' }, 'Fetch audit logs');
   },
 };

@@ -1,6 +1,5 @@
 import { authService } from './authService';
-
-import { API_BASE } from './apiConfig';
+import { API_BASE, apiFetch } from './apiConfig';
 
 /**
  * Validate and format an Indian or international phone number into E.164 standard.
@@ -118,28 +117,14 @@ export const sosService = {
    * Check whether user has completed mandatory SOS onboarding.
    */
   async getOnboardingStatus() {
-    const res = await fetch(`${API_BASE}/user/onboarding-status`, {
-      method: 'GET',
-      headers: authService.getAuthHeaders(),
-    });
-    if (!res.ok) {
-      throw new Error('Failed to load onboarding status');
-    }
-    return res.json();
+    return apiFetch('/user/onboarding-status', { method: 'GET' }, 'Load onboarding status');
   },
 
   /**
    * Fetch all emergency contacts for current user.
    */
   async getContacts() {
-    const res = await fetch(`${API_BASE}/user/sos-contacts`, {
-      method: 'GET',
-      headers: authService.getAuthHeaders(),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.error || 'Failed to fetch SOS contacts');
-    }
+    const data = await apiFetch('/user/sos-contacts', { method: 'GET' }, 'Fetch SOS contacts');
     return data.contacts || [];
   },
 
@@ -147,259 +132,208 @@ export const sosService = {
    * Add a single SOS contact.
    */
   async addContact({ name, phone, relationship, is_primary = false }) {
-    const res = await fetch(`${API_BASE}/user/sos-contacts`, {
-      method: 'POST',
-      headers: authService.getAuthHeaders(),
-      body: JSON.stringify({ name, phone, relationship, is_primary }),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.error || 'Failed to add contact');
-    }
-    return data;
+    return apiFetch(
+      '/user/sos-contacts',
+      {
+        method: 'POST',
+        body: JSON.stringify({ name, phone, relationship, is_primary }),
+      },
+      'Add SOS contact'
+    );
   },
 
   /**
    * Bulk save contacts during mandatory onboarding (1-5 contacts).
    */
   async bulkSaveContacts(contacts) {
-    const res = await fetch(`${API_BASE}/user/sos-contacts/bulk`, {
-      method: 'POST',
-      headers: authService.getAuthHeaders(),
-      body: JSON.stringify({ contacts }),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.error || 'Failed to save contacts');
-    }
-    return data;
+    return apiFetch(
+      '/user/sos-contacts/bulk',
+      {
+        method: 'POST',
+        body: JSON.stringify({ contacts }),
+      },
+      'Save SOS contacts'
+    );
   },
 
   /**
    * Update an existing contact.
    */
   async updateContact(id, contactData) {
-    const res = await fetch(`${API_BASE}/user/sos-contacts/${id}`, {
-      method: 'PUT',
-      headers: authService.getAuthHeaders(),
-      body: JSON.stringify(contactData),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.error || 'Failed to update contact');
-    }
-    return data;
+    return apiFetch(
+      `/user/sos-contacts/${id}`,
+      {
+        method: 'PUT',
+        body: JSON.stringify(contactData),
+      },
+      'Update SOS contact'
+    );
   },
 
   /**
    * Delete an SOS contact.
    */
   async deleteContact(id) {
-    const res = await fetch(`${API_BASE}/user/sos-contacts/${id}`, {
-      method: 'DELETE',
-      headers: authService.getAuthHeaders(),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.error || 'Failed to delete contact');
-    }
-    return data;
+    return apiFetch(
+      `/user/sos-contacts/${id}`,
+      { method: 'DELETE' },
+      'Delete SOS contact'
+    );
   },
 
   /**
    * Send test verification notification to a specific contact.
    */
   async sendTestMessage(id) {
-    const res = await fetch(`${API_BASE}/user/sos-contacts/${id}/test`, {
-      method: 'POST',
-      headers: authService.getAuthHeaders(),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.error || 'Failed to send test message');
-    }
-    return data;
+    return apiFetch(
+      `/user/sos-contacts/${id}/test`,
+      { method: 'POST' },
+      'Send test message'
+    );
   },
 
   /**
    * Trigger emergency SOS distress event.
    */
   async triggerSOS({ latitude, longitude, accuracy, zone, type = 'manual' }) {
-    const res = await fetch(`${API_BASE}/user/sos-events/trigger`, {
-      method: 'POST',
-      headers: authService.getAuthHeaders(),
-      body: JSON.stringify({ latitude, longitude, accuracy, zone, type }),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.error || 'Failed to trigger SOS alert');
-    }
-    return data;
+    return apiFetch(
+      '/user/sos-events/trigger',
+      {
+        method: 'POST',
+        body: JSON.stringify({ latitude, longitude, accuracy, zone, type }),
+      },
+      'Trigger SOS alert'
+    );
   },
 
   /**
    * Check for currently active SOS event for logged-in user.
    */
   async getActiveSOSEvent() {
-    const res = await fetch(`${API_BASE}/user/sos-events/active`, {
-      method: 'GET',
-      headers: authService.getAuthHeaders(),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.error || 'Failed to check active SOS status');
-    }
-    return data;
+    return apiFetch(
+      '/user/sos-events/active',
+      { method: 'GET' },
+      'Check active SOS status'
+    );
   },
 
   /**
    * Resolve active SOS event ("I'm Safe").
    */
   async resolveSOSEvent(eventId) {
-    const res = await fetch(`${API_BASE}/user/sos-events/${eventId}/resolve`, {
-      method: 'POST',
-      headers: authService.getAuthHeaders(),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.error || 'Failed to resolve SOS event');
-    }
-    return data;
+    return apiFetch(
+      `/user/sos-events/${eventId}/resolve`,
+      { method: 'POST' },
+      'Resolve SOS event'
+    );
   },
 
   /**
    * Send live GPS coordinates update for active SOS event.
    */
   async updateLiveSOSLocation(eventId, { latitude, longitude, accuracy, zone }) {
-    const res = await fetch(`${API_BASE}/user/sos-events/${eventId}/live-location`, {
-      method: 'POST',
-      headers: authService.getAuthHeaders(),
-      body: JSON.stringify({ latitude, longitude, accuracy, zone }),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.error || 'Failed to update live coordinates');
-    }
-    return data;
+    return apiFetch(
+      `/user/sos-events/${eventId}/live-location`,
+      {
+        method: 'POST',
+        body: JSON.stringify({ latitude, longitude, accuracy, zone }),
+      },
+      'Update live coordinates'
+    );
   },
 
   /**
    * Extend 1-hour live location sharing.
    */
   async extendLiveTracking(eventId) {
-    const res = await fetch(`${API_BASE}/user/sos-events/${eventId}/extend-tracking`, {
-      method: 'POST',
-      headers: authService.getAuthHeaders(),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.error || 'Failed to extend live tracking');
-    }
-    return data;
+    return apiFetch(
+      `/user/sos-events/${eventId}/extend-tracking`,
+      { method: 'POST' },
+      'Extend live tracking'
+    );
   },
 
   /**
    * Admin: Fetch SOS events for real-time monitoring.
    */
   async getAdminSOSEvents(status = 'all', limit = 50) {
-    const res = await fetch(`${API_BASE}/admin/sos-events?status=${status}&limit=${limit}`, {
-      method: 'GET',
-      headers: authService.getAuthHeaders(),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.error || 'Failed to fetch admin SOS events');
-    }
-    return data;
+    return apiFetch(
+      `/admin/sos-events?status=${status}&limit=${limit}`,
+      { method: 'GET' },
+      'Fetch admin SOS events'
+    );
   },
 
   /**
    * Send 30s client heartbeat with interaction flag and coordinates.
    */
   async sendHeartbeat({ latitude, longitude, accuracy, zone, has_interaction = false }) {
-    const res = await fetch(`${API_BASE}/user/heartbeat`, {
-      method: 'POST',
-      headers: authService.getAuthHeaders(),
-      body: JSON.stringify({
-        latitude,
-        longitude,
-        accuracy,
-        zone,
-        has_interaction,
-        timestamp: new Date().toISOString(),
-      }),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.error || 'Heartbeat sync failed');
-    }
-    return data;
+    return apiFetch(
+      '/user/heartbeat',
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          latitude,
+          longitude,
+          accuracy,
+          zone,
+          has_interaction,
+          timestamp: new Date().toISOString(),
+        }),
+      },
+      'Heartbeat sync'
+    );
   },
 
   /**
    * Check current user's Red Zone safety state & warning countdown.
    */
   async getSafetyStatus() {
-    const res = await fetch(`${API_BASE}/user/safety-status`, {
-      method: 'GET',
-      headers: authService.getAuthHeaders(),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.error || 'Failed to fetch safety status');
-    }
-    return data;
+    return apiFetch(
+      '/user/safety-status',
+      { method: 'GET' },
+      'Fetch safety status'
+    );
   },
 
   /**
    * Respond "I'm Safe" to the inactivity warning prompt.
    */
   async safetyCheckin() {
-    const res = await fetch(`${API_BASE}/user/safety-checkin`, {
-      method: 'POST',
-      headers: authService.getAuthHeaders(),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.error || 'Safety check-in failed');
-    }
-    return data;
+    return apiFetch(
+      '/user/safety-checkin',
+      { method: 'POST' },
+      'Safety check-in'
+    );
   },
 
   /**
    * Save Web Push (VAPID) notification subscription.
    */
   async savePushSubscription(subscription) {
-    const res = await fetch(`${API_BASE}/user/push-subscription`, {
-      method: 'POST',
-      headers: authService.getAuthHeaders(),
-      body: JSON.stringify({ subscription }),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.error || 'Failed to save push subscription');
-    }
-    return data;
+    return apiFetch(
+      '/user/push-subscription',
+      {
+        method: 'POST',
+        body: JSON.stringify({ subscription }),
+      },
+      'Save push subscription'
+    );
   },
 
   /**
    * Dev Mode: Simulate Red Zone states, 1-minute threshold, and auto SOS timeout.
    */
   async simulateRedZone(action = 'enter_red', thresholdMinutes = 1) {
-    const res = await fetch(`${API_dev_base()}/simulate-red-zone`, {
-      method: 'POST',
-      headers: authService.getAuthHeaders(),
-      body: JSON.stringify({ action, threshold_minutes: thresholdMinutes }),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.error || 'Simulation command failed');
-    }
-    return data;
+    return apiFetch(
+      '/dev/simulate-red-zone',
+      {
+        method: 'POST',
+        body: JSON.stringify({ action, threshold_minutes: thresholdMinutes }),
+      },
+      'Simulation command'
+    );
   },
 };
 
-function API_dev_base() {
-  return `${API_BASE}/dev`;
-}
-
+export { API_BASE };

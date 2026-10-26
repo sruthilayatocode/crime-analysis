@@ -8,29 +8,11 @@
  *   GET /api/hotspots -> { success, message, source, count, data: [hotspot, ...] }
  */
 
-import { API_BASE_URL, API_BASE } from './apiConfig';
+import { API_BASE_URL, API_BASE, apiFetch } from './apiConfig';
 export { API_BASE_URL, API_BASE };
 
 async function request(path, options = {}) {
-  const token =
-    localStorage.getItem('crimesense_token') ||
-    localStorage.getItem('token') ||
-    localStorage.getItem('authToken');
-  const headers = {
-    'Content-Type': 'application/json',
-    ...(token ? { Authorization: `Bearer ${token}` } : {}),
-    ...(options.headers || {}),
-  };
-
-  const response = await fetch(`${API_BASE_URL}${path}`, {
-    ...options,
-    headers,
-  });
-
-  const payload = await response.json().catch(() => ({}));
-  if (!response.ok) {
-    throw new Error(payload.message || `Request to ${path} failed with status ${response.status}`);
-  }
+  const payload = await apiFetch(path, options, `Crime data request (${path})`);
 
   // Tolerate either the backend envelope ({ data: [...] }) or a bare array.
   if (Array.isArray(payload)) return payload;

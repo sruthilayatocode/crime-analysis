@@ -1,8 +1,12 @@
-import { API_BASE } from './apiConfig';
+import { API_BASE, apiFetch } from './apiConfig';
 
 export const authService = {
   getToken() {
-    return localStorage.getItem('crimesense_token') || localStorage.getItem('token') || localStorage.getItem('authToken');
+    return (
+      localStorage.getItem('crimesense_token') ||
+      localStorage.getItem('token') ||
+      localStorage.getItem('authToken')
+    );
   },
 
   setToken(token) {
@@ -25,44 +29,41 @@ export const authService = {
   },
 
   async login(email, password) {
-    const res = await fetch(`${API_BASE}/auth/login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password }),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.message || 'Login failed');
-    }
+    const data = await apiFetch(
+      '/auth/login',
+      {
+        method: 'POST',
+        body: JSON.stringify({ email, password }),
+      },
+      'Login'
+    );
     if (data.token) this.setToken(data.token);
     return data;
   },
 
   async signup(name, email, password) {
-    const res = await fetch(`${API_BASE}/auth/signup`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, password }),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.message || 'Signup failed');
-    }
+    const data = await apiFetch(
+      '/auth/signup',
+      {
+        method: 'POST',
+        body: JSON.stringify({ name, email, password }),
+      },
+      'Signup'
+    );
     if (data.token) this.setToken(data.token);
     return data;
   },
 
   async googleAuth(credential, details = null) {
     const body = credential ? { credential } : details;
-    const res = await fetch(`${API_BASE}/auth/google`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.message || 'Google authentication failed');
-    }
+    const data = await apiFetch(
+      '/auth/google',
+      {
+        method: 'POST',
+        body: JSON.stringify(body),
+      },
+      'Google authentication'
+    );
     if (data.token) this.setToken(data.token);
     return data;
   },
@@ -70,24 +71,19 @@ export const authService = {
   async getMe() {
     const token = this.getToken();
     if (!token) return null;
-    const res = await fetch(`${API_BASE}/auth/me`, {
-      method: 'GET',
-      headers: this.getAuthHeaders(),
-    });
-    if (!res.ok) {
+    try {
+      const data = await apiFetch('/auth/me', { method: 'GET' }, 'Session verification');
+      return data.user || null;
+    } catch {
+      // Clear expired or invalid token
       this.setToken(null);
       return null;
     }
-    const data = await res.json();
-    return data.user || null;
   },
 
   async logout() {
     try {
-      await fetch(`${API_BASE}/auth/logout`, {
-        method: 'POST',
-        headers: this.getAuthHeaders(),
-      });
+      await apiFetch('/auth/logout', { method: 'POST' }, 'Logout');
     } catch {
       // Ignore errors on logout
     } finally {
@@ -96,116 +92,94 @@ export const authService = {
   },
 
   async updateProfile({ name, avatar_url }) {
-    const res = await fetch(`${API_BASE}/user/profile`, {
-      method: 'PUT',
-      headers: this.getAuthHeaders(),
-      body: JSON.stringify({ name, avatar_url }),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.error || 'Failed to update profile');
-    }
-    return data;
+    return apiFetch(
+      '/user/profile',
+      {
+        method: 'PUT',
+        body: JSON.stringify({ name, avatar_url }),
+      },
+      'Profile update'
+    );
   },
 
   async deleteLocationHistory() {
-    const res = await fetch(`${API_BASE}/user/locations`, {
-      method: 'DELETE',
-      headers: this.getAuthHeaders(),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.error || 'Failed to delete location history');
-    }
-    return data;
+    return apiFetch(
+      '/user/locations',
+      { method: 'DELETE' },
+      'Delete location history'
+    );
   },
 
   async deleteAccount() {
-    const res = await fetch(`${API_BASE}/user/account`, {
-      method: 'DELETE',
-      headers: this.getAuthHeaders(),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.error || 'Failed to delete account');
-    }
+    const data = await apiFetch(
+      '/user/account',
+      { method: 'DELETE' },
+      'Delete account'
+    );
     this.setToken(null);
     return data;
   },
 
   async getSettings() {
-    const res = await fetch(`${API_BASE}/user/settings`, {
-      method: 'GET',
-      headers: this.getAuthHeaders(),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.error || 'Failed to fetch settings');
-    }
+    const data = await apiFetch(
+      '/user/settings',
+      { method: 'GET' },
+      'Fetch settings'
+    );
     return data.settings;
   },
 
   async updateSettings(settings) {
-    const res = await fetch(`${API_BASE}/user/settings`, {
-      method: 'POST',
-      headers: this.getAuthHeaders(),
-      body: JSON.stringify(settings),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.error || 'Failed to update settings');
-    }
+    const data = await apiFetch(
+      '/user/settings',
+      {
+        method: 'POST',
+        body: JSON.stringify(settings),
+      },
+      'Update settings'
+    );
     return data.settings;
   },
 
   async verifyEmail(token) {
-    const res = await fetch(`${API_BASE}/auth/verify-email?token=${encodeURIComponent(token)}`, {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.message || 'Email verification failed');
-    }
-    return data;
+    return apiFetch(
+      `/auth/verify-email?token=${encodeURIComponent(token)}`,
+      { method: 'GET' },
+      'Email verification'
+    );
   },
 
   async resendVerification(email) {
-    const res = await fetch(`${API_BASE}/auth/resend-verification`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email }),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.message || 'Failed to resend verification email');
-    }
-    return data;
+    return apiFetch(
+      '/auth/resend-verification',
+      {
+        method: 'POST',
+        body: JSON.stringify({ email }),
+      },
+      'Resend verification'
+    );
   },
 
   async forgotPassword(email) {
-    const res = await fetch(`${API_BASE}/auth/forgot-password`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email }),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.message || 'Failed to request password reset');
-    }
-    return data;
+    return apiFetch(
+      '/auth/forgot-password',
+      {
+        method: 'POST',
+        body: JSON.stringify({ email }),
+      },
+      'Password reset request'
+    );
   },
 
   async resetPassword(token, password) {
-    const res = await fetch(`${API_BASE}/auth/reset-password`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ token, password }),
-    });
-    const data = await res.json();
-    if (!res.ok || !data.success) {
-      throw new Error(data.message || 'Failed to reset password');
-    }
-    return data;
+    return apiFetch(
+      '/auth/reset-password',
+      {
+        method: 'POST',
+        body: JSON.stringify({ token, password }),
+      },
+      'Reset password'
+    );
   },
 };
+export { API_BASE };

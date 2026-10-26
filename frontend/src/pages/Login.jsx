@@ -6,7 +6,7 @@ import GoogleAuthButton from '../components/GoogleAuthButton';
 
 
 export default function Login() {
-  const { login, googleAuth } = useAuth();
+  const { login } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -41,20 +41,6 @@ export default function Login() {
       handleLoginSuccess(user);
     } catch (err) {
       setError(err.message || 'Login failed. Please check your credentials.');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleGoogleSuccess = async (credentialResponse) => {
-    if (!credentialResponse?.credential) return;
-    setLoading(true);
-    setError('');
-    try {
-      const user = await googleAuth(credentialResponse.credential);
-      handleLoginSuccess(user);
-    } catch (err) {
-      setError(err.message || 'Google authentication failed');
     } finally {
       setLoading(false);
     }

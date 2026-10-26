@@ -6,6 +6,7 @@
  */
 
 export { API_BASE_URL } from './apiConfig';
+import { apiFetch } from './apiConfig';
 
 // Pre-configured Vellore localities for instant search suggestions
 export const VELLORE_LOCALITY_PRESETS = [
@@ -34,13 +35,7 @@ export async function fetchZoneRisk(lat, lng, radius = 1000) {
     radius: String(radius),
   });
 
-  const response = await fetch(`${API_BASE_URL}/api/zone?${params.toString()}`);
-  if (!response.ok) {
-    const errorBody = await response.json().catch(() => ({}));
-    throw new Error(errorBody.error || `Failed to fetch zone data: ${response.status}`);
-  }
-
-  return response.json();
+  return apiFetch(`/zone?${params.toString()}`, { method: 'GET' }, 'Fetch zone risk');
 }
 
 /**

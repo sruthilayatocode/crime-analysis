@@ -6,8 +6,8 @@
     "cooldown_minutes": 30.0,
     "heartbeat_interval_seconds": 30.0,
     "evaluated_transitions_count": 9,
-    "mean_fsm_eval_latency_ms": 2.51,
-    "p95_fsm_eval_latency_ms": 10.84,
+    "mean_fsm_eval_latency_ms": 3.38,
+    "p95_fsm_eval_latency_ms": 14.98,
     "all_transitions_verified": true
   },
   "timeline": [
