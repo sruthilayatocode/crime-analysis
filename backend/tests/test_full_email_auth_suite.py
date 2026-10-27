@@ -18,17 +18,61 @@ sys.path.insert(0, str(BACKEND_DIR))
 BASE = "http://127.0.0.1:5000"
 
 
+_LIVE_SERVER_CHECKED = None
+
+def is_live_server_running():
+    global _LIVE_SERVER_CHECKED
+    if _LIVE_SERVER_CHECKED is not None:
+        return _LIVE_SERVER_CHECKED
+    try:
+        req = urllib.request.Request(f"{BASE}/health", headers={"User-Agent": "pytest"}, method="GET")
+        with urllib.request.urlopen(req, timeout=0.8) as resp:
+            _LIVE_SERVER_CHECKED = True
+            return True
+    except Exception:
+        _LIVE_SERVER_CHECKED = False
+        return False
+
+
 def request(url, method="GET", data=None, token=None):
     headers = {"Content-Type": "application/json"}
     if token:
         headers["Authorization"] = f"Bearer {token}"
+
+    if not is_live_server_running():
+        from app import app
+        path = url.replace(BASE, "")
+        with app.test_client() as client:
+            resp = client.open(path, method=method, json=data, headers=headers)
+            body = resp.get_json(silent=True)
+            if body is None:
+                try:
+                    body = json.loads(resp.data.decode())
+                except Exception:
+                    body = resp.data.decode()
+            return resp.status_code, body
+
     encoded_data = json.dumps(data).encode("utf-8") if data is not None else None
     req = urllib.request.Request(url, data=encoded_data, headers=headers, method=method)
     try:
-        with urllib.request.urlopen(req) as resp:
+        with urllib.request.urlopen(req, timeout=5.0) as resp:
             return resp.status, json.loads(resp.read().decode())
     except urllib.error.HTTPError as e:
         return e.code, json.loads(e.read().decode())
+    except urllib.error.URLError:
+        from app import app
+        path = url.replace(BASE, "")
+        with app.test_client() as client:
+            resp = client.open(path, method=method, json=data, headers=headers)
+            body = resp.get_json(silent=True)
+            if body is None:
+                try:
+                    body = json.loads(resp.data.decode())
+                except Exception:
+                    body = resp.data.decode()
+            return resp.status_code, body
+
+
 
 
 def run_scenario_1_existing_login():

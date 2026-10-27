@@ -15,9 +15,17 @@ Tests:
 """
 
 import os
+import sys
 import time
 import unittest
+from pathlib import Path
 from unittest.mock import patch, MagicMock
+
+# Ensure backend directory is in sys.path
+BACKEND_DIR = Path(__file__).resolve().parent.parent
+if str(BACKEND_DIR) not in sys.path:
+    sys.path.insert(0, str(BACKEND_DIR))
+
 from app import app
 from database import db
 from models.user import User

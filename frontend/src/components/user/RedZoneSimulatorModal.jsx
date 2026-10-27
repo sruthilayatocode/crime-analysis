@@ -16,9 +16,7 @@ import { useSOS } from '../../context/SOSContext';
 import { sosService } from '../../services/sosService';
 
 export default function RedZoneSimulatorModal() {
-  // Only render simulator if explicitly enabled in environment
   const isSimulatorEnabled = import.meta.env.VITE_ENABLE_SIMULATOR === 'true';
-  if (!isSimulatorEnabled) return null;
 
   const {
     redZoneState,
@@ -35,6 +33,9 @@ export default function RedZoneSimulatorModal() {
   const [loadingAction, setLoadingAction] = useState('');
   const [simLog, setSimLog] = useState('');
   const [thresholdMin, setThresholdMin] = useState(1);
+
+  if (!isSimulatorEnabled) return null;
+
 
   const runSimulation = async (action) => {
     setLoadingAction(action);

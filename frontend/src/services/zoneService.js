@@ -29,13 +29,20 @@ export const VELLORE_LOCALITY_PRESETS = [
  * @param {number} radius - Search radius in meters (default 1000)
  */
 export async function fetchZoneRisk(lat, lng, radius = 1000) {
+  if (lat == null || lng == null || isNaN(Number(lat)) || isNaN(Number(lng))) {
+    throw new Error('Valid latitude and longitude coordinates are required for zone evaluation.');
+  }
+
   const params = new URLSearchParams({
     lat: String(lat),
     lng: String(lng),
-    radius: String(radius),
+    radius: String(radius || 1000),
   });
 
-  return apiFetch(`/zone?${params.toString()}`, { method: 'GET' }, 'Fetch zone risk');
+  const res = await apiFetch(`/zone?${params.toString()}`, { method: 'GET' }, 'Fetch zone risk');
+  // Unwrap nested data if wrapped as { success: true, data: { ... } } or return direct payload
+  const data = res?.data && typeof res.data === 'object' && res.data.zone ? res.data : res;
+  return data;
 }
 
 /**

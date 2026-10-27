@@ -3,14 +3,18 @@ import os
 from pathlib import Path
 from flask import Flask, jsonify, request
 from dotenv import load_dotenv
-
-load_dotenv()
-
 # Ensure backend directory has top priority on sys.path
 BACKEND_DIR = Path(__file__).resolve().parent
 if str(BACKEND_DIR) in sys.path:
     sys.path.remove(str(BACKEND_DIR))
 sys.path.insert(0, str(BACKEND_DIR))
+
+# Explicitly load backend/.env
+backend_env_path = BACKEND_DIR / ".env"
+if backend_env_path.exists():
+    load_dotenv(backend_env_path, override=True)
+else:
+    load_dotenv()
 
 # Ensure repository root is on sys.path for top-level ml and config packages
 PROJECT_ROOT = BACKEND_DIR.parent

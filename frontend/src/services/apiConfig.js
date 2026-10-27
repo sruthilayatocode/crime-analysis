@@ -14,21 +14,30 @@
 const rawUrl = (import.meta.env.VITE_API_URL || '').trim();
 const rawBaseUrl = (import.meta.env.VITE_API_BASE_URL || '').trim();
 
+// In local browser development/preview, default to http://localhost:5000 if not explicitly configured
+const isLocalBrowser =
+  typeof window !== 'undefined' &&
+  (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+const localDefaultHost = isLocalBrowser ? 'http://localhost:5000' : '';
+
 // Cleaned base host without trailing slash and without trailing /api
 // e.g. "https://crimesense-api.onrender.com" or "http://localhost:5000"
 export const API_BASE_URL = rawUrl
   ? rawUrl.replace(/\/+$/, '').replace(/\/api$/, '')
   : rawBaseUrl
     ? rawBaseUrl.replace(/\/+$/, '').replace(/\/api$/, '')
-    : '';
+    : localDefaultHost;
 
 // Route prefix including /api
-// e.g. "https://crimesense-api.onrender.com/api" or "/api"
+// e.g. "https://crimesense-api.onrender.com/api" or "http://localhost:5000/api"
 export const API_BASE = rawBaseUrl
   ? rawBaseUrl.replace(/\/+$/, '')
   : rawUrl
     ? `${rawUrl.replace(/\/+$/, '').replace(/\/api$/, '')}/api`
-    : '/api';
+    : localDefaultHost
+      ? `${localDefaultHost}/api`
+      : '/api';
+
 
 /**
  * Check if the frontend is currently running on a known static hosting origin

@@ -18,6 +18,8 @@ import {
   Check,
   Compass,
   ShieldAlert,
+  Flame,
+  Info,
 } from 'lucide-react';
 
 import PreciseSearchBar from '../../components/user/PreciseSearchBar';
@@ -26,6 +28,7 @@ import LocationPermissionExplainer from '../../components/user/LocationPermissio
 import CitizenReportModal from '../../components/user/CitizenReportModal';
 import { useUserLocation } from '../../hooks/useUserLocation';
 import { fetchZoneRisk, saveLocation, VELLORE_LOCALITY_PRESETS } from '../../services/zoneService';
+import { getHotspots } from '../../services/crimeService';
 
 // Crisp SVG-based div icons for Leaflet (avoids broken image 404s in Vite)
 const userLocationIcon = L.divIcon({
@@ -54,15 +57,36 @@ const pickedPinIcon = L.divIcon({
   iconAnchor: [16, 32],
 });
 
-const simplifiedIncidentIcon = (color = '#ef4444') =>
-  L.divIcon({
-    className: 'incident-loc-marker',
+const incidentPinIcon = (severityScore = 5) => {
+  const pinColor = severityScore >= 8 ? '#ef4444' : severityScore >= 5 ? '#f59e0b' : '#3b82f6';
+  return L.divIcon({
+    className: 'incident-pin-marker',
     html: `
-      <div style="width: 12px; height: 12px; border-radius: 9999px; background-color: ${color}; border: 1.5px solid #ffffff; box-shadow: 0 1px 4px rgba(0,0,0,0.25);"></div>
+      <div style="position: relative; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center;">
+        <div style="width: 14px; height: 14px; border-radius: 50% 50% 50% 0; background-color: ${pinColor}; transform: rotate(-45deg); border: 2px solid #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.35);"></div>
+      </div>
     `,
-    iconSize: [12, 12],
-    iconAnchor: [6, 6],
+    iconSize: [20, 20],
+    iconAnchor: [10, 18],
+    popupAnchor: [0, -16],
   });
+};
+
+const hotspotClusterIcon = (risk = 'High') => {
+  const isHigh = risk === 'Critical' || risk === 'High';
+  const color = isHigh ? '#ef4444' : risk === 'Medium' ? '#f59e0b' : '#10b981';
+  return L.divIcon({
+    className: 'hotspot-cluster-icon',
+    html: `
+      <div style="width: 26px; height: 26px; border-radius: 50%; background: ${color}26; border: 2px solid ${color}; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 8px ${color}66;">
+        <div style="width: 9px; height: 9px; border-radius: 50%; background: ${color};"></div>
+      </div>
+    `,
+    iconSize: [26, 26],
+    iconAnchor: [13, 13],
+    popupAnchor: [0, -12],
+  });
+};
 
 // Map controller to center view dynamically
 function MapCenterController({ center }) {
@@ -102,6 +126,25 @@ export default function UserHome() {
   const [pickedCoords, setPickedCoords] = useState(null);
   const [showReportModal, setShowReportModal] = useState(false);
 
+  // Hotspots cluster layer across the region
+  const [hotspots, setHotspots] = useState([]);
+  const [showHotspots, setShowHotspots] = useState(true);
+
+  // Fetch verified hotspot clusters on mount
+  useEffect(() => {
+    let mounted = true;
+    getHotspots()
+      .then((data) => {
+        if (mounted && Array.isArray(data)) {
+          setHotspots(data);
+        }
+      })
+      .catch(() => {});
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
   // Handle URL query parameters (e.g. from Saved Places 'View on Map')
   useEffect(() => {
     const pLat = searchParams.get('lat');
@@ -140,6 +183,9 @@ export default function UserHome() {
 
   // Fetch zone risk evaluation
   const loadZoneData = async (lat, lng, radius = 1000) => {
+    if (lat == null || lng == null || isNaN(Number(lat)) || isNaN(Number(lng))) {
+      return;
+    }
     setLoadingZone(true);
     setZoneError(null);
     try {
@@ -147,7 +193,7 @@ export default function UserHome() {
       setZoneData(data);
     } catch (err) {
       setZoneData(null);
-      setZoneError('Unable to load crime risk data from server.');
+      setZoneError(err.message || 'Unable to load crime risk data from server.');
     } finally {
       setLoadingZone(false);
     }
@@ -230,21 +276,18 @@ export default function UserHome() {
   const currentZone = zoneData?.zone || 'GREEN';
   const circleStyle = getZoneCircleStyle(currentZone);
 
-  // Simplified nearby marker if severe incident exists
+  // Real nearby incident coordinates within evaluated perimeter
   const nearbyIncidents = useMemo(() => {
-    if (zoneData?.most_severe_recent_incident?.title) {
-      return [
-        {
-          lat: activeCoords.lat + 0.0012,
-          lng: activeCoords.lng + 0.0015,
-          title: zoneData.most_severe_recent_incident.title,
-          crime_type: zoneData.most_severe_recent_incident.crime_type,
-          date: zoneData.most_severe_recent_incident.date,
-        },
-      ];
+    if (Array.isArray(zoneData?.nearby_incidents) && zoneData.nearby_incidents.length > 0) {
+      return zoneData.nearby_incidents.filter(
+        (inc) => inc.lat != null && inc.lng != null
+      );
+    }
+    if (zoneData?.most_severe_recent_incident?.lat && zoneData.most_severe_recent_incident?.lng) {
+      return [zoneData.most_severe_recent_incident];
     }
     return [];
-  }, [zoneData, activeCoords]);
+  }, [zoneData]);
 
   return (
     <div className="relative flex-1 flex flex-col h-[calc(100vh-64px)] overflow-hidden">
@@ -269,6 +312,31 @@ export default function UserHome() {
           />
         </div>
 
+        {/* Informative coverage banner when 0 incidents exist within search radius */}
+        {zoneData && zoneData.incident_count === 0 && !isPickingOnMap && (
+          <div className="pointer-events-auto flex items-center justify-between gap-2 p-2.5 rounded-xl bg-slate-900/90 text-white text-xs shadow-lg backdrop-blur-md border border-slate-700/60 animate-in fade-in-50">
+            <div className="flex items-center gap-2 min-w-0">
+              <Info className="w-4 h-4 text-emerald-400 shrink-0" />
+              <span className="truncate">
+                0 incidents recorded within 1km. (Coverage: Vellore & TN - 685 records).
+              </span>
+            </div>
+            <button
+              type="button"
+              onClick={() =>
+                handleSelectLocation({
+                  name: 'Katpadi Hotspot',
+                  lat: 12.9806,
+                  lng: 79.1368,
+                })
+              }
+              className="px-2.5 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[11px] shrink-0 transition"
+            >
+              View Hotspots
+            </button>
+          </div>
+        )}
+
         {/* Fallback status toast (e.g. if GPS denied or unavailable) */}
         {statusMessage && (
           <div className="pointer-events-auto flex items-center justify-between gap-2 p-2.5 rounded-xl bg-slate-900/90 text-white text-xs shadow-lg backdrop-blur-md animate-in fade-in-50">
@@ -287,7 +355,7 @@ export default function UserHome() {
           </div>
         )}
 
-        {/* Locality chips when not in pick mode */}
+        {/* Locality & Layer chips when not in pick mode */}
         {!isPickingOnMap && (
           <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pointer-events-auto py-1 pb-1.5 px-0.5">
             <button
@@ -298,6 +366,22 @@ export default function UserHome() {
               <ShieldAlert className="w-3.5 h-3.5 text-white" />
               <span>Report Incident</span>
             </button>
+
+            {/* Toggle regional crime hotspots */}
+            <button
+              type="button"
+              onClick={() => setShowHotspots(!showHotspots)}
+              className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap shadow-xs backdrop-blur-md min-h-[32px] transition-all ${
+                showHotspots
+                  ? 'bg-amber-500 text-slate-950 font-extrabold shadow-amber-500/20'
+                  : 'bg-white/90 text-slate-700 hover:bg-white border border-slate-200/80'
+              }`}
+              title="Toggle citywide crime hotspot clusters"
+            >
+              <Flame className={`w-3.5 h-3.5 ${showHotspots ? 'text-slate-950 fill-current' : 'text-amber-500'}`} />
+              <span>{showHotspots ? 'Hotspots Active' : 'Show Hotspots'}</span>
+            </button>
+
             {VELLORE_LOCALITY_PRESETS.slice(0, 4).map((preset) => (
               <button
                 key={preset.name}
@@ -361,10 +445,10 @@ export default function UserHome() {
           scrollWheelZoom={true}
           className="h-full w-full"
         >
-          {/* Clean CartoDB Voyager light tiles */}
+          {/* Clean OpenStreetMap free tiles (no API key required) */}
           <TileLayer
-            attribution='&copy; <a href="https://carto.com/">CARTO</a>'
-            url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
 
           <MapCenterController center={isPickingOnMap ? pickedCoords : activeCoords} />
@@ -420,18 +504,77 @@ export default function UserHome() {
             />
           )}
 
-          {/* Simplified Nearby Incident Markers */}
+          {/* Regional Crime Hotspot Clusters */}
+          {showHotspots &&
+            !isPickingOnMap &&
+            hotspots.map((h, i) => (
+              <Marker
+                key={`hotspot-${h.id || i}`}
+                position={[h.lat || h.latitude, h.lng || h.longitude]}
+                icon={hotspotClusterIcon(h.risk || h.risk_level)}
+              >
+                <Popup>
+                  <div className="text-xs p-1 min-w-[170px]">
+                    <span
+                      className="inline-block px-1.5 py-0.5 rounded text-[10px] font-bold uppercase mb-1"
+                      style={{
+                        backgroundColor:
+                          h.risk === 'Critical' || h.risk === 'High'
+                            ? '#fee2e2'
+                            : '#fef3c7',
+                        color:
+                          h.risk === 'Critical' || h.risk === 'High'
+                            ? '#b91c1c'
+                            : '#b45309',
+                      }}
+                    >
+                      {h.risk || h.risk_level || 'Hotspot'}
+                    </span>
+                    <p className="font-bold text-slate-800">
+                      {h.zone || h.location || 'Crime Hotspot'}
+                    </p>
+                    <p className="text-[11px] text-slate-600 mt-0.5">
+                      <strong>{h.crime_count || h.crimeCount || 'Multiple'}</strong> recorded incidents
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        handleSelectLocation({
+                          name: h.zone || 'Hotspot Area',
+                          lat: h.lat || h.latitude,
+                          lng: h.lng || h.longitude,
+                        })
+                      }
+                      className="mt-2 w-full py-1 bg-blue-600 hover:bg-blue-700 text-white rounded text-[10px] font-bold"
+                    >
+                      Evaluate This Area
+                    </button>
+                  </div>
+                </Popup>
+              </Marker>
+            ))}
+
+          {/* Verified Nearby Incident Markers within evaluated perimeter */}
           {!isPickingOnMap &&
             nearbyIncidents.map((inc, i) => (
               <Marker
-                key={i}
+                key={`incident-${inc.id || i}`}
                 position={[inc.lat, inc.lng]}
-                icon={simplifiedIncidentIcon(circleStyle.color)}
+                icon={incidentPinIcon(inc.severity_score)}
               >
                 <Popup>
-                  <div className="text-xs p-1 max-w-[180px]">
-                    <p className="font-semibold text-slate-800">{inc.crime_type}</p>
-                    <p className="text-[10px] text-slate-500">{inc.title}</p>
+                  <div className="text-xs p-1 max-w-[220px]">
+                    <div className="flex items-center justify-between gap-2 mb-1">
+                      <span className="font-bold text-slate-900">{inc.crime_type}</span>
+                      <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-slate-100 text-slate-700">
+                        {inc.distance_m ? `${Math.round(inc.distance_m)}m away` : 'Nearby'}
+                      </span>
+                    </div>
+                    <p className="text-[11px] text-slate-600 mb-1 leading-snug">{inc.title}</p>
+                    <div className="flex items-center justify-between text-[10px] text-slate-400 border-t border-slate-100 pt-1">
+                      <span>{inc.date ? new Date(inc.date).toLocaleDateString('en-IN') : 'Past Incident'}</span>
+                      <span className="font-bold text-amber-600">Sev {inc.severity_score || 5}/10</span>
+                    </div>
                   </div>
                 </Popup>
               </Marker>

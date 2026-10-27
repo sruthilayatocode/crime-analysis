@@ -263,7 +263,10 @@ def calculate_zone_risk(
 
         crime_types_counter[crime_type] += 1
 
+        inc_id = item.get("id") or item.get("article_id") if isinstance(item, dict) else (getattr(item, "id", None) or getattr(item, "article_id", None))
+
         incidents_within_radius.append({
+            "id": inc_id,
             "distance": dist,
             "severity_score": severity_score,
             "timestamp": timestamp,
@@ -272,6 +275,10 @@ def calculate_zone_risk(
             "source_url": source_url,
             "crime_type": crime_type,
             "incident_risk": incident_risk,
+            "lat": c_lat_f,
+            "lng": c_lng_f,
+            "latitude": c_lat_f,
+            "longitude": c_lng_f,
         })
 
     incident_count = len(incidents_within_radius)
@@ -318,21 +325,28 @@ def calculate_zone_risk(
         "source_url": best["source_url"],
         "severity_score": round(best["severity_score"], 1),
         "crime_type": best["crime_type"],
+        "lat": best.get("lat"),
+        "lng": best.get("lng"),
     }
 
     safety_tip = SAFETY_TIPS.get(zone, SAFETY_TIPS["GREEN"])
 
-    # Build nearby_incidents list: up to 5 closest incidents for the UI
+    # Build nearby_incidents list: up to 25 closest incidents with precise coordinates for the UI
     by_distance = sorted(incidents_within_radius, key=lambda inc: inc["distance"])
     nearby_incidents = [
         {
+            "id": inc["id"],
             "crime_type": inc["crime_type"],
             "date": str(inc["date"]) if inc["date"] is not None else None,
             "distance_m": round(inc["distance"], 0),
             "severity_score": round(inc["severity_score"], 1),
             "title": inc["title"] or "Incident Record",
+            "lat": inc["lat"],
+            "lng": inc["lng"],
+            "latitude": inc["lat"],
+            "longitude": inc["lng"],
         }
-        for inc in by_distance[:5]
+        for inc in by_distance[:25]
     ]
 
     return {

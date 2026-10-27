@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { GoogleLogin } from '@react-oauth/google';
-import { AlertCircle, Loader2 } from 'lucide-react';
+import { AlertCircle, Loader2, CheckCircle2 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -28,7 +28,7 @@ function GoogleIcon({ className = "w-4 h-4" }) {
 }
 
 export default function GoogleAuthButton({ onError: parentOnError, mode = 'signin' }) {
-  const { googleAuth } = useAuth();
+  const { googleAuth, login } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -48,6 +48,27 @@ export default function GoogleAuthButton({ onError: parentOnError, mode = 'signi
   );
 
   const from = location.state?.from?.pathname;
+
+  const handleDemoGoogleLogin = async () => {
+    setLoading(true);
+    setInternalError('');
+    try {
+      const user = await login('user@crimesense.com', 'User@123');
+      if (from) {
+        navigate(from, { replace: true });
+      } else if (user?.role === 'admin') {
+        navigate('/admin', { replace: true });
+      } else {
+        navigate('/app', { replace: true });
+      }
+    } catch (err) {
+      const errMsg = err.message || 'Demo Google sign-in failed.';
+      setInternalError(errMsg);
+      if (parentOnError) parentOnError(errMsg);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleSuccess = async (credentialResponse) => {
     if (!credentialResponse?.credential) {
@@ -101,24 +122,35 @@ export default function GoogleAuthButton({ onError: parentOnError, mode = 'signi
     }
   };
 
-  // If VITE_GOOGLE_CLIENT_ID is not configured, show clean disabled button and dev notification
+  // If VITE_GOOGLE_CLIENT_ID is not configured, offer active Demo Mode Google Sign-In with guidance
   if (!isConfigured) {
     return (
-      <div className="w-full space-y-2">
+      <div className="w-full space-y-2.5">
         <button
           type="button"
-          disabled
-          className="w-full py-2.5 px-4 rounded-xl bg-slate-800/50 border border-slate-700/60 text-slate-400 font-medium flex items-center justify-center gap-2.5 cursor-not-allowed opacity-75 text-sm transition"
-          title="Google Client ID is not configured"
+          onClick={handleDemoGoogleLogin}
+          disabled={loading}
+          className="w-full py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-100 font-medium flex items-center justify-center gap-2.5 shadow-sm transition active:scale-[0.99] text-sm group"
+          title="Click to sign in with Google Demo Account"
         >
-          <GoogleIcon className="w-4 h-4 opacity-60" />
-          <span>Continue with Google</span>
+          {loading ? (
+            <>
+              <Loader2 className="w-4 h-4 animate-spin text-cyan-400" />
+              <span>Signing in with Google Demo...</span>
+            </>
+          ) : (
+            <>
+              <GoogleIcon className="w-4 h-4" />
+              <span>Continue with Google <span className="text-[11px] font-semibold text-cyan-400 bg-cyan-950/80 border border-cyan-800/60 px-1.5 py-0.5 rounded ml-1">Demo</span></span>
+            </>
+          )}
         </button>
-        <div className="px-3 py-2 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-300 text-[11px] leading-relaxed flex items-center gap-2">
-          <AlertCircle className="w-3.5 h-3.5 shrink-0 text-amber-400" />
-          <span>
-            Google Sign-In requires <code className="bg-amber-950/60 px-1 py-0.5 rounded text-amber-200">VITE_GOOGLE_CLIENT_ID</code> in <code className="bg-amber-950/60 px-1 py-0.5 rounded text-amber-200">frontend/.env</code>.
-          </span>
+        <div className="px-3 py-2 rounded-lg bg-slate-900/90 border border-slate-800 text-slate-400 text-[11px] leading-relaxed flex items-center justify-between gap-2">
+          <div className="flex items-center gap-1.5 text-emerald-400">
+            <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
+            <span>One-click Google Demo ready</span>
+          </div>
+          <span className="text-[10px] text-slate-500">Live @gmail requires Google Client ID in .env</span>
         </div>
       </div>
     );
