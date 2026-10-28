@@ -10,12 +10,12 @@ importScripts('https://www.gstatic.com/firebasejs/10.9.0/firebase-messaging-comp
 
 // Initialize the Firebase app in the service worker by passing in the messagingSenderId.
 firebase.initializeApp({
-  apiKey: 'AIzaSyA_CrimeSenseDemoKey1234567890',
-  authDomain: 'crimesense-alerts.firebaseapp.com',
-  projectId: 'crimesense-alerts',
-  storageBucket: 'crimesense-alerts.appspot.com',
-  messagingSenderId: '1029384756',
-  appId: '1:1029384756:web:abcdef1234567890',
+  apiKey: 'AIzaSyC3KjZszwvMhbq1FVOn5G_sme3HJokfKbY',
+  authDomain: 'crime-sense1234.firebaseapp.com',
+  projectId: 'crime-sense1234',
+  storageBucket: 'crime-sense1234.firebasestorage.app',
+  messagingSenderId: '229287875048',
+  appId: '1:229287875048:web:f31edfd4bdd29c61bf545d',
 });
 
 const messaging = firebase.messaging();
