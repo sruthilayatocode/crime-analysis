@@ -4,6 +4,7 @@ import {
   ShieldAlert,
   CheckCircle2,
   PhoneCall,
+  MessageSquare,
   MapPin,
   ExternalLink,
   Radio,
@@ -244,23 +245,35 @@ export default function ActiveSOSOverlay() {
                         </span>
                       </div>
 
-                      {/* Direct Zero-Cost Phone & WhatsApp Dispatch Links */}
-                      <div className="flex items-center gap-2 pt-1 border-t border-slate-100">
+                      {/* Direct Zero-Cost Phone, SMS & WhatsApp Dispatch Links */}
+                      <div className="flex items-center gap-1.5 pt-1 border-t border-slate-100">
                         <a
                           href={`tel:${c.contact_phone}`}
-                          className="flex-1 py-1.5 px-2 bg-red-50 hover:bg-red-100 text-red-700 font-bold rounded-lg text-center flex items-center justify-center gap-1 transition"
+                          className="flex-1 py-1.5 px-1 bg-red-50 hover:bg-red-100 text-red-700 font-bold rounded-lg text-center flex items-center justify-center gap-1 transition text-[11px]"
+                          title="Call Contact"
                         >
-                          <PhoneCall className="w-3.5 h-3.5" />
+                          <PhoneCall className="w-3 h-3" />
                           <span>Call</span>
+                        </a>
+                        <a
+                          href={`sms:${c.contact_phone}?body=${encodeURIComponent(
+                            `🚨 EMERGENCY SOS from CrimeSense!\nI am in danger!\nMy Live Location: ${mapsUrl}\nRisk Zone: ${activeSosEvent.zone || 'High Risk'}\nPlease help immediately or dial 112.`
+                          )}`}
+                          className="flex-1 py-1.5 px-1 bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold rounded-lg text-center flex items-center justify-center gap-1 transition text-[11px]"
+                          title="Send SMS"
+                        >
+                          <MessageSquare className="w-3 h-3" />
+                          <span>SMS</span>
                         </a>
                         <a
                           href={`https://wa.me/${phoneClean}?text=${waText}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 py-1.5 px-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-bold rounded-lg text-center flex items-center justify-center gap-1 transition"
+                          className="flex-1 py-1.5 px-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-bold rounded-lg text-center flex items-center justify-center gap-1 transition text-[11px]"
+                          title="Send WhatsApp"
                         >
                           <span>WhatsApp</span>
-                          <ExternalLink className="w-3 h-3" />
+                          <ExternalLink className="w-2.5 h-2.5" />
                         </a>
                       </div>
                     </div>

@@ -16,6 +16,8 @@ import {
   Bell,
   BellRing,
   ArrowLeft,
+  MessageSquare,
+  MessageCircle,
 } from 'lucide-react';
 import { useSOS } from '../../context/SOSContext';
 import {
@@ -196,6 +198,30 @@ export default function UserSOS() {
     { label: 'Ambulance & Medical', number: '108', desc: 'Emergency Medical & Paramedic' },
   ];
 
+  const primaryContact = contacts.find((ct) => ct.is_primary) || contacts[0];
+
+  const getEmergencyMessage = () => {
+    let locStr = '';
+    if (activeSosEvent?.latitude && activeSosEvent?.longitude) {
+      locStr = `https://maps.google.com/?q=${activeSosEvent.latitude},${activeSosEvent.longitude}`;
+    } else {
+      locStr = 'https://maps.google.com/?q=12.9165,79.1325';
+    }
+    const zoneName = (activeSosEvent?.zone || 'High Risk').toUpperCase();
+    return `🚨 EMERGENCY SOS! I have triggered a distress alert!\nRisk Zone: ${zoneName}\nLive Location: ${locStr}\nPlease help me immediately or dial 112!`;
+  };
+
+  const getSmsUrl = (phone) => {
+    const msg = getEmergencyMessage();
+    return `sms:${phone}?body=${encodeURIComponent(msg)}`;
+  };
+
+  const getWhatsAppUrl = (phone) => {
+    const cleanPhone = (phone || '').replace(/[^0-9]/g, '');
+    const msg = getEmergencyMessage();
+    return `https://wa.me/${cleanPhone}?text=${encodeURIComponent(msg)}`;
+  };
+
   const phoneVal = validateAndFormatPhone(contactPhone);
 
   return (
@@ -240,6 +266,40 @@ export default function UserSOS() {
                 Live GPS coordinates sent to your {contacts.length} emergency contact(s).
               </p>
             </div>
+
+            {primaryContact && (
+              <div className="bg-black/25 rounded-2xl p-3 border border-white/20 space-y-2 text-left">
+                <div className="flex items-center justify-between text-[11px] font-bold text-red-100">
+                  <span>Direct Mobile Alert &bull; {primaryContact.name}</span>
+                  <span className="font-mono text-[10px] opacity-80">{primaryContact.phone}</span>
+                </div>
+                <div className="grid grid-cols-3 gap-2">
+                  <a
+                    href={`tel:${primaryContact.phone}`}
+                    className="py-2 px-1 rounded-xl bg-white text-red-700 font-bold text-xs flex items-center justify-center gap-1 shadow-sm hover:bg-red-50 active:scale-95 transition"
+                  >
+                    <PhoneCall className="w-3.5 h-3.5" />
+                    <span>Call</span>
+                  </a>
+                  <a
+                    href={getSmsUrl(primaryContact.phone)}
+                    className="py-2 px-1 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs flex items-center justify-center gap-1 shadow-sm active:scale-95 transition"
+                  >
+                    <MessageSquare className="w-3.5 h-3.5" />
+                    <span>SMS</span>
+                  </a>
+                  <a
+                    href={getWhatsAppUrl(primaryContact.phone)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="py-2 px-1 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-1 shadow-sm active:scale-95 transition"
+                  >
+                    <MessageCircle className="w-3.5 h-3.5" />
+                    <span>WhatsApp</span>
+                  </a>
+                </div>
+              </div>
+            )}
 
             <div className="flex flex-col gap-2 pt-1">
               <button
@@ -551,10 +611,29 @@ export default function UserSOS() {
                 )}
                 <a
                   href={`tel:${c.phone}`}
-                  className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-200 flex items-center justify-center min-h-[32px] min-w-[32px]"
+                  className="w-8 h-8 rounded-xl bg-red-50 text-red-700 hover:bg-red-100 border border-red-200 flex items-center justify-center min-h-[32px] min-w-[32px] transition"
+                  title={`Call ${c.name}`}
                   aria-label={`Call ${c.name}`}
                 >
                   <PhoneCall className="w-3.5 h-3.5" />
+                </a>
+                <a
+                  href={getSmsUrl(c.phone)}
+                  className="w-8 h-8 rounded-xl bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200 flex items-center justify-center min-h-[32px] min-w-[32px] transition"
+                  title={`Send Emergency SMS to ${c.name}`}
+                  aria-label={`Send SMS to ${c.name}`}
+                >
+                  <MessageSquare className="w-3.5 h-3.5" />
+                </a>
+                <a
+                  href={getWhatsAppUrl(c.phone)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-200 flex items-center justify-center min-h-[32px] min-w-[32px] transition"
+                  title={`Send WhatsApp Alert to ${c.name}`}
+                  aria-label={`Send WhatsApp to ${c.name}`}
+                >
+                  <MessageCircle className="w-3.5 h-3.5" />
                 </a>
                 <button
                   type="button"
