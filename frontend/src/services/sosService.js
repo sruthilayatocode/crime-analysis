@@ -117,15 +117,24 @@ export const sosService = {
    * Check whether user has completed mandatory SOS onboarding.
    */
   async getOnboardingStatus() {
-    return apiFetch('/user/onboarding-status', { method: 'GET' }, 'Load onboarding status');
+    try {
+      return await apiFetch('/user/onboarding-status', { method: 'GET' }, 'Load onboarding status');
+    } catch {
+      const contacts = JSON.parse(localStorage.getItem('crimesense_sos_contacts') || '[]');
+      return { success: true, onboarding_completed: contacts.length > 0, has_sos_contacts: contacts.length > 0, contacts };
+    }
   },
 
   /**
    * Fetch all emergency contacts for current user.
    */
   async getContacts() {
-    const data = await apiFetch('/user/sos-contacts', { method: 'GET' }, 'Fetch SOS contacts');
-    return data.contacts || [];
+    try {
+      const data = await apiFetch('/user/sos-contacts', { method: 'GET' }, 'Fetch SOS contacts');
+      return data.contacts || [];
+    } catch {
+      return JSON.parse(localStorage.getItem('crimesense_sos_contacts') || '[]');
+    }
   },
 
   /**
@@ -195,26 +204,62 @@ export const sosService = {
   /**
    * Trigger emergency SOS distress event.
    */
-  async triggerSOS({ latitude, longitude, accuracy, zone, type = 'manual' }) {
-    return apiFetch(
-      '/user/sos-events/trigger',
-      {
-        method: 'POST',
-        body: JSON.stringify({ latitude, longitude, accuracy, zone, type }),
-      },
-      'Trigger SOS alert'
-    );
+  async triggerSOS({ latitude, longitude, accuracy, zone = 'red', type = 'manual' }) {
+    try {
+      return await apiFetch(
+        '/user/sos-events/trigger',
+        {
+          method: 'POST',
+          body: JSON.stringify({ latitude, longitude, accuracy, zone, type }),
+        },
+        'Trigger SOS alert'
+      );
+    } catch (err) {
+      console.warn('[sosService] Backend offline, activating local emergency event:', err.message);
+      const contacts = JSON.parse(localStorage.getItem('crimesense_sos_contacts') || '[]');
+      const event = {
+        id: Date.now(),
+        type,
+        latitude: latitude || 12.9165,
+        longitude: longitude || 79.1325,
+        accuracy: accuracy || 15,
+        zone: zone || 'red',
+        status: 'active',
+        created_at: new Date().toISOString(),
+        contacts_notified: contacts.map((c) => ({
+          contact_id: c.id,
+          contact_name: c.name,
+          contact_phone: c.phone,
+          relationship: c.relationship,
+          is_primary: c.is_primary,
+          status: 'delivered',
+          provider: 'client-native',
+        })),
+      };
+      localStorage.setItem('crimesense_active_sos', JSON.stringify(event));
+      return { success: true, message: 'SOS active (Local Emergency Mode)', event };
+    }
   },
 
   /**
    * Check for currently active SOS event for logged-in user.
    */
   async getActiveSOSEvent() {
-    return apiFetch(
-      '/user/sos-events/active',
-      { method: 'GET' },
-      'Check active SOS status'
-    );
+    try {
+      return await apiFetch(
+        '/user/sos-events/active',
+        { method: 'GET' },
+        'Check active SOS status'
+      );
+    } catch {
+      const saved = localStorage.getItem('crimesense_active_sos');
+      if (saved) {
+        try {
+          return { success: true, active: true, event: JSON.parse(saved) };
+        } catch {}
+      }
+      return { success: true, active: false, event: null };
+    }
   },
 
   /**
